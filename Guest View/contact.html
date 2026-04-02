@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TenureX</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+    
+
+     <header>
+        <div class="navbar bg-base-100 shadow-sm">
+            <div class="navbar-start">
+                <div class="dropdown">
+                    <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h8m-8 6h16" />
+                        </svg>
+                    </div>
+                    <ul tabindex="-1"
+                        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                        <li>
+                            <a href="landing_page.html">Home</a>
+                        </li>
+                        <li>
+                            <a href="properties.html">Properties/a>
+                        </li>
+                        <li>
+                            <a>Services</a>
+                        </li>
+                        <li>
+                            <a href="contact.html">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+                <a class="btn btn-ghost text-3xl font-bold ">TenureX</a>
+            </div>
+            <div class="navbar-center hidden lg:flex">
+                <ul class="menu menu-horizontal px-1">
+                    <li>
+                        <a href="landing_page.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="properties.html">Properties</a>
+                    </li>
+                    <li>
+                        <a>Services</a>
+                    </li>
+                    <li>
+                        <a href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="navbar-end flex gap-3">
+                <a href="../registration.html" class="btn ">Registration</a>
+                <a href="../login.html" class="btn btn-neutral">Log in</a>
+            </div>
+        </div>
+    </header>
+
+
+    <section>
+
+
+        <div class="max-w-6xl mx-auto px-6 py-20 flex flex-col md:flex-row items-start gap-16">
+        
+        <div class="w-full md:w-1/2">
+            <h1 class="text-6xl font-normal mb-8 tracking-tight">Contact Us</h1>
+            <p class="text-gray-500 text-lg mb-12 max-w-md leading-relaxed">
+                Have a question, concern, or feedback? We're here to help. Reach out and our team will get back to you promptly.
+            </p>
+
+            <div class="space-y-8">
+                <div class="flex items-start gap-4">
+                    <div class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center flex-shrink-0">
+                        <i class="fa-solid fa-phone text-sm"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold">Phone</h4>
+                        <p class="text-gray-500">+880-123456789</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-4">
+                    <div class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center flex-shrink-0">
+                        <i class="fa-solid fa-envelope text-sm"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold">Email</h4>
+                        <p class="text-gray-500">xyz@gmail.com</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-4">
+                    <div class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center flex-shrink-0">
+                        <i class="fa-solid fa-location-dot text-sm"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold">Address</h4>
+                        <p class="text-gray-500 leading-snug">
+                            123 Gok City, Tatti Abid<br>
+                            City, Tatti Gok
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="w-full md:w-1/2">
+            <div class="bg-white border border-gray-100 shadow-sm rounded-lg p-8 lg:p-10">
+                <h3 class="text-xl font-medium mb-8">Send us a Message</h3>
+                
+                <form action="#" class="space-y-4">
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <input type="text" placeholder="First Name" 
+                            class="w-full border border-gray-200 rounded px-4 py-3 focus:outline-none focus:ring-1 focus:ring-black placeholder-gray-400" required>
+                        <input type="text" placeholder="Last Name" 
+                            class="w-full border border-gray-200 rounded px-4 py-3 focus:outline-none focus:ring-1 focus:ring-black placeholder-gray-400" required>
+                    </div>
+
+                    <input type="email" placeholder="Email Address" 
+                        class="w-full border border-gray-200 rounded px-4 py-3 focus:outline-none focus:ring-1 focus:ring-black placeholder-gray-400" required>
+
+                    <input type="tel" placeholder="Phone Number" 
+                        class="w-full border border-gray-200 rounded px-4 py-3 focus:outline-none focus:ring-1 focus:ring-black placeholder-gray-400" required>
+
+                    <div class="w-full bg-gray-100 h-12 rounded border border-gray-200"></div>
+
+                    <textarea rows="5" placeholder="Your Message" 
+                        class="w-full border border-gray-200 rounded px-4 py-3 focus:outline-none focus:ring-1 focus:ring-black placeholder-gray-400 resize-none"></textarea>
+
+                    <button type="submit" 
+                        class="w-full btn btn-neutral text-white font-medium py-4 rounded hover:bg-gray-800 transition-colors">
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+
+    </section>
+
+
+    <footer class="bg-black text-gray-400 pt-12 pb-6 border-t border-gray-800">
+        <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-4 gap-8">
+
+
+            <div>
+
+                <p class="text-sm">
+                    Your trusted partner in finding and managing rental properties.
+                </p>
+
+                <div class="flex gap-3 mt-4 text-lg">
+                    <a href=""> <i
+                            class="fa-brands fa-facebook bg-slate-50 rounded-full hover:text-blue-500 cursor-pointer"
+                            style="color: rgb(24, 107, 197);"></i> </a>
+                    <a href=""> <i
+                            class="fa-brands fa-twitter bg-slate-50 rounded-full hover:text-blue-500 cursor-pointer"
+                            style="color: rgb(54, 171, 239);"></i> </a>
+                    <a href=""> <i
+                            class="fa-brands fa-instagram bg-slate-50 rounded-full hover:text-blue-500 cursor-pointer"
+                            style="color: rgb(210, 177, 12);"></i> </a>
+                    <a href=""> <i
+                            class="fa-brands fa-linkedin bg-slate-50 rounded-full hover:text-blue-500 cursor-pointer"
+                            style="color: rgb(24, 107, 197);"></i> </a>
+
+
+                </div>
+            </div>
+
+            <!-- Links -->
+            <div>
+                <h4 class="text-white font-semibold mb-3">Browse Properties</h4>
+                <ul class="space-y-2 text-sm">
+                    <li>How to Apply</li>
+                    <li>Tenant Resources</li>
+                    <li>Payment Portal</li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-white font-semibold mb-3">List Property</h4>
+                <ul class="space-y-2 text-sm">
+                    <li>Property Management</li>
+                    <li>Landlord Resources</li>
+                    <li>Pricing</li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-white font-semibold mb-3">Contact Us</h4>
+                <ul class="space-y-2 text-sm">
+                    <li>Help Center</li>
+                    <li>Privacy Policy</li>
+                    <li>Terms of Service</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <!-- Bottom -->
+        <div class="border-t border-gray-800 mt-10 pt-4 text-center text-sm">
+            © 2025 PropertyHub. All rights reserved.
+        </div>
+    </footer>
+
+</body>
+</html>
