@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TenureX</title>
+
+    
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="bg-gray-100">
+
+    
+    <section class="min-h-screen flex">
+
+        
+        <div class="hidden md:block w-1/2">
+            <img src="./assets/Frame 73.png" class="w-full h-full object-cover" />
+        </div>
+
+        
+        <div class="w-full md:w-1/2 flex items-center justify-center p-6">
+
+            <div class="card w-full max-w-md bg-base-100 shadow-xl">
+                <div class="card-body">
+
+                    <h2 class="text-2xl font-semibold text-center">Create Account</h2>
+                    <p class="text-center text-sm text-gray-500 mb-4">
+                        Join PropHub to access exclusive features
+                    </p>
+
+                    <!-- ROLE -->
+                    <div class="flex gap-2 justify-center mb-4">
+                        <button class="btn btn-outline btn-sm">Landlord</button>
+                        <button class="btn btn-outline btn-sm">Tenant</button>
+                        <button class="btn btn-outline btn-sm">Technician</button>
+                    </div>
+
+                    
+                    <div class="flex gap-2">
+                        <input type="text" placeholder="First Name" class="input input-bordered w-full" />
+                        <input type="text" placeholder="Last Name" class="input input-bordered w-full" />
+                    </div>
+
+                    
+                    <input type="email" placeholder="Email Address" class="input input-bordered w-full mt-3" />
+                    <input type="text" placeholder="Phone Number" class="input input-bordered w-full mt-3" />
+                    <input type="text" placeholder="NID Number" class="input input-bordered w-full mt-3" />
+                    <input type="text" placeholder="Location" class="input input-bordered w-full mt-3" />
+                    <input type="password" placeholder="Password" class="input input-bordered w-full mt-3" />
+                    <input type="password" placeholder="Confirm Password" class="input input-bordered w-full mt-3" />
+
+                    
+                    <label class="label cursor-pointer mt-2">
+                        <input type="checkbox" class="checkbox checkbox-sm" />
+                        <span class="label-text ml-2 text-sm">
+                            I agree to the
+                            <a class="link">Terms of Service</a>
+                            and
+                            <a class="link">Privacy Policy</a>
+                        </span>
+                    </label>
+
+                    
+                    <button class="btn btn-neutral w-full mt-3">
+                        Create Account
+                    </button>
+
+                    
+                    <p class="text-center text-sm mt-3">
+                        Already have an account?
+                        <a href="./login.html" class="link">Sign In</a>
+                    </p>
+
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+</body>
+
+</html>
