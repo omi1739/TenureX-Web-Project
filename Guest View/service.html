@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TenureX</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+    
+     <header>
+        <div class="navbar bg-base-100 shadow-sm">
+            <div class="navbar-start">
+                <div class="dropdown">
+                    <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h8m-8 6h16" />
+                        </svg>
+                    </div>
+                    <ul tabindex="-1"
+                        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                        <li>
+                            <a href="landing_page.html">Home</a>
+                        </li>
+                        <li>
+                            <a href="properties.html">Properties </a>
+                        </li>
+                        <li>
+                            <a href="service.html">Services</a>
+                        </li>
+                        <li>
+                            <a href="contact.html">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+                <a class="btn btn-ghost text-3xl font-bold ">TenureX</a>
+            </div>
+            <div class="navbar-center hidden lg:flex">
+                <ul class="menu menu-horizontal px-1">
+                    <li>
+                        <a href="landing_page.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="properties.html">Properties</a>
+                    </li>
+                    <li>
+                        <a href="service.html">Services</a>
+                    </li>
+                    <li>
+                        <a href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="navbar-end flex gap-3">
+                <a href="../registration.html" class="btn ">Registration</a>
+                <a href="../login.html" class="btn btn-neutral">Log in</a>
+            </div>
+        </div>
+    </header>
+
+
+
+    <section class="max-w-[85%] mx-auto">
+
+        <section class=" mx-auto px-6 py-20 text-center">
+        <h2 class="text-3xl font-semibold mb-2">Our Services</h2>
+        <p class="text-gray-500 mb-12 max-w-2xl mx-auto">Comprehensive real estate solutions to help you buy, sell or rent your perfect property.</p>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="bg-white p-10 rounded-lg shadow-sm flex flex-col items-center">
+                <div class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mb-6">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Property Sales</h3>
+                <p class="text-sm text-gray-500 mb-6 leading-relaxed">Expert guidance through the entire buying and selling process.</p>
+                <a href="#" class="text-sm font-semibold underline underline-offset-4">Learn More</a>
+            </div>
+
+            <div class="bg-white p-10 rounded-lg shadow-sm flex flex-col items-center border-t-4 border-gray-100">
+                <div class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mb-6">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Property Rentals</h3>
+                <p class="text-sm text-gray-500 mb-6 leading-relaxed">Find your perfect rental property or manage your investment.</p>
+                <a href="#" class="text-sm font-semibold underline underline-offset-4">Learn More</a>
+            </div>
+
+            <div class="bg-white p-10 rounded-lg shadow-sm flex flex-col items-center">
+                <div class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mb-6">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/></svg>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Property Valuation</h3>
+                <p class="text-sm text-gray-500 mb-6 leading-relaxed">Professional property appraisal and market analysis.</p>
+                <a href="#" class="text-sm font-semibold underline underline-offset-4">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- card-1 -->
+
+    <section class=" mx-auto px-6 py-16 grid md:grid-cols-2 gap-16 items-center">
+        <div>
+            <h2 class="text-4xl font-bold mb-2">Property Sales</h2>
+            <p class="text-lg text-gray-600 mb-8 italic font-light">Your trusted partner from listing to closing</p>
+            
+            <p class="text-sm text-gray-600 mb-6 leading-relaxed">Whether you're buying your first home or selling an investment property, our platform connects you with verified landlords and property owners to make the process seamless.</p>
+            
+            <div class="space-y-6 mb-8 text-sm">
+                <div>
+                    <h4 class="font-bold mb-2">What we offer:</h4>
+                    <ul class="list-disc list-inside text-gray-600 space-y-1">
+                        <li>Browse thousands of verified properties for sale.</li>
+                        <li>Detailed property pages with photos, floor plans & pricing.</li>
+                        <li>Direct communication with property owners.</li>
+                        <li>Transparent pricing — No hidden fees.</li>
+                        <li>Dedicated support throughout the buying process.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-2">How it works:</h4>
+                    <ol class="list-decimal list-inside text-gray-600 space-y-1">
+                        <li>Search properties by location, type, and budget.</li>
+                        <li>Schedule a viewing or contact the owner directly.</li>
+                        <li>Submit your offer and finalize the deal with our support team.</li>
+                    </ol>
+                </div>
+            </div>
+            <button class="bg-black text-white px-8 py-3 text-sm font-bold rounded shadow-lg hover:bg-gray-800 transition cursor-pointer">Browse Properties</button>
+        </div>
+        <div class="rounded-3xl overflow-hidden shadow-2xl">
+            <img src="../assets/service-img/img-1.png" alt="Signing documents" class="w-full h-[500px] object-cover grayscale">
+        </div>
+    </section>
+
+
+    <!-- card-2 -->
+
+    <section class="max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-16 items-center">
+        <div class="order-2 md:order-1 rounded-3xl overflow-hidden shadow-2xl">
+            <img src="../assets/service-img/img-2.png" alt="Holding keys" class="w-full h-[500px] object-cover grayscale">
+        </div>
+        <div class="order-1 md:order-2">
+            <h2 class="text-4xl font-bold mb-2">Property Rentals</h2>
+            <p class="text-lg text-gray-600 mb-8 italic font-light">Find a place to call home - or manage your rental portfolio</p>
+            
+            <p class="text-sm text-gray-600 mb-6 leading-relaxed">RentBridge makes renting simple for both tenants and landlords. Tenants can browse, verify, and move in — all online. Landlords can list, manage, and track everything from one dashboard.</p>
+            
+            <div class="space-y-6 mb-8 text-sm">
+                <div>
+                    <h4 class="font-bold mb-2">For Tenants:</h4>
+                    <ul class="list-disc list-inside text-gray-600 space-y-1">
+                        <li>Search verified listings with advanced filters.</li>
+                        <li>Apply online in minutes — no paperwork.</li>
+                        <li>Chat directly with your landlord.</li>
+                        <li>Pay rent and track payment history online.</li>
+                        <li>Submit maintenance requests anytime.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-2">For Landlords:</h4>
+                    <ol class="list-decimal list-inside text-gray-600 space-y-1">
+                        <li>List and manage multiple properties.</li>
+                        <li>Review and approve tenant applications.</li>
+                        <li>Track rent payments and earnings.</li>
+                        <li>Assign technicians to maintenance issues.</li>
+                    </ol>
+                </div>
+            </div>
+            <button class="bg-black text-white px-8 py-3 text-sm font-bold rounded shadow-lg hover:bg-gray-800 transition cursor-pointer">Browse Properties</button>
+        </div>
+    </section>
+
+
+
+    <!-- card-3 -->
+
+    <section class="max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-16 items-center mb-20">
+        <div>
+            <h2 class="text-4xl font-bold mb-2">Property Valuation</h2>
+            <p class="text-lg text-gray-600 mb-8 italic font-light">Know the true worth of your property</p>
+            
+            <p class="text-sm text-gray-600 mb-6 leading-relaxed">Understanding your property's market value is the first step to making smart real estate decisions. Our valuation tools and expert insights give landlords and buyers an accurate picture of the current market.</p>
+            
+            <div class="space-y-6 mb-8 text-sm">
+                <div>
+                    <h4 class="font-bold mb-2">What we offer:</h4>
+                    <ul class="list-disc list-inside text-gray-600 space-y-1">
+                        <li>Market-based price estimates using current listing data.</li>
+                        <li>Location-based comparisons with similar properties.</li>
+                        <li>Historical price trend analysis.</li>
+                        <li>Detailed valuation report you can download.</li>
+                        <li>Connect with a property advisor for a professional assessment.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-2">Who is this for?</h4>
+                    <ul class="list-disc list-inside text-gray-600 space-y-1">
+                        <li>Landlords looking to price their rentals competitively.</li>
+                        <li>Buyers evaluating whether a property is fairly priced.</li>
+                        <li>Investors analyzing market opportunities.</li>
+                    </ul>
+                </div>
+            </div>
+            <button class="bg-black text-white px-8 py-3 text-sm font-bold rounded shadow-lg hover:bg-gray-800 transition cursor-pointer">Browse Properties</button>
+        </div>
+        <div class="rounded-3xl overflow-hidden shadow-2xl">
+            <img src="../assets/service-img/img-1.png" alt="Analysis and documents" class="w-full h-[500px] object-cover grayscale">
+        </div>
+    </section>
+
+    </section>
+
+
+    
+    <footer class="bg-black text-gray-400 pt-12 pb-6 border-t border-gray-800">
+        <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-4 gap-8">
+
+
+            <div>
+
+                <p class="text-sm">
+                    Your trusted partner in finding and managing rental properties.
+                </p>
+
+                <div class="flex gap-3 mt-4 text-lg">
+                    <a href=""> <i
+                            class="fa-brands fa-facebook bg-slate-50 rounded-full hover:text-blue-500 cursor-pointer"
+                            style="color: rgb(24, 107, 197);"></i> </a>
+                    <a href=""> <i
+                            class="fa-brands fa-twitter bg-slate-50 rounded-full hover:text-blue-500 cursor-pointer"
+                            style="color: rgb(54, 171, 239);"></i> </a>
+                    <a href=""> <i
+                            class="fa-brands fa-instagram bg-slate-50 rounded-full hover:text-blue-500 cursor-pointer"
+                            style="color: rgb(210, 177, 12);"></i> </a>
+                    <a href=""> <i
+                            class="fa-brands fa-linkedin bg-slate-50 rounded-full hover:text-blue-500 cursor-pointer"
+                            style="color: rgb(24, 107, 197);"></i> </a>
+
+
+                </div>
+            </div>
+
+            <!-- Links -->
+            <div>
+                <h4 class="text-white font-semibold mb-3">Browse Properties</h4>
+                <ul class="space-y-2 text-sm">
+                    <li>How to Apply</li>
+                    <li>Tenant Resources</li>
+                    <li>Payment Portal</li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-white font-semibold mb-3">List Property</h4>
+                <ul class="space-y-2 text-sm">
+                    <li>Property Management</li>
+                    <li>Landlord Resources</li>
+                    <li>Pricing</li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-white font-semibold mb-3">Contact Us</h4>
+                <ul class="space-y-2 text-sm">
+                    <li>Help Center</li>
+                    <li>Privacy Policy</li>
+                    <li>Terms of Service</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <!-- Bottom -->
+        <div class="border-t border-gray-800 mt-10 pt-4 text-center text-sm">
+            © 2025 PropertyHub. All rights reserved.
+        </div>
+    </footer>
+
+
+</body>
+</html>
