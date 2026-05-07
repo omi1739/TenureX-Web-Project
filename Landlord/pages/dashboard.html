@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard — TenureX</title>
+
+  <!-- Inter font (matches the design) -->
+  <link href="https://fonts.googleapis.com/css?family=Inter:400,500,600,700,800&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind via CDN (no build step needed) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Tell Tailwind to use Inter as the default sans-serif font
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+        },
+      },
+    };
+  </script>
+
+  <!-- Optional custom CSS (kept tiny — Tailwind handles 99% of styling) -->
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+
+<body class="font-sans bg-gray-50 text-gray-900 antialiased">
+
+  <!-- =====================================================================
+       PAGE LAYOUT: a 2-column flex container
+       - Left:  fixed-width sidebar (260px)
+       - Right: main content (fills remaining space, scrolls if needed)
+       ===================================================================== -->
+  <div class="flex min-h-screen">
+
+    <!-- =================================================================
+         SIDEBAR
+         ================================================================= -->
+    <aside class="w-64 bg-white border-r border-gray-200 flex flex-col justify-between p-6">
+
+      <!-- Top section: brand + nav -->
+      <div>
+        <!-- Brand block -->
+        <div class="mb-10">
+          <h1 class="text-xl font-bold text-black">Portfolio</h1>
+          <p class="text-[11px] tracking-widest text-gray-500 mt-1">PREMIUM MANAGEMENT</p>
+        </div>
+
+        <!-- Navigation links
+             - The active link (Dashboard) gets a black background + white text.
+             - The others stay light gray and turn darker on hover. -->
+        <nav class="flex flex-col gap-1">
+          <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-black text-white">
+            <!-- dashboard icon (4 squares) -->
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <rect x="3"  y="3"  width="7" height="7" rx="1" />
+              <rect x="14" y="3"  width="7" height="7" rx="1" />
+              <rect x="3"  y="14" width="7" height="7" rx="1" />
+              <rect x="14" y="14" width="7" height="7" rx="1" />
+            </svg>
+            <span class="text-sm font-medium">Dashboard</span>
+          </a>
+
+          <a href="messages.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-100">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M21 12a8 8 0 11-3.5-6.6L21 4l-1 4-3.5-.5" />
+            </svg>
+            <span class="text-sm">Messages</span>
+          </a>
+
+          <a href="my-properties.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-100">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M3 21V8l9-5 9 5v13M9 21v-7h6v7" />
+            </svg>
+            <span class="text-sm">My Properties</span>
+          </a>
+
+          <a href="rental-requests.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-100">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M9 5h6v2H9zM5 7h14v14H5zM9 12h6M9 16h4" />
+            </svg>
+            <span class="text-sm">Rental Requests</span>
+          </a>
+
+          <a href="active-tenants.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-100">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M16 11a4 4 0 10-8 0 4 4 0 008 0zM2 21a8 8 0 0114-5M22 21a6 6 0 00-9-5" />
+            </svg>
+            <span class="text-sm">Active Tenants</span>
+          </a>
+
+          <a href="rent-tracking.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-100">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <rect x="3" y="6" width="18" height="12" rx="2" />
+              <circle cx="12" cy="12" r="2.5" />
+            </svg>
+            <span class="text-sm">Rent Tracking</span>
+          </a>
+
+          <a href="earnings.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-100">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" />
+            </svg>
+            <span class="text-sm">Earnings</span>
+          </a>
+
+          <a href="maintenance.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-100">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M14.7 6.3a4 4 0 00-5.4 5.4l-6 6 2 2 6-6a4 4 0 005.4-5.4l-2.5 2.5-2-2 2.5-2.5z" />
+            </svg>
+            <span class="text-sm">Maintenance</span>
+          </a>
+
+          <a href="settings.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-100">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="3" />
+              <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M19.4 15a1.7 1.7 0 00.3 1.8l.1.1a2 2 0 11-2.8 2.8l-.1-.1a1.7 1.7 0 00-1.8-.3 1.7 1.7 0 00-1 1.5V21a2 2 0 11-4 0v-.1a1.7 1.7 0 00-1-1.5 1.7 1.7 0 00-1.8.3l-.1.1a2 2 0 11-2.8-2.8l.1-.1a1.7 1.7 0 00.3-1.8 1.7 1.7 0 00-1.5-1H3a2 2 0 110-4h.1a1.7 1.7 0 001.5-1 1.7 1.7 0 00-.3-1.8l-.1-.1a2 2 0 112.8-2.8l.1.1a1.7 1.7 0 001.8.3H9a1.7 1.7 0 001-1.5V3a2 2 0 114 0v.1a1.7 1.7 0 001 1.5 1.7 1.7 0 001.8-.3l.1-.1a2 2 0 112.8 2.8l-.1.1a1.7 1.7 0 00-.3 1.8V9a1.7 1.7 0 001.5 1H21a2 2 0 110 4h-.1a1.7 1.7 0 00-1.5 1z" />
+            </svg>
+            <span class="text-sm">Settings</span>
+          </a>
+        </nav>
+      </div>
+
+      <!-- Bottom section: signed-in user -->
+      <div class="flex items-center gap-3 pt-4 border-t border-gray-100">
+        <div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-500">
+          <!-- simple person silhouette as fallback avatar -->
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 12a4 4 0 100-8 4 4 0 000 8zm0 2c-4 0-8 2-8 6v2h16v-2c0-4-4-6-8-6z"/>
+          </svg>
+        </div>
+        <div>
+          <p class="text-sm font-semibold">Arthur Sterling</p>
+          <p class="text-xs text-gray-500">Portfolio Manager</p>
+        </div>
+      </div>
+    </aside>
+
+    <!-- =================================================================
+         MAIN CONTENT
+         ================================================================= -->
+    <main class="flex-1 flex flex-col">
+
+      <!-- Top bar: brand + search + icon buttons -->
+      <header class="bg-white border-b border-gray-200 px-8 py-4 flex items-center gap-6">
+        <!-- Brand -->
+        <div class="flex items-center gap-2">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M3 21V10l9-7 9 7v11h-7v-7H10v7H3z" />
+          </svg>
+          <span class="text-lg font-semibold">TenureX</span>
+        </div>
+
+        <!-- Search input (grows to fill space) -->
+        <div class="flex-1 max-w-2xl mx-auto relative">
+          <svg class="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
+               fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <circle cx="11" cy="11" r="7" />
+            <path stroke-linecap="round" d="M21 21l-4.3-4.3" />
+          </svg>
+          <input type="text"
+                 placeholder="Search properties or tenants..."
+                 class="w-full pl-9 pr-4 py-2.5 bg-gray-100 rounded-lg text-sm
+                        placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-300" />
+        </div>
+
+        <!-- Header action icons -->
+        <div class="flex items-center gap-4">
+          <!-- notification bell -->
+          <button class="text-gray-500 hover:text-black">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M15 17h5l-1.4-1.4A2 2 0 0118 14V11a6 6 0 00-12 0v3a2 2 0 01-.6 1.6L4 17h5m6 0a3 3 0 11-6 0" />
+            </svg>
+          </button>
+          <!-- help -->
+          <button class="text-gray-500 hover:text-black">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10" />
+              <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M9.1 9a3 3 0 015.8 1c0 2-3 2-3 4M12 17h.01" />
+            </svg>
+          </button>
+          <!-- avatar -->
+          <div class="w-9 h-9 rounded-full bg-gray-200 flex items-center justify-center text-gray-500">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 12a4 4 0 100-8 4 4 0 000 8zm0 2c-4 0-8 2-8 6v2h16v-2c0-4-4-6-8-6z"/>
+            </svg>
+          </div>
+        </div>
+      </header>
+
+      <!-- Scrollable content area -->
+      <div class="p-8 flex flex-col gap-8">
+
+        <!-- ============ HEADING + ACTION BUTTONS ============ -->
+        <section class="flex items-end justify-between flex-wrap gap-4">
+          <div>
+            <p class="text-xs tracking-widest text-gray-500 mb-2">EXECUTIVE OVERVIEW</p>
+            <h2 class="text-5xl font-bold tracking-tight">Portfolio Performance.</h2>
+          </div>
+          <div class="flex gap-3">
+            <a href="add-property.html" class="flex items-center gap-2 px-5 py-3 bg-black text-white rounded-lg
+                           text-sm font-medium hover:bg-gray-800">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" d="M12 5v14M5 12h14" />
+              </svg>
+              Add Property
+            </a>
+            <a href="rental-requests.html" class="flex items-center gap-2 px-5 py-3 bg-gray-200 text-gray-800 rounded-lg
+                           text-sm font-medium hover:bg-gray-300">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+              View Requests
+            </a>
+          </div>
+        </section>
+
+        <!-- ============ STAT CARDS (4 across) ============
+             Each card follows the same structure:
+             icon row  →  metric  →  label
+             The "active" card has a thicker black bottom border. -->
+        <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+
+          <!-- Card 1: Units (active) -->
+          <article class="bg-white rounded-xl p-6 border-b-4 border-black shadow-sm">
+            <div class="flex items-center justify-between text-gray-400 mb-6">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                <path d="M3 21V8l9-5 9 5v13M9 21v-7h6v7"/>
+              </svg>
+              <span class="text-[11px] tracking-widest">UNITS</span>
+            </div>
+            <p class="text-4xl font-bold">42</p>
+            <p class="text-sm text-gray-500 mt-1">My Properties</p>
+          </article>
+
+          <!-- Card 2: Verified -->
+          <article class="bg-gray-100 rounded-xl p-6">
+            <div class="flex items-center justify-between text-gray-400 mb-6">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                <circle cx="9" cy="8" r="4"/>
+                <path d="M2 21a7 7 0 0114 0M17 11l2 2 4-4"/>
+              </svg>
+              <span class="text-[11px] tracking-widest">VERIFIED</span>
+            </div>
+            <p class="text-4xl font-bold">38</p>
+            <p class="text-sm text-gray-500 mt-1">Active Tenants</p>
+          </article>
+
+          <!-- Card 3: Attention -->
+          <article class="bg-white rounded-xl p-6 shadow-sm">
+            <div class="flex items-center justify-between text-gray-400 mb-6">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                <path d="M9 4h6l1 3h3v14H5V7h3l1-3z"/>
+                <path d="M9 12h6M9 16h4"/>
+              </svg>
+              <span class="text-[11px] tracking-widest">ATTENTION</span>
+            </div>
+            <p class="text-4xl font-bold">07</p>
+            <p class="text-sm text-gray-500 mt-1">Rental Requests</p>
+          </article>
+
+          <!-- Card 4: Urgent -->
+          <article class="bg-gray-100 rounded-xl p-6">
+            <div class="flex items-center justify-between text-gray-400 mb-6">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                <path d="M14.7 6.3a4 4 0 00-5.4 5.4l-6 6 2 2 6-6a4 4 0 005.4-5.4l-2.5 2.5-2-2 2.5-2.5z"/>
+              </svg>
+              <span class="text-[11px] tracking-widest">URGENT</span>
+            </div>
+            <p class="text-4xl font-bold">03</p>
+            <p class="text-sm text-gray-500 mt-1">Maintenance</p>
+          </article>
+        </section>
+
+        <!-- ============ TWO TABLES SIDE BY SIDE ============ -->
+        <section class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+          <!-- Rental Requests table -->
+          <div class="bg-white rounded-xl shadow-sm">
+            <div class="flex items-center justify-between px-6 pt-6 pb-4">
+              <h3 class="text-lg font-semibold">Rental Requests</h3>
+              <a href="#" class="text-sm text-gray-500 underline">See all</a>
+            </div>
+            <table class="w-full text-sm">
+              <thead>
+                <tr class="text-[11px] tracking-widest text-gray-400 border-b border-gray-100">
+                  <th class="text-left font-normal px-6 py-3">APPLICANT</th>
+                  <th class="text-left font-normal px-6 py-3">PROPERTY</th>
+                  <th class="text-left font-normal px-6 py-3">ACTION</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="border-b border-gray-100">
+                  <td class="px-6 py-4">
+                    <p class="font-semibold">Julianne Vancini</p>
+                    <p class="text-xs text-gray-500">Credit: 740+</p>
+                  </td>
+                  <td class="px-6 py-4 text-gray-700">Skyline Lofts #402</td>
+                  <td class="px-6 py-4 text-gray-400">
+                    <button class="hover:text-black">⋮</button>
+                  </td>
+                </tr>
+                <tr class="border-b border-gray-100">
+                  <td class="px-6 py-4">
+                    <p class="font-semibold">Marcus Thorne</p>
+                    <p class="text-xs text-gray-500">Credit: 680</p>
+                  </td>
+                  <td class="px-6 py-4 text-gray-700">Beekman Pl #12C</td>
+                  <td class="px-6 py-4 text-gray-400">
+                    <button class="hover:text-black">⋮</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="px-6 py-4">
+                    <p class="font-semibold">Evelyn Reed</p>
+                    <p class="text-xs text-gray-500">Credit: 800</p>
+                  </td>
+                  <td class="px-6 py-4 text-gray-700">The Chelsea Gardens</td>
+                  <td class="px-6 py-4 text-gray-400">
+                    <button class="hover:text-black">⋮</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Maintenance Logs table -->
+          <div class="bg-white rounded-xl shadow-sm">
+            <div class="flex items-center justify-between px-6 pt-6 pb-4">
+              <h3 class="text-lg font-semibold">Maintenance Logs</h3>
+              <a href="#" class="text-sm text-gray-500 underline">See all</a>
+            </div>
+            <table class="w-full text-sm">
+              <thead>
+                <tr class="text-[11px] tracking-widest text-gray-400 border-b border-gray-100">
+                  <th class="text-left font-normal px-6 py-3">ISSUE</th>
+                  <th class="text-left font-normal px-6 py-3">TENANT / UNIT</th>
+                  <th class="text-left font-normal px-6 py-3">STATUS</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="border-b border-gray-100">
+                  <td class="px-6 py-4">
+                    <p class="font-semibold">HVAC Filter Change</p>
+                    <p class="text-xs text-gray-500">Reported 2h ago</p>
+                  </td>
+                  <td class="px-6 py-4">
+                    <p>Unit 14B</p>
+                    <p class="text-xs text-gray-500">Sarah Jenkins</p>
+                  </td>
+                  <td class="px-6 py-4">
+                    <span class="text-[10px] tracking-widest font-semibold bg-gray-200 px-2 py-1 rounded">CRITICAL</span>
+                  </td>
+                </tr>
+                <tr class="border-b border-gray-100">
+                  <td class="px-6 py-4">
+                    <p class="font-semibold">Leaking Faucet</p>
+                    <p class="text-xs text-gray-500">Reported Yesterday</p>
+                  </td>
+                  <td class="px-6 py-4">
+                    <p>West End Ave #8</p>
+                    <p class="text-xs text-gray-500">David G.</p>
+                  </td>
+                  <td class="px-6 py-4">
+                    <span class="text-[10px] tracking-widest font-semibold bg-gray-200 px-2 py-1 rounded">LOGGED</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="px-6 py-4">
+                    <p class="font-semibold">Smoke Detector Check</p>
+                    <p class="text-xs text-gray-500">Scheduled</p>
+                  </td>
+                  <td class="px-6 py-4">
+                    <p>Beekman Pl #12C</p>
+                    <p class="text-xs text-gray-500">Marcus Thorne</p>
+                  </td>
+                  <td class="px-6 py-4">
+                    <span class="text-[10px] tracking-widest font-semibold bg-gray-200 px-2 py-1 rounded">ASSIGNED</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- ============ TWO FEATURE CARDS ============ -->
+        <section class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+          <!-- Manhattan Tower (takes 2/3 width on large screens) -->
+          <div class="lg:col-span-2 relative h-80 rounded-xl overflow-hidden bg-gray-700">
+            <!-- Replace this gradient with an actual <img> when you have one. -->
+            <div class="absolute inset-0 bg-gradient-to-br from-gray-500 to-gray-800"></div>
+            <!-- Dark overlay so the white text stays readable -->
+            <div class="absolute inset-0 bg-black/30"></div>
+            <!-- Caption pinned to bottom-left -->
+            <div class="absolute bottom-6 left-6 text-white">
+              <p class="text-[11px] tracking-widest opacity-80">HIGH YIELD ASSET</p>
+              <h3 class="text-3xl font-bold mt-1">The Manhattan Tower</h3>
+              <p class="text-sm opacity-90 mt-1">100% Occupancy • $45,000 Monthly Revenue</p>
+            </div>
+          </div>
+
+          <!-- Monthly Portfolio Growth -->
+          <div class="bg-black text-white rounded-xl p-6 flex flex-col justify-between h-80">
+            <div>
+              <div class="w-9 h-9 bg-white/10 rounded flex items-center justify-center mb-6">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path d="M3 3v18h18M7 17V9M12 17v-5M17 17V5"/>
+                </svg>
+              </div>
+              <h3 class="text-2xl font-bold leading-snug">Monthly Portfolio<br/>Growth</h3>
+            </div>
+            <div>
+              <p class="text-[11px] tracking-widest text-white/60 mb-2">SINCE Q3 2023</p>
+              <p class="text-5xl font-bold">+12.4%</p>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- Page-specific JS (kept readable, no frameworks) -->
+  <script src="../js/script.js"></script>
+</body>
+</html>

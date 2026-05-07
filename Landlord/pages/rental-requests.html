@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rental Requests — TenureX</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Inter:400,500,600,700,800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: { fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] } } },
+    };
+  </script>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+
+<body class="font-sans bg-gray-50 text-gray-900 antialiased">
+
+  <div class="flex min-h-screen">
+
+    <!-- ============ SIDEBAR (Rental Requests active) ============ -->
+    <aside class="w-64 bg-white border-r border-gray-200 flex flex-col justify-between p-6">
+      <div>
+        <div class="mb-10">
+          <h1 class="text-xl font-bold">Portfolio</h1>
+          <p class="text-[11px] tracking-widest text-gray-500 mt-1">PREMIUM MANAGEMENT</p>
+        </div>
+
+        <nav class="flex flex-col gap-1">
+          <a href="dashboard.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-100">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/>
+              <rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>
+            </svg>
+            <span class="text-sm">Dashboard</span>
+          </a>
+          <a href="messages.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-100">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a8 8 0 11-3.5-6.6L21 4l-1 4-3.5-.5"/>
+            </svg>
+            <span class="text-sm">Messages</span>
+          </a>
+          <a href="my-properties.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-100">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 21V8l9-5 9 5v13M9 21v-7h6v7"/>
+            </svg>
+            <span class="text-sm">My Properties</span>
+          </a>
+          <a href="rental-requests.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-black text-white">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5h6v2H9zM5 7h14v14H5zM9 12h6M9 16h4"/>
+            </svg>
+            <span class="text-sm font-medium">Rental Requests</span>
+          </a>
+          <a href="active-tenants.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-100">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M16 11a4 4 0 10-8 0 4 4 0 008 0zM2 21a8 8 0 0114-5M22 21a6 6 0 00-9-5"/>
+            </svg>
+            <span class="text-sm">Active Tenants</span>
+          </a>
+          <a href="rent-tracking.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-100">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <rect x="3" y="6" width="18" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/>
+            </svg>
+            <span class="text-sm">Rent Tracking</span>
+          </a>
+          <a href="earnings.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-100">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
+            </svg>
+            <span class="text-sm">Earnings</span>
+          </a>
+          <a href="maintenance.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-100">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M14.7 6.3a4 4 0 00-5.4 5.4l-6 6 2 2 6-6a4 4 0 005.4-5.4l-2.5 2.5-2-2 2.5-2.5z"/>
+            </svg>
+            <span class="text-sm">Maintenance</span>
+          </a>
+          <a href="settings.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-100">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="3"/>
+            </svg>
+            <span class="text-sm">Settings</span>
+          </a>
+        </nav>
+      </div>
+
+      <div class="flex items-center gap-3 pt-4 border-t border-gray-100">
+        <div class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white">
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 12a4 4 0 100-8 4 4 0 000 8zm0 2c-4 0-8 2-8 6v2h16v-2c0-4-4-6-8-6z"/>
+          </svg>
+        </div>
+        <div>
+          <p class="text-sm font-semibold">Arthur Sterling</p>
+          <p class="text-xs text-gray-500">Portfolio Manager</p>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ============ MAIN ============ -->
+    <main class="flex-1 flex flex-col">
+
+      <!-- Top header (with current user label on the right) -->
+      <header class="bg-white border-b border-gray-200 px-8 py-4 flex items-center gap-6">
+        <div class="flex items-center gap-2">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 21V10l9-7 9 7v11h-7v-7H10v7H3z"/>
+          </svg>
+          <span class="text-lg font-semibold">TenureX</span>
+        </div>
+
+        <div class="flex-1 max-w-2xl mx-auto relative">
+          <svg class="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
+               fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <circle cx="11" cy="11" r="7"/><path stroke-linecap="round" d="M21 21l-4.3-4.3"/>
+          </svg>
+          <input type="text" placeholder="Search applications, tenants, properties..."
+                 class="w-full pl-9 pr-4 py-2.5 bg-gray-100 rounded-lg text-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-300"/>
+        </div>
+
+        <div class="flex items-center gap-4">
+          <button class="text-gray-500 hover:text-black">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 17h5l-1.4-1.4A2 2 0 0118 14V11a6 6 0 00-12 0v3a2 2 0 01-.6 1.6L4 17h5m6 0a3 3 0 11-6 0"/>
+            </svg>
+          </button>
+          <button class="text-gray-500 hover:text-black">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10"/>
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9.1 9a3 3 0 015.8 1c0 2-3 2-3 4M12 17h.01"/>
+            </svg>
+          </button>
+          <span class="text-sm font-semibold tracking-widest border-l border-gray-200 pl-4">ALEXANDER V.</span>
+        </div>
+      </header>
+
+      <!-- Page content -->
+      <div class="p-10 flex flex-col gap-8">
+
+        <!-- ============ HEADING + STAT CARDS ============ -->
+        <section class="flex items-end justify-between flex-wrap gap-6">
+          <div class="max-w-xl">
+            <h2 class="text-6xl font-bold tracking-tight leading-none">Rental<br/>Requests</h2>
+            <p class="text-gray-600 mt-5">
+              Review and curate your future community. High-density data for professional property acquisition and tenant vetting.
+            </p>
+          </div>
+
+          <div class="flex gap-4">
+            <div class="bg-gray-100 rounded-lg px-8 py-5 min-w-[180px]">
+              <p class="text-[10px] tracking-widest text-gray-500">TOTAL PENDING</p>
+              <p class="text-4xl font-bold mt-3">24</p>
+            </div>
+            <div class="bg-black text-white rounded-lg px-8 py-5 min-w-[180px]">
+              <p class="text-[10px] tracking-widest text-white/60">APPROVAL RATE</p>
+              <p class="text-4xl font-bold mt-3">12%</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ FILTER BAR ============ -->
+        <section class="flex items-end justify-between flex-wrap gap-4">
+          <div class="flex items-end gap-6">
+            <div class="flex items-center gap-3">
+              <p class="text-[11px] tracking-widest text-gray-500">FILTER BY PROPERTY:</p>
+              <select class="bg-white border border-gray-200 rounded-lg px-4 py-2 text-sm font-semibold focus:outline-none focus:border-black">
+                <option>All Assets</option>
+                <option>The Bauhaus Lofts</option>
+                <option>Brutalist Heights</option>
+                <option>Modernist Square</option>
+              </select>
+            </div>
+            <div class="flex items-center gap-3">
+              <p class="text-[11px] tracking-widest text-gray-500">STATUS:</p>
+              <select class="bg-white border border-gray-200 rounded-lg px-4 py-2 text-sm font-semibold focus:outline-none focus:border-black">
+                <option>All Statuses</option>
+                <option>Pending</option>
+                <option>In Review</option>
+                <option>Approved</option>
+                <option>Rejected</option>
+              </select>
+            </div>
+          </div>
+
+          <button class="px-6 py-3 bg-black text-white text-[11px] tracking-widest font-semibold rounded-lg hover:bg-gray-800">
+            EXPORT DATA
+          </button>
+        </section>
+
+        <!-- ============ APPLICATIONS TABLE ============ -->
+        <section class="bg-white rounded-xl shadow-sm overflow-hidden">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="text-[11px] tracking-widest text-gray-400 text-left border-b border-gray-100">
+                <th class="font-normal px-6 py-4">TENANT NAME</th>
+                <th class="font-normal px-6 py-4">PROPERTY NAME</th>
+                <th class="font-normal px-6 py-4">APPLIED DATE</th>
+                <th class="font-normal px-6 py-4">DURATION</th>
+                <th class="font-normal px-6 py-4">STATUS</th>
+                <th class="font-normal px-6 py-4 text-right pr-8">ACTIONS</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Row 1 -->
+              <tr class="border-b border-gray-100">
+                <td class="px-6 py-5">
+                  <div class="flex items-center gap-3">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=80"
+                         alt="Sarah Jenkins" class="w-10 h-10 rounded-full object-cover"/>
+                    <div>
+                      <p class="font-semibold">Sarah Jenkins</p>
+                      <p class="text-xs text-gray-500">s.jenkins@example.com</p>
+                    </div>
+                  </div>
+                </td>
+                <td class="px-6 py-5">
+                  <p class="font-semibold">The Bauhaus Lofts</p>
+                  <p class="text-xs text-gray-500">Unit 402 — Penthouse</p>
+                </td>
+                <td class="px-6 py-5">Oct 12, 2023</td>
+                <td class="px-6 py-5 font-semibold">12 Months</td>
+                <td class="px-6 py-5">
+                  <span class="text-[10px] tracking-widest font-semibold bg-black text-white px-2 py-1 rounded">PENDING</span>
+                </td>
+                <td class="px-6 py-5">
+                  <div class="flex items-center gap-3 justify-end">
+                    <a href="rental-request-detail.html" class="text-gray-400 hover:text-black" aria-label="View">
+                      <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/>
+                      </svg>
+                    </a>
+                    <button data-action="approve" class="text-gray-400 hover:text-green-600" aria-label="Approve">
+                      <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10"/><path stroke-linecap="round" d="M8 12l3 3 5-6"/>
+                      </svg>
+                    </button>
+                    <button data-action="reject" class="text-red-500 hover:text-red-700" aria-label="Reject">
+                      <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10"/><path stroke-linecap="round" d="M9 9l6 6M15 9l-6 6"/>
+                      </svg>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+
+              <!-- Row 2 -->
+              <tr class="border-b border-gray-100">
+                <td class="px-6 py-5">
+                  <div class="flex items-center gap-3">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80"
+                         alt="David G." class="w-10 h-10 rounded-full object-cover"/>
+                    <div>
+                      <p class="font-semibold">David G.</p>
+                      <p class="text-xs text-gray-500">david.g@agency.co</p>
+                    </div>
+                  </div>
+                </td>
+                <td class="px-6 py-5">
+                  <p class="font-semibold">Brutalist Heights</p>
+                  <p class="text-xs text-gray-500">Unit 108 — Studio</p>
+                </td>
+                <td class="px-6 py-5">Oct 11, 2023</td>
+                <td class="px-6 py-5 font-semibold">24 Months</td>
+                <td class="px-6 py-5">
+                  <span class="text-[10px] tracking-widest font-semibold bg-gray-200 px-2 py-1 rounded">IN REVIEW</span>
+                </td>
+                <td class="px-6 py-5">
+                  <div class="flex items-center gap-3 justify-end">
+                    <a href="rental-request-detail.html" class="text-gray-400 hover:text-black" aria-label="View">
+                      <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/>
+                      </svg>
+                    </a>
+                    <button data-action="approve" class="text-gray-400 hover:text-green-600" aria-label="Approve">
+                      <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10"/><path stroke-linecap="round" d="M8 12l3 3 5-6"/>
+                      </svg>
+                    </button>
+                    <button data-action="reject" class="text-red-500 hover:text-red-700" aria-label="Reject">
+                      <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10"/><path stroke-linecap="round" d="M9 9l6 6M15 9l-6 6"/>
+                      </svg>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+
+              <!-- Row 3 -->
+              <tr class="border-b border-gray-100">
+                <td class="px-6 py-5">
+                  <div class="flex items-center gap-3">
+                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&q=80"
+                         alt="Elena Moretti" class="w-10 h-10 rounded-full object-cover"/>
+                    <div>
+                      <p class="font-semibold">Elena Moretti</p>
+                      <p class="text-xs text-gray-500">elena@design.it</p>
+                    </div>
+                  </div>
+                </td>
+                <td class="px-6 py-5">
+                  <p class="font-semibold">The Bauhaus Lofts</p>
+                  <p class="text-xs text-gray-500">Unit 205 — 2BR</p>
+                </td>
+                <td class="px-6 py-5">Oct 10, 2023</td>
+                <td class="px-6 py-5 font-semibold">12 Months</td>
+                <td class="px-6 py-5">
+                  <span class="text-[10px] tracking-widest font-semibold bg-black text-white px-2 py-1 rounded">PENDING</span>
+                </td>
+                <td class="px-6 py-5">
+                  <div class="flex items-center gap-3 justify-end">
+                    <a href="rental-request-detail.html" class="text-gray-400 hover:text-black" aria-label="View">
+                      <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/>
+                      </svg>
+                    </a>
+                    <button data-action="approve" class="text-gray-400 hover:text-green-600" aria-label="Approve">
+                      <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10"/><path stroke-linecap="round" d="M8 12l3 3 5-6"/>
+                      </svg>
+                    </button>
+                    <button data-action="reject" class="text-red-500 hover:text-red-700" aria-label="Reject">
+                      <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10"/><path stroke-linecap="round" d="M9 9l6 6M15 9l-6 6"/>
+                      </svg>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+
+              <!-- Row 4 -->
+              <tr>
+                <td class="px-6 py-5">
+                  <div class="flex items-center gap-3">
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80"
+                         alt="Marcus T." class="w-10 h-10 rounded-full object-cover"/>
+                    <div>
+                      <p class="font-semibold">Marcus T.</p>
+                      <p class="text-xs text-gray-500">m.t@techsol.com</p>
+                    </div>
+                  </div>
+                </td>
+                <td class="px-6 py-5">
+                  <p class="font-semibold">Modernist Square</p>
+                  <p class="text-xs text-gray-500">Unit 301 — Loft</p>
+                </td>
+                <td class="px-6 py-5">Oct 09, 2023</td>
+                <td class="px-6 py-5 font-semibold">18 Months</td>
+                <td class="px-6 py-5">
+                  <span class="text-[10px] tracking-widest font-semibold bg-gray-200 px-2 py-1 rounded">IN REVIEW</span>
+                </td>
+                <td class="px-6 py-5">
+                  <div class="flex items-center gap-3 justify-end">
+                    <a href="rental-request-detail.html" class="text-gray-400 hover:text-black" aria-label="View">
+                      <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/>
+                      </svg>
+                    </a>
+                    <button data-action="approve" class="text-gray-400 hover:text-green-600" aria-label="Approve">
+                      <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10"/><path stroke-linecap="round" d="M8 12l3 3 5-6"/>
+                      </svg>
+                    </button>
+                    <button data-action="reject" class="text-red-500 hover:text-red-700" aria-label="Reject">
+                      <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10"/><path stroke-linecap="round" d="M9 9l6 6M15 9l-6 6"/>
+                      </svg>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <!-- ============ FOOTER COUNT + PAGINATION ============ -->
+        <section class="flex items-center justify-between flex-wrap gap-3">
+          <p class="text-[11px] tracking-widest text-gray-500">SHOWING 4 OF 24 APPLICATIONS</p>
+
+          <div class="flex items-center gap-2">
+            <button class="w-10 h-10 rounded border border-gray-200 flex items-center justify-center text-gray-500 hover:bg-gray-100">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" d="M15 19l-7-7 7-7"/>
+              </svg>
+            </button>
+            <button class="w-10 h-10 rounded bg-black text-white text-sm font-semibold">1</button>
+            <button class="w-10 h-10 rounded border border-gray-200 text-sm hover:bg-gray-100">2</button>
+            <button class="w-10 h-10 rounded border border-gray-200 text-sm hover:bg-gray-100">3</button>
+            <button class="w-10 h-10 rounded border border-gray-200 flex items-center justify-center text-gray-500 hover:bg-gray-100">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" d="M9 5l7 7-7 7"/>
+              </svg>
+            </button>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <!-- ============ ACCEPT POPUP ============ -->
+  <div id="acceptModal" class="hidden fixed inset-0 bg-gray-500/70 z-50 flex items-center justify-center p-4">
+    <div class="bg-white rounded-xl shadow-xl w-full max-w-lg px-12 py-12 text-center">
+      <div class="w-28 h-28 mx-auto bg-green-200 rounded-full flex items-center justify-center">
+        <svg class="w-14 h-14 text-green-700" fill="none" stroke="currentColor" stroke-width="3.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+        </svg>
+      </div>
+      <h3 class="text-3xl font-semibold mt-8">Request Accepted!</h3>
+      <button id="acceptCloseBtn" class="mt-8 bg-black text-white text-sm tracking-widest font-semibold px-10 py-3 rounded">
+        CLOSE
+      </button>
+    </div>
+  </div>
+
+  <!-- ============ REJECT POPUP ============ -->
+  <div id="rejectModal" class="hidden fixed inset-0 bg-gray-500/70 z-50 flex items-center justify-center p-4">
+    <div class="bg-white rounded-xl shadow-xl w-full max-w-lg px-12 py-12 text-center">
+      <div class="w-28 h-28 mx-auto bg-red-500 rounded-full flex items-center justify-center">
+        <svg class="w-14 h-14 text-white" fill="none" stroke="currentColor" stroke-width="3.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 6l12 12M18 6L6 18"/>
+        </svg>
+      </div>
+      <h3 class="text-3xl font-semibold mt-8">Request Rejected!</h3>
+      <button id="rejectCloseBtn" class="mt-8 bg-black text-white text-sm tracking-widest font-semibold px-10 py-3 rounded">
+        CLOSE
+      </button>
+    </div>
+  </div>
+
+  <!-- ============ POPUP SCRIPT ============ -->
+  <script>
+    // Helpers
+    function show(el) { el.classList.remove('hidden'); }
+    function hide(el) { el.classList.add('hidden'); }
+
+    var acceptModal    = document.getElementById('acceptModal');
+    var rejectModal    = document.getElementById('rejectModal');
+    var acceptCloseBtn = document.getElementById('acceptCloseBtn');
+    var rejectCloseBtn = document.getElementById('rejectCloseBtn');
+
+    // Wire up every approve / reject button in the table
+    document.querySelectorAll('[data-action="approve"]').forEach(function (btn) {
+      btn.addEventListener('click', function () { show(acceptModal); });
+    });
+    document.querySelectorAll('[data-action="reject"]').forEach(function (btn) {
+      btn.addEventListener('click', function () { show(rejectModal); });
+    });
+
+    // Close buttons
+    acceptCloseBtn.addEventListener('click', function () { hide(acceptModal); });
+    rejectCloseBtn.addEventListener('click', function () { hide(rejectModal); });
+  </script>
+
+  <script src="../js/script.js"></script>
+</body>
+</html>

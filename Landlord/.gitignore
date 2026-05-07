@@ -1,0 +1,27 @@
+# Local config — never commit DB credentials or API keys
+backend/config.php
+
+# PHP / composer
+/vendor/
+composer.lock
+
+# Node (if a build step ever gets added)
+node_modules/
+package-lock.json
+
+# Editor / OS noise
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.swp
+*~
+
+# Logs and uploads
+*.log
+uploads/
+storage/
+
+# Compiled or cached files
+*.cache
+.tmp/

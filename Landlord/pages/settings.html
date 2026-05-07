@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Settings — TenureX</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Inter:400,500,600,700,800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: { fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] } } },
+    };
+  </script>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+
+<body class="font-sans bg-gray-50 text-gray-900 antialiased">
+
+  <div class="flex min-h-screen">
+
+    <!-- ============ SIDEBAR (Settings active) ============ -->
+    <aside class="w-64 bg-white border-r border-gray-200 flex flex-col justify-between p-6">
+      <div>
+        <div class="mb-10">
+          <h1 class="text-xl font-bold">Portfolio</h1>
+          <p class="text-[11px] tracking-widest text-gray-500 mt-1">PREMIUM MANAGEMENT</p>
+        </div>
+
+        <nav class="flex flex-col gap-1">
+          <a href="dashboard.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-100">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/>
+              <rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>
+            </svg>
+            <span class="text-sm">Dashboard</span>
+          </a>
+          <a href="messages.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-100">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a8 8 0 11-3.5-6.6L21 4l-1 4-3.5-.5"/>
+            </svg>
+            <span class="text-sm">Messages</span>
+          </a>
+          <a href="my-properties.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-100">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 21V8l9-5 9 5v13M9 21v-7h6v7"/>
+            </svg>
+            <span class="text-sm">My Properties</span>
+          </a>
+          <a href="rental-requests.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-100">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5h6v2H9zM5 7h14v14H5zM9 12h6M9 16h4"/>
+            </svg>
+            <span class="text-sm">Rental Requests</span>
+          </a>
+          <a href="active-tenants.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-100">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M16 11a4 4 0 10-8 0 4 4 0 008 0zM2 21a8 8 0 0114-5M22 21a6 6 0 00-9-5"/>
+            </svg>
+            <span class="text-sm">Active Tenants</span>
+          </a>
+          <a href="rent-tracking.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-100">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <rect x="3" y="6" width="18" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/>
+            </svg>
+            <span class="text-sm">Rent Tracking</span>
+          </a>
+          <a href="earnings.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-100">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
+            </svg>
+            <span class="text-sm">Earnings</span>
+          </a>
+          <a href="maintenance.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-100">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M14.7 6.3a4 4 0 00-5.4 5.4l-6 6 2 2 6-6a4 4 0 005.4-5.4l-2.5 2.5-2-2 2.5-2.5z"/>
+            </svg>
+            <span class="text-sm">Maintenance</span>
+          </a>
+          <a href="settings.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-black text-white">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="3"/>
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.4 15a1.7 1.7 0 00.3 1.8 2 2 0 11-2.8 2.8 1.7 1.7 0 00-1.8-.3 1.7 1.7 0 00-1 1.5 2 2 0 11-4 0 1.7 1.7 0 00-1-1.5 1.7 1.7 0 00-1.8.3 2 2 0 11-2.8-2.8 1.7 1.7 0 00.3-1.8 1.7 1.7 0 00-1.5-1 2 2 0 110-4 1.7 1.7 0 001.5-1 1.7 1.7 0 00-.3-1.8 2 2 0 112.8-2.8 1.7 1.7 0 001.8.3H9a1.7 1.7 0 001-1.5 2 2 0 114 0 1.7 1.7 0 001 1.5 1.7 1.7 0 001.8-.3 2 2 0 112.8 2.8 1.7 1.7 0 00-.3 1.8V9a1.7 1.7 0 001.5 1 2 2 0 110 4 1.7 1.7 0 00-1.5 1z"/>
+            </svg>
+            <span class="text-sm font-medium">Settings</span>
+          </a>
+        </nav>
+      </div>
+
+      <div class="flex items-center gap-3 pt-4 border-t border-gray-100">
+        <div class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white">
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 12a4 4 0 100-8 4 4 0 000 8zm0 2c-4 0-8 2-8 6v2h16v-2c0-4-4-6-8-6z"/>
+          </svg>
+        </div>
+        <div>
+          <p class="text-sm font-semibold">Arthur Sterling</p>
+          <p class="text-xs text-gray-500">Portfolio Manager</p>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ============ MAIN ============ -->
+    <main class="flex-1 flex flex-col">
+
+      <!-- Top header (search + bell + help + "View Public Profile" button) -->
+      <header class="bg-white border-b border-gray-200 px-8 py-4 flex items-center gap-6">
+        <div class="flex items-center gap-2">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 21V10l9-7 9 7v11h-7v-7H10v7H3z"/>
+          </svg>
+          <span class="text-lg font-semibold">TenureX</span>
+        </div>
+
+        <div class="flex-1 max-w-2xl mx-auto relative">
+          <svg class="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
+               fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <circle cx="11" cy="11" r="7"/><path stroke-linecap="round" d="M21 21l-4.3-4.3"/>
+          </svg>
+          <input type="text" placeholder="Search portfolio..."
+                 class="w-full pl-9 pr-4 py-2.5 bg-gray-100 rounded-lg text-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-300"/>
+        </div>
+
+        <div class="flex items-center gap-4">
+          <button class="text-gray-500 hover:text-black">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 17h5l-1.4-1.4A2 2 0 0118 14V11a6 6 0 00-12 0v3a2 2 0 01-.6 1.6L4 17h5m6 0a3 3 0 11-6 0"/>
+            </svg>
+          </button>
+          <button class="text-gray-500 hover:text-black">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10"/>
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9.1 9a3 3 0 015.8 1c0 2-3 2-3 4M12 17h.01"/>
+            </svg>
+          </button>
+          <button class="px-4 py-2.5 bg-black text-white text-[11px] tracking-widest font-semibold rounded-lg hover:bg-gray-800">
+            VIEW PUBLIC PROFILE
+          </button>
+        </div>
+      </header>
+
+      <!-- Page content -->
+      <div class="p-10 flex flex-col gap-8">
+
+        <!-- ============ HEADING + LOGOUT ============ -->
+        <section class="flex items-start justify-between flex-wrap gap-4">
+          <div>
+            <h2 class="text-5xl font-bold tracking-tight">Settings</h2>
+            <p class="text-gray-600 mt-3 max-w-md">
+              Manage your architectural portfolio, security credentials, and identity preferences from this central command.
+            </p>
+          </div>
+
+          <!-- Logout button (large, with arrow icon) -->
+          <button id="logout-btn"
+                  class="flex items-center gap-4 bg-gray-100 px-6 py-4 rounded-lg shadow-sm hover:bg-gray-200">
+            <span class="text-sm tracking-widest font-semibold">LOGOUT</span>
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4-4-4M21 12H9M13 21H6a2 2 0 01-2-2V5a2 2 0 012-2h7"/>
+            </svg>
+          </button>
+        </section>
+
+        <!-- Black divider line under heading -->
+        <hr class="border-t-2 border-black"/>
+
+        <!-- ============ TWO-COLUMN BODY ============
+             Left: form sections    |    Right: profile photo + account status -->
+        <div class="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-10">
+
+          <!-- =========================================================
+               LEFT COLUMN: form
+               ========================================================= -->
+          <form class="flex flex-col gap-10">
+
+            <!-- Section: Personal Identity -->
+            <section>
+              <p class="text-[11px] tracking-widest text-gray-500 mb-5">PERSONAL IDENTITY</p>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label class="block text-[11px] tracking-widest text-gray-500 mb-2">FULL NAME</label>
+                  <input type="text" value="Alexander Vance"
+                         class="w-full bg-white border-b border-gray-300 px-2 py-2 focus:outline-none focus:border-black"/>
+                </div>
+                <div>
+                  <label class="block text-[11px] tracking-widest text-gray-500 mb-2">EMAIL ADDRESS</label>
+                  <input type="email" value="alexander@vance-estates.com"
+                         class="w-full bg-white border-b border-gray-300 px-2 py-2 focus:outline-none focus:border-black"/>
+                </div>
+              </div>
+            </section>
+
+            <!-- Section: Security & Access -->
+            <section>
+              <p class="text-[11px] tracking-widest text-gray-500 mb-5">SECURITY & ACCESS</p>
+
+              <div class="flex flex-col gap-6">
+                <div>
+                  <label class="block text-[11px] tracking-widest text-gray-500 mb-2">CURRENT PASSWORD</label>
+                  <input type="password" value="••••••••••••"
+                         class="w-full bg-white border-b border-gray-300 px-2 py-2 focus:outline-none focus:border-black"/>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label class="block text-[11px] tracking-widest text-gray-500 mb-2">NEW PASSWORD</label>
+                    <input type="password"
+                           class="w-full bg-white border-b border-gray-300 px-2 py-2 focus:outline-none focus:border-black"/>
+                  </div>
+                  <div>
+                    <label class="block text-[11px] tracking-widest text-gray-500 mb-2">CONFIRM NEW PASSWORD</label>
+                    <input type="password"
+                           class="w-full bg-white border-b border-gray-300 px-2 py-2 focus:outline-none focus:border-black"/>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Bottom row: deactivate (left) + save (right) -->
+            <section class="flex items-center justify-between flex-wrap gap-4 pt-2">
+              <button type="button" class="text-sm text-gray-500 hover:text-red-600 underline-offset-4 hover:underline">
+                Deactivate Account
+              </button>
+              <button type="button"
+                      class="bg-black text-white px-8 py-3.5 rounded-lg text-sm tracking-widest font-semibold hover:bg-gray-800">
+                SAVE CHANGES
+              </button>
+            </section>
+          </form>
+
+          <!-- =========================================================
+               RIGHT COLUMN: profile photo + account status
+               ========================================================= -->
+          <aside class="flex flex-col gap-6">
+
+            <!-- Profile photo card -->
+            <section class="bg-gray-100 rounded-xl p-6 flex flex-col items-center text-center">
+              <div class="w-32 h-32 rounded-xl overflow-hidden bg-gray-300">
+                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80"
+                     alt="Profile portrait" class="w-full h-full object-cover"/>
+              </div>
+              <p class="font-semibold mt-4">Profile Photo</p>
+              <p class="text-xs text-gray-500 mt-1">PNG or JPG. Max 5MB.<br/>Prefer architectural style portraits.</p>
+              <button type="button" class="mt-4 w-full bg-white border border-gray-200 text-[11px] tracking-widest font-semibold py-3 rounded-lg hover:bg-gray-50">
+                UPLOAD NEW
+              </button>
+            </section>
+
+            <!-- Account Status card -->
+            <section class="bg-gray-100 rounded-xl p-6">
+              <p class="text-[11px] tracking-widest text-gray-500 mb-4">ACCOUNT STATUS</p>
+
+              <div class="flex justify-between text-sm py-2">
+                <span class="text-gray-500">Tier</span>
+                <span class="font-bold tracking-widest text-xs">PREMIUM ENTERPRISE</span>
+              </div>
+              <div class="flex justify-between text-sm py-2">
+                <span class="text-gray-500">Joined</span>
+                <span class="font-semibold">Oct 2022</span>
+              </div>
+              <div class="flex justify-between text-sm py-2">
+                <span class="text-gray-500">Properties</span>
+                <span class="font-semibold">42 Active</span>
+              </div>
+
+              <hr class="my-4 border-gray-200"/>
+
+              <p class="flex items-center gap-2 text-[11px] tracking-widest font-semibold">
+                <span class="w-2 h-2 rounded-full bg-black"></span>
+                VERIFIED IDENTITY
+              </p>
+            </section>
+          </aside>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- =====================================================================
+       LOGOUT CONFIRMATION MODAL
+       Hidden by default. The script below shows it when LOGOUT is clicked.
+       ===================================================================== -->
+  <div id="logout-modal"
+       class="hidden fixed inset-0 bg-black/40 backdrop-blur-sm z-50 flex items-center justify-center">
+    <div class="bg-white rounded-xl p-8 w-[90%] max-w-md shadow-xl text-center">
+      <div class="mx-auto w-14 h-14 rounded-full bg-gray-100 flex items-center justify-center text-gray-700">
+        <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4-4-4M21 12H9M13 21H6a2 2 0 01-2-2V5a2 2 0 012-2h7"/>
+        </svg>
+      </div>
+      <h3 class="text-2xl font-bold mt-5">Log out of TenureX?</h3>
+      <p class="text-gray-500 text-sm mt-2">You'll need to sign in again to manage your portfolio.</p>
+
+      <div class="flex gap-3 mt-6">
+        <button id="logout-cancel" type="button"
+                class="flex-1 bg-gray-100 text-gray-800 py-3 rounded-lg text-sm font-semibold hover:bg-gray-200">
+          Cancel
+        </button>
+        <button id="logout-confirm" type="button"
+                class="flex-1 bg-black text-white py-3 rounded-lg text-sm font-semibold hover:bg-gray-800">
+          Log Out
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/script.js"></script>
+
+  <!-- Page-specific JS for the logout confirmation flow -->
+  <script>
+    var logoutBtn     = document.getElementById('logout-btn');
+    var logoutModal   = document.getElementById('logout-modal');
+    var logoutCancel  = document.getElementById('logout-cancel');
+    var logoutConfirm = document.getElementById('logout-confirm');
+
+    // Open the modal when LOGOUT is clicked
+    logoutBtn.addEventListener('click', function () {
+      logoutModal.classList.remove('hidden');
+    });
+
+    // Cancel: just hide the modal
+    logoutCancel.addEventListener('click', function () {
+      logoutModal.classList.add('hidden');
+    });
+
+    // Confirm: for now, send the user back to the dashboard.
+    // (In a real app, this would clear the session and redirect to a login page.)
+    logoutConfirm.addEventListener('click', function () {
+      window.location.href = 'dashboard.html';
+    });
+  </script>
+</body>
+</html>
