@@ -453,5 +453,10 @@
   </script>
 
   <script src="../js/script.js"></script>
+  <script src="../js/data.js"></script>
+  <script>
+    /* Count pending request rows (those with a black PENDING badge) */
+    TENUREX.set('requestCount', document.querySelectorAll('tbody tr').length);
+  </script>
 </body>
 </html>

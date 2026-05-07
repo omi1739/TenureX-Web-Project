@@ -241,7 +241,7 @@
               </svg>
               <span class="text-[11px] tracking-widest">UNITS</span>
             </div>
-            <p class="text-4xl font-bold">42</p>
+            <p id="stat-properties" class="text-4xl font-bold">—</p>
             <p class="text-sm text-gray-500 mt-1">My Properties</p>
           </article>
 
@@ -254,7 +254,7 @@
               </svg>
               <span class="text-[11px] tracking-widest">VERIFIED</span>
             </div>
-            <p class="text-4xl font-bold">38</p>
+            <p id="stat-tenants" class="text-4xl font-bold">—</p>
             <p class="text-sm text-gray-500 mt-1">Active Tenants</p>
           </article>
 
@@ -267,7 +267,7 @@
               </svg>
               <span class="text-[11px] tracking-widest">ATTENTION</span>
             </div>
-            <p class="text-4xl font-bold">07</p>
+            <p id="stat-requests" class="text-4xl font-bold">—</p>
             <p class="text-sm text-gray-500 mt-1">Rental Requests</p>
           </article>
 
@@ -279,7 +279,7 @@
               </svg>
               <span class="text-[11px] tracking-widest">URGENT</span>
             </div>
-            <p class="text-4xl font-bold">03</p>
+            <p id="stat-maintenance" class="text-4xl font-bold">—</p>
             <p class="text-sm text-gray-500 mt-1">Maintenance</p>
           </article>
         </section>
@@ -433,7 +433,14 @@
     </main>
   </div>
 
-  <!-- Page-specific JS (kept readable, no frameworks) -->
   <script src="../js/script.js"></script>
+  <script src="../js/data.js"></script>
+  <script>
+    function pad(n) { return String(n).padStart(2, '0'); }
+    document.getElementById('stat-properties').textContent  = TENUREX.get('propertyCount');
+    document.getElementById('stat-tenants').textContent     = TENUREX.get('tenantCount');
+    document.getElementById('stat-requests').textContent    = pad(TENUREX.get('requestCount'));
+    document.getElementById('stat-maintenance').textContent = pad(TENUREX.get('maintenanceCount'));
+  </script>
 </body>
 </html>

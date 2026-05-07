@@ -370,5 +370,11 @@
   </div>
 
   <script src="../js/script.js"></script>
+  <script src="../js/data.js"></script>
+  <script>
+    /* Count open items — exclude completed rows (they have line-through styling) */
+    var openCount = document.querySelectorAll('tbody tr:not(.text-gray-400)').length;
+    TENUREX.set('maintenanceCount', openCount);
+  </script>
 </body>
 </html>

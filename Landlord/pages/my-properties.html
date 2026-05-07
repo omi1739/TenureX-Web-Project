@@ -471,7 +471,11 @@
   </div>
 
   <script src="../js/script.js"></script>
+  <script src="../js/data.js"></script>
   <script>
+    /* Write live property count to the store on every page load */
+    TENUREX.set('propertyCount', document.querySelectorAll('article[class*="rounded-xl"]').length);
+
     var unlistModal = document.getElementById('modal-unlist');
 
     document.querySelectorAll('[data-action="unlist"]').forEach(function(btn) {
@@ -488,6 +492,7 @@
 
     document.getElementById('modal-unlist-confirm').addEventListener('click', function() {
       unlistModal.classList.add('hidden');
+      TENUREX.decrement('propertyCount');
     });
 
     unlistModal.addEventListener('click', function(e) {
