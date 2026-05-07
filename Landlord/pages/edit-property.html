@@ -268,15 +268,15 @@
 
             <!-- Bottom row: unlist + cancel/save -->
             <section class="flex items-center justify-between flex-wrap gap-3 pt-2">
-              <button class="flex items-center gap-2 text-[11px] tracking-widest text-red-600 hover:text-red-700 font-semibold">
+              <button id="btn-unlist" class="flex items-center gap-2 text-[11px] tracking-widest text-red-600 hover:text-red-700 font-semibold">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                   <path d="M3 6h18M8 6V4a2 2 0 012-2h4a2 2 0 012 2v2M5 6l1 14h12l1-14"/>
                 </svg>
                 UNLIST PROPERTY
               </button>
               <div class="flex gap-3">
-                <a href="my-properties.html" class="px-6 py-3 bg-gray-200 text-gray-800 rounded-lg text-sm font-medium hover:bg-gray-300">Discard Changes</a>
-                <button class="px-6 py-3 bg-black text-white rounded-lg text-sm font-medium hover:bg-gray-800">Commit Updates</button>
+                <button id="btn-discard" class="px-6 py-3 bg-gray-200 text-gray-800 rounded-lg text-sm font-medium hover:bg-gray-300">Discard Changes</button>
+                <button id="btn-commit" class="px-6 py-3 bg-black text-white rounded-lg text-sm font-medium hover:bg-gray-800">Commit Updates</button>
               </div>
             </section>
           </div>
@@ -338,6 +338,93 @@
     </main>
   </div>
 
+  <!-- ============ COMMIT UPDATES MODAL ============ -->
+  <div id="modal-commit" class="hidden fixed inset-0 bg-gray-500/70 z-50 flex items-center justify-center">
+    <div class="bg-white rounded-xl shadow-xl p-8 w-full max-w-sm flex flex-col items-center gap-5 text-center">
+      <div class="w-14 h-14 rounded-full bg-black flex items-center justify-center">
+        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+        </svg>
+      </div>
+      <div>
+        <p class="text-lg font-bold text-gray-900">Update Committed</p>
+        <p class="text-sm text-gray-500 mt-1">Your property details have been saved successfully.</p>
+      </div>
+      <button id="modal-commit-close" class="w-full px-6 py-3 bg-black text-white rounded-lg text-sm font-medium hover:bg-gray-800">Done</button>
+    </div>
+  </div>
+
+  <!-- ============ DISCARD CHANGES MODAL ============ -->
+  <div id="modal-discard" class="hidden fixed inset-0 bg-gray-500/70 z-50 flex items-center justify-center">
+    <div class="bg-white rounded-xl shadow-xl p-8 w-full max-w-sm flex flex-col gap-5">
+      <div>
+        <p class="font-semibold text-gray-900">Discard Changes</p>
+        <p class="text-sm text-gray-500 mt-1">Any unsaved edits will be lost. This cannot be undone.</p>
+      </div>
+      <div class="flex gap-3 justify-end">
+        <button id="modal-discard-cancel" class="px-5 py-2.5 bg-gray-100 text-gray-800 rounded-lg text-sm font-medium hover:bg-gray-200">Keep Editing</button>
+        <a href="my-properties.html" class="px-5 py-2.5 bg-black text-white rounded-lg text-sm font-medium hover:bg-gray-800">Yes, Discard</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ UNLIST PROPERTY MODAL ============ -->
+  <div id="modal-unlist" class="hidden fixed inset-0 bg-gray-500/70 z-50 flex items-center justify-center">
+    <div class="bg-white rounded-xl shadow-xl p-8 w-full max-w-sm flex flex-col gap-5">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center">
+          <svg class="w-5 h-5 text-red-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M3 6h18M8 6V4a2 2 0 012-2h4a2 2 0 012 2v2M5 6l1 14h12l1-14"/>
+          </svg>
+        </div>
+        <div>
+          <p class="font-semibold text-gray-900">Unlist Property</p>
+          <p class="text-xs text-gray-500 mt-0.5">This will remove the listing from the market.</p>
+        </div>
+      </div>
+      <p class="text-sm text-gray-600">Are you sure you want to unlist this property? It will no longer be visible to prospective tenants.</p>
+      <div class="flex gap-3 justify-end">
+        <button id="modal-unlist-cancel" class="px-5 py-2.5 bg-gray-100 text-gray-800 rounded-lg text-sm font-medium hover:bg-gray-200">Cancel</button>
+        <a href="my-properties.html" class="px-5 py-2.5 bg-red-600 text-white rounded-lg text-sm font-medium hover:bg-red-700">Yes, Unlist</a>
+      </div>
+    </div>
+  </div>
+
   <script src="../js/script.js"></script>
+  <script>
+    var modalCommit  = document.getElementById('modal-commit');
+    var modalDiscard = document.getElementById('modal-discard');
+    var modalUnlist  = document.getElementById('modal-unlist');
+
+    document.getElementById('btn-commit').addEventListener('click', function() {
+      modalCommit.classList.remove('hidden');
+    });
+    document.getElementById('modal-commit-close').addEventListener('click', function() {
+      modalCommit.classList.add('hidden');
+    });
+    modalCommit.addEventListener('click', function(e) {
+      if (e.target === modalCommit) modalCommit.classList.add('hidden');
+    });
+
+    document.getElementById('btn-discard').addEventListener('click', function() {
+      modalDiscard.classList.remove('hidden');
+    });
+    document.getElementById('modal-discard-cancel').addEventListener('click', function() {
+      modalDiscard.classList.add('hidden');
+    });
+    modalDiscard.addEventListener('click', function(e) {
+      if (e.target === modalDiscard) modalDiscard.classList.add('hidden');
+    });
+
+    document.getElementById('btn-unlist').addEventListener('click', function() {
+      modalUnlist.classList.remove('hidden');
+    });
+    document.getElementById('modal-unlist-cancel').addEventListener('click', function() {
+      modalUnlist.classList.add('hidden');
+    });
+    modalUnlist.addEventListener('click', function(e) {
+      if (e.target === modalUnlist) modalUnlist.classList.add('hidden');
+    });
+  </script>
 </body>
 </html>
