@@ -291,48 +291,17 @@
           <div class="bg-white rounded-xl shadow-sm">
             <div class="flex items-center justify-between px-6 pt-6 pb-4">
               <h3 class="text-lg font-semibold">Rental Requests</h3>
-              <a href="#" class="text-sm text-gray-500 underline">See all</a>
+              <a href="rental-requests.html" class="text-sm text-gray-500 underline">See all</a>
             </div>
             <table class="w-full text-sm">
               <thead>
                 <tr class="text-[11px] tracking-widest text-gray-400 border-b border-gray-100">
                   <th class="text-left font-normal px-6 py-3">APPLICANT</th>
                   <th class="text-left font-normal px-6 py-3">PROPERTY</th>
-                  <th class="text-left font-normal px-6 py-3">ACTION</th>
+                  <th class="text-left font-normal px-6 py-3">STATUS</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr class="border-b border-gray-100">
-                  <td class="px-6 py-4">
-                    <p class="font-semibold">Julianne Vancini</p>
-                    <p class="text-xs text-gray-500">Credit: 740+</p>
-                  </td>
-                  <td class="px-6 py-4 text-gray-700">Skyline Lofts #402</td>
-                  <td class="px-6 py-4 text-gray-400">
-                    <button class="hover:text-black">⋮</button>
-                  </td>
-                </tr>
-                <tr class="border-b border-gray-100">
-                  <td class="px-6 py-4">
-                    <p class="font-semibold">Marcus Thorne</p>
-                    <p class="text-xs text-gray-500">Credit: 680</p>
-                  </td>
-                  <td class="px-6 py-4 text-gray-700">Beekman Pl #12C</td>
-                  <td class="px-6 py-4 text-gray-400">
-                    <button class="hover:text-black">⋮</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="px-6 py-4">
-                    <p class="font-semibold">Evelyn Reed</p>
-                    <p class="text-xs text-gray-500">Credit: 800</p>
-                  </td>
-                  <td class="px-6 py-4 text-gray-700">The Chelsea Gardens</td>
-                  <td class="px-6 py-4 text-gray-400">
-                    <button class="hover:text-black">⋮</button>
-                  </td>
-                </tr>
-              </tbody>
+              <tbody id="dash-req-body"></tbody>
             </table>
           </div>
 
@@ -340,7 +309,7 @@
           <div class="bg-white rounded-xl shadow-sm">
             <div class="flex items-center justify-between px-6 pt-6 pb-4">
               <h3 class="text-lg font-semibold">Maintenance Logs</h3>
-              <a href="#" class="text-sm text-gray-500 underline">See all</a>
+              <a href="maintenance.html" class="text-sm text-gray-500 underline">See all</a>
             </div>
             <table class="w-full text-sm">
               <thead>
@@ -350,47 +319,7 @@
                   <th class="text-left font-normal px-6 py-3">STATUS</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr class="border-b border-gray-100">
-                  <td class="px-6 py-4">
-                    <p class="font-semibold">HVAC Filter Change</p>
-                    <p class="text-xs text-gray-500">Reported 2h ago</p>
-                  </td>
-                  <td class="px-6 py-4">
-                    <p>Unit 14B</p>
-                    <p class="text-xs text-gray-500">Sarah Jenkins</p>
-                  </td>
-                  <td class="px-6 py-4">
-                    <span class="text-[10px] tracking-widest font-semibold bg-gray-200 px-2 py-1 rounded">CRITICAL</span>
-                  </td>
-                </tr>
-                <tr class="border-b border-gray-100">
-                  <td class="px-6 py-4">
-                    <p class="font-semibold">Leaking Faucet</p>
-                    <p class="text-xs text-gray-500">Reported Yesterday</p>
-                  </td>
-                  <td class="px-6 py-4">
-                    <p>West End Ave #8</p>
-                    <p class="text-xs text-gray-500">David G.</p>
-                  </td>
-                  <td class="px-6 py-4">
-                    <span class="text-[10px] tracking-widest font-semibold bg-gray-200 px-2 py-1 rounded">LOGGED</span>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="px-6 py-4">
-                    <p class="font-semibold">Smoke Detector Check</p>
-                    <p class="text-xs text-gray-500">Scheduled</p>
-                  </td>
-                  <td class="px-6 py-4">
-                    <p>Beekman Pl #12C</p>
-                    <p class="text-xs text-gray-500">Marcus Thorne</p>
-                  </td>
-                  <td class="px-6 py-4">
-                    <span class="text-[10px] tracking-widest font-semibold bg-gray-200 px-2 py-1 rounded">ASSIGNED</span>
-                  </td>
-                </tr>
-              </tbody>
+              <tbody id="dash-maint-body"></tbody>
             </table>
           </div>
         </section>
@@ -436,11 +365,59 @@
   <script src="../js/script.js"></script>
   <script src="../js/data.js"></script>
   <script>
+    /* ── stat cards ── */
     function pad(n) { return String(n).padStart(2, '0'); }
     document.getElementById('stat-properties').textContent  = TENUREX.get('propertyCount');
     document.getElementById('stat-tenants').textContent     = TENUREX.get('tenantCount');
     document.getElementById('stat-requests').textContent    = pad(TENUREX.get('requestCount'));
     document.getElementById('stat-maintenance').textContent = pad(TENUREX.get('maintenanceCount'));
+
+    /* ── rental requests table (show up to 3 rows) ── */
+    var reqBody = document.getElementById('dash-req-body');
+    var requests = TENUREX.getList('rentalRequests').slice(0, 3);
+    requests.forEach(function(r, i) {
+      var isLast = i === requests.length - 1;
+      var statusBg = r.status === 'PENDING' ? 'bg-black text-white' : 'bg-gray-200 text-gray-700';
+      var tr = document.createElement('tr');
+      tr.className = isLast ? '' : 'border-b border-gray-100';
+      tr.innerHTML =
+        '<td class="px-6 py-4">' +
+          '<p class="font-semibold">'           + r.name     + '</p>' +
+          '<p class="text-xs text-gray-500">'   + r.sub      + '</p>' +
+        '</td>' +
+        '<td class="px-6 py-4">' +
+          '<p class="text-gray-700">'           + r.property + '</p>' +
+          '<p class="text-xs text-gray-500">'   + r.unit     + '</p>' +
+        '</td>' +
+        '<td class="px-6 py-4">' +
+          '<span class="text-[10px] tracking-widest font-semibold px-2 py-1 rounded ' + statusBg + '">' + r.status + '</span>' +
+        '</td>';
+      reqBody.appendChild(tr);
+    });
+
+    /* ── maintenance logs table (show up to 3 rows) ── */
+    var maintBody = document.getElementById('dash-maint-body');
+    var logs = TENUREX.getList('maintenanceLogs').slice(0, 3);
+    logs.forEach(function(m, i) {
+      var isLast = i === logs.length - 1;
+      var statusText = m.status.trim();
+      var statusBg = statusText === 'New' ? 'bg-black text-white' : 'bg-gray-200 text-gray-700';
+      var tr = document.createElement('tr');
+      tr.className = isLast ? '' : 'border-b border-gray-100';
+      tr.innerHTML =
+        '<td class="px-6 py-4">' +
+          '<p class="font-semibold">'          + m.issue    + '</p>' +
+          '<p class="text-xs text-gray-500">'  + m.reported + '</p>' +
+        '</td>' +
+        '<td class="px-6 py-4">' +
+          '<p>'                                + m.unit     + '</p>' +
+          '<p class="text-xs text-gray-500">'  + m.tenant   + '</p>' +
+        '</td>' +
+        '<td class="px-6 py-4">' +
+          '<span class="text-[10px] tracking-widest font-semibold px-2 py-1 rounded ' + statusBg + '">' + statusText.toUpperCase() + '</span>' +
+        '</td>';
+      maintBody.appendChild(tr);
+    });
   </script>
 </body>
 </html>

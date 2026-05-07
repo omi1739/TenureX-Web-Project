@@ -455,8 +455,20 @@
   <script src="../js/script.js"></script>
   <script src="../js/data.js"></script>
   <script>
-    /* Count pending request rows (those with a black PENDING badge) */
-    TENUREX.set('requestCount', document.querySelectorAll('tbody tr').length);
+    /* Serialize all rows into the store so the dashboard stays in sync */
+    var reqRows = [];
+    document.querySelectorAll('tbody tr').forEach(function(tr) {
+      var tds = tr.querySelectorAll('td');
+      reqRows.push({
+        name:     tds[0].querySelector('p:first-child') ? tds[0].querySelector('p:first-child').textContent.trim() : '',
+        sub:      tds[0].querySelector('p:last-child')  ? tds[0].querySelector('p:last-child').textContent.trim()  : '',
+        property: tds[1].querySelector('p:first-child') ? tds[1].querySelector('p:first-child').textContent.trim() : '',
+        unit:     tds[1].querySelector('p:last-child')  ? tds[1].querySelector('p:last-child').textContent.trim()  : '',
+        status:   tds[4].querySelector('span')          ? tds[4].querySelector('span').textContent.trim()          : ''
+      });
+    });
+    TENUREX.setList('rentalRequests', reqRows);
+    TENUREX.set('requestCount', reqRows.length);
   </script>
 </body>
 </html>

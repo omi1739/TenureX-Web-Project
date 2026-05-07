@@ -372,9 +372,21 @@
   <script src="../js/script.js"></script>
   <script src="../js/data.js"></script>
   <script>
-    /* Count open items — exclude completed rows (they have line-through styling) */
-    var openCount = document.querySelectorAll('tbody tr:not(.text-gray-400)').length;
-    TENUREX.set('maintenanceCount', openCount);
+    /* Serialize open rows into the store so the dashboard stays in sync */
+    var maintRows = [];
+    document.querySelectorAll('tbody tr').forEach(function(tr) {
+      if (tr.classList.contains('text-gray-400')) return; /* skip completed */
+      var tds = tr.querySelectorAll('td');
+      maintRows.push({
+        issue:    tds[4] ? tds[4].textContent.trim() : '',
+        reported: tds[6] ? tds[6].textContent.trim() : '',
+        tenant:   tds[1] ? tds[1].textContent.trim() : '',
+        unit:     tds[2] ? tds[2].textContent.trim() : '',
+        status:   tds[5] ? tds[5].textContent.trim()  : ''
+      });
+    });
+    TENUREX.setList('maintenanceLogs', maintRows);
+    TENUREX.set('maintenanceCount', maintRows.length);
   </script>
 </body>
 </html>
