@@ -9,6 +9,9 @@ composer.lock
 node_modules/
 package-lock.json
 
+# Claude Code internal folder — not part of the project
+.claude/
+
 # Editor / OS noise
 .vscode/
 .idea/
