@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TenureX - Landlord Detail: Ahmed Chowdhury</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-[#FBFBFB] flex min-h-screen text-gray-800">
+
+    <aside class="w-64 bg-[#F8F9FA] border-r border-gray-200 flex flex-col sticky top-0 h-screen">
+        <div class="p-6 flex items-center gap-2">
+            <div class="w-6 h-6 bg-black rounded-sm flex items-center justify-center">
+                <i class="fas fa-home text-white text-[10px]"></i>
+            </div>
+            <span class="font-bold text-xl tracking-tight text-gray-900">TenureX</span>
+        </div>
+
+        <nav class="flex-1 px-4 mt-4 space-y-1">
+            <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest px-2 mb-4">Property Admin</p>
+            <a href="dashboard.html" class="flex items-center gap-3 px-3 py-2 text-gray-500 hover:bg-gray-100 rounded-md text-sm font-medium transition">
+                <i class="fas fa-th-large w-5"></i> DASHBOARD
+            </a>
+            <a href="landlord-tab.html" class="flex items-center gap-3 px-3 py-2 bg-black text-white rounded-md text-sm font-medium shadow-sm">
+                <i class="fas fa-user-tie w-5"></i> LANDLORDS
+            </a>
+            <a href="technian-tab.html" class="flex items-center gap-3 px-3 py-2 text-gray-500 hover:bg-gray-100 rounded-md text-sm font-medium transition">
+                <i class="fas fa-tools w-5"></i> TECHNICIANS
+            </a>
+            <a href="category.html" class="flex items-center gap-3 px-3 py-2 text-gray-500 hover:bg-gray-100 rounded-md text-sm font-medium transition">
+                <i class="fas fa-shapes w-5"></i> CATEGORIES
+            </a>
+            <a href="properties-tab.html" class="flex items-center gap-3 px-3 py-2 text-gray-500 hover:bg-gray-100 rounded-md text-sm font-medium transition">
+                <i class="fas fa-building w-5"></i> PROPERTIES
+            </a>
+            <a href="maintenance-tab.html" class="flex items-center gap-3 px-3 py-2 text-gray-500 hover:bg-gray-100 rounded-md text-sm font-medium transition">
+                <i class="fas fa-wrench w-5"></i> MAINTENANCE
+            </a>
+            <a href="report-tab.html" class="flex items-center gap-3 px-3 py-2 text-gray-500 hover:bg-gray-100 rounded-md text-sm font-medium transition">
+                <i class="fas fa-chart-bar w-5"></i> REPORTS
+            </a>
+        </nav>
+
+        <div class="p-4 border-t border-gray-200">
+            <a href="admin-settings.html" class="flex items-center gap-3 px-3 py-2 text-gray-500 hover:bg-gray-100 rounded-md text-sm font-medium">
+                <i class="fas fa-cog w-5"></i> SETTINGS
+            </a>
+        </div>
+    </aside>
+
+    <main class="flex-1">
+        <header class="flex items-center justify-between px-10 py-5 bg-white border-b border-gray-100">
+            <h2 class="text-[10px] font-bold tracking-[0.3em] text-gray-900 uppercase">Admin Portal</h2>
+            <div class="flex items-center gap-6">
+                <button class="text-gray-400 hover:text-gray-600"><i class="far fa-bell text-lg"></i></button>
+                <div class="w-8 h-8 bg-black flex items-center justify-center text-white text-[10px] font-bold rounded-sm">A</div>
+            </div>
+        </header>
+
+        <div class="p-10 max-w-7xl mx-auto">
+            <div class="flex justify-between items-end mb-8">
+                <div>
+                    <h1 class="text-7xl font-black tracking-tighter text-black uppercase leading-none">Ahmed<br>Chowdhury</h1>
+                </div>
+                <div class="text-right">
+                    <p class="text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-4">Application Date</p>
+                    <p class="text-xl font-black uppercase mb-6">May 05, 2026</p>
+                    <div class="flex gap-4">
+                        <button class="bg-gray-200 text-black px-8 py-4 text-[10px] font-bold uppercase tracking-widest hover:bg-gray-300 transition">Reject Application</button>
+                        <button class="bg-black text-white px-8 py-4 text-[10px] font-bold uppercase tracking-widest hover:bg-zinc-800 transition">Approve Profile</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-12 gap-12">
+                <div class="col-span-4">
+                    <div class="relative mb-8 group">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=800" alt="Ahmed Chowdhury" class="w-full grayscale">
+                        <div class="absolute bottom-0 left-0 bg-black text-white px-4 py-2 text-[8px] font-bold uppercase tracking-widest">
+                            Verified Identity Match: 99.1%
+                        </div>
+                    </div>
+
+                    <div class="space-y-8">
+                        <div>
+                            <p class="text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-2">Primary Contact</p>
+                            <p class="text-xl font-bold uppercase border-b border-gray-100 pb-2 mb-2">A.CHOWDHURY@DHAKA-ESTATES.BD</p>
+                            <p class="text-xl font-bold uppercase border-b border-gray-100 pb-2">+880 1711 556677</p>
+                        </div>
+
+                        <div>
+                            <p class="text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-2">Registered Address</p>
+                            <p class="text-[10px] font-bold uppercase leading-relaxed text-gray-500">
+                                House 12, Road 27,<br>Gulshan 1, Dhaka 1212,<br>Bangladesh
+                            </p>
+                        </div>
+
+                        <div>
+                            <p class="text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-4">Portfolio Focus</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-gray-100 px-3 py-1 text-[8px] font-bold uppercase tracking-widest">High-End Residential</span>
+                                <span class="bg-gray-100 px-3 py-1 text-[8px] font-bold uppercase tracking-widest">Commercial Hubs</span>
+                                <span class="bg-gray-100 px-3 py-1 text-[8px] font-bold uppercase tracking-widest">Dhaka Metropolitan</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-span-8 bg-gray-50 p-12 border border-gray-100">
+                    <div class="mb-16">
+                        <div class="flex justify-between items-baseline border-b border-black pb-4 mb-8">
+                            <h2 class="text-xl font-black uppercase tracking-tight">Identity Verification</h2>
+                            <span class="text-[8px] font-bold text-gray-400 uppercase tracking-widest">Document 1 of 3</span>
+                        </div>
+                        <div class="grid grid-cols-2 gap-8">
+                            <div class="space-y-4">
+                                <div class="aspect-[1.6/1] bg-white border border-gray-200 overflow-hidden shadow-sm">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/German_ID_card_2010_front_specimen.png/640px-German_ID_card_2010_front_specimen.png" alt="NID Front" class="w-full h-full object-contain p-4 opacity-80">
+                                </div>
+                                <p class="text-[8px] font-bold text-gray-400 uppercase tracking-widest">NID_FRONT_SCAN.PDF</p>
+                            </div>
+                            <div class="space-y-4">
+                                <div class="aspect-[1.6/1] bg-white border border-gray-200 overflow-hidden shadow-sm">
+                                    <img src="https://images.unsplash.com/photo-1586281380349-632531db7ed4?auto=format&fit=crop&q=80&w=800" alt="TIN Registration" class="w-full h-full object-cover grayscale opacity-50">
+                                </div>
+                                <p class="text-[8px] font-bold text-gray-400 uppercase tracking-widest">E-TIN_REGISTRATION_2026.PDF</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-16">
+                        <div class="flex justify-between items-baseline border-b border-black pb-4 mb-8">
+                            <h2 class="text-xl font-black uppercase tracking-tight">Ownership Proof</h2>
+                            <span class="text-[8px] font-bold text-gray-400 uppercase tracking-widest">Document 3 of 3</span>
+                        </div>
+                        <div class="bg-white border border-gray-200 p-6 flex items-center justify-between shadow-sm">
+                            <div class="flex items-center gap-6">
+                                <div class="w-12 h-12 bg-gray-50 flex items-center justify-center border border-gray-100">
+                                    <i class="far fa-file-alt text-lg"></i>
+                                </div>
+                                <div>
+                                    <p class="text-[10px] font-black uppercase tracking-tight">RAJUK_DEED_GULSHAN_H12.PDF</p>
+                                    <p class="text-[8px] font-bold text-gray-400 uppercase tracking-widest mt-1">Uploaded May 05 • 5.8 MB • Digitally Verified</p>
+                                    <div class="flex gap-4 mt-2">
+                                        <button class="text-[8px] font-black uppercase tracking-widest border-b border-black">View Document</button>
+                                        <button class="text-[8px] font-black uppercase tracking-widest border-b border-black">Download</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-gray-100 px-4 py-2">
+                                <p class="text-[8px] font-bold text-gray-900 uppercase tracking-widest">Authenticity Check:</p>
+                                <p class="text-[8px] font-black text-gray-900 uppercase tracking-widest">PASSED</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-4">Auditor Notes</p>
+                        <div class="border-b border-gray-200 pb-4">
+                            <input type="text" placeholder="Add internal verification notes here..." class="bg-transparent w-full text-[10px] font-medium focus:outline-none placeholder-gray-300 italic">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modals -->
+    <div id="requestAcceptedModal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50">
+        <div class="bg-white p-8 rounded-lg shadow-xl max-w-md w-full mx-4">
+            <div class="text-center">
+                <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-check text-green-600 text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-2">Request Accepted</h3>
+                <p class="text-gray-600 mb-6">The landlord application has been approved successfully.</p>
+                <button onclick="closeModal('requestAcceptedModal')" class="bg-black text-white px-6 py-2 text-sm font-bold uppercase tracking-widest hover:bg-gray-800 transition">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="requestRejectedModal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50">
+        <div class="bg-white p-8 rounded-lg shadow-xl max-w-md w-full mx-4">
+            <div class="text-center">
+                <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-times text-red-600 text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-2">Request Rejected</h3>
+                <p class="text-gray-600 mb-6">The landlord application has been rejected.</p>
+                <button onclick="closeModal('requestRejectedModal')" class="bg-black text-white px-6 py-2 text-sm font-bold uppercase tracking-widest hover:bg-gray-800 transition">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showModal(modalId) {
+            document.getElementById(modalId).classList.remove('hidden');
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.add('hidden');
+        }
+
+        // Add event listeners to buttons
+        document.addEventListener('DOMContentLoaded', function() {
+            const buttons = document.querySelectorAll('button');
+            buttons.forEach(button => {
+                if (button.textContent.trim().toUpperCase() === 'APPROVE PROFILE') {
+                    button.addEventListener('click', () => showModal('requestAcceptedModal'));
+                } else if (button.textContent.trim().toUpperCase() === 'REJECT APPLICATION') {
+                    button.addEventListener('click', () => showModal('requestRejectedModal'));
+                }
+            });
+        });
+    </script>
+</body>
+</html>

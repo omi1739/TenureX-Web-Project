@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TenureX - Architectural Assets</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-[#FBFBFB] flex min-h-screen text-gray-800">
+
+    <aside class="w-64 bg-[#F8F9FA] border-r border-gray-200 flex flex-col sticky top-0 h-screen">
+        <div class="p-6 flex items-center gap-2">
+            <div class="w-6 h-6 bg-black rounded-sm flex items-center justify-center">
+                <i class="fas fa-home text-white text-[10px]"></i>
+            </div>
+            <span class="font-bold text-xl tracking-tight text-gray-900">TenureX</span>
+        </div>
+
+        <nav class="flex-1 px-4 mt-4 space-y-1">
+            <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest px-2 mb-4">Property Admin</p>
+            <a href="dashboard.html" class="flex items-center gap-3 px-3 py-2 text-gray-500 hover:bg-gray-100 rounded-md text-sm font-medium transition">
+                <i class="fas fa-th-large w-5"></i> DASHBOARD
+            </a>
+            <a href="landlord-tab.html" class="flex items-center gap-3 px-3 py-2 text-gray-500 hover:bg-gray-100 rounded-md text-sm font-medium transition">
+                <i class="fas fa-user-tie w-5"></i> LANDLORDS
+            </a>
+            <a href="technian-tab.html" class="flex items-center gap-3 px-3 py-2 text-gray-500 hover:bg-gray-100 rounded-md text-sm font-medium transition">
+                <i class="fas fa-tools w-5"></i> TECHNICIANS
+            </a>
+            <a href="category.html" class="flex items-center gap-3 px-3 py-2 text-gray-500 hover:bg-gray-100 rounded-md text-sm font-medium transition">
+                <i class="fas fa-shapes w-5"></i> CATEGORIES
+            </a>
+            <a href="properties-tab.html" class="flex items-center gap-3 px-3 py-2 bg-black text-white rounded-md text-sm font-medium shadow-sm">
+                <i class="fas fa-building w-5"></i> PROPERTIES
+            </a>
+            <a href="maintenance-tab.html" class="flex items-center gap-3 px-3 py-2 text-gray-500 hover:bg-gray-100 rounded-md text-sm font-medium transition">
+                <i class="fas fa-wrench w-5"></i> MAINTENANCE
+            </a>
+            <a href="report-tab.html" class="flex items-center gap-3 px-3 py-2 text-gray-500 hover:bg-gray-100 rounded-md text-sm font-medium transition">
+                <i class="fas fa-chart-bar w-5"></i> REPORTS
+            </a>
+        </nav>
+
+        <div class="p-4 border-t border-gray-200">
+            <a href="admin-settings.html" class="flex items-center gap-3 px-3 py-2 text-gray-500 hover:bg-gray-100 rounded-md text-sm font-medium">
+                <i class="fas fa-cog w-5"></i> SETTINGS
+            </a>
+        </div>
+    </aside>
+
+    <main class="flex-1">
+        <header class="flex items-center justify-between px-10 py-5 bg-white border-b border-gray-100">
+            <h2 class="text-[10px] font-bold tracking-[0.3em] text-gray-900 uppercase">Admin Portal</h2>
+            <div class="flex items-center gap-6">
+                <button class="text-gray-400 hover:text-gray-600"><i class="far fa-bell text-lg"></i></button>
+                <div class="w-8 h-8 bg-black flex items-center justify-center text-white text-[10px] font-bold rounded-sm">A</div>
+            </div>
+        </header>
+
+        <div class="p-10 max-w-7xl mx-auto">
+            
+            <div class="grid grid-cols-4 gap-4 mb-16">
+                <div class="bg-black text-white p-8">
+                    <p class="text-[8px] font-bold text-gray-500 uppercase tracking-widest mb-10">Total Portfolio</p>
+                    <h3 class="text-7xl font-black tracking-tighter">142</h3>
+                </div>
+                <div class="bg-gray-100 p-8">
+                    <p class="text-[8px] font-bold text-gray-400 uppercase tracking-widest mb-10">Active Listings</p>
+                    <h3 class="text-7xl font-black tracking-tighter">89</h3>
+                </div>
+                <div class="bg-gray-100 p-8">
+                    <p class="text-[8px] font-bold text-gray-400 uppercase tracking-widest mb-10">Maintenance</p>
+                    <h3 class="text-7xl font-black tracking-tighter">12</h3>
+                </div>
+                <div class="bg-gray-200 p-8">
+                    <p class="text-[8px] font-bold text-gray-400 uppercase tracking-widest mb-10">Pending Review</p>
+                    <h3 class="text-7xl font-black tracking-tighter">05</h3>
+                </div>
+            </div>
+
+            <div class="flex justify-between items-end mb-8">
+                <div>
+                    <h1 class="text-5xl font-black tracking-tighter text-black uppercase leading-none mb-2">Architectural Assets</h1>
+                    <p class="text-[9px] font-bold text-gray-400 uppercase tracking-[0.2em]">Global Inventory List / View Only</p>
+                </div>
+                <div class="flex gap-4">
+                    <button class="bg-gray-100 text-black px-6 py-3 text-[10px] font-bold uppercase tracking-widest flex items-center gap-3">
+                        <i class="fas fa-sliders-h text-[8px]"></i> Filter Results
+                    </button>
+                    <button class="bg-black text-white px-6 py-3 text-[10px] font-bold uppercase tracking-widest flex items-center gap-3">
+                        <i class="fas fa-download text-[8px]"></i> Export Ledger
+                    </button>
+                </div>
+            </div>
+
+            <div class="bg-white border border-gray-100 overflow-hidden mb-10">
+                <table class="w-full text-left">
+                    <thead class="bg-gray-100 text-[9px] font-bold text-gray-400 uppercase tracking-[0.2em]">
+                        <tr>
+                            <th class="py-4 px-8">Property Title</th>
+                            <th class="py-4 px-4">Landlord</th>
+                            <th class="py-4 px-4">Location</th>
+                            <th class="py-4 px-4">Status</th>
+                            <th class="py-4 px-8 text-right">Listed Date</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-[10px] font-bold">
+                        <tr class="border-b border-gray-50 hover:bg-gray-50 transition cursor-pointer">
+                            <td class="py-6 px-8 flex items-center gap-4">
+                                <div class="w-12 h-12 bg-gray-200 grayscale flex-shrink-0">
+                                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=200" alt="Zenith" class="w-full h-full object-cover">
+                                </div>
+                                <div>
+                                    <p class="text-gray-900 uppercase">Zenith Heights Complex</p>
+                                    <p class="text-[8px] text-gray-300 font-medium uppercase tracking-widest">ID: PR-9021-X</p>
+                                </div>
+                            </td>
+                            <td class="py-6 px-4">
+                                <p class="text-gray-900 uppercase">Kensington Estates Ltd.</p>
+                            </td>
+                            <td class="py-6 px-4">
+                                <p class="text-gray-400 uppercase leading-relaxed">Chittagong, BD (4000)</p>
+                            </td>
+                            <td class="py-6 px-4">
+                                <span class="bg-black text-white px-3 py-1 text-[8px] tracking-widest uppercase">Active</span>
+                            </td>
+                            <td class="py-6 px-8 text-right text-gray-400 uppercase">
+                                12 Oct 2025
+                            </td>
+                        </tr>
+
+                        <tr class="border-b border-gray-50 hover:bg-gray-50 transition cursor-pointer">
+                            <td class="py-6 px-8 flex items-center gap-4">
+                                <div class="w-12 h-12 bg-gray-200 grayscale flex-shrink-0">
+                                    <img src="https://images.unsplash.com/photo-1577495508048-b635879837f1?auto=format&fit=crop&q=80&w=200" alt="Marble" class="w-full h-full object-cover">
+                                </div>
+                                <div>
+                                    <p class="text-gray-900 uppercase">The Marble Atrium</p>
+                                    <p class="text-[8px] text-gray-300 font-medium uppercase tracking-widest">ID: PR-4451-A</p>
+                                </div>
+                            </td>
+                            <td class="py-6 px-4">
+                                <p class="text-gray-900 uppercase">Vanguard Assets</p>
+                            </td>
+                            <td class="py-6 px-4">
+                                <p class="text-gray-400 uppercase leading-relaxed">Dhaka, BD (1000)</p>
+                            </td>
+                            <td class="py-6 px-4">
+                                <span class="bg-gray-100 text-gray-500 px-3 py-1 text-[8px] tracking-widest uppercase">Maintenance</span>
+                            </td>
+                            <td class="py-6 px-8 text-right text-gray-400 uppercase">
+                                05 Nov 2025
+                            </td>
+                        </tr>
+
+                        <tr class="border-b border-gray-50 hover:bg-gray-50 transition cursor-pointer">
+                            <td class="py-6 px-8 flex items-center gap-4">
+                                <div class="w-12 h-12 bg-gray-200 grayscale flex-shrink-0">
+                                    <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&q=80&w=200" alt="Azure" class="w-full h-full object-cover">
+                                </div>
+                                <div>
+                                    <p class="text-gray-900 uppercase">Azure Port Residencies</p>
+                                    <p class="text-[8px] text-gray-300 font-medium uppercase tracking-widest">ID: PR-3210-B</p>
+                                </div>
+                            </td>
+                            <td class="py-6 px-4">
+                                <p class="text-gray-900 uppercase">Jamal Ahmed</p>
+                            </td>
+                            <td class="py-6 px-4">
+                                <p class="text-gray-400 uppercase leading-relaxed">Sylhet, BD (3100)</p>
+                            </td>
+                            <td class="py-6 px-4">
+                                <span class="bg-black text-white px-3 py-1 text-[8px] tracking-widest uppercase">Active</span>
+                            </td>
+                            <td class="py-6 px-8 text-right text-gray-400 uppercase">
+                                22 Dec 2025
+                            </td>
+                        </tr>
+
+                        <tr class="border-b border-gray-50 hover:bg-gray-50 transition cursor-pointer">
+                            <td class="py-6 px-8 flex items-center gap-4">
+                                <div class="w-12 h-12 bg-gray-200 grayscale flex-shrink-0">
+                                    <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=200" alt="Brutalist" class="w-full h-full object-cover">
+                                </div>
+                                <div>
+                                    <p class="text-gray-900 uppercase">Brutalist Heritage Wing</p>
+                                    <p class="text-[8px] text-gray-300 font-medium uppercase tracking-widest">ID: PR-0012-Q</p>
+                                </div>
+                            </td>
+                            <td class="py-6 px-4">
+                                <p class="text-gray-900 uppercase">Heritage Trust Found.</p>
+                            </td>
+                            <td class="py-6 px-4">
+                                <p class="text-gray-400 uppercase leading-relaxed">Rajshahi, BD (6000)</p>
+                            </td>
+                            <td class="py-6 px-4">
+                                <span class="bg-red-100 text-red-600 px-3 py-1 text-[8px] tracking-widest uppercase">Urgent Notice</span>
+                            </td>
+                            <td class="py-6 px-8 text-right text-gray-400 uppercase">
+                                04 Jan 2026
+                            </td>
+                        </tr>
+
+                        <tr class="hover:bg-gray-50 transition cursor-pointer">
+                            <td class="py-6 px-8 flex items-center gap-4">
+                                <div class="w-12 h-12 bg-gray-200 grayscale flex-shrink-0">
+                                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=200" alt="Echo" class="w-full h-full object-cover">
+                                </div>
+                                <div>
+                                    <p class="text-gray-900 uppercase">Echo Park Studios</p>
+                                    <p class="text-[8px] text-gray-300 font-medium uppercase tracking-widest">ID: PR-7721-W</p>
+                                </div>
+                            </td>
+                            <td class="py-6 px-4">
+                                <p class="text-gray-900 uppercase">Hasan Karim</p>
+                            </td>
+                            <td class="py-6 px-4">
+                                <p class="text-gray-400 uppercase leading-relaxed">Khulna, BD (9000)</p>
+                            </td>
+                            <td class="py-6 px-4">
+                                <span class="bg-black text-white px-3 py-1 text-[8px] tracking-widest uppercase">Active</span>
+                            </td>
+                            <td class="py-6 px-8 text-right text-gray-400 uppercase">
+                                18 Jan 2026
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="flex justify-between items-center">
+                <p class="text-[8px] font-bold text-gray-300 uppercase tracking-widest">Showing 01 — 05 of 142 Assets</p>
+                <div class="flex gap-4 items-center">
+                    <button class="text-gray-300 hover:text-black text-[9px] font-black uppercase tracking-widest flex items-center gap-2 transition">
+                        <i class="fas fa-arrow-left text-[8px]"></i> Previous
+                    </button>
+                    <button class="text-gray-900 hover:text-black text-[9px] font-black uppercase tracking-widest flex items-center gap-2 transition">
+                        Next <i class="fas fa-arrow-right text-[8px]"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modals -->
+    <div id="requestAcceptedModal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50">
+        <div class="bg-white p-8 rounded-sm max-w-md w-full mx-4">
+            <div class="text-center">
+                <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-check text-2xl text-green-600"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-2">Property Approved</h3>
+                <p class="text-gray-600 mb-6">The property has been successfully approved and is now active.</p>
+                <button onclick="closeModal('requestAcceptedModal')" class="bg-black text-white px-6 py-2 text-sm font-bold uppercase tracking-widest hover:bg-gray-800 transition">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showModal(modalId) {
+            document.getElementById(modalId).classList.remove('hidden');
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.add('hidden');
+        }
+
+        // Add event listeners to table rows for navigation
+        document.querySelectorAll('tr.cursor-pointer').forEach(row => {
+            row.addEventListener('click', () => {
+                window.location.href = 'property-detail-page.html';
+            });
+        });
+    </script>
+</body>
+</html>

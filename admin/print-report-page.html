@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TenureX - Portfolio Audit Report Q4 2024</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .watermark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            font-size: 8rem;
+            font-weight: 900;
+            color: rgba(0,0,0,0.03);
+            pointer-events: none;
+            white-space: nowrap;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body class="bg-[#F3F3F3] min-h-screen flex flex-col items-center py-12 px-4">
+
+    <div class="fixed top-0 left-0 w-full bg-white/80 backdrop-blur-md h-12 flex items-center justify-center border-b border-gray-200 z-50">
+        <a href="report-tab.html">
+            <button class="text-gray-800 hover:text-black transition">
+                <i class="fas fa-arrow-left"></i>
+            </button>
+        </a>
+    </div>
+
+    <div class="relative bg-white w-full max-w-4xl shadow-2xl p-16 mt-8 mb-12 overflow-hidden min-h-[1400px]">
+        
+        <div class="watermark">CONFIDENTIAL</div>
+
+        <header class="relative z-10 flex justify-between items-start border-b-2 border-black pb-8 mb-12">
+            <div>
+                <p class="text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-1">Property_Admin_Reports</p>
+                <h1 class="text-3xl font-black tracking-tighter uppercase">Portfolio Audit Report - Q4 2025</h1>
+            </div>
+            <div class="text-right">
+                <p class="text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-1">Ref: ADM-2024-Q4</p>
+                <p class="text-[9px] font-bold text-gray-900 uppercase tracking-widest mb-4">Generated: May 08, 2026</p>
+                <div class="flex justify-end gap-4 text-xs text-gray-400">
+                    <button class="hover:text-black"><i class="fas fa-print"></i></button>
+                    <button class="hover:text-black"><i class="fas fa-download"></i></button>
+                    <button class="hover:text-black"><i class="fas fa-share-alt"></i></button>
+                </div>
+            </div>
+        </header>
+
+        <section class="relative z-10 mb-16">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400">01. Financial Performance Summary</h2>
+                <span class="text-[8px] font-bold text-gray-300 uppercase italic">Currency: BDT (Actuals)</span>
+            </div>
+            <div class="grid grid-cols-3 gap-12 border-b border-gray-100 pb-12">
+                <div>
+                    <p class="text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-2">Total Revenue</p>
+                    <div class="flex items-baseline gap-2">
+                        <span class="text-4xl font-black tracking-tighter">৳12.4M</span>
+                        <span class="text-[9px] font-bold text-green-500">+8.2%</span>
+                    </div>
+                </div>
+                <div class="border-x border-gray-100 px-12">
+                    <p class="text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-2">Operating Costs</p>
+                    <div class="flex items-baseline gap-2">
+                        <span class="text-4xl font-black tracking-tighter">৳4.1M</span>
+                        <span class="text-[9px] font-bold text-red-400">-1.2%</span>
+                    </div>
+                </div>
+                <div class="pl-12">
+                    <p class="text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-2">Net Profit</p>
+                    <div class="flex items-baseline gap-2">
+                        <span class="text-4xl font-black tracking-tighter">৳8.3M</span>
+                        <span class="text-[9px] font-bold text-green-500">+12.4%</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="relative z-10 mb-16">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400">02. Asset Performance Matrix</h2>
+                <span class="text-[8px] font-bold text-gray-300 uppercase italic">Selection: High-Yield Properties</span>
+            </div>
+            <table class="w-full text-left">
+                <thead class="border-b border-gray-100">
+                    <tr class="text-[8px] font-bold text-gray-400 uppercase tracking-widest">
+                        <th class="py-4">Asset Name</th>
+                        <th class="py-4">Category</th>
+                        <th class="py-4">Occupancy</th>
+                        <th class="py-4">Rev / Unit</th>
+                        <th class="py-4 text-right">Status</th>
+                    </tr>
+                </thead>
+                <tbody class="text-[9px] font-bold uppercase tracking-tight">
+                    <tr class="border-b border-gray-50">
+                        <td class="py-5">The Mercer Residences</td>
+                        <td class="text-gray-400">Residential (Luxury)</td>
+                        <td>98.2%</td>
+                        <td>৳4,250</td>
+                        <td class="text-right"><span class="bg-black text-white px-2 py-1 text-[7px]">Optimal</span></td>
+                    </tr>
+                    <tr class="border-b border-gray-50">
+                        <td class="py-5">Lumina Office Tower</td>
+                        <td class="text-gray-400">Commercial (A-Grade)</td>
+                        <td>92.5%</td>
+                        <td>৳12,870</td>
+                        <td class="text-right"><span class="bg-black text-white px-2 py-1 text-[7px]">Optimal</span></td>
+                    </tr>
+                    <tr class="border-b border-gray-50">
+                        <td class="py-5">The North Bengal</td>
+                        <td class="text-gray-400">Mixed-Use</td>
+                        <td>100%</td>
+                        <td>৳3,150</td>
+                        <td class="text-right"><span class="border border-black px-2 py-1 text-[7px]">Stable</span></td>
+                    </tr>
+                    <tr>
+                        <td class="py-5">South Banani Plaza</td>
+                        <td class="text-gray-400">Retail Center</td>
+                        <td>84.0%</td>
+                        <td>$9,450</td>
+                        <td class="text-right"><span class="bg-red-50 text-red-600 px-2 py-1 text-[7px]">Review</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="mt-8 flex justify-center gap-4">
+                <button class="bg-black text-white text-[9px] font-bold tracking-widest uppercase px-6 py-3 hover:bg-zinc-800 transition">Report View Mode</button>
+                <button class="border border-gray-200 text-black text-[9px] font-bold tracking-widest uppercase px-6 py-3 hover:bg-gray-50 transition"><i class="fas fa-print mr-2"></i> Print Report</button>
+            </div>
+        </section>
+
+        <section class="relative z-10 mb-16">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400">03. Operational & Maintenance Overview</h2>
+                <span class="text-[8px] font-bold text-gray-300 uppercase italic">30 Day Time Horizon</span>
+            </div>
+            <div class="grid grid-cols-12 gap-8">
+                <div class="col-span-8 bg-[#FBFBFB] p-8 border border-gray-100">
+                    <p class="text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-10">Request Volume By Category</p>
+                    <div class="flex items-end justify-between h-32 px-4 relative">
+                        <div class="absolute inset-x-0 top-0 border-t border-gray-100 w-full"></div>
+                        <div class="w-10 bg-gray-100 h-1/4"></div>
+                        <div class="w-10 bg-gray-200 h-1/2"></div>
+                        <div class="w-10 bg-gray-100 h-3/4"></div>
+                        <div class="w-10 bg-gray-300 h-2/3"></div>
+                        <div class="w-10 bg-black h-5/6"></div>
+                    </div>
+                    <div class="flex justify-between mt-4 px-4 text-[7px] font-bold text-gray-400 uppercase tracking-widest">
+                        <span>HVAC</span><span>Plumbing</span><span>Elec</span><span>General</span><span>Security</span>
+                    </div>
+                </div>
+
+                <div class="col-span-4 space-y-8">
+                    <div class="bg-black text-white p-8 h-1/2 flex flex-col justify-center">
+                        <p class="text-[8px] font-bold text-gray-500 uppercase tracking-widest mb-1">Avg Response Time</p>
+                        <div class="flex items-baseline gap-1">
+                            <span class="text-4xl font-black tracking-tighter">3.2</span>
+                            <span class="text-[9px] font-bold text-gray-500 uppercase tracking-widest">Hours</span>
+                        </div>
+                        <p class="text-[7px] text-gray-500 uppercase mt-4">Performance exceeds target threshold by 12% in this period.</p>
+                    </div>
+                    <div class="bg-gray-50 p-8 h-1/2 border border-gray-100 flex flex-col justify-center">
+                        <p class="text-[8px] font-bold text-gray-400 uppercase tracking-widest mb-1">Pending Actions</p>
+                        <span class="text-4xl font-black tracking-tighter">14</span>
+                        <p class="text-[7px] text-gray-400 uppercase mt-4">Critical items requiring immediate executive sign-off.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="relative z-10 mb-16 border-t border-gray-100 pt-12">
+            <h2 class="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-900 mb-6">Audit Observations</h2>
+            <div class="grid grid-cols-12 gap-12">
+                <div class="col-span-8">
+                    <p class="text-[11px] leading-relaxed text-gray-500 text-justify">
+                        This report represents a comprehensive review of the Q4 2026 fiscal period. Portfolio reliability remains high with a consolidated occupancy rate of 94.2%. Primary concerns noted in Retail sectors are being offset by aggressive yield growth in luxury residential assets. Operational expenditures were successfully capped at a 3% variance from projection.
+                    </p>
+                </div>
+                <div class="col-span-4 text-right">
+                    <p class="text-[10px] font-black uppercase tracking-tight">Arthur Van Der Berg</p>
+                    <p class="text-[8px] font-bold text-gray-400 uppercase tracking-widest">Head of Asset Management</p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="relative z-10 flex justify-between items-end border-t border-gray-100 pt-8 mt-auto">
+            <div class="text-[8px] font-bold text-gray-300 uppercase tracking-widest">
+                © 2024 TenureX Property Management | All Rights Reserved<br>
+                Confidential Document | Internal Use Only
+            </div>
+            <div class="flex gap-8 text-[8px] font-bold text-gray-400 uppercase tracking-[0.2em]">
+                <span>Internal Use Only</span>
+                <span class="text-black">Audit Privacy Protocol</span>
+                <span>Ref: ADM-2025-Q4</span>
+            </div>
+        </footer>
+    </div>
+
+    <div class="mt-4">
+        <button class="bg-black text-white px-12 py-4 font-bold uppercase tracking-widest shadow-xl hover:scale-105 transition active:scale-95">
+            Print
+        </button>
+    </div>
+
+</body>
+</html>
