@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Updated – Message Received Modal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+      <style>
+        nav a {
+            transition: background 0.15s, color 0.15s;
+        }
+
+        nav a:not(.active-nav):hover {
+            background-color: #e5e7eb !important;
+            color: #111 !important;
+        }
+
+        nav a.active-nav {
+            background-color: #111 !important;
+            color: #fff !important;
+            font-weight: 600;
+        }
+    </style>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var currentPage = window.location.pathname.split("/").pop();
+            document.querySelectorAll("nav a").forEach(function (link) {
+                var href = link.getAttribute("href").split("/").pop();
+                if (href === currentPage) {
+                    link.classList.remove("text-gray-500");
+                    link.classList.add("bg-black", "text-white", "font-semibold");
+                    link.classList.remove("hover:bg-black", "hover:text-white");
+                } else {
+                    link.classList.remove("bg-black", "text-white", "font-semibold");
+                    link.classList.add("text-gray-500", "hover:bg-black", "hover:text-white");
+                }
+            });
+        });
+        // Auto-highlight active nav
+    </script>
+    
+</head>
+
+<body class="font-barlow bg-[#2d2d2d] min-h-screen flex items-center justify-center">
+
+    <!-- Modal -->
+    <div class="bg-white rounded-xl px-20 py-10 flex flex-col items-center gap-5 shadow-2xl">
+
+        <!-- Green check circle -->
+        <div class="w-16 h-16 bg-green-300 rounded-full flex items-center justify-center">
+            <svg class="w-8 h-8 text-green-700" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+        </div>
+
+        <!-- Text -->
+        <p class="text-[18px] font-semibold text-gray-800">Updated</p>
+
+        <!-- Close button -->
+        <button onclick="window.history.back()"
+            class="bg-gray-900 text-white text-[11px] font-bold uppercase tracking-[0.2em] px-8 py-2 hover:bg-black transition">
+            Close
+        </button>
+    </div>
+
+</body>
+
+</html>

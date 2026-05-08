@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechPortal – My Assigned Tasks</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+    <style>
+        nav a {
+            transition: background 0.15s, color 0.15s;
+        }
+
+        nav a:not(.active-nav):hover {
+            background-color: #e5e7eb !important;
+            color: #111 !important;
+        }
+
+        nav a.active-nav,
+        nav a.active-nav:hover {
+            background-color: #111 !important;
+            color: #fff !important;
+            font-weight: 600;
+        }
+    </style>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var currentPage = window.location.pathname.split("/").pop() || 'dashboard.html';
+            document.querySelectorAll("nav a").forEach(function (link) {
+                var href = link.getAttribute("href").split("/").pop();
+                if (href === currentPage) {
+                    link.classList.add("active-nav");
+                } else {
+                    link.classList.remove("active-nav");
+                }
+            });
+        });
+        // Auto-highlight active nav
+    </script>
+
+</head>
+
+<body class="font-barlow bg-white flex h-screen overflow-hidden">
+
+    <!-- ═══ LEFT SIDEBAR ═══ -->
+    <aside class="w-50 h-screen bg-white border-r border-gray-200 flex flex-col shrink-0">
+
+        <!-- Brand -->
+        <div class="px-5 pt-6 pb-8">
+            <p class="font-condensed font-extrabold text-[17px] uppercase tracking-tight leading-none">TechPortal</p>
+            <p class="text-[8px] text-gray-400 uppercase tracking-[0.18em] font-semibold mt-0.5">Maintenance Division
+            </p>
+        </div>
+
+        <!-- Nav -->
+        <nav class="flex-1 px-2 space-y-0.5">
+            <a href="./dashboard.html"
+                class="flex items-center gap-3 text-gray-500 px-3 py-2.5 rounded text-[13px] hover:bg-gray-200 hover:text-black transition-all duration-150">
+                <i class="fas fa-th-large text-xs w-4 text-center"></i>
+                Dashboard
+            </a>
+            <a href="./assigned_tasks.html"
+                class="flex items-center gap-3 text-gray-500 px-3 py-2.5 rounded text-[13px] hover:bg-gray-200 hover:text-black-300 transition-all duration-150">
+                <i class="fas fa-clipboard-check text-xs w-4 text-center"></i>
+                My Assigned Tasks
+            </a>
+            <a href="./job_history.html"
+                class="flex items-center gap-3 text-gray-500 px-3 py-2.5 rounded text-[13px] hover:bg-gray-100 hover:text-black transition-all duration-150">
+                <i class="fas fa-clock-rotate-left text-xs w-4 text-center"></i>
+                Job History
+            </a>
+            <a href="./chat.html"
+                class="flex items-center gap-3 text-gray-500 px-3 py-2.5 rounded text-[13px] hover:bg-gray-100 hover:text-black transition-all duration-150">
+                <i class="fas fa-comments text-xs w-4 text-center"></i>
+                Chat
+            </a>
+            <a href="./service_history_report.html"
+                class="flex items-center gap-3 text-gray-500 px-3 py-2.5 rounded text-[13px] hover:bg-gray-100 hover:text-black transition-all duration-150">
+                <i class="fas fa-chart-bar text-xs w-4 text-center"></i>
+                Reports
+            </a>
+            <a href="./setting.html"
+                class="flex items-center gap-3 text-gray-500 px-3 py-2.5 rounded text-[13px] hover:bg-gray-100 hover:text-black transition-all duration-150">
+                <i class="fas fa-gear text-xs w-4 text-center"></i>
+                Settings
+            </a>
+        </nav>
+
+
+        <!-- User -->
+        <div class="p-4 border-t border-gray-100 flex items-center gap-3">
+
+            <a href="./setting.html"> <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=AlexChen"
+                    class="w-9 h-9 rounded-full bg-gray-200 shrink-0"></a>
+            <div>
+
+                <a href="./setting.html">
+                    <p class="text-[12px] font-bold text-gray-800 leading-tight">ABID HASNINE</p>
+                </a>
+                <p class="text-[10px] text-gray-400">Lead Technician</p>
+            </div>
+        </div>
+    </aside>
+
+    <!-- ═══ MAIN COLUMN ═══ -->
+    <div class="flex-1 flex flex-col min-w-0 overflow-hidden">
+
+        <!-- TOP HEADER -->
+        <header class="bg-white border-b border-gray-200 h-14 flex items-center shrink-0 z-50">
+
+            <!-- TenureX brand -->
+            <div class="flex items-center gap-2 px-6 border-r border-gray-200 h-full">
+                <a href="http://127.0.0.1:5500/Pages/landing_page.html"><i class="fas fa-home text-gray-800 text-base"></i></a>
+                <a href="http://127.0.0.1:5500/Pages/landing_page.html"> <span
+                        class="font-condensed font-bold text-[18px] tracking-wide">TenureX</span></a>
+            </div>
+
+            <!-- Search -->
+            <div class="flex-1 flex justify-center px-8">
+                <div class="relative w-full max-w-md">
+                    <i
+                        class="fas fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-black-300 text-xs"></i>
+                    <input type="text" placeholder="Search task..."
+                        class="w-full pl-8 pr-4 py-1.5 border border-gray-300 text-[11px] tracking-[0.06em] placeholder-gray-500 focus:outline-none focus:border-gray-400 bg-white rounded" />
+                </div>
+            </div>
+
+            <!-- Right icons -->
+            <div class="flex items-center gap-5 px-6">
+                <i class="fas fa-bell text-gray-700 text-base cursor-pointer"></i>
+                <i class="fas fa-circle-question text-gray-800 text-base cursor-pointer"></i>
+                <span class="text-[11px] font-semibold text-gray-800 uppercase tracking-[0.2em]">Tech Portal</span>
+            </div>
+        </header>
+
+        <!-- ═══ BODY ═══ -->
+        <div class="flex-1 overflow-y-auto px-10 py-8 min-w-0">
+
+            <!-- PAGE HEADER ROW: title left, filters right -->
+            <div class="flex items-start justify-between mb-2">
+                <div>
+                    <p class="text-[10px] font-semibold text-gray-400 uppercase tracking-[0.25em] mb-2">Live Log /
+                        Active Stream</p>
+                    <h1 class="font-playfair italic font-bold text-[52px] leading-none text-gray-900">
+                        Assigned Tasks <span class="text-gray-400 text-[36px] font-normal not-italic">/ 48</span>
+                    </h1>
+                </div>
+                <!-- Filter tabs: ALL NEW ACTIVE CLOSED -->
+                <div class="flex items-center gap-6 mt-2">
+                    <button
+                        class="text-[11px] font-bold text-gray-900 uppercase tracking-[0.15em] border-b-2 border-gray-900 pb-0.5">All</button>
+                    <button
+                        class="text-[11px] font-semibold text-gray-400 uppercase tracking-[0.15em] hover:text-gray-700 transition">New</button>
+                    <button
+                        class="text-[11px] font-semibold text-gray-400 uppercase tracking-[0.15em] hover:text-gray-700 transition">Active</button>
+                    <button
+                        class="text-[11px] font-semibold text-gray-400 uppercase tracking-[0.15em] hover:text-gray-700 transition">Closed</button>
+                </div>
+            </div>
+
+            <hr class="border-gray-200 mb-6" />
+
+            <!-- STATS CARDS ROW -->
+            <div class="grid grid-cols-4 gap-0 border border-gray-200 mb-10">
+
+                <!-- Open Tickets -->
+                <div class="px-8 py-6 border-r border-gray-200">
+                    <p class="text-[10px] font-semibold text-gray-400 uppercase tracking-[0.18em] mb-3">Open Tickets</p>
+                    <div class="flex items-baseline gap-2">
+                        <span class="font-playfair italic font-bold text-[46px] leading-none text-gray-900">12</span>
+                        <span class="text-[12px] font-semibold text-gray-400">+2</span>
+                    </div>
+                </div>
+
+                <!-- Urgent Focus -->
+                <div class="px-8 py-6 border-r border-gray-200">
+                    <p class="text-[10px] font-semibold text-gray-400 uppercase tracking-[0.18em] mb-3">Urgent Focus</p>
+                    <div class="flex items-baseline gap-2">
+                        <span class="font-playfair italic font-bold text-[46px] leading-none text-gray-900">05</span>
+                        <span class="text-[12px] font-semibold text-gray-400">High</span>
+                    </div>
+                </div>
+
+                <!-- Completion Time -->
+                <div class="px-8 py-6 border-r border-gray-200">
+                    <p class="text-[10px] font-semibold text-gray-400 uppercase tracking-[0.18em] mb-3">Completion Time
+                    </p>
+                    <div class="flex items-baseline gap-2">
+                        <span class="font-playfair italic font-bold text-[46px] leading-none text-gray-900">8.4</span>
+                        <span class="text-[12px] font-semibold text-gray-400">HRS</span>
+                    </div>
+                </div>
+
+                <!-- Weekly Success -->
+                <div class="px-8 py-6">
+                    <p class="text-[10px] font-semibold text-gray-400 uppercase tracking-[0.18em] mb-3">Weekly Success
+                    </p>
+                    <div class="flex items-baseline gap-2">
+                        <span class="font-playfair italic font-bold text-[46px] leading-none text-gray-900">31</span>
+                        <span class="text-[12px] font-semibold text-gray-400">98%</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TABLE -->
+            <div>
+                <!-- Table Header -->
+                <div class="grid grid-cols-[100px_1fr_1fr_1fr_1fr_1fr_80px] gap-4 pb-3 border-b border-gray-200">
+                    <span class="text-[10px] font-semibold text-gray-400 uppercase tracking-[0.15em]">ID</span>
+                    <span class="text-[10px] font-semibold text-gray-400 uppercase tracking-[0.15em]">Property /
+                        Unit</span>
+                    <span class="text-[10px] font-semibold text-gray-400 uppercase tracking-[0.15em]">Category</span>
+                    <span
+                        class="text-[10px] font-semibold text-gray-400 uppercase tracking-[0.15em]">Stakeholders</span>
+                    <span class="text-[10px] font-semibold text-gray-400 uppercase tracking-[0.15em]">Timeline</span>
+                    <span class="text-[10px] font-semibold text-gray-400 uppercase tracking-[0.15em]">Status</span>
+                    <span class="text-[10px] font-semibold text-gray-400 uppercase tracking-[0.15em]">Actions</span>
+                </div>
+
+                <!-- Row 1 — #MR-101 Skyline Garden -->
+                <div
+                    class="grid grid-cols-[100px_1fr_1fr_1fr_1fr_1fr_80px] gap-4 py-6 border-b border-gray-100 items-center hover:bg-gray-50 transition cursor-pointer">
+                    <span class="text-[12px] font-semibold text-gray-500 tracking-wide">#MR-101</span>
+                    <div>
+                        <p class="text-[13px] font-extrabold text-gray-900 uppercase tracking-wide leading-tight">
+                            Skyline Garden</p>
+                        <p class="text-[11px] text-gray-400">Penthouse 1</p>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-temperature-half text-gray-400 text-xs"></i>
+                        <span class="text-[12px] font-semibold text-gray-700 uppercase tracking-wide">HVAC System</span>
+                    </div>
+                    <div>
+                        <p class="text-[11px] text-gray-600"><span class="font-bold">TENANT:</span> Julian Reed</p>
+                        <p class="text-[11px] text-gray-600"><span class="font-bold">OWNER:</span> Sarah Miller</p>
+                    </div>
+                    <div>
+                        <p class="text-[12px] font-semibold text-gray-700">Oct 15, 2023</p>
+                        <p class="text-[10px] font-semibold text-gray-400 uppercase tracking-wide">Med Urgency</p>
+                    </div>
+                    <div>
+                        <span
+                            class="border border-gray-400 text-gray-700 text-[10px] font-bold tracking-[0.1em] uppercase px-3 py-1 inline-block">IN
+                            PROGRESS</span>
+                    </div>
+                    <div>
+                        <a href="./task_details.html"> <button
+                                class="text-[11px] font-bold text-gray-900 uppercase tracking-[0.1em] hover:underline">REVIEW</button></a>
+                    </div>
+                </div>
+
+                <!-- Row 2 — #MR-104 The Grandview -->
+                <div
+                    class="grid grid-cols-[100px_1fr_1fr_1fr_1fr_1fr_80px] gap-4 py-6 border-b border-gray-100 items-center hover:bg-gray-50 transition cursor-pointer">
+                    <span class="text-[12px] font-semibold text-gray-500 tracking-wide">#MR-104</span>
+                    <div>
+                        <p class="text-[13px] font-extrabold text-gray-900 uppercase tracking-wide leading-tight">The
+                            Grandview</p>
+                        <p class="text-[11px] text-gray-400">Unit 402B</p>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-wrench text-gray-400 text-xs"></i>
+                        <span class="text-[12px] font-semibold text-gray-700 uppercase tracking-wide">Pipe
+                            Leakage</span>
+                    </div>
+                    <div>
+                        <p class="text-[11px] text-gray-600"><span class="font-bold">TENANT:</span> Marcus Chen</p>
+                        <p class="text-[11px] text-gray-600"><span class="font-bold">OWNER:</span> David Vance</p>
+                    </div>
+                    <div>
+                        <p class="text-[12px] font-semibold text-gray-700">Oct 16, 2023</p>
+                        <p class="text-[10px] font-extrabold text-gray-900 uppercase tracking-wide">High Priority</p>
+                    </div>
+                    <div>
+                        <span
+                            class="bg-gray-900 text-white text-[10px] font-bold tracking-[0.1em] uppercase px-3 py-1 inline-block">NEW</span>
+                    </div>
+                    <div>
+                        <a href="./task_details.html"> <button
+                                class="text-[11px] font-bold text-gray-900 uppercase tracking-[0.1em] hover:underline">REVIEW</button></a>
+                    </div>
+                </div>
+
+                <!-- Row 3 — #MR-098 Oakwood Lofts -->
+                <div
+                    class="grid grid-cols-[100px_1fr_1fr_1fr_1fr_1fr_80px] gap-4 py-6 border-b border-gray-100 items-center hover:bg-gray-50 transition cursor-pointer">
+                    <span class="text-[12px] font-semibold text-gray-500 tracking-wide">#MR-098</span>
+                    <div>
+                        <p class="text-[13px] font-extrabold text-gray-900 uppercase tracking-wide leading-tight">
+                            Oakwood Lofts</p>
+                        <p class="text-[11px] text-gray-400">Studio 12</p>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-bolt text-gray-400 text-xs"></i>
+                        <span class="text-[12px] font-semibold text-gray-700 uppercase tracking-wide">Electrical
+                            Insp.</span>
+                    </div>
+                    <div>
+                        <p class="text-[11px] text-gray-600"><span class="font-bold">TENANT:</span> Elena Rossi</p>
+                        <p class="text-[11px] text-gray-600"><span class="font-bold">OWNER:</span> Sarah Miller</p>
+                    </div>
+                    <div>
+                        <p class="text-[12px] font-semibold text-gray-700">Oct 14, 2023</p>
+                        <p class="text-[10px] font-semibold text-gray-400 uppercase tracking-wide">Low Urgency</p>
+                    </div>
+                    <div>
+                        <span
+                            class="border border-gray-300 text-gray-400 text-[10px] font-bold tracking-[0.1em] uppercase px-3 py-1 inline-block">CLOSED</span>
+                    </div>
+                    <div>
+                        <a href="./task_details.html"> <button
+                                class="text-[11px] font-bold text-gray-900 uppercase tracking-[0.1em] hover:underline">REVIEW</button></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FOOTER: pagination -->
+            <div class="flex items-center justify-between mt-8">
+                <p class="text-[10px] font-semibold text-gray-400 uppercase tracking-[0.15em]">
+                    Displaying Log <span class="font-bold text-gray-700">01-10</span> / 48
+                </p>
+                <div class="flex items-center gap-3">
+                    <button class="text-gray-400 hover:text-gray-700 text-xs px-1">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button
+                        class="w-7 h-7 bg-gray-900 text-white text-[11px] font-bold flex items-center justify-center">1</button>
+                    <button
+                        class="w-7 h-7 text-gray-500 text-[11px] font-semibold hover:bg-gray-100 flex items-center justify-center transition">2</button>
+                    <button
+                        class="w-7 h-7 text-gray-500 text-[11px] font-semibold hover:bg-gray-100 flex items-center justify-center transition">3</button>
+                    <button class="text-gray-400 hover:text-gray-700 text-xs px-1">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- FAB bottom right -->
+    <button
+        class="fixed bottom-8 right-8 w-12 h-12 bg-gray-900 text-white flex items-center justify-center shadow-lg hover:bg-black transition z-50 text-xl font-light">
+        +
+    </button>
+
+</body>
+
+</html>

@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechPortal – Reports</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        nav a {
+            transition: background 0.15s, color 0.15s;
+        }
+
+        nav a:not(.active-nav):hover {
+            background-color: #e5e7eb !important;
+            color: #111 !important;
+        }
+
+        nav a.active-nav,
+        nav a.active-nav:hover {
+            background-color: #111 !important;
+            color: #fff !important;
+            font-weight: 600;
+        }
+    </style>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var currentPage = window.location.pathname.split("/").pop() || 'dashboard.html';
+            document.querySelectorAll("nav a").forEach(function (link) {
+                var href = link.getAttribute("href").split("/").pop();
+                if (href === currentPage) {
+                    link.classList.add("active-nav");
+                } else {
+                    link.classList.remove("active-nav");
+                }
+            });
+        });
+        // Auto-highlight active nav
+    </script>
+</head>
+
+<body class="font-barlow bg-white flex h-screen overflow-hidden">
+
+    <!-- LEFT SIDEBAR -->
+    <aside class="w-44 h-screen bg-white border-r border-gray-200 flex flex-col shrink-0">
+        <div class="px-5 pt-6 pb-8">
+            <p class="font-condensed font-extrabold text-[17px] uppercase tracking-tight leading-none">TechPortal</p>
+            <p class="text-[8px] text-gray-400 uppercase tracking-[0.18em] font-semibold mt-0.5">Maintenance Division
+            </p>
+        </div>
+
+
+        <!-- Nav -->
+        <nav class="flex-1 px-2 space-y-0.5">
+            <a href="./dashboard.html"
+                class="flex items-center gap-3 text-gray-500 px-3 py-2.5 rounded text-[13px] hover:bg-gray-200 hover:text-black transition-all duration-150">
+                <i class="fas fa-th-large text-xs w-4 text-center"></i>
+                Dashboard
+            </a>
+            <a href="./assigned_tasks.html"
+                class="flex items-center gap-3 text-gray-500 px-3 py-2.5 rounded text-[13px] hover:bg-gray-200 hover:text-black-300 transition-all duration-150">
+                <i class="fas fa-clipboard-check text-xs w-4 text-center"></i>
+                My Assigned Tasks
+            </a>
+            <a href="./job_history.html"
+                class="flex items-center gap-3 text-gray-500 px-3 py-2.5 rounded text-[13px] hover:bg-gray-100 hover:text-black transition-all duration-150">
+                <i class="fas fa-clock-rotate-left text-xs w-4 text-center"></i>
+                Job History
+            </a>
+            <a href="./chat.html"
+                class="flex items-center gap-3 text-gray-500 px-3 py-2.5 rounded text-[13px] hover:bg-gray-100 hover:text-black transition-all duration-150">
+                <i class="fas fa-comments text-xs w-4 text-center"></i>
+                Chat
+            </a>
+            <a href="./service_history_report.html"
+                class="flex items-center gap-3 text-gray-500 px-3 py-2.5 rounded text-[13px] hover:bg-gray-100 hover:text-black transition-all duration-150">
+                <i class="fas fa-chart-bar text-xs w-4 text-center"></i>
+                Reports
+            </a>
+            <a href="./setting.html"
+                class="flex items-center gap-3 text-gray-500 px-3 py-2.5 rounded text-[13px] hover:bg-gray-100 hover:text-black transition-all duration-150">
+                <i class="fas fa-gear text-xs w-4 text-center"></i>
+                Settings
+            </a>
+        </nav>
+
+        <div class="p-4 border-t border-gray-100 flex items-center gap-3">
+
+            <a href="./setting.html"> <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=AlexChen"
+                    class="w-9 h-9 rounded-full bg-gray-200 shrink-0"></a>
+            <div>
+
+                <a href="./setting.html">
+                    <p class="text-[12px] font-bold text-gray-800 leading-tight">ABID HASNINE</p>
+                </a>
+                <p class="text-[10px] text-gray-400">Lead Technician</p>
+            </div>
+        </div>
+    </aside>
+
+    <!-- MAIN -->
+    <div class="flex-1 flex flex-col min-w-0 overflow-hidden">
+
+        <!-- HEADER -->
+        <header class="bg-white border-b border-gray-200 h-14 flex items-center shrink-0 z-50">
+            <div class="flex items-center gap-2 px-6 border-r border-gray-200 h-full">
+                <a href="http://127.0.0.1:5500/Pages/landing_page.html"><i class="fas fa-home text-gray-800 text-base"></i></a>
+                <a href="http://127.0.0.1:5500/Pages/landing_page.html"> <span
+                        class="font-condensed font-bold text-[18px] tracking-wide">TenureX</span></a>
+            </div>
+            <!-- Center title -->
+            <div class="flex-1 flex justify-center">
+                <span class="font-condensed font-extrabold text-[18px] uppercase tracking-[0.2em] text-gray-900">Service
+                    History Report</span>
+            </div>
+            <div class="flex items-center gap-4 px-6">
+                <div class="relative">
+                    <i
+                        class="fas fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-gray-700 text-xs"></i>
+                    <input type="text" placeholder="Search Entries..."
+                        class="pl-8 pr-4 py-1.5 border border-gray-300 text-[11px] tracking-[0.06em] placeholder-gray-500 focus:outline-none bg-white rounded w-44" />
+                </div>
+                <i class="fas fa-bell text-gray-700 text-base cursor-pointer"></i>
+                <a href="./report_ledger.html"> <button
+                        class="bg-gray-900 text-white text-[10px] font-bold tracking-[0.12em] uppercase px-4 py-2 flex items-center gap-2 hover:bg-black transition">
+                        <i class="fas fa-download text-xs"></i> Export Ledger
+                    </button></a>
+            </div>
+        </header>
+
+        <!-- BODY -->
+        <div class="flex-1 overflow-y-auto px-10 py-8 min-w-0">
+
+            <!-- TOP STAT CARDS -->
+            <div class="grid grid-cols-3 gap-0 border border-gray-200 mb-8">
+                <div class="px-8 py-6 border-r border-gray-200">
+                    <p class="text-[9px] font-semibold text-gray-400 uppercase tracking-[0.18em] mb-3">Total Jobs</p>
+                    <div class="flex items-baseline gap-3">
+                        <span class="font-condensed font-extrabold text-[48px] leading-none text-gray-900">142</span>
+                        <span class="text-[11px] font-bold text-gray-400">+12% Monthly</span>
+                    </div>
+                </div>
+                <div class="px-8 py-6 border-r border-gray-200">
+                    <p class="text-[9px] font-semibold text-gray-400 uppercase tracking-[0.18em] mb-3">Revenue</p>
+                    <div class="flex items-baseline gap-3">
+                        <span
+                            class="font-condensed font-extrabold text-[48px] leading-none text-gray-900">$18,400</span>
+                        <i class="fas fa-copy text-gray-300 text-sm cursor-pointer hover:text-gray-500"></i>
+                    </div>
+                </div>
+                <div class="px-8 py-6">
+                    <p class="text-[9px] font-semibold text-gray-400 uppercase tracking-[0.18em] mb-3">Avg. Resolution
+                    </p>
+                    <div class="flex items-baseline gap-2">
+                        <span class="font-condensed font-extrabold text-[48px] leading-none text-gray-900">3.2</span>
+                        <span class="text-[13px] font-bold text-gray-500">DAYS</span>
+                        <span class="text-[10px] font-semibold text-gray-400">-0.4 Target</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CHARTS ROW -->
+            <div class="grid grid-cols-2 gap-6 mb-8">
+                <!-- Jobs Per Category -->
+                <div class="border border-gray-200 p-6">
+                    <div class="flex items-center gap-2 mb-5">
+                        <span class="w-3 h-3 bg-gray-800 inline-block"></span>
+                        <span class="text-[10px] font-bold text-gray-700 uppercase tracking-[0.2em]">Jobs Per
+                            Category</span>
+                    </div>
+                    <div class="space-y-4">
+                        <!-- Plumbing -->
+                        <div>
+                            <div class="flex justify-between mb-1.5">
+                                <span
+                                    class="text-[11px] font-semibold text-gray-600 uppercase tracking-wide">Plumbing</span>
+                                <span class="text-[11px] font-bold text-gray-800">42</span>
+                            </div>
+                            <div class="w-full h-[3px] bg-gray-100">
+                                <div class="h-full bg-gray-900" style="width:85%"></div>
+                            </div>
+                        </div>
+                        <!-- Electrical -->
+                        <div>
+                            <div class="flex justify-between mb-1.5">
+                                <span
+                                    class="text-[11px] font-semibold text-gray-600 uppercase tracking-wide">Electrical</span>
+                                <span class="text-[11px] font-bold text-gray-800">38</span>
+                            </div>
+                            <div class="w-full h-[3px] bg-gray-100">
+                                <div class="h-full bg-gray-700" style="width:76%"></div>
+                            </div>
+                        </div>
+                        <!-- HVAC -->
+                        <div>
+                            <div class="flex justify-between mb-1.5">
+                                <span
+                                    class="text-[11px] font-semibold text-gray-600 uppercase tracking-wide">HVAC</span>
+                                <span class="text-[11px] font-bold text-gray-800">31</span>
+                            </div>
+                            <div class="w-full h-[3px] bg-gray-100">
+                                <div class="h-full bg-gray-500" style="width:62%"></div>
+                            </div>
+                        </div>
+                        <!-- Appliance -->
+                        <div>
+                            <div class="flex justify-between mb-1.5">
+                                <span
+                                    class="text-[11px] font-semibold text-gray-600 uppercase tracking-wide">Appliance</span>
+                                <span class="text-[11px] font-bold text-gray-800">31</span>
+                            </div>
+                            <div class="w-full h-[3px] bg-gray-100">
+                                <div class="h-full bg-gray-400" style="width:62%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Monthly Throughput -->
+                <div class="border border-gray-200 p-6">
+                    <div class="flex items-center justify-between mb-5">
+                        <div class="flex items-center gap-2">
+                            <span class="w-3 h-3 bg-gray-800 inline-block"></span>
+                            <span class="text-[10px] font-bold text-gray-700 uppercase tracking-[0.2em]">Monthly
+                                Throughput</span>
+                        </div>
+                        <span class="text-[9px] font-semibold text-gray-400 uppercase tracking-wide">Jan — Jun
+                            2024</span>
+                    </div>
+                    <!-- Simple bar chart -->
+                    <div class="flex items-end gap-3 h-32 mt-4">
+                        <div class="flex flex-col items-center gap-2 flex-1">
+                            <div class="w-full bg-gray-200" style="height:45%"></div>
+                            <span class="text-[9px] text-gray-400 font-semibold uppercase">Jan</span>
+                        </div>
+                        <div class="flex flex-col items-center gap-2 flex-1">
+                            <div class="w-full bg-gray-300" style="height:55%"></div>
+                            <span class="text-[9px] text-gray-400 font-semibold uppercase">Feb</span>
+                        </div>
+                        <div class="flex flex-col items-center gap-2 flex-1">
+                            <div class="w-full bg-gray-400" style="height:65%"></div>
+                            <span class="text-[9px] text-gray-400 font-semibold uppercase">Mar</span>
+                        </div>
+                        <div class="flex flex-col items-center gap-2 flex-1">
+                            <div class="w-full bg-gray-500" style="height:70%"></div>
+                            <span class="text-[9px] text-gray-400 font-semibold uppercase">Apr</span>
+                        </div>
+                        <div class="flex flex-col items-center gap-2 flex-1">
+                            <div class="w-full bg-gray-600" style="height:80%"></div>
+                            <span class="text-[9px] text-gray-400 font-semibold uppercase">May</span>
+                        </div>
+                        <div class="flex flex-col items-center gap-2 flex-1">
+                            <div class="w-full bg-gray-900" style="height:100%"></div>
+                            <span class="text-[9px] text-gray-900 font-bold uppercase">Jun</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DETAILED JOB HISTORY TABLE -->
+            <div class="border border-gray-200">
+                <div class="px-6 py-5 border-b border-gray-100 flex items-center justify-between">
+                    <div>
+                        <h2 class="font-condensed font-extrabold text-[18px] uppercase tracking-[0.1em] text-gray-900">
+                            Detailed Job History</h2>
+                        <p class="text-[10px] font-semibold text-gray-400 uppercase tracking-[0.15em] mt-0.5">Audit
+                            Trail & Ledger</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="flex items-center gap-1 border-b border-gray-400 pb-0.5">
+                            <span class="text-[10px] font-bold text-gray-600 uppercase tracking-[0.1em]">Category:
+                                All</span>
+                            <i class="fas fa-chevron-down text-[9px] text-gray-500"></i>
+                        </div>
+                        <div class="flex items-center gap-1 border-b border-gray-400 pb-0.5">
+                            <span class="text-[10px] font-bold text-gray-600 uppercase tracking-[0.1em]">Status:
+                                All</span>
+                            <i class="fas fa-chevron-down text-[9px] text-gray-500"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Table header -->
+                <div
+                    class="grid grid-cols-[90px_1fr_100px_90px_100px_110px_80px] gap-0 px-6 py-3 border-b border-gray-200 bg-gray-50">
+                    <span class="text-[9px] font-bold text-gray-400 uppercase tracking-[0.15em]">Ref ID</span>
+                    <span class="text-[9px] font-bold text-gray-400 uppercase tracking-[0.15em]">Asset / Location</span>
+                    <span class="text-[9px] font-bold text-gray-400 uppercase tracking-[0.15em]">Dept.</span>
+                    <span class="text-[9px] font-bold text-gray-400 uppercase tracking-[0.15em]">Date</span>
+                    <span class="text-[9px] font-bold text-gray-400 uppercase tracking-[0.15em]">Operator</span>
+                    <span class="text-[9px] font-bold text-gray-400 uppercase tracking-[0.15em]">Status</span>
+                    <span class="text-[9px] font-bold text-gray-400 uppercase tracking-[0.15em]">Cost (USD)</span>
+                </div>
+
+                <!-- Row 1 -->
+                <div
+                    class="grid grid-cols-[90px_1fr_100px_90px_100px_110px_80px] gap-0 px-6 py-5 border-b border-gray-100 items-center hover:bg-gray-50 transition cursor-pointer">
+                    <div>
+                        <p class="text-[10px] font-bold text-gray-400">#WO-</p>
+                        <p class="text-[10px] font-bold text-gray-400">9482</p>
+                    </div>
+                    <div>
+                        <p class="text-[12px] font-extrabold text-gray-900 uppercase">Main Line Flush</p>
+                        <p class="text-[10px] text-gray-400">Skyline Heights — A02</p>
+                    </div>
+                    <div><span
+                            class="border border-gray-300 text-[9px] font-bold text-gray-600 uppercase tracking-[0.1em] px-2 py-1 inline-block">Plumbing</span>
+                    </div>
+                    <div>
+                        <p class="text-[11px] font-semibold text-gray-700">Jun 14,</p>
+                        <p class="text-[11px] font-semibold text-gray-700">2024</p>
+                    </div>
+                    <div>
+                        <p class="text-[11px] font-semibold text-gray-700">J. DOE</p>
+                    </div>
+                    <div class="flex items-center gap-1.5"><span
+                            class="w-2 h-2 bg-gray-700 inline-block shrink-0"></span><span
+                            class="text-[10px] font-bold text-gray-600 uppercase">Standard</span></div>
+                    <div>
+                        <p class="text-[12px] font-bold text-gray-900">450.00</p>
+                    </div>
+                </div>
+
+                <!-- Row 2 -->
+                <div
+                    class="grid grid-cols-[90px_1fr_100px_90px_100px_110px_80px] gap-0 px-6 py-5 border-b border-gray-100 items-center hover:bg-gray-50 transition cursor-pointer">
+                    <div>
+                        <p class="text-[10px] font-bold text-gray-400">#WO-</p>
+                        <p class="text-[10px] font-bold text-gray-400">9479</p>
+                    </div>
+                    <div>
+                        <p class="text-[12px] font-extrabold text-gray-900 uppercase">Breaker Replacement</p>
+                        <p class="text-[10px] text-gray-400">Blog 8 — Lorry</p>
+                    </div>
+                    <div><span
+                            class="border border-gray-300 text-[9px] font-bold text-gray-600 uppercase tracking-[0.1em] px-2 py-1 inline-block">Electrical</span>
+                    </div>
+                    <div>
+                        <p class="text-[11px] font-semibold text-gray-700">Jun 12,</p>
+                        <p class="text-[11px] font-semibold text-gray-700">2024</p>
+                    </div>
+                    <div>
+                        <p class="text-[11px] font-semibold text-gray-700">M. CHEN</p>
+                    </div>
+                    <div class="flex items-center gap-1.5"><span
+                            class="w-2 h-2 bg-gray-700 inline-block shrink-0"></span><span
+                            class="text-[10px] font-bold text-gray-600 uppercase">Standard</span></div>
+                    <div>
+                        <p class="text-[12px] font-bold text-gray-900">280.00</p>
+                    </div>
+                </div>
+
+                <!-- Row 3 -->
+                <div
+                    class="grid grid-cols-[90px_1fr_100px_90px_100px_110px_80px] gap-0 px-6 py-5 border-b border-gray-100 items-center hover:bg-gray-50 transition cursor-pointer">
+                    <div>
+                        <p class="text-[10px] font-bold text-gray-400">#WO-</p>
+                        <p class="text-[10px] font-bold text-gray-400">9475</p>
+                    </div>
+                    <div>
+                        <p class="text-[12px] font-extrabold text-gray-900 uppercase">HVAC Seasonal Tune-Up</p>
+                        <p class="text-[10px] text-gray-400">Penthouse — Terrace</p>
+                    </div>
+                    <div><span
+                            class="border border-gray-300 text-[9px] font-bold text-gray-600 uppercase tracking-[0.1em] px-2 py-1 inline-block">HVAC</span>
+                    </div>
+                    <div>
+                        <p class="text-[11px] font-semibold text-gray-700">Jun 11,</p>
+                        <p class="text-[11px] font-semibold text-gray-700">2024</p>
+                    </div>
+                    <div>
+                        <p class="text-[11px] font-semibold text-gray-700">S. MILLER</p>
+                    </div>
+                    <div class="flex items-center gap-1.5"><span
+                            class="w-2 h-2 bg-gray-700 inline-block shrink-0"></span><span
+                            class="text-[10px] font-bold text-gray-600 uppercase">Standard</span></div>
+                    <div>
+                        <p class="text-[12px] font-bold text-gray-900">1,200.00</p>
+                    </div>
+                </div>
+
+                <!-- Row 4 -->
+                <div
+                    class="grid grid-cols-[90px_1fr_100px_90px_100px_110px_80px] gap-0 px-6 py-5 items-center hover:bg-gray-50 transition cursor-pointer">
+                    <div>
+                        <p class="text-[10px] font-bold text-gray-400">#WO-</p>
+                        <p class="text-[10px] font-bold text-gray-400">9476</p>
+                    </div>
+                    <div>
+                        <p class="text-[12px] font-extrabold text-gray-900 uppercase">Dishwasher Diagnostic</p>
+                        <p class="text-[10px] text-gray-400">Apt 112 — North</p>
+                    </div>
+                    <div><span
+                            class="border border-gray-300 text-[9px] font-bold text-gray-600 uppercase tracking-[0.1em] px-2 py-1 inline-block">Appliance</span>
+                    </div>
+                    <div>
+                        <p class="text-[11px] font-semibold text-gray-700">Jun 09,</p>
+                        <p class="text-[11px] font-semibold text-gray-700">2024</p>
+                    </div>
+                    <div>
+                        <p class="text-[11px] font-semibold text-gray-700">A. RIVERA</p>
+                    </div>
+                    <div class="flex items-center gap-1.5"><span
+                            class="w-2 h-2 bg-gray-900 inline-block shrink-0"></span><span
+                            class="text-[10px] font-bold text-gray-900 uppercase">Urgent</span></div>
+                    <div>
+                        <p class="text-[12px] font-bold text-gray-900">150.00</p>
+                    </div>
+                </div>
+
+                <!-- Footer -->
+                <div class="px-6 py-4 border-t border-gray-100 flex items-center justify-between">
+                    <p class="text-[10px] font-semibold text-gray-400 uppercase tracking-[0.15em]">Page 01 — 142 Entries
+                    </p>
+                    <div class="flex items-center gap-1">
+                        <button
+                            class="w-6 h-6 flex items-center justify-center text-gray-400 hover:text-gray-700 text-xs"><i
+                                class="fas fa-chevron-left"></i></button>
+                        <button
+                            class="w-7 h-7 bg-gray-900 text-white text-[11px] font-bold flex items-center justify-center">01</button>
+                        <button
+                            class="w-7 h-7 text-gray-400 text-[11px] font-semibold hover:bg-gray-100 flex items-center justify-center transition">02</button>
+                        <button
+                            class="w-7 h-7 text-gray-400 text-[11px] font-semibold hover:bg-gray-100 flex items-center justify-center transition">03</button>
+                        <button
+                            class="w-6 h-6 flex items-center justify-center text-gray-400 hover:text-gray-700 text-xs"><i
+                                class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+<
