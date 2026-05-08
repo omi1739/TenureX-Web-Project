@@ -65,12 +65,39 @@
 
         </aside>
 
+        <script>
+            // Highlight active sidebar navigation item
+            document.addEventListener('DOMContentLoaded', function () {
+                // Get current page filename
+                const currentPage = window.location.pathname.split('/').pop() || 'dashboard.html';
+
+                // Get all nav links
+                const navLinks = document.querySelectorAll('nav a');
+
+                // Loop through each link
+                navLinks.forEach(link => {
+                    // Get the href value
+                    const href = link.getAttribute('href');
+
+                    // Check if this link matches the current page
+                    if (href === './' + currentPage || (currentPage === '' && href === './dashboard.html')) {
+                        // Apply active classes
+                        link.classList.add('bg-black', 'text-white');
+                        link.classList.remove('text-gray-600');
+                    } else {
+                        // Remove active classes
+                        link.classList.remove('bg-black', 'text-white');
+                        link.classList.add('bg-gray-200', 'text-gray-600');
+                    }
+                });
+            });
+        </script>
+
         <!--  main content -->
 
         <div class="ml-64 w-full p-6">
 
-            <header
-                class="fixed top-0 left-64 right-0 bg-white px-6 py-4 flex justify-between items-center z-50">
+            <header class="fixed top-0 left-64 right-0 bg-white px-6 py-4 flex justify-between items-center z-50">
                 <h1 class="font-semibold text-lg">
                     <i class="fas fa-home"></i> TenureX
                 </h1>
@@ -144,7 +171,8 @@
                                     <span class="text-sm text-gray-400">3 bed</span>
                                 </div>
                             </div>
-                            <a href="../Pages/propertyDetails.html" class= "btn btn-neutral flex justify-center m-3">View Details</a>
+                            <a href="../Pages/propertyDetails.html" class="btn btn-neutral flex justify-center m-3">View
+                                Details</a>
                         </div>
 
                         <!-- card-2 -->
@@ -159,7 +187,8 @@
                                     <span class="text-sm text-gray-400">2 bed</span>
                                 </div>
                             </div>
-                            <a href="../Pages/propertyDetails.html" class= "btn btn-neutral flex justify-center m-3">View Details</a>
+                            <a href="../Pages/propertyDetails.html" class="btn btn-neutral flex justify-center m-3">View
+                                Details</a>
                         </div>
                         <!-- card-3 -->
                         <div class="bg-white rounded-xl overflow-hidden shadow ">
@@ -173,7 +202,8 @@
                                     <span class="text-sm text-gray-400">2 bed</span>
                                 </div>
                             </div>
-                            <a href="../Pages/propertyDetails.html" class= "btn btn-neutral flex justify-center m-3">View Details</a>
+                            <a href="../Pages/propertyDetails.html" class="btn btn-neutral flex justify-center m-3">View
+                                Details</a>
                         </div>
                         <!-- card-4 -->
                         <div class="bg-white rounded-xl overflow-hidden shadow ">
@@ -187,7 +217,8 @@
                                     <span class="text-sm text-gray-400">2 bed</span>
                                 </div>
                             </div>
-                            <a href="../Pages/propertyDetails.html" class= "btn btn-neutral flex justify-center m-3">View Details</a>
+                            <a href="../Pages/propertyDetails.html" class="btn btn-neutral flex justify-center m-3">View
+                                Details</a>
                         </div>
                         <!-- card-5 -->
                         <div class="bg-white rounded-xl overflow-hidden shadow ">
@@ -201,7 +232,8 @@
                                     <span class="text-sm text-gray-400">2 bed</span>
                                 </div>
                             </div>
-                            <a href="../Pages/propertyDetails.html" class= "btn btn-neutral flex justify-center m-3">View Details</a>
+                            <a href="../Pages/propertyDetails.html" class="btn btn-neutral flex justify-center m-3">View
+                                Details</a>
                         </div>
                         <!-- card-6 -->
                         <div class="bg-white rounded-xl overflow-hidden shadow ">
@@ -215,7 +247,8 @@
                                     <span class="text-sm text-gray-400">2 bed</span>
                                 </div>
                             </div>
-                            <a href="../Pages/propertyDetails.html" class= "btn btn-neutral flex justify-center m-3">View Details</a>
+                            <a href="../Pages/propertyDetails.html" class="btn btn-neutral flex justify-center m-3">View
+                                Details</a>
                         </div>
 
                     </div>

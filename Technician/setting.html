@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechPortal – Settings</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        nav a {
+            transition: background 0.15s, color 0.15s;
+        }
+
+        nav a:not(.active-nav):hover {
+            background-color: #e5e7eb !important;
+            color: #111 !important;
+        }
+
+        nav a.active-nav,
+        nav a.active-nav:hover {
+            background-color: #111 !important;
+            color: #fff !important;
+            font-weight: 600;
+        }
+    </style>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var currentPage = window.location.pathname.split("/").pop() || 'dashboard.html';
+            document.querySelectorAll("nav a").forEach(function (link) {
+                var href = link.getAttribute("href").split("/").pop();
+                if (href === currentPage) {
+                    link.classList.add("active-nav");
+                } else {
+                    link.classList.remove("active-nav");
+                }
+            });
+        });
+        // Auto-highlight active nav
+    </script>
+</head>
+
+<body class="font-barlow bg-white flex h-screen overflow-hidden">
+
+    <!-- LEFT SIDEBAR -->
+    <aside class="w-44 h-screen bg-white border-r border-gray-200 flex flex-col shrink-0">
+        <div class="px-5 pt-6 pb-8">
+            <p class="font-condensed font-extrabold text-[17px] uppercase tracking-tight leading-none">TechPortal</p>
+            <p class="text-[8px] text-gray-400 uppercase tracking-[0.18em] font-semibold mt-0.5">Maintenance Division
+            </p>
+        </div>
+
+        <nav class="flex-1 px-2 space-y-0.5">
+            <a href="./dashboard.html"
+                class="flex items-center gap-3 text-gray-500 px-3 py-2.5 rounded text-[13px] hover:bg-gray-200 hover:text-black transition-all duration-150">
+                <i class="fas fa-th-large text-xs w-4 text-center"></i>
+                Dashboard
+            </a>
+            <a href="./assigned_tasks.html"
+                class="flex items-center gap-3 text-gray-500 px-3 py-2.5 rounded text-[13px] hover:bg-gray-200 hover:text-black-300 transition-all duration-150">
+                <i class="fas fa-clipboard-check text-xs w-4 text-center"></i>
+                My Assigned Tasks
+            </a>
+            <a href="./job_history.html"
+                class="flex items-center gap-3 text-gray-500 px-3 py-2.5 rounded text-[13px] hover:bg-gray-100 hover:text-black transition-all duration-150">
+                <i class="fas fa-clock-rotate-left text-xs w-4 text-center"></i>
+                Job History
+            </a>
+            <a href="./chat.html"
+                class="flex items-center gap-3 text-gray-500 px-3 py-2.5 rounded text-[13px] hover:bg-gray-100 hover:text-black transition-all duration-150">
+                <i class="fas fa-comments text-xs w-4 text-center"></i>
+                Chat
+            </a>
+            <a href="./service_history_report.html"
+                class="flex items-center gap-3 text-gray-500 px-3 py-2.5 rounded text-[13px] hover:bg-gray-100 hover:text-black transition-all duration-150">
+                <i class="fas fa-chart-bar text-xs w-4 text-center"></i>
+                Reports
+            </a>
+            <a href="./setting.html"
+                class="flex items-center gap-3 text-gray-500 px-3 py-2.5 rounded text-[13px] hover:bg-gray-100 hover:text-black transition-all duration-150">
+                <i class="fas fa-gear text-xs w-4 text-center"></i>
+                Settings
+            </a>
+        </nav>
+
+        <div class="p-4 border-t border-gray-100 flex items-center gap-3">
+
+            <a href="./setting.html"> <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=AlexChen"
+                    class="w-9 h-9 rounded-full bg-gray-200 shrink-0"></a>
+            <div>
+
+                <a href="./setting.html">
+                    <p class="text-[12px] font-bold text-gray-800 leading-tight">ABID HASNINE</p>
+                </a>
+                <p class="text-[10px] text-gray-400">Lead Technician</p>
+            </div>
+        </div>
+    </aside>
+
+    <!-- MAIN -->
+    <div class="flex-1 flex flex-col min-w-0 overflow-hidden">
+
+        <!-- HEADER -->
+        <header class="bg-white border-b border-gray-200 h-14 flex items-center shrink-0 z-50">
+            <div class="flex items-center gap-2 px-5 border-r border-gray-200 h-full">
+                 <a href="http://127.0.0.1:5500/Pages/landing_page.html"><i class="fas fa-home text-gray-800 text-base"></i></a>
+                <a href="http://127.0.0.1:5500/Pages/landing_page.html"> <span
+                        class="font-condensed font-bold text-[18px] tracking-wide">TenureX</span></a>
+            </div>
+            <div class="flex-1 flex items-center justify-center">
+                <span
+                    class="font-condensed font-extrabold text-[15px] uppercase tracking-[0.2em] text-gray-700">Technician
+                    Portal</span>
+            </div>
+            <div class="flex items-center gap-4 px-5">
+                <div class="relative">
+                    <i
+                        class="fas fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-gray-700 text-xs"></i>
+                    <input type="text" placeholder="SEARCH ORDERS..."
+                        class="pl-8 pr-4 py-1.5 border border-gray-300 text-[11px] tracking-[0.1em] placeholder-gray-500 focus:outline-none bg-white w-40" />
+                </div>
+                <i class="fas fa-bell text-gray-700 text-base cursor-pointer"></i>
+                <i class="fas fa-circle-question text-gray-700 text-base cursor-pointer"></i>
+                <span class="text-[11px] font-bold text-black uppercase tracking-[0.15em]">Account Settings</span>
+            </div>
+        </header>
+
+        <!-- BODY -->
+        <div class="flex-1 overflow-y-auto px-10 py-8 min-w-0 bg-gray-50">
+
+            <!-- Title row -->
+            <div class="flex items-start justify-between mb-6">
+                <div>
+                    <h1 class="font-condensed font-extrabold text-[42px] uppercase tracking-tight leading-none mb-1">
+                        Profile Settings</h1>
+                    <p class="text-[10px] font-bold text-gray-400 uppercase tracking-[0.2em]">Authentication Protocols &
+                        Credential Management</p>
+                </div>
+                <a href="http://127.0.0.1:5500/Pages/login.html"> <button
+                        class="flex items-center gap-2 bg-gray-200 text-gray-700 text-[11px] font-bold tracking-[0.15em] uppercase px-6 py-3 hover:bg-gray-300 transition">
+                       <a href="../Pages/login.html"> Logout </a> <i class="fas fa-right-from-bracket text-xs"></i>
+                    </button></a>
+
+            </div>
+            <hr class="border-gray-300 mb-8" />
+
+            <div class="flex gap-6">
+
+                <!-- LEFT: Profile card + Expertise -->
+                <div class="flex flex-col gap-5 w-64 shrink-0">
+
+                    <!-- Profile card -->
+                    <div class="bg-white border border-gray-200 p-6 flex flex-col items-center">
+                        <div class="w-36 h-36 bg-gray-900 flex items-center justify-center mb-4 relative">
+                            <i class="fas fa-user-tie text-white text-5xl"></i>
+                            <p class="absolute bottom-2 text-[8px] text-gray-400 text-center tracking-wide">Profile
+                                Photo in work</p>
+                        </div>
+                        <h2 class="font-condensed font-extrabold text-[20px] uppercase tracking-tight mb-0.5">ABID
+                            HASNINE</h2>
+                        <p class="text-[10px] font-semibold text-gray-400 uppercase tracking-widest mb-4">Senior
+                            Technical Lead</p>
+                        <button
+                            class="flex items-center gap-2 border border-gray-300 text-[10px] font-bold uppercase tracking-widest px-4 py-2 hover:bg-gray-50 transition">
+                            <i class="fas fa-circle-check text-xs text-gray-600"></i> Verified Professional
+                        </button>
+                    </div>
+
+                    <!-- Expertise Area -->
+                    <div class="bg-white border border-gray-200 p-5">
+                        <div class="flex items-center justify-between mb-4">
+                            <p class="text-[9px] font-bold text-gray-500 uppercase tracking-widest">Expertise Area</p>
+                            <i class="fas fa-location-crosshairs text-gray-400 text-xs"></i>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex items-center gap-3">
+                                <div class="w-9 h-9 bg-gray-900 flex items-center justify-center shrink-0">
+                                    <i class="fas fa-bolt text-white text-xs"></i>
+                                </div>
+                                <div>
+                                    <p class="text-[11px] font-bold text-gray-800 uppercase">Electrical</p>
+                                    <p class="text-[9px] text-gray-400 uppercase tracking-wide">Master Certification</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-9 h-9 bg-gray-200 flex items-center justify-center shrink-0">
+                                    <i class="fas fa-wrench text-gray-600 text-xs"></i>
+                                </div>
+                                <div>
+                                    <p class="text-[11px] font-bold text-gray-800 uppercase">Plumbing</p>
+                                    <p class="text-[9px] text-gray-400 uppercase tracking-wide">Residential Specialist
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGHT: Basic Info + Password -->
+                <div class="flex-1 flex flex-col gap-5">
+
+                    <!-- Basic Information -->
+                    <div class="bg-white border border-gray-200">
+                        <div class="bg-gray-900 px-5 py-3 flex items-center justify-between">
+                            <p class="text-[10px] font-bold text-white uppercase tracking-widest">Basic Information</p>
+                            <span class="text-[9px] font-bold text-gray-400 uppercase tracking-wide">Identity File:
+                                MT-9821</span>
+                        </div>
+                        <div class="p-6">
+                            <div class="grid grid-cols-2 gap-5 mb-5">
+                                <div>
+                                    <p class="text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-1.5">Full
+                                        Name</p>
+                                    <input type="text" value="ABID HASNINE"
+                                        class="w-full border border-gray-200 px-3 py-2.5 text-[12px] font-bold text-gray-800 uppercase tracking-wide focus:outline-none focus:border-gray-400 bg-white" />
+                                </div>
+                                <div>
+                                    <p class="text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-1.5">Work
+                                        ID</p>
+                                    <input type="text" value="TECH-9921-MT"
+                                        class="w-full border border-gray-200 px-3 py-2.5 text-[12px] font-semibold text-gray-500 tracking-wide focus:outline-none bg-gray-50"
+                                        readonly />
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-2 gap-5 mb-6">
+                                <div>
+                                    <p class="text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-1.5">Email
+                                        Address</p>
+                                    <div
+                                        class="flex items-center border border-gray-200 px-3 py-2.5 focus-within:border-gray-400">
+                                        <input type="text" value="ahasnine@techportal.com"
+                                            class="flex-1 text-[12px] font-semibold text-gray-700 focus:outline-none bg-transparent" />
+                                        <i class="fas fa-at text-gray-300 text-xs"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-1.5">Phone
+                                        Number</p>
+                                    <div
+                                        class="flex items-center border border-gray-200 px-3 py-2.5 focus-within:border-gray-400">
+                                        <input type="text" value="+1 (555) 234-8902"
+                                            class="flex-1 text-[12px] font-semibold text-gray-700 focus:outline-none bg-transparent" />
+                                        <i class="fas fa-phone text-gray-300 text-xs"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex justify-end">
+                                <button onclick="document.getElementById('updatedModal').classList.remove('hidden')"
+                                    class="flex items-center gap-2 bg-gray-900 text-white text-[10px] font-bold tracking-[0.15em] uppercase px-6 py-2.5 hover:bg-black transition">
+                                    <i class="fas fa-floppy-disk text-xs"></i> Save Changes
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Password Section -->
+                    <div class="bg-white border border-gray-200 p-6">
+                        <div class="flex gap-6">
+                            <div class="flex-1">
+                                <div class="mb-4">
+                                    <p class="text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-1.5">
+                                        Current Password</p>
+                                    <input type="password" value="password123"
+                                        class="w-full border border-gray-200 px-3 py-2.5 text-[13px] text-gray-700 focus:outline-none focus:border-gray-400 bg-gray-50" />
+                                    <p class="text-[9px] text-gray-400 mt-1.5">Last encryption update: 120 days ago</p>
+                                </div>
+                                <div class="grid grid-cols-2 gap-4 mb-4">
+                                    <div>
+                                        <p class="text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-1.5">
+                                            New Password</p>
+                                        <input type="password" placeholder="Enter new encryption"
+                                            class="w-full border border-gray-200 px-3 py-2.5 text-[11px] placeholder-gray-300 focus:outline-none focus:border-gray-400 bg-white" />
+                                    </div>
+                                    <div>
+                                        <p class="text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-1.5">
+                                            Confirm New Password</p>
+                                        <input type="password" placeholder="Re-enter to validate"
+                                            class="w-full border border-gray-200 px-3 py-2.5 text-[11px] placeholder-gray-300 focus:outline-none focus:border-gray-400 bg-white" />
+                                    </div>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center gap-2">
+                                        <i class="fas fa-shield-halved text-gray-400 text-xs"></i>
+                                        <span
+                                            class="text-[10px] font-bold text-gray-500 uppercase tracking-wide">2-Factor
+                                            Authentication: Active</span>
+                                    </div>
+                                    <button
+                                        class="border border-gray-300 text-[10px] font-bold uppercase tracking-widest px-5 py-2 hover:bg-gray-50 transition">Reset
+                                        Password</button>
+                                </div>
+                            </div>
+                            <!-- Policy box -->
+                            <div class="w-44 shrink-0">
+                                <div class="bg-gray-50 border border-gray-200 p-4">
+                                    <div class="flex items-center gap-2 mb-3">
+                                        <i class="fas fa-shield text-gray-600 text-xs"></i>
+                                        <p
+                                            class="text-[9px] font-bold text-gray-700 uppercase tracking-widest leading-tight">
+                                            Password Policy Requirements</p>
+                                    </div>
+                                    <ul class="space-y-1.5">
+                                        <li class="text-[9px] text-gray-500 leading-snug">• Min 12 alpha-numeric chars
+                                        </li>
+                                        <li class="text-[9px] text-gray-500 leading-snug">• Symbol inclusion mandatory
+                                        </li>
+                                        <li class="text-[9px] text-gray-500 leading-snug">• No repetition of 3 prior
+                                            sets</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Global Session Termination -->
+                    <div class="bg-white border border-gray-200 px-6 py-4 flex items-center justify-between">
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 bg-gray-100 flex items-center justify-center shrink-0">
+                                <i class="fas fa-right-from-bracket text-gray-600 text-sm"></i>
+                            </div>
+                            <div>
+                                <p class="text-[11px] font-bold text-gray-800 uppercase tracking-wide">Global Session
+                                    Termination</p>
+                                <p class="text-[9px] text-gray-400 uppercase tracking-wide">Signout All Mobile & Desktop
+                                    Terminals</p>
+                            </div>
+                        </div>
+                        <button
+                            class="border-2 border-gray-900 text-[10px] font-bold uppercase tracking-widest px-5 py-2.5 text-gray-900 hover:bg-gray-900 hover:text-white transition">
+                            Terminate All Active Sessions
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- UPDATED MODAL -->
+    <div id="updatedModal" class="hidden fixed inset-0 bg-black/60 items-center justify-center z-50">
+        <div class="bg-white rounded-xl px-16 py-10 flex flex-col items-center gap-4 shadow-2xl">
+            <div class="w-16 h-16 bg-green-300 rounded-full flex items-center justify-center">
+                <i class="fas fa-check text-green-700 text-2xl"></i>
+            </div>
+            <p class="text-[18px] font-semibold text-gray-800">Updated</p>
+            <button onclick="document.getElementById('updatedModal').classList.add('hidden')"
+                class="bg-gray-900 text-white text-[11px] font-bold uppercase tracking-widest px-8 py-2 hover:bg-black transition">
+                Close
+            </button>
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechPortal – Daily Operations</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+    <style>
+        nav a {
+            transition: background 0.15s, color 0.15s;
+        }
+
+        nav a:not(.active-nav):hover {
+            background-color: #e5e7eb !important;
+            color: #111 !important;
+        }
+
+        nav a.active-nav,
+        nav a.active-nav:hover {
+            background-color: #111 !important;
+            color: #fff !important;
+            font-weight: 600;
+        }
+    </style>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var currentPage = window.location.pathname.split("/").pop() || 'dashboard.html';
+            document.querySelectorAll("nav a").forEach(function (link) {
+                var href = link.getAttribute("href").split("/").pop();
+                if (href === currentPage) {
+                    link.classList.add("active-nav");
+                } else {
+                    link.classList.remove("active-nav");
+                }
+            });
+        });
+        // Auto-highlight active nav
+    </script>
+
+</head>
+
+<body class="font-barlow bg-white flex h-screen overflow-hidden">
+
+    <!-- ═══ LEFT SIDEBAR ═══ -->
+    <aside class="w-44 h-screen bg-white border-r border-gray-200 flex flex-col shrink-0">
+
+        <!-- Brand -->
+        <div class="px-5 pt-6 pb-8">
+            <p class="font-condensed font-extrabold text-[17px] uppercase tracking-tight leading-none">TechPortal</p>
+            <p class="text-[8px] text-gray-400 uppercase tracking-[0.18em] font-semibold mt-0.5">Maintenance Division
+            </p>
+        </div>
+
+        <!-- Nav -->
+        <nav class="flex-1 px-2 space-y-0.5">
+            <a href="./dashboard.html"
+                class="flex items-center gap-3 text-gray-500 px-3 py-2.5 rounded text-[13px] hover:bg-gray-200 hover:text-black transition-all duration-150">
+                <i class="fas fa-th-large text-xs w-4 text-center"></i>
+                Dashboard
+            </a>
+            <a href="./assigned_tasks.html"
+                class="flex items-center gap-3 text-gray-500 px-3 py-2.5 rounded text-[13px] hover:bg-gray-200 hover:text-black-300 transition-all duration-150">
+                <i class="fas fa-clipboard-check text-xs w-4 text-center"></i>
+                My Assigned Tasks
+            </a>
+            <a href="./job_history.html"
+                class="flex items-center gap-3 text-gray-500 px-3 py-2.5 rounded text-[13px] hover:bg-gray-100 hover:text-black transition-all duration-150">
+                <i class="fas fa-clock-rotate-left text-xs w-4 text-center"></i>
+                Job History
+            </a>
+            <a href="./chat.html"
+                class="flex items-center gap-3 text-gray-500 px-3 py-2.5 rounded text-[13px] hover:bg-gray-100 hover:text-black transition-all duration-150">
+                <i class="fas fa-comments text-xs w-4 text-center"></i>
+                Chat
+            </a>
+            <a href="./service_history_report.html"
+                class="flex items-center gap-3 text-gray-500 px-3 py-2.5 rounded text-[13px] hover:bg-gray-100 hover:text-black transition-all duration-150">
+                <i class="fas fa-chart-bar text-xs w-4 text-center"></i>
+                Reports
+            </a>
+            <a href="./setting.html"
+                class="flex items-center gap-3 text-gray-500 px-3 py-2.5 rounded text-[13px] hover:bg-gray-100 hover:text-black transition-all duration-150">
+                <i class="fas fa-gear text-xs w-4 text-center"></i>
+                Settings
+            </a>
+        </nav>
+
+        <!-- User -->
+        <div class="p-4 border-t border-gray-100 flex items-center gap-3">
+
+            <a href="./setting.html"> <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=AlexChen"
+                    class="w-9 h-9 rounded-full bg-gray-200 shrink-0"></a>
+            <div>
+
+                <a href="./setting.html">
+                    <p class="text-[12px] font-bold text-gray-800 leading-tight">ABID HASNINE</p>
+                </a>
+                <p class="text-[10px] text-gray-400">Lead Technician</p>
+            </div>
+        </div>
+    </aside>
+
+    <!-- ═══ MAIN COLUMN ═══ -->
+    <div class="flex-1 flex flex-col min-w-0 overflow-hidden">
+
+        <!-- TOP HEADER -->
+        <header class="bg-white border-b border-gray-200 h-14 flex items-center shrink-0 z-50">
+
+            <!-- TenureX brand — sits right after sidebar -->
+            <div class="flex items-center gap-2 px-6 border-r border-gray-200 h-full">
+                 <a href="http://127.0.0.1:5500/Pages/landing_page.html"><i class="fas fa-home text-gray-800 text-base"></i></a>
+                <a href="http://127.0.0.1:5500/Pages/landing_page.html"> <span
+                        class="font-condensed font-bold text-[18px] tracking-wide">TenureX</span></a>
+            </div>
+
+            <!-- Search — centered in remaining space -->
+            <div class="flex-1 flex justify-center px-8">
+                <div class="relative w-full max-w-md">
+                    <i
+                        class="fas fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-black-300 text-xs"></i>
+                    <input type="text" placeholder="FIND RECORDS..."
+                        class="w-full pl-8 pr-4 py-1.5 border border-gray-300 text-[11px] tracking-[0.12em] placeholder-gray-500 focus:outline-none focus:border-gray-500 bg-white" />
+                </div>
+            </div>
+
+            <!-- Right icons -->
+            <div class="flex items-center gap-5 px-6">
+                <i class="fas fa-bell text-gray-700 text-base cursor-pointer"></i>
+                <i class="fas fa-circle-question text-gray-800 text-base cursor-pointer"></i>
+                <span class="text-[11px] font-semibold text-gray-800 uppercase tracking-[0.15em]">Portal System</span>
+            </div>
+        </header>
+
+        <!-- ═══ BODY: full scrollable area ═══ -->
+        <div class="flex-1 overflow-y-auto min-w-0">
+
+            <!-- TOP SECTION: title + stats — full width -->
+            <div class="px-8 pt-8">
+
+                <!-- SYSTEM STATUS / DAILY OPERATIONS -->
+                <div class="mb-7">
+                    <p class="text-[10px] font-semibold text-gray-400 uppercase tracking-[0.2em] mb-1">System Status</p>
+                    <div class="flex items-center justify-between">
+                        <h1 class="font-condensed font-extrabold text-[64px] uppercase leading-none tracking-tight">
+                            Daily Operations</h1>
+                        <div class="flex items-center gap-3">
+                            <button
+                                class="border border-gray-900 text-[10px] font-bold tracking-[0.15em] uppercase px-5 py-2 hover:bg-gray-100 transition">
+                                Schedule View
+                            </button>
+                            <button
+                                class="bg-gray-900 text-white text-[10px] font-bold tracking-[0.15em] uppercase px-5 py-2 hover:bg-black transition">
+                                + New Request
+                            </button>
+                        </div>
+                    </div>
+                    <hr class="mt-5 border-black" />
+                </div>
+
+                <!-- STATS ROW -->
+                <div class="flex items-start gap-0 mb-8">
+                    <!-- Assigned -->
+                    <div class="flex-1 border-r border-gray-200 pr-8">
+                        <p class="text-[10px] font-semibold text-gray-400 uppercase tracking-[0.18em] mb-2">Assigned</p>
+                        <div class="flex items-baseline gap-2">
+                            <span class="font-condensed font-extrabold text-[52px] leading-none">12</span>
+                            <span class="text-[11px] font-semibold text-gray-500 tracking-wide">+2 TODAY</span>
+                        </div>
+                    </div>
+                    <!-- Active Jobs -->
+                    <div class="flex-1 border-r border-gray-200 px-8">
+                        <p class="text-[10px] font-semibold text-gray-400 uppercase tracking-[0.18em] mb-2">Active Jobs
+                        </p>
+                        <div class="flex items-baseline gap-2">
+                            <span class="font-condensed font-extrabold text-[52px] leading-none">04</span>
+                            <span class="text-[10px] font-extrabold tracking-[0.12em] text-red-600">URGENT</span>
+                        </div>
+                    </div>
+                    <!-- Resolved -->
+                    <div class="flex-1 px-8">
+                        <p class="text-[10px] font-semibold text-gray-400 uppercase tracking-[0.18em] mb-2">Resolved</p>
+                        <div class="flex items-baseline gap-2">
+                            <span class="font-condensed font-extrabold text-[52px] leading-none">25</span>
+                            <span class="text-[11px] font-semibold text-gray-500 tracking-wide">92% KPI</span>
+                        </div>
+                    </div>
+                    <!-- Action Buttons -->
+                    <div class="flex flex-col gap-2 shrink-0 pl-4">
+                        <button
+                            class="bg-gray-900 text-white text-[10px] font-bold tracking-[0.15em] uppercase px-10 py-2.5 hover:bg-black transition">
+                            Update Status
+                        </button>
+                        <button
+                            class="border border-gray-300 text-[10px] font-bold tracking-[0.15em] uppercase px-10 py-2.5 hover:bg-gray-50 transition">
+                            Message Owner
+                        </button>
+                    </div>
+                </div>
+
+                <hr class="border-black" />
+            </div>
+
+            <!-- BOTTOM SECTION: ledger + right panel side by side -->
+            <div class="flex overflow-hidden">
+
+                <!-- CENTER: Master Ledger -->
+                <div class="flex-1 px-8 py-6 min-w-0">
+
+                    <!-- MASTER LEDGER -->
+                    <div class="flex items-center justify-between mb-5">
+                        <h2 class="text-[11px] font-bold text-gray-800 uppercase tracking-[0.2em]">Master Ledger</h2>
+                        <div class="flex gap-5">
+                            <button
+                                class="text-[10px] font-bold text-gray-500 hover:text-black uppercase tracking-[0.15em] transition">Filter</button>
+                            <button
+                                class="text-[10px] font-bold text-gray-500 hover:text-black uppercase tracking-[0.15em] transition">Export</button>
+                        </div>
+                    </div>
+
+                    <!-- Table header -->
+                    <div class="grid grid-cols-4 gap-4 pb-3 border-b border-gray-200">
+                        <span
+                            class="text-[10px] font-semibold text-gray-400 uppercase tracking-[0.15em]">Property</span>
+                        <span
+                            class="text-[10px] font-semibold text-gray-400 uppercase tracking-[0.15em]">Manifest</span>
+                        <span class="text-[10px] font-semibold text-gray-400 uppercase tracking-[0.15em]">Contact</span>
+                        <span class="text-[10px] font-semibold text-gray-400 uppercase tracking-[0.15em]">Status</span>
+                    </div>
+
+                    <!-- Row 1 -->
+                    <div
+                        class="grid grid-cols-4 gap-4 py-5 border-b border-gray-100 items-center hover:bg-gray-50 transition cursor-pointer">
+                        <div>
+                            <p class="text-[13px] font-bold text-gray-800 tracking-wide">ELYSIUM HEIGHTS</p>
+                            <p class="text-[11px] text-gray-400">Unit 48</p>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="w-2 h-2 bg-gray-800 shrink-0 inline-block"></span>
+                            <span class="text-[13px] text-gray-700">Leaky Faucet</span>
+                        </div>
+                        <p class="text-[12px] font-bold text-gray-700 tracking-wide">JOHN DOE</p>
+                        <div><span
+                                class="bg-gray-900 text-white text-[10px] font-bold tracking-[0.1em] uppercase px-3 py-1 inline-block">NEW</span>
+                        </div>
+                    </div>
+
+                    <!-- Row 2 -->
+                    <div
+                        class="grid grid-cols-4 gap-4 py-5 border-b border-gray-100 items-center hover:bg-gray-50 transition cursor-pointer">
+                        <div>
+                            <p class="text-[13px] font-bold text-gray-800 tracking-wide">SILVER OAK APTS</p>
+                            <p class="text-[11px] text-gray-400">Unit 112</p>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="w-2 h-2 bg-gray-400 shrink-0 inline-block"></span>
+                            <span class="text-[13px] text-gray-700">HVAC Inspection</span>
+                        </div>
+                        <p class="text-[12px] font-bold text-gray-700 tracking-wide">SARAH MILLER</p>
+                        <div><span
+                                class="border border-gray-400 text-gray-600 text-[10px] font-bold tracking-[0.1em] uppercase px-3 py-1 inline-block">SCHEDULED</span>
+                        </div>
+                    </div>
+
+                    <!-- Row 3 -->
+                    <div class="grid grid-cols-4 gap-4 py-5 items-center hover:bg-gray-50 transition cursor-pointer">
+                        <div>
+                            <p class="text-[13px] font-bold text-gray-800 tracking-wide">HARBOR VIEW</p>
+                            <p class="text-[11px] text-gray-400">Penthouse A</p>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="w-2 h-2 bg-gray-300 shrink-0 inline-block"></span>
+                            <span class="text-[13px] text-gray-700">Smart Lock Offline</span>
+                        </div>
+                        <p class="text-[12px] font-bold text-gray-700 tracking-wide">ROBERT KING</p>
+                        <div><span
+                                class="border border-gray-300 text-gray-400 text-[10px] font-bold tracking-[0.1em] uppercase px-3 py-1 inline-block">ON
+                                HOLD</span></div>
+                    </div>
+
+                </div>
+
+                <!-- RIGHT SIDEBAR — beside ledger only -->
+                <aside
+                    class="w-66 shrink-0 border-l border-gray-200 bg-white overflow-y-auto px-6 py-6 flex flex-col gap-0">
+
+                    <!-- PROXIMITY MAP -->
+                    <div class="mb-6">
+                        <p class="text-[10px] font-bold text-gray-700 uppercase tracking-[0.2em] mb-4">Proximity Map</p>
+                        <div class="relative overflow-hidden h-28 mb-4 bg-[#0a1a2e]"
+                            style="background-image: linear-gradient(rgba(0,180,220,0.07) 1px,transparent 1px),linear-gradient(90deg,rgba(0,180,220,0.07) 1px,transparent 1px); background-size: 22px 22px;">
+                            <svg class="absolute inset-0 w-full h-full" viewBox="0 0 260 115"
+                                preserveAspectRatio="none">
+                                <path d="M0 75 Q30 55 60 70 T120 65 T180 60 T260 68" stroke="#1a9fc0" stroke-width="1.5"
+                                    fill="none" opacity="0.6" />
+                                <path d="M0 45 Q50 25 100 42 T200 38 T260 44" stroke="#1a9fc0" stroke-width="1"
+                                    fill="none" opacity="0.35" />
+                                <path d="M0 95 Q60 78 120 90 T240 85 T260 88" stroke="#1a9fc0" stroke-width="1"
+                                    fill="none" opacity="0.3" />
+                                <path d="M60 0 Q65 40 62 80 T68 115" stroke="#1a9fc0" stroke-width="1" fill="none"
+                                    opacity="0.3" />
+                                <path d="M120 0 Q125 35 122 70 T128 115" stroke="#1a9fc0" stroke-width="1" fill="none"
+                                    opacity="0.3" />
+                                <path d="M185 0 Q190 30 187 65 T193 115" stroke="#1a9fc0" stroke-width="0.8" fill="none"
+                                    opacity="0.25" />
+                                <circle cx="120" cy="65" r="4" fill="#00ccff" opacity="0.95" />
+                                <circle cx="120" cy="65" r="9" fill="#00ccff" opacity="0.15" />
+                            </svg>
+                            <div class="absolute bottom-2 left-2">
+                                <span
+                                    class="bg-black bg-opacity-70 text-white text-[8px] font-bold tracking-[0.15em] uppercase px-2 py-1">4
+                                    Jobs Nearby</span>
+                            </div>
+                        </div>
+                        <p class="text-[12px] font-bold text-gray-800 tracking-wide mb-0.5">NEXT: ELYSIUM HEIGHTS</p>
+                        <p class="text-[11px] text-gray-400 mb-4">0.8 Miles • Manhattan District</p>
+                        <button
+                            class="w-full bg-gray-900 text-white text-[10px] font-bold tracking-[0.15em] uppercase py-3 flex items-center justify-center gap-2 hover:bg-black transition">
+                            <i class="fas fa-location-arrow text-xs"></i>
+                            Navigation
+                        </button>
+                    </div>
+
+                    <hr class="border-t-2 border-black mb-6" />
+
+                    <!-- METRICS SUMMARY -->
+                    <div class="mb-6">
+                        <p class="text-[10px] font-bold text-gray-700 uppercase tracking-[0.2em] mb-5">Metrics Summary
+                        </p>
+                        <div class="mb-5">
+                            <div class="flex justify-between items-center mb-2">
+                                <span
+                                    class="text-[10px] font-semibold text-gray-500 uppercase tracking-[0.15em]">Completion</span>
+                                <span class="text-[11px] font-bold text-gray-800">94.0%</span>
+                            </div>
+                            <div class="w-full h-[2px] bg-gray-200 rounded-full overflow-hidden">
+                                <div class="h-full bg-gray-800 rounded-full" style="width:94%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span
+                                    class="text-[10px] font-semibold text-gray-500 uppercase tracking-[0.15em]">Response</span>
+                                <span class="text-[11px] font-bold text-gray-800">88.2%</span>
+                            </div>
+                            <div class="w-full h-[2px] bg-gray-200 rounded-full overflow-hidden">
+                                <div class="h-full bg-gray-800 rounded-full" style="width:88%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ELITE TIER BANNER -->
+                    <div class="border border-black px-4 py-3 flex items-center gap-3">
+                        <img src="   https://cdn-icons-png.flaticon.com/512/3068/3068298.png " alt="" height="25"
+                            width="20">
+                        <div>
+                            <p class="text-[9px] font-bold text-gray-800 uppercase tracking-[0.12em] leading-tight">
+                                Elite Tier: Maintenance Division</p>
+                            <p class="text-[9px] text-gray-500 uppercase tracking-[0.1em]">Top 5% Performance</p>
+                        </div>
+                    </div>
+
+                </aside>
+            </div>
+        </div>
+
+</body>
+</h

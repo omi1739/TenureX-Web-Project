@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechPortal – Task Detail</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="font-barlow bg-gray-100 min-h-screen flex items-start justify-center py-8 px-6">
+
+    <div class="w-full max-w-5xl mt-0">
+
+        <!-- Back button -->
+        <div class="w-full text-center mb-4">
+            <a href="./assigned_tasks.html"
+                class="inline-flex items-center gap-2 text-gray-500 hover:text-gray-900 text-sm font-semibold transition">
+                <i class="fas fa-arrow-left text-xs"></i>
+            </a>
+        </div>
+
+        <div class="flex gap-5">
+
+            <!-- LEFT COLUMN -->
+            <div class="flex-1 flex flex-col gap-4 min-w-0">
+
+                <!-- Property Card -->
+                <div class="bg-white border border-blue-400 p-5">
+                    <div class="flex gap-5">
+                        <!-- Property image -->
+                        <div class="w-52 h-50 shrink-0 bg-gray-200 overflow-hidden">
+                            <img src="./images/room_picture.avif"
+                                class="w-full h-full object-cover grayscale">
+                        </div>
+                        <!-- Property info -->
+                        <div class="flex-1">
+                            <div class="flex items-center gap-3 mb-3">
+                                <span
+                                    class="border border-gray-400 text-[9px] font-bold text-gray-600 uppercase tracking-[0.12em] px-2 py-0.5">Residential</span>
+                                <span class="text-[10px] font-bold text-gray-500 uppercase tracking-wide">Pri:
+                                    High</span>
+                            </div>
+                            <h1 class="font-playfair font-bold text-[30px] leading-tight text-gray-900 mb-2">The
+                                Obsidian<br />Lofts</h1>
+                            <p class="text-[13px] text-gray-500 mb-1">Unit 12-A <span
+                                    class="text-gray-300 mx-1">•</span> West Wing</p>
+                            <div class="flex items-center gap-1.5 mb-5">
+                                <i class="fas fa-location-dot text-gray-400 text-xs"></i>
+                                <p class="text-[10px] font-semibold text-gray-400 uppercase tracking-wide">450
+                                    Architecture Way, Metro District</p>
+                            </div>
+                            <div class="bg-gray-900 text-white px-4 py-2.5 inline-flex items-center gap-3">
+                                <i class="fas fa-key text-xs"></i>
+                                <div>
+                                    <p class="text-[8px] font-bold text-gray-400 uppercase tracking-widest">Access Code
+                                    </p>
+                                    <p class="text-[15px] font-bold tracking-widest">9921#</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tenant Report -->
+                <div class="bg-white border border-blue-400 p-5">
+                    <div class="flex items-center justify-between mb-4">
+                        <h2 class="font-condensed font-extrabold text-[14px] uppercase tracking-[0.15em] text-gray-900">
+                            Tenant Report</h2>
+                        <span class="text-[10px] font-bold text-gray-400 uppercase tracking-wide">Ref: #EL-402</span>
+                    </div>
+
+                    <div class="flex items-start gap-3 mb-5">
+                        <i class="fas fa-circle-info text-gray-400 text-sm mt-0.5 shrink-0"></i>
+                        <div class="flex-1">
+                            <p class="text-[11px] font-extrabold text-gray-900 uppercase tracking-wide mb-3">Electrical:
+                                Kitchen Island Outlet Failure</p>
+                            <div class="flex gap-4">
+                                <div class="flex-1">
+                                    <p class="text-[12px] text-gray-500 leading-relaxed italic">"The pop-up outlet on
+                                        the central kitchen island has stopped responding. No power when items are
+                                        plugged in, and the manual reset button doesn't seem to engage. Noticed it after
+                                        using the blender this morning."</p>
+                                </div>
+                                <!-- Images -->
+                                <div class="flex gap-2 shrink-0">
+                                    <div class="w-24 h-20 bg-gray-200 overflow-hidden">
+                                        <img src="./images/IMG_1864.jpg"
+                                            class="w-full h-full object-cover grayscale">
+                                    </div>
+                                    <div class="w-24 h-20 bg-gray-200 overflow-hidden">
+                                        <img src="./images/kitchen_room.jpg"
+                                            class="w-full h-full object-cover grayscale">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Map -->
+                <div class="bg-gray-300 border border-blue-400 h-40 relative overflow-hidden">
+                    <div class="absolute inset-0 bg-gray-400"
+                        style="background-image: linear-gradient(rgba(150,160,170,0.3) 1px,transparent 1px),linear-gradient(90deg,rgba(150,160,170,0.3) 1px,transparent 1px); background-size: 20px 20px;">
+                        <svg class="w-full h-full" viewBox="0 0 500 160" preserveAspectRatio="none">
+                            <path d="M0 80 Q60 55 120 75 T240 70 T360 65 T500 72" stroke="rgba(100,110,120,0.6)"
+                                stroke-width="2" fill="none" />
+                            <path d="M0 50 Q80 30 160 48 T320 42 T500 48" stroke="rgba(100,110,120,0.4)"
+                                stroke-width="1.2" fill="none" />
+                            <path d="M0 110 Q70 90 140 108 T280 102 T500 108" stroke="rgba(100,110,120,0.4)"
+                                stroke-width="1.2" fill="none" />
+                            <path d="M120 0 Q125 40 122 80 T128 160" stroke="rgba(100,110,120,0.35)" stroke-width="1.2"
+                                fill="none" />
+                            <path d="M250 0 Q255 35 252 80 T258 160" stroke="rgba(100,110,120,0.35)" stroke-width="1.2"
+                                fill="none" />
+                            <circle cx="240" cy="72" r="5" fill="rgba(80,90,100,0.8)" />
+                        </svg>
+                    </div>
+                    <div class="absolute bottom-3 left-3 bg-white bg-opacity-90 px-3 py-2 flex items-center gap-2">
+                        <i class="fas fa-location-dot text-gray-600 text-xs"></i>
+                        <div>
+                            <p class="text-[9px] font-bold text-gray-800 uppercase tracking-wide">Map Coordinates</p>
+                            <p class="text-[8px] font-semibold text-gray-500 uppercase tracking-wide">West Service
+                                Corridor Access</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- RIGHT COLUMN -->
+            <div class="w-56 shrink-0 flex flex-col gap-4">
+
+                <!-- Task Protocol -->
+                <div class="bg-white border border-blue-400 p-5">
+                    <div class="flex items-center justify-between mb-4">
+                        <p class="text-[9px] font-bold text-gray-500 uppercase tracking-[0.18em]">Task Protocol</p>
+                        <p class="text-[9px] font-bold text-gray-400 uppercase tracking-[0.12em]">Active System</p>
+                    </div>
+
+                    <div id="protocolOptions" class="space-y-2">
+                        <button type="button"
+                            class="protocol-option w-full flex items-center justify-between py-3 px-3 rounded-xl bg-gray-100 border border-gray-100 transition hover:bg-gray-200"
+                            data-step="1">
+                            <span class="text-[11px] font-semibold text-gray-500 uppercase tracking-wide">01. Accept
+                                Task</span>
+                            <div class="protocol-dot w-4 h-4 rounded-full border border-gray-300"></div>
+                        </button>
+                        <button type="button"
+                            class="protocol-option w-full flex items-center justify-between py-3 px-3 rounded-xl bg-gray-900 text-white border border-gray-900 transition hover:bg-gray-900"
+                            data-step="2">
+                            <span class="text-[11px] font-bold text-white uppercase tracking-wide">02. In
+                                Progress</span>
+                            <div
+                                class="protocol-dot w-4 h-4 rounded-full border-2 border-white flex items-center justify-center">
+                                <div class="w-2 h-2 bg-white rounded-full"></div>
+                            </div>
+                        </button>
+                        <button type="button"
+                            class="protocol-option w-full flex items-center justify-between py-3 px-3 rounded-xl bg-gray-100 border border-gray-100 transition hover:bg-gray-200"
+                            data-step="3">
+                            <span class="text-[11px] font-semibold text-gray-500 uppercase tracking-wide">03.
+                                Complete</span>
+                            <div class="protocol-dot w-4 h-4 rounded-full border border-gray-300"></div>
+                        </button>
+                    </div>
+
+                    <!-- Field Observations -->
+                    <div class="mt-5">
+                        <p class="text-[9px] font-bold text-gray-500 uppercase tracking-[0.18em] mb-2">Field
+                            Observations</p>
+                        <textarea placeholder="Enter findings..."
+                            class="w-full border border-gray-200 text-[11px] text-gray-500 p-2.5 h-20 resize-none focus:outline-none focus:border-gray-400 placeholder-gray-300"></textarea>
+                    </div>
+
+                    <!-- Expended Capital -->
+                    <div class="mt-4">
+                        <p class="text-[9px] font-bold text-gray-500 uppercase tracking-[0.18em] mb-2">Expended Capital
+                            ($)</p>
+                        <div class="flex items-center border border-gray-200 px-3 py-2">
+                            <span class="text-[12px] font-bold text-gray-600 mr-2">$</span>
+                            <input type="text" value="0.00"
+                                class="flex-1 text-[12px] font-semibold text-gray-700 focus:outline-none bg-transparent" />
+                        </div>
+                    </div>
+
+                    <!-- Archive button -->
+                     <div class="flex justify-end">
+                                <button onclick="document.getElementById('updatedModal').classList.remove('hidden')" class="flex items-center gap-2 bg-gray-900 text-white text-[10px] font-bold tracking-[0.15em] uppercase px-6 py-2.5 hover:bg-black transition">
+                                     Archive & Update Status
+                                </button>
+                            </div>
+                </div>
+
+                <!-- Stakeholders -->
+                <div class="bg-white border border-blue-400 p-5">
+                    <p class="text-[9px] font-bold text-gray-500 uppercase tracking-[0.18em] mb-4">Stakeholders</p>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Sienna"
+                                    class="w-8 h-8 rounded-full bg-gray-200">
+                                <div>
+                                    <p class="text-[8px] font-bold text-gray-400 uppercase tracking-wide">Tenant</p>
+                                    <p class="text-[11px] font-bold text-gray-800 uppercase">Sienna West</p>
+                                </div>
+                            </div>
+                            <i class="fas fa-phone text-gray-400 text-xs cursor-pointer hover:text-gray-700"></i>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Robert"
+                                    class="w-8 h-8 rounded-full bg-gray-200">
+                                <div>
+                                    <p class="text-[8px] font-bold text-gray-400 uppercase tracking-wide">Ownership</p>
+                                    <p class="text-[11px] font-bold text-gray-800 uppercase">Robert Chen</p>
+                                </div>
+                            </div>
+                            <i class="fas fa-envelope text-gray-400 text-xs cursor-pointer hover:text-gray-700"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- System Schematics -->
+                <div class="bg-gray-900 p-5">
+                    <p class="text-[9px] font-bold text-gray-400 uppercase tracking-[0.18em] mb-3">System Schematics</p>
+                    <p class="font-playfair font-bold text-[16px] text-white mb-4">Unit 12-A Grid Plan</p>
+                    <div class="border-t border-gray-700 pt-3 flex items-center justify-between">
+                        <p class="text-[9px] font-bold text-gray-400 uppercase tracking-[0.15em]">Download Documentation
+                        </p>
+                        <i
+                            class="fas fa-arrow-up-right-from-square text-gray-400 text-xs cursor-pointer hover:text-white"></i>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const protocolOptions = document.querySelectorAll('.protocol-option');
+
+        function setActiveProtocol(button) {
+            protocolOptions.forEach((option) => {
+                const label = option.querySelector('span');
+                const dot = option.querySelector('.protocol-dot');
+
+                option.classList.remove('bg-gray-900', 'text-white', 'border-gray-900', 'hover:bg-gray-900');
+                option.classList.add('bg-gray-100', 'border-gray-100', 'hover:bg-gray-200');
+                label.classList.remove('text-white', 'font-bold');
+                label.classList.add('text-gray-500', 'font-semibold');
+
+                dot.className = 'protocol-dot w-4 h-4 rounded-full border border-gray-300';
+                dot.innerHTML = '';
+            });
+
+            button.classList.remove('bg-gray-100', 'border-gray-100', 'hover:bg-gray-200');
+            button.classList.add('bg-gray-900', 'text-white', 'border-gray-900', 'hover:bg-gray-900');
+            const activeLabel = button.querySelector('span');
+            activeLabel.classList.remove('text-gray-500', 'font-semibold');
+            activeLabel.classList.add('text-white', 'font-bold');
+
+            const activeDot = button.querySelector('.protocol-dot');
+            activeDot.className = 'protocol-dot w-4 h-4 rounded-full border-2 border-white flex items-center justify-center';
+            activeDot.innerHTML = '<div class="w-2 h-2 bg-white rounded-full"></div>';
+        }
+
+        protocolOptions.forEach((button) => {
+            button.addEventListener('click', () => setActiveProtocol(button));
+        });
+    </script>
+
+    <div id="updatedModal" class="hidden fixed inset-0 bg-black/60 flex items-center justify-center z-50">
+        <div class="bg-white rounded-xl px-16 py-10 flex flex-col items-center gap-4 shadow-2xl">
+            <div class="w-16 h-16 bg-green-300 rounded-full flex items-center justify-center">
+                <i class="fas fa-check text-green-700 text-2xl"></i>
+            </div>
+            <p class="text-[18px] font-semibold text-gray-800">Updated</p>
+            <button onclick="document.getElementById('updatedModal').classList.add('hidden')"
+                class="bg-gray-900 text-white text-[11px] font-bold uppercase tracking-widest px-8 py-2 hover:bg-black transition">
+                Close
+            </button>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
