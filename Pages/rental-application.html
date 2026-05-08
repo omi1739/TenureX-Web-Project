@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TenureX | Rental Application Form</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="flex h-screen overflow-hidden bg-white">
+
+    <main class="flex-1 flex flex-col overflow-y-auto">
+
+        <header class="bg-white border-b border-gray-100 px-8 py-4 flex justify-between items-center sticky top-0 z-10">
+            <div class="flex items-center gap-8">
+                <h1 class="font-bold text-lg"><i class="fas fa-home"></i> TenureX</h1>
+                <div class="relative">
+                    <i
+                        class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-gray-300 text-xs"></i>
+                    <input type="text" placeholder="Search properties..."
+                        class="bg-gray-50 border-none rounded-sm pl-9 pr-4 py-1.5 text-xs w-64 focus:ring-1 focus:ring-gray-200" />
+                </div>
+            </div>
+            <div class="flex items-center gap-6 text-[11px] font-semibold text-gray-500 uppercase tracking-wider">
+                <a href="../Tenant/browse-property.html" class="hover:text-black">Browse Properties</a>
+                <a href="./login.html" class="hover:text-black">My Applications</a>
+                <a href="./login.html" class="hover:text-black">Improvements</a>
+                <div class="flex items-center gap-3 border-l pl-6">
+                    <i class="fa-regular fa-bell text-lg cursor-pointer"></i>
+                    <i class="fa-regular fa-circle-question text-lg cursor-pointer"></i>
+                    <img src="../Tenant/images/dashboard-img.jpg" class="w-6 h-6 rounded-full">
+                </div>
+            </div>
+        </header>
+
+        <div class="p-8 max-w-6xl mx-auto w-full">
+
+            <div class="text-[10px] text-gray-400 font-bold uppercase tracking-widest mb-8">
+                <a href="./propertyDetails.html" class="hover:text-black">Properties</a> /
+                <a href="./propertyDetails.html" class="hover:text-black">Modern Architectural Gem</a> /
+                <span>Rental Application Form</span>
+            </div>
+
+            <div class="grid grid-cols-3 gap-8">
+                <!-- Property Info Section -->
+                <div class="col-span-2">
+                    <div class="mb-8">
+                        <h2 class="text-3xl font-bold mb-2">RENTAL APPLICATION FORM</h2>
+                        <p class="text-gray-500 text-sm">Complete the application below to apply for this property</p>
+                    </div>
+
+                    <!-- Property Image -->
+                    <div class="mb-12 h-72 bg-gray-200 rounded-sm overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=1000"
+                            class="w-full h-full object-cover">
+                    </div>
+
+                    <!-- Application Form -->
+                    <form id="rentalForm" class="space-y-8">
+                        <!-- Personal Information -->
+                        <div>
+                            <h3 class="text-lg font-bold mb-4">Personal Information</h3>
+                            <div class="grid grid-cols-2 gap-4">
+                                <input type="text" placeholder="First Name"
+                                    class="border border-gray-300 px-4 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-gray-400">
+                                <input type="text" placeholder="Last Name"
+                                    class="border border-gray-300 px-4 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-gray-400">
+                                <input type="email" placeholder="Email Address"
+                                    class="col-span-2 border border-gray-300 px-4 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-gray-400">
+                                <input type="tel" placeholder="Phone Number"
+                                    class="col-span-2 border border-gray-300 px-4 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-gray-400">
+                            </div>
+                        </div>
+
+                        <!-- Employment Information -->
+                        <div>
+                            <h3 class="text-lg font-bold mb-4">Employment Information</h3>
+                            <div class="grid grid-cols-2 gap-4">
+                                <input type="text" placeholder="Employer Name"
+                                    class="border border-gray-300 px-4 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-gray-400">
+                                <input type="text" placeholder="Job Title"
+                                    class="border border-gray-300 px-4 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-gray-400">
+                                <input type="text" placeholder="Years of Employment"
+                                    class="col-span-2 border border-gray-300 px-4 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-gray-400">
+                                <input type="text" placeholder="Annual Income"
+                                    class="col-span-2 border border-gray-300 px-4 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-gray-400">
+                            </div>
+                        </div>
+
+                        <!-- Rental History -->
+                        <div>
+                            <h3 class="text-lg font-bold mb-4">Rental History</h3>
+                            <div class="grid grid-cols-2 gap-4">
+                                <input type="text" placeholder="Previous Landlord Name"
+                                    class="border border-gray-300 px-4 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-gray-400">
+                                <input type="text" placeholder="Previous Address"
+                                    class="border border-gray-300 px-4 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-gray-400">
+                                <input type="text" placeholder="Duration of Stay (months)"
+                                    class="col-span-2 border border-gray-300 px-4 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-gray-400">
+                            </div>
+                        </div>
+
+                        <!-- Additional Information -->
+                        <div>
+                            <h3 class="text-lg font-bold mb-4">Additional Information</h3>
+                            <div class="grid grid-cols-2 gap-4">
+                                <select
+                                    class="border border-gray-300 px-4 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-gray-400">
+                                    <option value="">Select Qualification...</option>
+                                    <option value="high-school">High School</option>
+                                    <option value="bachelor">Bachelor's Degree</option>
+                                    <option value="master">Master's Degree</option>
+                                    <option value="other">Other</option>
+                                </select>
+                                <select
+                                    class="border border-gray-300 px-4 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-gray-400">
+                                    <option value="">Have Pets?</option>
+                                    <option value="no">No</option>
+                                    <option value="yes-dog">Yes, Dog(s)</option>
+                                    <option value="yes-cat">Yes, Cat(s)</option>
+                                    <option value="yes-other">Yes, Other</option>
+                                </select>
+                            </div>
+                            <textarea
+                                placeholder="Introduce yourself and tell us why you're interested in this property."
+                                class="w-full border border-gray-300 px-4 py-3 text-sm focus:outline-none focus:ring-1 focus:ring-gray-400 mt-4 resize-none"
+                                rows="5"></textarea>
+                        </div>
+
+                        <!-- Agreement -->
+                        <div class="bg-gray-50 p-4 border border-gray-200">
+                            <label class="flex items-start gap-3 cursor-pointer">
+                                <input type="checkbox" class="mt-1">
+                                <span class="text-xs text-gray-600">I certify that the information provided in this
+                                    application is true and complete. I understand that any false or misleading
+                                    information may result in the denial of my application or termination of my
+                                    lease.</span>
+                            </label>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit"
+                            class="w-full bg-black text-white py-3 text-xs font-bold uppercase tracking-widest hover:bg-gray-900 transition">
+                            Submit Application
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Tenant Onboarding Info Section -->
+                <div class="space-y-6">
+                    <div class="bg-white border border-gray-200 p-6 shadow-sm sticky top-24">
+                        <h4 class="text-xs font-bold uppercase text-gray-400 mb-4">Tenant Onboarding</h4>
+
+                        <div class="space-y-4">
+                            <div class="flex gap-3">
+                                <div
+                                    class="flex items-center justify-center w-6 h-6 bg-gray-200 rounded-full flex-shrink-0">
+                                    <i class="fa-solid fa-check text-xs text-white"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs font-bold text-gray-700">Complete the co-occupant logger to
+                                        cross-gather team review all screens within this property.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-3">
+                                <div
+                                    class="flex items-center justify-center w-6 h-6 bg-gray-200 rounded-full flex-shrink-0">
+                                    <i class="fa-solid fa-check text-xs text-white"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs font-bold text-gray-700">Receive final verification to be at the
+                                        status for further processing.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 pt-4 border-t border-gray-200">
+                            <p class="text-[10px] text-gray-500 font-semibold">LANDLORD & COMMUNITY</p>
+                            <p class="text-xs font-bold text-gray-700 mt-2">Marcus Vane</p>
+                            <p class="text-[10px] text-gray-500">Property Manager</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-lg shadow-xl p-8 max-w-md w-full mx-4 text-center">
+            <!-- Success Icon -->
+            <div class="flex justify-center mb-6">
+                <div class="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center">
+                    <i class="fa-solid fa-check text-4xl text-green-500"></i>
+                </div>
+            </div>
+
+            <!-- Message -->
+            <h2 class="text-2xl font-bold mb-2">Registration Submitted!</h2>
+            <p class="text-gray-600 text-sm mb-4">Your account is currently under review.</p>
+
+            <!-- Details -->
+            <div class="bg-gray-50 p-4 rounded-lg mb-6 text-sm text-gray-700">
+                <p class="mb-2">Thank you for registering with NestBridge! We've successfully received your details. Our
+                    admin team will carefully review your information and verify your account before granting access.
+                </p>
+                <p class="mt-2">A confirmation email has been sent to your registered email address. Estimated review
+                    time: 1-2 business days</p>
+            </div>
+
+            <!-- Close Button -->
+            <button onclick="closeModal()"
+                class="w-full bg-black text-white py-2 px-4 rounded text-xs font-bold uppercase tracking-widest hover:bg-gray-900 transition">
+                Close
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Handle form submission
+        document.getElementById('rentalForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Show the success modal
+            document.getElementById('successModal').classList.remove('hidden');
+
+            // Optional: Reset the form
+            this.reset();
+        });
+
+        // Close modal function
+        function closeModal() {
+            document.getElementById('successModal').classList.add('hidden');
+            // Optional: Redirect to a page after closing
+            // window.location.href = './propertyDetails.html';
+        }
+
+        // Close modal when clicking outside of it
+        document.getElementById('successModal').addEventListener('click', function (e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+    </script>
+
+</body>
+
+</html>

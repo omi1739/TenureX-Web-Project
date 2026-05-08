@@ -191,9 +191,9 @@
                                         <span class="text-sm text-zinc-600">David Miller</span>
                                     </div>
                                 </td>
-                                <td class="py-6"><button
-                                        class="bg-zinc-800 text-white text-[10px] font-bold px-4 py-2 rounded uppercase tracking-tighter">Track
-                                        Status</button></td>
+                                <td class="py-6"><a href="./maintenance-status-tracker.html"
+                                        class="bg-zinc-800 text-white text-[10px] font-bold px-4 py-2 rounded uppercase tracking-tighter inline-block hover:bg-zinc-900 transition">Track
+                                        Status</a></td>
                             </tr>
                             <tr class="group">
                                 <td class="py-6 text-sm text-zinc-400 font-medium">AMR - 89112</td>
@@ -210,9 +210,9 @@
                                     </div>
                                 </td>
                                 <td class="py-6 text-sm text-zinc-400 italic">Unassigned</td>
-                                <td class="py-6"><button
-                                        class="bg-zinc-800 text-white text-[10px] font-bold px-4 py-2 rounded uppercase tracking-tighter">Track
-                                        Status</button></td>
+                                <td class="py-6"><a href="./maintenance-status-tracker.html"
+                                        class="bg-zinc-800 text-white text-[10px] font-bold px-4 py-2 rounded uppercase tracking-tighter inline-block hover:bg-zinc-900 transition">Track
+                                        Status</a></td>
                             </tr>
                             <tr class="group">
                                 <td class="py-6 text-sm text-zinc-400 font-medium">AMR - 88540</td>
@@ -232,9 +232,9 @@
                                         <span class="text-sm text-zinc-600">James Wilson</span>
                                     </div>
                                 </td>
-                                <td class="py-6"><button
-                                        class="bg-zinc-800 text-white text-[10px] font-bold px-4 py-2 rounded uppercase tracking-tighter">Track
-                                        Status</button></td>
+                                <td class="py-6"><a href="./maintenance-status-tracker.html"
+                                        class="bg-zinc-800 text-white text-[10px] font-bold px-4 py-2 rounded uppercase tracking-tighter inline-block hover:bg-zinc-900 transition">Track
+                                        Status</a></td>
                             </tr>
                         </tbody>
                     </table>
@@ -260,9 +260,9 @@
         </main>
     </div>
 
-                <!-- request submitted successfully message -->
+    <!-- request submitted successfully message -->
 
-                <div id="requestSubmitModal" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+    <div id="requestSubmitModal" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50">
         <div class="bg-white rounded-lg p-8 max-w-md w-full mx-4 text-center">
             <div class="flex justify-center mb-6">
                 <div class="w-24 h-24 bg-green-200 rounded-full flex items-center justify-center">
@@ -278,7 +278,7 @@
     </div>
 
     <script>
-         // Handle Pay Rent button
+        // Handle Pay Rent button
         document.getElementById('requestSubmit').addEventListener('click', function () {
             document.getElementById('requestSubmitModal').classList.remove('hidden');
         });
