@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TenureX - Category Management</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-[#FBFBFB] flex min-h-screen text-gray-800">
+
+    <aside class="w-64 bg-[#F8F9FA] border-r border-gray-200 flex flex-col sticky top-0 h-screen">
+        <div class="p-6 flex items-center gap-2">
+            <div class="w-6 h-6 bg-black rounded-sm flex items-center justify-center">
+                <i class="fas fa-home text-white text-xs"></i>
+            </div>
+            <span class="font-bold text-xl tracking-tight text-gray-900">TenureX</span>
+        </div>
+
+        <nav class="flex-1 px-4 mt-4 space-y-1">
+            <p class="text-[10px] font-bold text-gray-500 uppercase tracking-widest px-2 mb-4">Property Admin</p>
+            
+            <a href="#" class="flex items-center gap-3 px-3 py-2 text-gray-500 hover:bg-gray-100 rounded-md text-sm font-medium transition">
+                <i class="fas fa-th-large w-5"></i> DASHBOARD
+            </a>
+            <a href="#" class="flex items-center gap-3 px-3 py-2 text-gray-500 hover:bg-gray-100 rounded-md text-sm font-medium transition">
+                <i class="fas fa-user-tie w-5"></i> LANDLORDS
+            </a>
+            <a href="#" class="flex items-center gap-3 px-3 py-2 text-gray-500 hover:bg-gray-100 rounded-md text-sm font-medium transition">
+                <i class="fas fa-tools w-5"></i> TECHNICIANS
+            </a>
+            <a href="#" class="flex items-center gap-3 px-3 py-2 bg-black text-white rounded-md text-sm font-medium shadow-sm">
+                <i class="fas fa-shapes w-5"></i> CATEGORIES
+            </a>
+            <a href="#" class="flex items-center gap-3 px-3 py-2 text-gray-500 hover:bg-gray-100 rounded-md text-sm font-medium transition">
+                <i class="fas fa-building w-5"></i> PROPERTIES
+            </a>
+            <a href="#" class="flex items-center gap-3 px-3 py-2 text-gray-500 hover:bg-gray-100 rounded-md text-sm font-medium transition">
+                <i class="fas fa-wrench w-5"></i> MAINTENANCE
+            </a>
+            <a href="#" class="flex items-center gap-3 px-3 py-2 text-gray-500 hover:bg-gray-100 rounded-md text-sm font-medium transition">
+                <i class="fas fa-chart-bar w-5"></i> REPORTS
+            </a>
+        </nav>
+
+        <div class="p-4 border-t border-gray-200">
+            <a href="#" class="flex items-center gap-3 px-3 py-2 text-gray-500 hover:bg-gray-100 rounded-md text-sm font-medium">
+                <i class="fas fa-cog w-5"></i> SETTINGS
+            </a>
+        </div>
+    </aside>
+
+    <main class="flex-1">
+        <header class="flex items-center justify-between px-10 py-5 bg-white border-b border-gray-100 sticky top-0 z-10">
+            <h2 class="text-[10px] font-bold tracking-[0.3em] text-gray-900 uppercase">Admin Portal</h2>
+            <div class="flex items-center gap-6">
+                <button class="text-gray-400 hover:text-gray-600"><i class="far fa-bell text-lg"></i></button>
+                <div class="w-8 h-8 bg-black flex items-center justify-center text-white text-[10px] font-bold rounded-sm">A</div>
+            </div>
+        </header>
+
+        <div class="p-10 max-w-7xl mx-auto">
+            <div class="flex justify-between items-start mb-12">
+                <div class="max-w-xl">
+                    <h1 class="text-5xl font-black tracking-tighter text-black leading-none mb-4">CATEGORY<br>MANAGEMENT</h1>
+                    <p class="text-gray-500 text-sm leading-relaxed">
+                        Define and regulate operational service sectors. Allocate specialized technician clusters across your property portfolio.
+                    </p>
+                </div>
+                <div class="flex gap-10 text-right">
+                    <div>
+                        <p class="text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-1">Status Overview</p>
+                        <div class="flex items-baseline gap-1 justify-end">
+                            <span class="text-3xl font-bold">14</span>
+                            <span class="text-[9px] font-bold text-gray-400 uppercase tracking-tighter">Total Categories</span>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="text-[9px] font-bold text-transparent uppercase tracking-widest mb-1">.</p>
+                        <div class="flex items-baseline gap-1 justify-end">
+                            <span class="text-3xl font-bold">82</span>
+                            <span class="text-[9px] font-bold text-gray-400 uppercase tracking-tighter">Active Techs</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex gap-10">
+                <div class="w-1/3 space-y-6">
+                    <div class="bg-white border border-gray-100 shadow-sm p-8">
+                        <div class="flex justify-between items-center mb-10">
+                            <h3 class="text-[10px] font-bold tracking-[0.2em] uppercase">Add New Category</h3>
+                            <i class="fas fa-plus text-gray-300 text-xs"></i>
+                        </div>
+                        
+                        <form class="space-y-8">
+                            <div>
+                                <label class="block text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-2">Category Identity</label>
+                                <input type="text" placeholder="E.G. HVAC SYSTEMS" class="w-full border-b border-gray-200 py-2 text-sm focus:outline-none focus:border-black placeholder:text-gray-200">
+                            </div>
+                            
+                            <div>
+                                <label class="block text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-2">Service Description</label>
+                                <textarea rows="3" placeholder="CORE MAINTENANCE PARAMETERS..." class="w-full border-b border-gray-200 py-2 text-sm focus:outline-none focus:border-black placeholder:text-gray-200 resize-none"></textarea>
+                            </div>
+
+                            <div>
+                                <label class="block text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-2">Interface Icon</label>
+                                <div class="flex items-center gap-4">
+                                    <div class="w-10 h-10 bg-gray-50 flex items-center justify-center border border-gray-100">
+                                        <i class="fas fa-cog text-gray-400"></i>
+                                    </div>
+                                    <input type="text" placeholder="MATERIAL ICON STRING" class="flex-1 border-b border-gray-200 py-2 text-sm focus:outline-none focus:border-black placeholder:text-gray-200">
+                                </div>
+                            </div>
+
+                            <button class="w-full bg-black text-white text-[10px] font-bold tracking-[0.2em] py-4 hover:bg-zinc-800 transition">
+                                COMMIT CATEGORY
+                            </button>
+                        </form>
+                    </div>
+
+                    <div class="bg-black p-8">
+                        <h4 class="text-[9px] font-bold text-gray-500 uppercase tracking-widest mb-4">System Log</h4>
+                        <p class="text-gray-400 text-xs leading-relaxed italic">
+                            "Ensure all categories are mapped to a minimum of two primary technicians for redundancy protocols."
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex-1">
+                    <div class="bg-white border border-gray-100 shadow-sm overflow-hidden">
+                        <table class="w-full text-left">
+                            <thead class="bg-gray-100 border-b border-gray-100">
+                                <tr>
+                                    <th class="py-4 px-6 text-[9px] font-bold text-gray-500 uppercase tracking-widest">Identity / Icon</th>
+                                    <th class="py-4 px-6 text-[9px] font-bold text-gray-500 uppercase tracking-widest">Scope of Work</th>
+                                    <th class="py-4 px-6 text-[9px] font-bold text-gray-500 uppercase tracking-widest text-center">Techs</th>
+                                    <th class="py-4 px-6 text-[9px] font-bold text-gray-500 uppercase tracking-widest text-right">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-50">
+                                <tr class="hover:bg-gray-50 transition">
+                                    <td class="py-6 px-6">
+                                        <div class="flex items-center gap-4">
+                                            <div class="w-10 h-10 bg-gray-50 flex items-center justify-center"><i class="fas fa-bolt text-xs"></i></div>
+                                            <span class="text-xs font-bold tracking-tight">PLUMBING</span>
+                                        </div>
+                                    </td>
+                                    <td class="py-6 px-6 text-[10px] text-gray-500 leading-relaxed max-w-xs">
+                                        Hydraulic systems, pipe networks, and industrial sanitation maintenance.
+                                    </td>
+                                    <td class="py-6 px-6 text-center">
+                                        <span class="bg-gray-100 text-[10px] font-bold px-2 py-1 rounded-sm">13</span>
+                                    </td>
+                                    <td class="py-6 px-6 text-right">
+                                        <div class="text-[9px] font-bold space-y-1">
+                                            <button class="block ml-auto text-gray-400 uppercase hover:text-black">Edit</button>
+                                            <button class="block ml-auto text-red-500 uppercase hover:text-red-700">Delete</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-gray-50 transition">
+                                    <td class="py-6 px-6">
+                                        <div class="flex items-center gap-4">
+                                            <div class="w-10 h-10 bg-gray-50 flex items-center justify-center"><i class="fas fa-plug text-xs"></i></div>
+                                            <span class="text-xs font-bold tracking-tight">ELECTRICAL</span>
+                                        </div>
+                                    </td>
+                                    <td class="py-6 px-6 text-[10px] text-gray-500 leading-relaxed max-w-xs">
+                                        High-voltage grids, lighting infrastructure, and solar panel arrays.
+                                    </td>
+                                    <td class="py-6 px-6 text-center">
+                                        <span class="bg-gray-100 text-[10px] font-bold px-2 py-1 rounded-sm">09</span>
+                                    </td>
+                                    <td class="py-6 px-6 text-right">
+                                        <div class="text-[9px] font-bold space-y-1">
+                                            <button class="block ml-auto text-gray-400 uppercase hover:text-black">Edit</button>
+                                            <button class="block ml-auto text-red-500 uppercase hover:text-red-700">Delete</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-gray-50 transition">
+                                    <td class="py-6 px-6">
+                                        <div class="flex items-center gap-4">
+                                            <div class="w-10 h-10 bg-gray-50 flex items-center justify-center"><i class="fas fa-fan text-xs"></i></div>
+                                            <span class="text-xs font-bold tracking-tight">HVAC</span>
+                                        </div>
+                                    </td>
+                                    <td class="py-6 px-6 text-[10px] text-gray-500 leading-relaxed max-w-xs">
+                                        Central climate control, ventilation shafts, and filtration units.
+                                    </td>
+                                    <td class="py-6 px-6 text-center">
+                                        <span class="bg-gray-100 text-[10px] font-bold px-2 py-1 rounded-sm">18</span>
+                                    </td>
+                                    <td class="py-6 px-6 text-right">
+                                        <div class="text-[9px] font-bold space-y-1">
+                                            <button class="block ml-auto text-gray-400 uppercase hover:text-black">Edit</button>
+                                            <button class="block ml-auto text-red-500 uppercase hover:text-red-700">Delete</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-gray-50 transition">
+                                    <td class="py-6 px-6">
+                                        <div class="flex items-center gap-4">
+                                            <div class="w-10 h-10 bg-gray-50 flex items-center justify-center"><i class="fas fa-leaf text-xs"></i></div>
+                                            <span class="text-xs font-bold tracking-tight">LANDSCAPING</span>
+                                        </div>
+                                    </td>
+                                    <td class="py-6 px-6 text-[10px] text-gray-500 leading-relaxed max-w-xs">
+                                        Exterior foliage, irrigation management, and hardscape aesthetics.
+                                    </td>
+                                    <td class="py-6 px-6 text-center">
+                                        <span class="bg-gray-100 text-[10px] font-bold px-2 py-1 rounded-sm">21</span>
+                                    </td>
+                                    <td class="py-6 px-6 text-right">
+                                        <div class="text-[9px] font-bold space-y-1">
+                                            <button class="block ml-auto text-gray-400 uppercase hover:text-black">Edit</button>
+                                            <button class="block ml-auto text-red-500 uppercase hover:text-red-700">Delete</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-gray-50 transition">
+                                    <td class="py-6 px-6">
+                                        <div class="flex items-center gap-4">
+                                            <div class="w-10 h-10 bg-gray-50 flex items-center justify-center"><i class="fas fa-shield-alt text-xs"></i></div>
+                                            <span class="text-xs font-bold tracking-tight">SECURITY</span>
+                                        </div>
+                                    </td>
+                                    <td class="py-6 px-6 text-[10px] text-gray-500 leading-relaxed max-w-xs">
+                                        Access control, surveillance maintenance, and alarm monitoring.
+                                    </td>
+                                    <td class="py-6 px-6 text-center">
+                                        <span class="bg-gray-100 text-[10px] font-bold px-2 py-1 rounded-sm">05</span>
+                                    </td>
+                                    <td class="py-6 px-6 text-right">
+                                        <div class="text-[9px] font-bold space-y-1">
+                                            <button class="block ml-auto text-gray-400 uppercase hover:text-black">Edit</button>
+                                            <button class="block ml-auto text-red-500 uppercase hover:text-red-700">Delete</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mt-6 flex justify-between items-center">
+                        <p class="text-[9px] font-bold text-gray-400 uppercase tracking-widest">Showing 5 of 14 Categories</p>
+                        <div class="flex gap-2">
+                            <button class="w-8 h-8 border border-gray-200 flex items-center justify-center text-xs hover:bg-gray-100"><i class="fas fa-chevron-left"></i></button>
+                            <button class="w-8 h-8 bg-black text-white text-[10px] font-bold">01</button>
+                            <button class="w-8 h-8 border border-gray-200 flex items-center justify-center text-xs hover:bg-gray-100"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
