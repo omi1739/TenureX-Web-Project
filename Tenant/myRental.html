@@ -1,50 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TenureX | Active Lease</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-   
+
 </head>
+
 <body class="bg-[#f3f3f3] text-[#333]">
 
     <div class="flex min-h-screen">
-           <aside class="w-64 bg-white  p-5 flex flex-col justify-between">
+        <aside class="w-64 bg-white  p-5 flex flex-col justify-between">
 
             <div>
                 <h2 class="text-xl font-bold mb-6">The Ledger</h2>
 
-                 <nav class="space-y-2 px-4">
-            <a href="./dashboard.html" class="block bg-black text-white px-4 py-2 rounded">
-                <i class="fas fa-th-large"></i> Dashboard
-            </a>
+                <nav class="space-y-2 px-4">
+                    <a href="./dashboard.html" class="block bg-black text-white px-4 py-2 rounded">
+                        <i class="fas fa-th-large"></i> Dashboard
+                    </a>
 
-            <a href="./browse-property.html" class="block text-gray-600 px-4 py-2 hover:bg-gray-100 rounded">
-                <i class="fas fa-building"></i> Browse Properties
-            </a>
+                    <a href="./browse-property.html" class="block text-gray-600 px-4 py-2 hover:bg-gray-100 rounded">
+                        <i class="fas fa-building"></i> Browse Properties
+                    </a>
 
-            <a href="./myApplication.html" class="block text-gray-600 px-4 py-2 hover:bg-gray-100 rounded">
-                <i class="fas fa-file-alt"></i> My Applications
-            </a>
+                    <a href="./myApplication.html" class="block text-gray-600 px-4 py-2 hover:bg-gray-100 rounded">
+                        <i class="fas fa-file-alt"></i> My Applications
+                    </a>
 
-            <a href="./myRental.html" class="block text-gray-600 px-4 py-2 hover:bg-gray-100 rounded">
-                <i class="fas fa-home"></i> My Rental
-            </a>
+                    <a href="./myRental.html" class="block text-gray-600 px-4 py-2 hover:bg-gray-100 rounded">
+                        <i class="fas fa-home"></i> My Rental
+                    </a>
 
-            <a href="./maintenance.html" class="block text-gray-600 px-4 py-2 hover:bg-gray-100 rounded">
-                <i class="fas fa-tools"></i> Maintenance
-            </a>
+                    <a href="./maintenance.html" class="block text-gray-600 px-4 py-2 hover:bg-gray-100 rounded">
+                        <i class="fas fa-tools"></i> Maintenance
+                    </a>
 
-            <a href="./chat.html" class="block text-gray-600 px-4 py-2 hover:bg-gray-100 rounded">
-                <i class="fas fa-comments"></i> Chat
-            </a>
+                    <a href="./chat.html" class="block text-gray-600 px-4 py-2 hover:bg-gray-100 rounded">
+                        <i class="fas fa-comments"></i> Chat
+                    </a>
 
-            <a href="./settings.html" class="block text-gray-600 px-4 py-2 hover:bg-gray-100 rounded">
-                <i class="fas fa-cog"></i> Settings
-            </a>
-        </nav>
+                    <a href="./settings.html" class="block text-gray-600 px-4 py-2 hover:bg-gray-100 rounded">
+                        <i class="fas fa-cog"></i> Settings
+                    </a>
+                </nav>
 
 
             </div>
@@ -59,9 +61,37 @@
 
         </aside>
 
+        <script>
+            // Highlight active sidebar navigation item
+            document.addEventListener('DOMContentLoaded', function () {
+                // Get current page filename
+                const currentPage = window.location.pathname.split('/').pop() || 'dashboard.html';
+
+                // Get all nav links
+                const navLinks = document.querySelectorAll('nav a');
+
+                // Loop through each link
+                navLinks.forEach(link => {
+                    // Get the href value
+                    const href = link.getAttribute('href');
+
+                    // Check if this link matches the current page
+                    if (href === './' + currentPage || (currentPage === '' && href === './dashboard.html')) {
+                        // Apply active classes
+                        link.classList.add('bg-black', 'text-white');
+                        link.classList.remove('text-gray-600');
+                    } else {
+                        // Remove active classes
+                        link.classList.remove('bg-black', 'text-white');
+                        link.classList.add('bg-gray-200', 'text-gray-600');
+                    }
+                });
+            });
+        </script>
+
         <main class="flex-1 flex flex-col">
-            
-          <!-- Topbar -->
+
+            <!-- Topbar -->
             <header class="bg-white px-6 py-4 flex justify-between items-center ">
                 <h1 class="font-semibold text-lg"><i class="fas fa-home"></i> TenureX</h1>
 
@@ -79,17 +109,20 @@
 
                 <div class="grid grid-cols-12 gap-8">
                     <div class="col-span-8 space-y-8">
-                        
+
                         <div class="bg-white overflow-hidden shadow-sm">
                             <div class="relative h-64">
                                 <img src="./images/my-rental-img.png" alt="Property" class="w-full h-full object-cover">
-                                <div class="absolute top-4 right-4 bg-black/60 backdrop-blur-md text-white text-[10px] font-bold px-3 py-1 uppercase tracking-widest">Premium Residence</div>
+                                <div
+                                    class="absolute top-4 right-4 bg-black/60 backdrop-blur-md text-white text-[10px] font-bold px-3 py-1 uppercase tracking-widest">
+                                    Premium Residence</div>
                             </div>
                             <div class="p-8">
                                 <div class="flex justify-between items-start mb-10">
                                     <div>
                                         <h3 class="text-2xl font-bold uppercase">The Monolith Unit 402</h3>
-                                        <p class="text-xs text-gray-400 mt-1"><i class="fa-solid fa-location-dot"></i> 1200 Architecture Way, Design District</p>
+                                        <p class="text-xs text-gray-400 mt-1"><i class="fa-solid fa-location-dot"></i>
+                                            1200 Architecture Way, Design District</p>
                                     </div>
                                     <div class="text-right">
                                         <p class="text-[10px] font-bold text-gray-400 uppercase">Monthly Rental</p>
@@ -119,7 +152,8 @@
                                     </div>
                                 </div>
 
-                                <button class="bg-[#333] text-white px-10 py-3 text-xs font-bold uppercase tracking-widest hover:bg-black transition shadow-lg">
+                                <button
+                                    class="bg-[#333] text-white px-10 py-3 text-xs font-bold uppercase tracking-widest hover:bg-black transition shadow-lg">
                                     Pay Rent
                                 </button>
                             </div>
@@ -128,7 +162,9 @@
                         <div class="bg-white p-8 shadow-sm">
                             <div class="flex justify-between items-end mb-6">
                                 <h4 class="text-lg font-bold uppercase tracking-wide">Ledger History</h4>
-                                <button class="text-[10px] font-bold text-gray-400 uppercase border-b border-gray-300 pb-1">Download Full Report</button>
+                                <button
+                                    class="text-[10px] font-bold text-gray-400 uppercase border-b border-gray-300 pb-1">Download
+                                    Full Report</button>
                             </div>
 
                             <table class="w-full text-left">
@@ -144,26 +180,38 @@
                                     <tr class="border-b hover:bg-gray-50">
                                         <td class="py-5 font-bold uppercase">October 2024</td>
                                         <td class="py-5 text-gray-600">$4,250.00</td>
-                                        <td class="py-5"><span class="bg-[#333] text-white text-[9px] px-2 py-0.5 font-bold">PAID</span></td>
-                                        <td class="py-5 text-right"><i class="fa-regular fa-file-lines text-gray-400"></i></td>
+                                        <td class="py-5"><span
+                                                class="bg-[#333] text-white text-[9px] px-2 py-0.5 font-bold">PAID</span>
+                                        </td>
+                                        <td class="py-5 text-right"><i
+                                                class="fa-regular fa-file-lines text-gray-400"></i></td>
                                     </tr>
                                     <tr class="border-b hover:bg-gray-50">
                                         <td class="py-5 font-bold uppercase">September 2024</td>
                                         <td class="py-5 text-gray-600">$4,250.00</td>
-                                        <td class="py-5"><span class="bg-[#333] text-white text-[9px] px-2 py-0.5 font-bold">PAID</span></td>
-                                        <td class="py-5 text-right"><i class="fa-regular fa-file-lines text-gray-400"></i></td>
+                                        <td class="py-5"><span
+                                                class="bg-[#333] text-white text-[9px] px-2 py-0.5 font-bold">PAID</span>
+                                        </td>
+                                        <td class="py-5 text-right"><i
+                                                class="fa-regular fa-file-lines text-gray-400"></i></td>
                                     </tr>
                                     <tr class="border-b hover:bg-gray-50">
                                         <td class="py-5 font-bold uppercase">August 2024</td>
                                         <td class="py-5 text-gray-600">$4,250.00</td>
-                                        <td class="py-5"><span class="bg-[#333] text-white text-[9px] px-2 py-0.5 font-bold">PAID</span></td>
-                                        <td class="py-5 text-right"><i class="fa-regular fa-file-lines text-gray-400"></i></td>
+                                        <td class="py-5"><span
+                                                class="bg-[#333] text-white text-[9px] px-2 py-0.5 font-bold">PAID</span>
+                                        </td>
+                                        <td class="py-5 text-right"><i
+                                                class="fa-regular fa-file-lines text-gray-400"></i></td>
                                     </tr>
                                     <tr class="hover:bg-gray-50">
                                         <td class="py-5 font-bold uppercase">July 2024</td>
                                         <td class="py-5 text-gray-600">$4,250.00</td>
-                                        <td class="py-5"><span class="bg-[#333] text-white text-[9px] px-2 py-0.5 font-bold">PAID</span></td>
-                                        <td class="py-5 text-right"><i class="fa-regular fa-file-lines text-gray-400"></i></td>
+                                        <td class="py-5"><span
+                                                class="bg-[#333] text-white text-[9px] px-2 py-0.5 font-bold">PAID</span>
+                                        </td>
+                                        <td class="py-5 text-right"><i
+                                                class="fa-regular fa-file-lines text-gray-400"></i></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -171,9 +219,10 @@
                     </div>
 
                     <div class="col-span-4 space-y-6">
-                        
+
                         <div class="bg-[#2a2a2a] text-white p-6 shadow-xl">
-                            <p class="text-[9px] font-bold text-gray-400 uppercase tracking-[0.2em] mb-6">Concierge Support</p>
+                            <p class="text-[9px] font-bold text-gray-400 uppercase tracking-[0.2em] mb-6">Concierge
+                                Support</p>
                             <div class="flex items-center gap-4 mb-6">
                                 <img src="./images/sazzad.jpg" class="w-14 h-14 rounded " alt="Sazzad">
                                 <div>
@@ -191,19 +240,23 @@
                                     <span>+880-1234567893</span>
                                 </div>
                             </div>
-                            <button class="w-full bg-white text-black py-3 text-[10px] font-bold uppercase tracking-widest hover:bg-gray-200 transition">
+                            <button
+                                class="w-full bg-white text-black py-3 text-[10px] font-bold uppercase tracking-widest hover:bg-gray-200 transition">
                                 Direct Message
                             </button>
                         </div>
 
                         <div class="bg-white p-6 shadow-sm border border-gray-100">
-                            <p class="text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-6">Archival Documents</p>
+                            <p class="text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-6">Archival
+                                Documents</p>
                             <ul class="space-y-4">
-                                <li class="flex justify-between items-center text-[10px] font-bold uppercase border-b pb-3 border-gray-100">
+                                <li
+                                    class="flex justify-between items-center text-[10px] font-bold uppercase border-b pb-3 border-gray-100">
                                     <span>Lease Agreement.pdf</span>
                                     <i class="fa-solid fa-download text-gray-400 cursor-pointer"></i>
                                 </li>
-                                <li class="flex justify-between items-center text-[10px] font-bold uppercase border-b pb-3 border-gray-100">
+                                <li
+                                    class="flex justify-between items-center text-[10px] font-bold uppercase border-b pb-3 border-gray-100">
                                     <span>Addendum_PetPolicy.pdf</span>
                                     <i class="fa-solid fa-download text-gray-400 cursor-pointer"></i>
                                 </li>
@@ -214,10 +267,15 @@
                             </ul>
                         </div>
 
-                        <div class="bg-gray-200 h-48 relative flex flex-col items-center justify-center grayscale opacity-70">
-                            <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#000 1px, transparent 0); background-size: 20px 20px;"></div>
+                        <div
+                            class="bg-gray-200 h-48 relative flex flex-col items-center justify-center grayscale opacity-70">
+                            <div class="absolute inset-0 opacity-10"
+                                style="background-image: radial-gradient(#000 1px, transparent 0); background-size: 20px 20px;">
+                            </div>
                             <i class="fa-solid fa-map-location-dot text-gray-500 text-3xl mb-3"></i>
-                            <p class="text-[10px] font-bold uppercase tracking-widest text-gray-600 text-center">1200 Architecture Way<br><span class="text-[8px] font-normal lowercase opacity-60">Open in Maps</span></p>
+                            <p class="text-[10px] font-bold uppercase tracking-widest text-gray-600 text-center">1200
+                                Architecture Way<br><span class="text-[8px] font-normal lowercase opacity-60">Open in
+                                    Maps</span></p>
                         </div>
 
                     </div>
@@ -227,4 +285,5 @@
     </div>
 
 </body>
+
 </html>
