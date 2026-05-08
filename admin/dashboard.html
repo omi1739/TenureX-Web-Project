@@ -24,31 +24,31 @@
         <nav class="flex-1 px-4 mt-4 space-y-1">
             <p class="text-[10px] font-bold text-gray-500 uppercase tracking-widest px-2 mb-4">Property Admin</p>
             
-            <a href="#" class="flex items-center gap-3 px-3 py-2 bg-black text-white rounded-md text-sm font-medium">
+            <a href="dashboard.html" class="flex items-center gap-3 px-3 py-2 bg-black text-white rounded-md text-sm font-medium">
                 <i class="fas fa-th-large w-5"></i> DASHBOARD
             </a>
-            <a href="#" class="flex items-center gap-3 px-3 py-2 text-gray-500 hover:bg-gray-100 rounded-md text-sm font-medium transition">
+            <a href="landlord-tab.html" class="flex items-center gap-3 px-3 py-2 text-gray-500 hover:bg-gray-100 rounded-md text-sm font-medium transition">
                 <i class="fas fa-user-tie w-5"></i> LANDLORDS
             </a>
-            <a href="#" class="flex items-center gap-3 px-3 py-2 text-gray-500 hover:bg-gray-100 rounded-md text-sm font-medium transition">
+            <a href="technian-tab.html" class="flex items-center gap-3 px-3 py-2 text-gray-500 hover:bg-gray-100 rounded-md text-sm font-medium transition">
                 <i class="fas fa-tools w-5"></i> TECHNICIANS
             </a>
-            <a href="#" class="flex items-center gap-3 px-3 py-2 text-gray-500 hover:bg-gray-100 rounded-md text-sm font-medium transition">
+            <a href="category.html" class="flex items-center gap-3 px-3 py-2 text-gray-500 hover:bg-gray-100 rounded-md text-sm font-medium transition">
                 <i class="fas fa-shapes w-5"></i> CATEGORIES
             </a>
-            <a href="#" class="flex items-center gap-3 px-3 py-2 text-gray-500 hover:bg-gray-100 rounded-md text-sm font-medium transition">
+            <a href="properties-tab.html" class="flex items-center gap-3 px-3 py-2 text-gray-500 hover:bg-gray-100 rounded-md text-sm font-medium transition">
                 <i class="fas fa-building w-5"></i> PROPERTIES
             </a>
-            <a href="#" class="flex items-center gap-3 px-3 py-2 text-gray-500 hover:bg-gray-100 rounded-md text-sm font-medium transition">
+            <a href="maintenance-tab.html" class="flex items-center gap-3 px-3 py-2 text-gray-500 hover:bg-gray-100 rounded-md text-sm font-medium transition">
                 <i class="fas fa-wrench w-5"></i> MAINTENANCE
             </a>
-            <a href="#" class="flex items-center gap-3 px-3 py-2 text-gray-500 hover:bg-gray-100 rounded-md text-sm font-medium transition">
+            <a href="report-tab.html" class="flex items-center gap-3 px-3 py-2 text-gray-500 hover:bg-gray-100 rounded-md text-sm font-medium transition">
                 <i class="fas fa-chart-bar w-5"></i> REPORTS
             </a>
         </nav>
 
         <div class="p-4 border-t border-gray-200">
-            <a href="#" class="flex items-center gap-3 px-3 py-2 text-gray-500 hover:bg-gray-100 rounded-md text-sm font-medium">
+            <a href="admin-settings.html" class="flex items-center gap-3 px-3 py-2 text-gray-500 hover:bg-gray-100 rounded-md text-sm font-medium">
                 <i class="fas fa-cog w-5"></i> SETTINGS
             </a>
         </div>
@@ -100,7 +100,7 @@
                     <section>
                         <div class="flex justify-between items-center mb-4 border-l-4 border-black pl-3">
                             <h3 class="text-sm font-bold tracking-widest uppercase">Pending Landlord Approvals</h3>
-                            <button class="text-[10px] font-bold text-gray-500 uppercase hover:underline">View All</button>
+                            <button class="text-[10px] font-bold text-gray-500 uppercase hover:underline"><a href="landlord-tab.html">View All</a></button>
                         </div>
                         <table class="w-full text-left text-sm">
                             <thead>
@@ -137,7 +137,7 @@
                     <section>
                         <div class="flex justify-between items-center mb-4 border-l-4 border-black pl-3">
                             <h3 class="text-sm font-bold tracking-widest uppercase">Pending Technician Verification</h3>
-                            <button class="text-[10px] font-bold text-gray-500 uppercase hover:underline">View All</button>
+                            <button class="text-[10px] font-bold text-gray-500 uppercase hover:underline"><a href="technian-tab.html">View All</a></button>
                         </div>
                         <table class="w-full text-left text-sm">
                             <thead>
@@ -216,5 +216,86 @@
             </div>
         </div>
     </main>
+
+    <!-- Modals -->
+    <div id="requestAcceptedModal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50">
+        <div class="bg-white p-8 rounded-sm max-w-md w-full mx-4">
+            <div class="text-center">
+                <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-check text-2xl text-green-600"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-2">Request Accepted</h3>
+                <p class="text-gray-600 mb-6">The request has been successfully accepted and processed.</p>
+                <button onclick="closeModal('requestAcceptedModal')" class="bg-black text-white px-6 py-2 text-sm font-bold uppercase tracking-widest hover:bg-gray-800 transition">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="requestRejectedModal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50">
+        <div class="bg-white p-8 rounded-sm max-w-md w-full mx-4">
+            <div class="text-center">
+                <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-times text-2xl text-red-600"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-2">Request Rejected</h3>
+                <p class="text-gray-600 mb-6">The request has been rejected. The applicant will be notified.</p>
+                <button onclick="closeModal('requestRejectedModal')" class="bg-black text-white px-6 py-2 text-sm font-bold uppercase tracking-widest hover:bg-gray-800 transition">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="requestHeldModal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50">
+        <div class="bg-white p-8 rounded-sm max-w-md w-full mx-4">
+            <div class="text-center">
+                <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-pause text-2xl text-yellow-600"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-2">Request Held</h3>
+                <p class="text-gray-600 mb-6">The request has been placed on hold for further review.</p>
+                <button onclick="closeModal('requestHeldModal')" class="bg-black text-white px-6 py-2 text-sm font-bold uppercase tracking-widest hover:bg-gray-800 transition">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="confirmLandlordModal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50">
+        <div class="bg-white p-8 rounded-sm max-w-md w-full mx-4">
+            <div class="text-center">
+                <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-user-tie text-2xl text-blue-600"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-2">Confirm Landlord</h3>
+                <p class="text-gray-600 mb-6">Are you sure you want to confirm this landlord?</p>
+                <div class="flex gap-4 justify-center">
+                    <button onclick="closeModal('confirmLandlordModal')" class="bg-gray-200 text-gray-700 px-6 py-2 text-sm font-bold uppercase tracking-widest hover:bg-gray-300 transition">Cancel</button>
+                    <button onclick="confirmAction()" class="bg-black text-white px-6 py-2 text-sm font-bold uppercase tracking-widest hover:bg-gray-800 transition">Confirm</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showModal(modalId) {
+            document.getElementById(modalId).classList.remove('hidden');
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.add('hidden');
+        }
+
+        function confirmAction() {
+            // Handle confirmation logic here
+            closeModal('confirmLandlordModal');
+            showModal('requestAcceptedModal');
+        }
+
+        // Add event listeners to buttons
+        document.querySelectorAll('button').forEach(button => {
+            if (button.textContent.trim() === 'APPROVE') {
+                button.addEventListener('click', () => showModal('requestAcceptedModal'));
+            } else if (button.textContent.trim() === 'REJECT') {
+                button.addEventListener('click', () => showModal('requestRejectedModal'));
+            }
+        });
+    </script>
 </body>
 </html>
