@@ -152,9 +152,13 @@
                                     </div>
                                 </div>
 
-                                <button
+                                <button id="payRentBtn"
                                     class="bg-[#333] text-white px-10 py-3 text-xs font-bold uppercase tracking-widest hover:bg-black transition shadow-lg">
                                     Pay Rent
+                                </button>
+                                <button id="receiptBtn"
+                                    class="bg-[#333] text-white px-10 py-3 text-xs font-bold uppercase tracking-widest hover:bg-black transition shadow-lg">
+                                    Receipt
                                 </button>
                             </div>
                         </div>
@@ -283,6 +287,46 @@
             </div>
         </main>
     </div>
+
+    <!-- Payment Success Modal -->
+    <div id="paymentModal" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+        <div class="bg-white rounded-lg p-8 max-w-md w-full mx-4 text-center">
+            <div class="flex justify-center mb-6">
+                <div class="w-24 h-24 bg-green-200 rounded-full flex items-center justify-center">
+                    <i class="fas fa-check text-green-500 text-4xl"></i>
+                </div>
+            </div>
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">Payment Successful!</h2>
+            <button id="closeModalBtn"
+                class="bg-black text-white px-8 py-2 text-sm font-bold uppercase tracking-widest hover:bg-gray-800 transition">
+                Close
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Handle Pay Rent button
+        document.getElementById('payRentBtn').addEventListener('click', function () {
+            document.getElementById('paymentModal').classList.remove('hidden');
+        });
+
+        // Handle Close Modal button
+        document.getElementById('closeModalBtn').addEventListener('click', function () {
+            document.getElementById('paymentModal').classList.add('hidden');
+        });
+
+        // Handle Receipt button
+        document.getElementById('receiptBtn').addEventListener('click', function () {
+            window.location.href = './receipt.html';
+        });
+
+        // Close modal when clicking outside
+        document.getElementById('paymentModal').addEventListener('click', function (e) {
+            if (e.target === this) {
+                this.classList.add('hidden');
+            }
+        });
+    </script>
 
 </body>
 

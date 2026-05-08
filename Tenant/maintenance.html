@@ -127,6 +127,11 @@
                     </div>
                 </div>
 
+
+
+
+
+
                 <div class="flex gap-4 mb-8">
                     <div
                         class="flex-1 bg-white border border-gray-200 rounded-lg p-4 flex items-center justify-between">
@@ -148,7 +153,7 @@
                             <path d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4"></path>
                         </svg>
                     </div>
-                    <button class="btn btn-neutral p-9 hover:bg-zinc-800 transition">
+                    <button id="requestSubmit" class="btn btn-neutral p-9 hover:bg-zinc-800 transition">
                         <span class="text-lg font-medium uppercase tracking-wider">Request Maintenance</span>
                         <span class="text-3xl">+</span>
                     </button>
@@ -254,6 +259,36 @@
             </div>
         </main>
     </div>
+
+                <!-- request submitted successfully message -->
+
+                <div id="requestSubmitModal" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+        <div class="bg-white rounded-lg p-8 max-w-md w-full mx-4 text-center">
+            <div class="flex justify-center mb-6">
+                <div class="w-24 h-24 bg-green-200 rounded-full flex items-center justify-center">
+                    <i class="fas fa-check text-green-500 text-4xl"></i>
+                </div>
+            </div>
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">Request Submitted!!</h2>
+            <button id="closeModalBtn"
+                class="bg-black text-white px-8 py-2 text-sm font-bold uppercase tracking-widest hover:bg-gray-800 transition">
+                Close
+            </button>
+        </div>
+    </div>
+
+    <script>
+         // Handle Pay Rent button
+        document.getElementById('requestSubmit').addEventListener('click', function () {
+            document.getElementById('requestSubmitModal').classList.remove('hidden');
+        });
+
+        // Handle Close Modal button
+        document.getElementById('closeModalBtn').addEventListener('click', function () {
+            document.getElementById('requestSubmitModal').classList.add('hidden');
+        });
+    </script>
+
 
 </body>
 
