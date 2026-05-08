@@ -4,62 +4,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TenureX</title>
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>TenureX - Welcome Back</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .isometric-bg {
+            background-color: #8D9196;
+            /* Matching the muted grey in the image */
+            background-image: url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=1200');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
 </head>
 
-<body>
+<body class="flex min-h-screen bg-white">
 
-    <section class=" flex justify-between items-center mx-auto gap-10  mt-6 w-[70%]">
+    <div class="hidden lg:flex lg:w-1/2 flex-col justify-between p-12 isometric-bg relative overflow-hidden">
+        <div class="z-10 flex items-center gap-3">
+            <div class="w-10 h-10 bg-white rounded-md flex items-center justify-center shadow-lg">
+                <i class="fas fa-home text-black text-xl"></i>
+            </div>
+            <a href="landing_page.html">
+                <span class="font-black text-4xl tracking-tighter text-white drop-shadow-md">TenureX</span>
+            </a>
+        </div>
 
-        <section class=" ">
-         <a href="./landing_page.html"> <img src="../assets/Login.png" class="h-120" alt=""> </a>
-        </section>
+        <div class="absolute inset-0 bg-black/10"></div>
+    </div>
 
-        <section class="">
-
-            <div class="">
-
-                <fieldset class="fieldset bg-base-200 border-base-300 rounded-box w-xs mr-5 border p-4 ">
-
-                    <div class="text-center">
-                        <h2 class="text-3xl">Welcome Back</h2>
-                        <p class="text-[14px] mt-2 mb-3 text-[#525252]">Sign in to your PropHub account</p>
-                    </div>
-
-
-                    <label class="label">Email</label>
-                    <input type="email" class="input" placeholder="Email" required />
-
-                    <label class="label">Password</label>
-                    <input type="password" class="input" placeholder="Password" required />
-
-                    <div class="flex justify-between mt-3">
-                        <div class=" flex gap-1"><input type="checkbox" class="checkbox checkbox-sm"> Remember me</div>
-                        <a href="">Forgot password?</a>
-                    </div>
-
-                    <button class="btn btn-neutral mt-4">Login</button>
-                  
-                    <div class="text-center mt-5">
-                        <h3>Don't have an account?</h3>
-                        <a href="./registration.html" class="font-medium text-[14px]">Create account</a>
-                    </div>
-
-                    <div class="text-center space-y-3">
-                        <div class="btn text-center" ><a href="../Landlord/pages/dashboard.html"> Landlord Demo Account </a></div>
-                        <div class="btn text-center" ><a href="../Tenant/dashboard.html"> Tenant Demo Account </a></div>
-                        <div class="btn text-center" ><a href=""> Technician Demo Account </a></div>
-                        <div class="btn text-center" ><a href=""> admin Demo Account </a></div>
-                    </div>
-
-                </fieldset>
+    <div class="w-full lg:w-1/2 flex items-center justify-center p-6 lg:p-12">
+        <div class="w-full max-w-md">
+            <div class="text-center mb-8">
+                <h1 class="text-3xl font-black tracking-tight text-gray-900 mb-3">Welcome Back</h1>
+                <p class="text-sm font-medium text-gray-400">Sign in to your TenureX account</p>
             </div>
 
-        </section>
+            <form class="space-y-5">
+                <div>
+                    <label class="sr-only">Email Address</label>
+                    <input type="email" placeholder="Email Address"
+                        class="w-full px-5 py-3.5 bg-white border border-gray-200 rounded-md text-sm font-medium focus:ring-2 focus:ring-black focus:border-transparent outline-none transition-all placeholder:text-gray-400">
+                </div>
 
-    </section>
+                <div>
+                    <label class="sr-only">Password</label>
+                    <input type="password" placeholder="Password"
+                        class="w-full px-5 py-3.5 bg-white border border-gray-200 rounded-md text-sm font-medium focus:ring-2 focus:ring-black focus:border-transparent outline-none transition-all placeholder:text-gray-400">
+                </div>
+
+                <div class="flex items-center justify-between text-[11px] font-bold uppercase tracking-wider">
+                    <label class="flex items-center gap-2 cursor-pointer text-gray-500 hover:text-black transition">
+                        <input type="checkbox" class="w-4 h-4 rounded border-gray-300 accent-black">
+                        Remember me
+                    </label>
+                    <a href="#" class="text-gray-400 hover:text-black transition">Forgot password?</a>
+                </div>
+
+                <button type="submit"
+                    class="w-full bg-black text-white py-3.5 mt-7 rounded-md text-xs font-black uppercase tracking-[0.2em] hover:bg-zinc-800 transition-all shadow-xl shadow-black/10 active:scale-[0.98]">
+                    Sign In
+                </button>
+            </form>
+
+            <div class="mt-6 text-center">
+                <p class="text-xs font-bold text-gray-400 uppercase tracking-widest">
+                    Don't have an account?
+                    <a href="registration.html" class="text-black border-b-2 border-black ml-1 pb-0.5">Create Account</a>
+                </p>
+            </div>
+
+            <div class="relative my-8">
+                <div class="absolute inset-0 flex items-center">
+                    <div class="w-full border-t border-gray-100"></div>
+                </div>
+                <div class="relative flex justify-center text-[10px] font-black uppercase tracking-[0.3em]">
+                    <span class="bg-white px-4 text-gray-300">or</span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3.5">
+                <a href="../Landlord/pages/dashboard.html">
+                    <button
+                        class="w-full border border-gray-200 py-3.5 text-[10px] font-black uppercase tracking-widest text-gray-500 hover:bg-gray-50 hover:text-black hover:border-black transition-all">
+                        Landlord Demo Account
+                    </button>
+                </a>
+                <a href="../Tenant/dashboard.html">
+                    <button
+                        class="w-full border border-gray-200 py-3.5 text-[10px] font-black uppercase tracking-widest text-gray-500 hover:bg-gray-50 hover:text-black hover:border-black transition-all">
+                        Tenant Demo Account
+                    </button>
+                </a>
+                <a href="">
+                    <button
+                        class="w-full border border-gray-200 py-3.5 text-[10px] font-black uppercase tracking-widest text-gray-500 hover:bg-gray-50 hover:text-black hover:border-black transition-all">
+                        Technician Demo Account
+                    </button>
+                </a>
+                <a href="../admin/dashboard.html">
+                    <button
+                        class="w-full border border-gray-200 py-3.5 text-[10px] font-black uppercase tracking-widest text-gray-500 hover:bg-gray-50 hover:text-black hover:border-black transition-all">
+                        Admin Demo Account
+                    </button>
+                </a>
+            </div>
+        </div>
+    </div>
 
 </body>
 
