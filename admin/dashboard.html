@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TenureX Admin Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-50 flex min-h-screen text-gray-800">
+
+    <aside class="w-64 bg-[#F8F9FA] border-r border-gray-200 flex flex-col">
+        <div class="p-6 flex items-center gap-2">
+            <div class="w-6 h-6 bg-black rounded-sm flex items-center justify-center">
+                <i class="fas fa-home text-white text-xs"></i>
+            </div>
+            <span class="font-bold text-xl tracking-tight text-gray-900">TenureX</span>
+        </div>
+
+        <nav class="flex-1 px-4 mt-4 space-y-1">
+            <p class="text-[10px] font-bold text-gray-500 uppercase tracking-widest px-2 mb-4">Property Admin</p>
+            
+            <a href="#" class="flex items-center gap-3 px-3 py-2 bg-black text-white rounded-md text-sm font-medium">
+                <i class="fas fa-th-large w-5"></i> DASHBOARD
+            </a>
+            <a href="#" class="flex items-center gap-3 px-3 py-2 text-gray-500 hover:bg-gray-100 rounded-md text-sm font-medium transition">
+                <i class="fas fa-user-tie w-5"></i> LANDLORDS
+            </a>
+            <a href="#" class="flex items-center gap-3 px-3 py-2 text-gray-500 hover:bg-gray-100 rounded-md text-sm font-medium transition">
+                <i class="fas fa-tools w-5"></i> TECHNICIANS
+            </a>
+            <a href="#" class="flex items-center gap-3 px-3 py-2 text-gray-500 hover:bg-gray-100 rounded-md text-sm font-medium transition">
+                <i class="fas fa-shapes w-5"></i> CATEGORIES
+            </a>
+            <a href="#" class="flex items-center gap-3 px-3 py-2 text-gray-500 hover:bg-gray-100 rounded-md text-sm font-medium transition">
+                <i class="fas fa-building w-5"></i> PROPERTIES
+            </a>
+            <a href="#" class="flex items-center gap-3 px-3 py-2 text-gray-500 hover:bg-gray-100 rounded-md text-sm font-medium transition">
+                <i class="fas fa-wrench w-5"></i> MAINTENANCE
+            </a>
+            <a href="#" class="flex items-center gap-3 px-3 py-2 text-gray-500 hover:bg-gray-100 rounded-md text-sm font-medium transition">
+                <i class="fas fa-chart-bar w-5"></i> REPORTS
+            </a>
+        </nav>
+
+        <div class="p-4 border-t border-gray-200">
+            <a href="#" class="flex items-center gap-3 px-3 py-2 text-gray-500 hover:bg-gray-100 rounded-md text-sm font-medium">
+                <i class="fas fa-cog w-5"></i> SETTINGS
+            </a>
+        </div>
+    </aside>
+
+    <main class="flex-1 overflow-y-auto">
+        <header class="flex items-center justify-between px-8 py-4 bg-white border-b border-gray-100">
+            <h2 class="text-xs font-bold tracking-[0.2em] text-gray-800 uppercase">Admin Portal</h2>
+            <div class="flex items-center gap-6">
+                <button class="text-gray-400 hover:text-gray-600"><i class="far fa-bell text-lg"></i></button>
+                <div class="w-8 h-8 bg-black flex items-center justify-center text-white text-xs font-bold rounded-sm">A</div>
+            </div>
+        </header>
+
+        <div class="p-8">
+            <div class="flex justify-between items-end mb-8">
+                <div>
+                    <h1 class="text-3xl font-bold tracking-tight text-black">PORTFOLIO OVERVIEW</h1>
+                    <p class="text-gray-400 text-sm mt-1">Real-time administrative control and operational audit.</p>
+                </div>
+                <div class="flex gap-3">
+                    <button class="px-5 py-2 bg-gray-200 text-gray-700 text-xs font-bold tracking-widest rounded-sm hover:bg-gray-300 transition">EXPORT LEDGER</button>
+                    <button class="px-5 py-2 bg-black text-white text-xs font-bold tracking-widest rounded-sm hover:bg-gray-800 transition">NEW AUDIT</button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-4 gap-6 mb-10">
+                <div class="bg-white p-6 border border-gray-100 shadow-sm">
+                    <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Total Users</p>
+                    <p class="text-4xl font-bold">1,240</p>
+                </div>
+                <div class="bg-white p-6 border border-gray-100 shadow-sm">
+                    <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Pending Approvals</p>
+                    <p class="text-4xl font-bold">12</p>
+                </div>
+                <div class="bg-white p-6 border border-gray-100 shadow-sm">
+                    <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Active Properties</p>
+                    <p class="text-4xl font-bold">482</p>
+                </div>
+                <div class="bg-white p-6 border border-gray-100 shadow-sm">
+                    <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Open Requests</p>
+                    <p class="text-4xl font-bold">34</p>
+                </div>
+            </div>
+
+            <div class="flex gap-8">
+                <div class="flex-1 space-y-12">
+                    
+                    <section>
+                        <div class="flex justify-between items-center mb-4 border-l-4 border-black pl-3">
+                            <h3 class="text-sm font-bold tracking-widest uppercase">Pending Landlord Approvals</h3>
+                            <button class="text-[10px] font-bold text-gray-500 uppercase hover:underline">View All</button>
+                        </div>
+                        <table class="w-full text-left text-sm">
+                            <thead>
+                                <tr class="bg-gray-100 text-gray-500">
+                                    <th class="py-3 px-4 font-bold text-[10px] uppercase">Entity Name</th>
+                                    <th class="py-3 px-4 font-bold text-[10px] uppercase">Access Identity</th>
+                                    <th class="py-3 px-4 font-bold text-[10px] uppercase">Submission Date</th>
+                                    <th class="py-3 px-4 font-bold text-[10px] uppercase text-right">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-100 bg-white">
+                                <tr>
+                                    <td class="py-4 px-4 font-medium">Marcus Thorne</td>
+                                    <td class="py-4 px-4 text-gray-400">m.thorne@estatecorp.com</td>
+                                    <td class="py-4 px-4 text-gray-500">Oct 24, 2023</td>
+                                    <td class="py-4 px-4 text-right space-x-2">
+                                        <button class="text-[10px] font-bold text-gray-700 uppercase">Approve</button>
+                                        <button class="text-[10px] font-bold text-red-600 uppercase">Reject</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="py-4 px-4 font-medium">Elias Vance</td>
+                                    <td class="py-4 px-4 text-gray-400">vance.properties@icloud.com</td>
+                                    <td class="py-4 px-4 text-gray-500">Oct 23, 2023</td>
+                                    <td class="py-4 px-4 text-right space-x-2">
+                                        <button class="text-[10px] font-bold text-gray-700 uppercase">Approve</button>
+                                        <button class="text-[10px] font-bold text-red-600 uppercase">Reject</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+
+                    <section>
+                        <div class="flex justify-between items-center mb-4 border-l-4 border-black pl-3">
+                            <h3 class="text-sm font-bold tracking-widest uppercase">Pending Technician Verification</h3>
+                            <button class="text-[10px] font-bold text-gray-500 uppercase hover:underline">View All</button>
+                        </div>
+                        <table class="w-full text-left text-sm">
+                            <thead>
+                                <tr class="bg-gray-100 text-gray-500">
+                                    <th class="py-3 px-4 font-bold text-[10px] uppercase">Specialist</th>
+                                    <th class="py-3 px-4 font-bold text-[10px] uppercase">Identity Email</th>
+                                    <th class="py-3 px-4 font-bold text-[10px] uppercase">Credential Date</th>
+                                    <th class="py-3 px-4 font-bold text-[10px] uppercase text-right">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-100 bg-white">
+                                <tr>
+                                    <td class="py-4 px-4 font-medium">Sarah Jenkins</td>
+                                    <td class="py-4 px-4 text-gray-400">jenkins.hvac@service.io</td>
+                                    <td class="py-4 px-4 text-gray-500">Oct 25, 2023</td>
+                                    <td class="py-4 px-4 text-right space-x-2">
+                                        <button class="text-[10px] font-bold text-gray-700 uppercase">Approve</button>
+                                        <button class="text-[10px] font-bold text-red-600 uppercase">Reject</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="py-4 px-4 font-medium">David Chen</td>
+                                    <td class="py-4 px-4 text-gray-400">d.chen@buildsmart.com</td>
+                                    <td class="py-4 px-4 text-gray-500">Oct 24, 2023</td>
+                                    <td class="py-4 px-4 text-right space-x-2">
+                                        <button class="text-[10px] font-bold text-gray-700 uppercase">Approve</button>
+                                        <button class="text-[10px] font-bold text-red-600 uppercase">Reject</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                </div>
+
+                <aside class="w-72 bg-white border border-gray-100 p-6 rounded-sm shadow-sm h-fit">
+                    <h3 class="text-sm font-bold tracking-widest uppercase mb-6">System Activity</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex gap-4">
+                            <div class="w-4 h-4 bg-black shrink-0 mt-1"></div>
+                            <div>
+                                <p class="text-[10px] font-bold text-gray-400 uppercase">09:45 AM TODAY</p>
+                                <p class="text-xs font-bold mt-0.5">Property Verified: 'Skyline Lofts #402'</p>
+                                <p class="text-[10px] text-gray-500 mt-1">Audit completed by Automated Protocol 4.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <div class="w-4 h-4 bg-gray-300 shrink-0 mt-1"></div>
+                            <div>
+                                <p class="text-[10px] font-bold text-gray-400 uppercase">10:12 AM TODAY</p>
+                                <p class="text-xs font-bold mt-0.5">New Maintenance Entry: Plumbing</p>
+                                <p class="text-[10px] text-gray-500 mt-1">Unit 12B reported emergency leakage.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <div class="w-4 h-4 bg-black shrink-0 mt-1"></div>
+                            <div>
+                                <p class="text-[10px] font-bold text-gray-400 uppercase">YESTERDAY</p>
+                                <p class="text-xs font-bold mt-0.5">Landlord Access Granted: J. Miller</p>
+                                <p class="text-[10px] text-gray-500 mt-1">Manual approval by Root Admin.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <div class="w-4 h-4 bg-red-600 shrink-0 mt-1"></div>
+                            <div>
+                                <p class="text-[10px] font-bold text-gray-400 uppercase">YESTERDAY</p>
+                                <p class="text-xs font-bold mt-0.5">Failed Credential Verification</p>
+                                <p class="text-[10px] text-gray-500 mt-1">Technician profile 'Liam S' rejected due to expired license.</p>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
