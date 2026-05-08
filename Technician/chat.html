@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechPortal – Chat</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        nav a {
+            transition: background 0.15s, color 0.15s;
+        }
+
+        nav a:not(.active-nav):hover {
+            background-color: #e5e7eb !important;
+            color: #111 !important;
+        }
+
+        nav a.active-nav,
+        nav a.active-nav:hover {
+            background-color: #111 !important;
+            color: #fff !important;
+            font-weight: 600;
+        }
+    </style>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var currentPage = window.location.pathname.split("/").pop() || 'dashboard.html';
+            document.querySelectorAll("nav a").forEach(function (link) {
+                var href = link.getAttribute("href").split("/").pop();
+                if (href === currentPage) {
+                    link.classList.add("active-nav");
+                } else {
+                    link.classList.remove("active-nav");
+                }
+            });
+        });
+        // Auto-highlight active nav
+    </script>
+
+
+</head>
+
+<body class="font-barlow bg-white flex h-screen overflow-hidden">
+
+    <!-- LEFT SIDEBAR -->
+    <aside class="w-44 h-screen bg-white border-r border-gray-200 flex flex-col shrink-0">
+        <div class="px-5 pt-6 pb-8">
+            <p class="font-condensed font-extrabold text-[17px] uppercase tracking-tight leading-none">TechPortal</p>
+            <p class="text-[8px] text-gray-400 uppercase tracking-[0.18em] font-semibold mt-0.5">Maintenance Division
+            </p>
+        </div>
+
+        <nav class="flex-1 px-2 space-y-0.5">
+            <a href="./dashboard.html"
+                class="flex items-center gap-3 text-gray-500 px-3 py-2.5 rounded text-[13px] hover:bg-gray-200 hover:text-black transition-all duration-150">
+                <i class="fas fa-th-large text-xs w-4 text-center"></i>
+                Dashboard
+            </a>
+            <a href="./assigned_tasks.html"
+                class="flex items-center gap-3 text-gray-500 px-3 py-2.5 rounded text-[13px] hover:bg-gray-200 hover:text-black-300 transition-all duration-150">
+                <i class="fas fa-clipboard-check text-xs w-4 text-center"></i>
+                My Assigned Tasks
+            </a>
+            <a href="./job_history.html"
+                class="flex items-center gap-3 text-gray-500 px-3 py-2.5 rounded text-[13px] hover:bg-gray-100 hover:text-black transition-all duration-150">
+                <i class="fas fa-clock-rotate-left text-xs w-4 text-center"></i>
+                Job History
+            </a>
+            <a href="./chat.html"
+                class="flex items-center gap-3 text-gray-500 px-3 py-2.5 rounded text-[13px] hover:bg-gray-100 hover:text-black transition-all duration-150">
+                <i class="fas fa-comments text-xs w-4 text-center"></i>
+                Chat
+            </a>
+            <a href="./service_history_report.html"
+                class="flex items-center gap-3 text-gray-500 px-3 py-2.5 rounded text-[13px] hover:bg-gray-100 hover:text-black transition-all duration-150">
+                <i class="fas fa-chart-bar text-xs w-4 text-center"></i>
+                Reports
+            </a>
+            <a href="./setting.html"
+                class="flex items-center gap-3 text-gray-500 px-3 py-2.5 rounded text-[13px] hover:bg-gray-100 hover:text-black transition-all duration-150">
+                <i class="fas fa-gear text-xs w-4 text-center"></i>
+                Settings
+            </a>
+        </nav>
+
+        <div class="p-4 border-t border-gray-100 flex items-center gap-3">
+
+            <a href="./setting.html"> <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=AlexChen"
+                    class="w-9 h-9 rounded-full bg-gray-200 shrink-0"></a>
+            <div>
+
+                <a href="./setting.html">
+                    <p class="text-[12px] font-bold text-gray-800 leading-tight">ABID HASNINE</p>
+                </a>
+                <p class="text-[10px] text-gray-400">Lead Technician</p>
+            </div>
+        </div>
+    </aside>
+
+    <!-- MAIN -->
+    <div class="flex-1 flex flex-col min-w-0 overflow-hidden">
+
+        <!-- HEADER -->
+        <header class="bg-white border-b border-gray-200 h-14 flex items-center shrink-0 z-50">
+            <div class="flex items-center gap-2 px-6 border-r border-gray-200 h-full">
+                <a href="./landing_page.html"><i class="fas fa-home text-gray-800 text-base"></i></a>
+                <a href="./landing_page.html"> <span
+                        class="font-condensed font-bold text-[18px] tracking-wide">TenureX</span></a>
+            </div>
+            <div class="flex-1 flex justify-center px-8">
+                <div class="relative w-full max-w-md">
+                    <i
+                        class="fas fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-gray-700 text-xs"></i>
+                    <input type="text" placeholder="Search conversations..."
+                        class="w-full pl-8 pr-4 py-1.5 border border-gray-300 text-[11px] tracking-[0.06em] placeholder-gray-500 focus:outline-none focus:border-gray-400 bg-white rounded" />
+                </div>
+            </div>
+            <div class="flex items-center gap-5 px-6">
+                <i class="fas fa-bell text-gray-700 text-base cursor-pointer"></i>
+                <i class="fas fa-circle-question text-gray-700 text-base cursor-pointer"></i>
+                <span class="text-[12px] font-bold text-gray-700 uppercase tracking-[0.15em]">Technician Portal</span>
+            </div>
+        </header>
+
+        <!-- BODY: messages list + chat + right panel -->
+        <div class="flex flex-1 overflow-hidden">
+
+            <!-- MESSAGES LIST -->
+            <div class="w-72 border-r border-gray-100 flex flex-col shrink-0 bg-white">
+                <div class="px-5 pt-5 pb-4">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-[18px] font-bold text-gray-800">Messages</h3>
+                        <button
+                            class="w-8 h-8 bg-black text-white flex items-center justify-center text-lg font-light hover:bg-gray-800 transition">+</button>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <button
+                            class="bg-black text-white text-[10px] font-bold px-3 py-1 rounded-full tracking-widest">ALL</button>
+                        <button
+                            class="text-gray-400 text-[10px] font-bold tracking-widest hover:text-gray-700 transition">TENANTS</button>
+                        <button
+                            class="text-gray-400 text-[10px] font-bold tracking-widest hover:text-gray-700 transition">OWNERS</button>
+                    </div>
+                </div>
+
+                <div class="flex-1 overflow-y-auto">
+                    <!-- Sienna West — active -->
+                    <div class="flex gap-3 px-4 py-4 border-l-4 border-black bg-gray-100 cursor-pointer">
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Sienna"
+                            class="w-11 h-11 rounded-lg shrink-0">
+                        <div class="flex-1 min-w-0">
+                            <div class="flex justify-between items-baseline mb-0.5">
+                                <span class="text-[13px] font-bold text-gray-800">Sanjida Momo</span>
+                                <span class="text-[10px] text-gray-400 font-bold">12:45 PM</span>
+                            </div>
+                            <p class="text-[12px] font-bold text-gray-700 truncate">Is the plumber still coming today?
+                            </p>
+                            <p class="text-[9px] text-gray-400 font-bold uppercase tracking-wider mt-1">Apt 4B · Water
+                                Leak</p>
+                        </div>
+                    </div>
+
+                    <!-- Robert Chen -->
+                    <div class="flex gap-3 px-4 py-4 cursor-pointer hover:bg-gray-50 transition">
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Robert"
+                            class="w-11 h-11 rounded-lg shrink-0">
+                        <div class="flex-1 min-w-0">
+                            <div class="flex justify-between items-baseline mb-0.5">
+                                <span class="text-[13px] font-bold text-gray-800">Hania Amir</span>
+                                <span class="text-[10px] text-gray-400 font-bold uppercase">Yesterday</span>
+                            </div>
+                            <p class="text-[12px] text-gray-400 truncate">Invoice for the electrical work has been...
+                            </p>
+                            <p class="text-[9px] text-gray-400 font-bold uppercase tracking-wider mt-1">Property Owner
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Maria Garcia -->
+                    <div class="flex gap-3 px-4 py-4 cursor-pointer hover:bg-gray-50 transition opacity-60">
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Maria"
+                            class="w-11 h-11 rounded-lg shrink-0 grayscale">
+                        <div class="flex-1 min-w-0">
+                            <div class="flex justify-between items-baseline mb-0.5">
+                                <span class="text-[13px] font-bold text-gray-800">Maria Garcia</span>
+                                <span class="text-[10px] text-gray-400 font-bold uppercase">Tuesday</span>
+                            </div>
+                            <p class="text-[12px] text-gray-400 truncate">Thank you for fixing the HVAC so quick...</p>
+                            <p class="text-[9px] text-gray-400 font-bold uppercase tracking-wider mt-1">Apt 12C · HVAC
+                                Repair</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CHAT AREA -->
+            <div class="flex-1 flex flex-col min-w-0 bg-white">
+
+                <!-- Chat header -->
+                <div
+                    class="px-6 py-0 border-b border-gray-100 flex items-center justify-between shrink-0 h-[72px] relative">
+                    <div class="flex items-center gap-3">
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Sienna"
+                            class="w-14 h-14 rounded-full shrink-0 absolute top-4 left-6 -translate-y-1/4 border-2 border-white shadow">
+                        <div class="ml-20">
+                            <h4 class="text-[13px] font-bold text-gray-800 leading-tight">Sanjida<br />Momo</h4>
+                            <div class="flex items-center gap-1.5">
+                                <span class="w-1.5 h-1.5 bg-green-500 rounded-full"></span>
+                                <span class="text-[9px] font-bold text-gray-500 uppercase tracking-widest">Active Now —
+                                    Apt 4B</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-5">
+                        <i class="fas fa-phone text-gray-400 text-base cursor-pointer hover:text-gray-800"></i>
+                        <i class="fas fa-video text-gray-400 text-base cursor-pointer hover:text-gray-800"></i>
+                        <button
+                            class="flex items-center gap-2 border border-gray-200 text-[10px] font-bold uppercase tracking-widest px-4 py-2.5 text-gray-700 hover:bg-gray-700 hover:text-white transition">
+                            <i class="fas fa-file-lines text-xs"></i> View Order
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Messages -->
+                <div class="flex-1 overflow-y-auto px-8 py-6 space-y-6">
+                    <div class="text-center">
+                        <span class="text-[9px] font-bold text-gray-300 uppercase tracking-[0.2em]">Today, October
+                            24</span>
+                    </div>
+
+                    <!-- Received -->
+                    <div class="flex gap-3 max-w-lg">
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Sienna"
+                            class="w-8 h-8 rounded-lg self-start shrink-0">
+                        <div>
+                            <div
+                                class="bg-gray-200 px-4 py-3 rounded-2xl rounded-tl-none text-[12px] text-black leading-relaxed font-medium">
+                                Hi Hasnine, sorry to bother you again. The leak in the master bathroom seems to have
+                                started again.
+                            </div>
+                            <p class="text-[9px] font-bold text-gray-300 mt-1">12:30 PM</p>
+                        </div>
+                    </div>
+
+                    <!-- Sent -->
+                    <div class="flex flex-col items-end">
+                        <div
+                            class="bg-gray-900 px-5 py-4 rounded-2xl rounded-br-none text-[12px] text-white max-w-lg leading-relaxed font-medium shadow-lg">
+                            No problem at all, Sanjida. I'm finishing up a quick task at Apt 2A and can head your way in
+                            about 20 minutes. Is someone there to let me in?
+                        </div>
+                        <div class="flex items-center gap-1 mt-1">
+                            <span class="text-[9px] font-bold text-gray-300 uppercase">12:32 PM</span>
+                            <i class="fas fa-check-double text-[9px] text-gray-300"></i>
+                        </div>
+                    </div>
+
+                    <!-- Received with image -->
+                    <div class="flex gap-3 max-w-lg">
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Sienna"
+                            class="w-8 h-8 rounded-lg self-start shrink-0">
+                        <div class="space-y-3">
+                            <div
+                                class="bg-gray-200 px-4 py-3 rounded-2xl rounded-tl-none text-[12px] text-black leading-relaxed font-medium">
+                                Yes, I'm working from home today. Is the plumber still coming today as well? You
+                                mentioned a specialist might be needed.
+                            </div>
+                            <p class="text-[9px] font-bold text-gray-300">12:45 PM</p>
+                            <!-- Faucet image -->
+                            <div class="relative overflow-hidden border border-gray-100 max-w-xs group cursor-zoom-in"
+                                style="border-radius:12px;">
+                                <div class="w-full h-50 bg-[#3a3a3a] flex items-center justify-center relative">
+                                    <img src="./images/long-body-brass-taps-656.jpg"
+                                        class="h-full w-full object-cover mix-blend-luminosity opacity-90">
+                                    <i
+                                        class="fas fa-magnifying-glass-plus absolute top-3 right-3 text-white drop-shadow-md text-sm"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Message input -->
+                <div class="px-6 pb-4 pt-2 shrink-0">
+                    <div class="flex items-center border border-gray-200 rounded-xl px-3 py-2 bg-white shadow-sm">
+                        <button class="w-9 h-9 flex items-center justify-center text-gray-400 hover:text-gray-600"><i
+                                class="fas fa-plus text-sm"></i></button>
+                        <button class="w-9 h-9 flex items-center justify-center text-gray-400 hover:text-gray-600"><i
+                                class="fas fa-image text-sm"></i></button>
+                        <input type="text" placeholder="Type your message..."
+                            class="flex-1 px-3 py-1 text-[13px] focus:outline-none placeholder-gray-300 font-medium bg-transparent" />
+                        <button class="w-9 h-9 flex items-center justify-center text-gray-400 hover:text-gray-600"><i
+                                class="fas fa-face-smile text-sm"></i></button>
+                        <button
+                            class="w-9 h-9 bg-black text-white flex items-center justify-center rounded-lg hover:bg-gray-800 transition ml-1">
+                            <i class="fas fa-paper-plane text-xs"></i>
+                        </button>
+                    </div>
+                    <div class="flex justify-between px-1 mt-2">
+                        <span class="text-[8px] font-bold text-gray-300 uppercase tracking-widest">Shift + Enter for new
+                            line</span>
+                        <span class="text-[8px] font-bold text-gray-300 uppercase tracking-widest">Secure
+                            End-to-End</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT PANEL — Active Context -->
+            <aside
+                class="w-60 shrink-0 border-l border-gray-100 bg-white overflow-y-auto px-5 py-6 flex flex-col gap-6">
+                <p class="text-[9px] font-bold text-gray-400 uppercase tracking-widest">Active Context</p>
+
+                <!-- Location -->
+                <div>
+                    <div class="flex items-center gap-2 mb-3">
+                        <i class="fas fa-location-dot text-xs text-gray-800"></i>
+                        <span class="text-[9px] font-bold text-gray-800 uppercase tracking-widest">Location</span>
+                    </div>
+                    <div class="border border-gray-100 rounded-lg overflow-hidden shadow-sm">
+                        <img src="./images/apartment.jpg"
+                            class="w-full h-28 object-cover grayscale">
+                        <div class="p-3 bg-white">
+                            <p class="text-[10px] font-bold text-gray-800 uppercase tracking-wider mb-0.5">Willow
+                                Heights, Apt 4B</p>
+                            <p class="text-[9px] text-gray-400 font-bold uppercase tracking-widest">Entry: #1024</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Urgent work order card -->
+                <div class="bg-gray-900 rounded-xl p-4 text-white relative overflow-hidden">
+                    <div class="absolute -right-3 -top-3 w-14 h-14 bg-white/5 rounded-full"></div>
+                    <div class="flex justify-between items-start mb-3">
+                        <span
+                            class="bg-white text-black text-[8px] font-black px-2 py-0.5 rounded uppercase tracking-wide">Urgent</span>
+                        <span class="text-[9px] text-gray-400 font-bold">WO-4921</span>
+                    </div>
+                    <h5 class="text-[11px] font-bold uppercase tracking-widest mb-2">Kitchen Pipe Burst</h5>
+                    <p class="text-[10px] text-gray-400 leading-relaxed">Tenant reported water pooling under the sink
+                        and possibly leaking to unit below.</p>
+                </div>
+
+                <!-- Shared Files -->
+                <div>
+                    <div class="flex items-center gap-2 mb-3">
+                        <i class="fas fa-folder-open text-xs text-gray-800"></i>
+                        <span class="text-[9px] font-bold text-gray-800 uppercase tracking-widest">Shared Files</span>
+                    </div>
+                    <div class="space-y-2">
+                        <div
+                            class="flex items-center gap-3 p-3 border border-gray-100 rounded-lg hover:border-gray-200 cursor-pointer transition">
+                            <div
+                                class="w-8 h-8 bg-gray-50 rounded flex items-center justify-center text-gray-400 shrink-0">
+                                <i class="fas fa-file-pdf text-sm"></i>
+                            </div>
+                            <div>
+                                <p class="text-[9px] font-bold text-gray-800 uppercase">Lease_Agreement.pdf</p>
+                                <p class="text-[8px] text-gray-400 font-bold uppercase">2.4 MB · Oct 12</p>
+                            </div>
+                        </div>
+                        <div
+                            class="flex items-center gap-3 p-3 border border-gray-100 rounded-lg hover:border-gray-200 cursor-pointer transition">
+                            <div
+                                class="w-8 h-8 bg-gray-50 rounded flex items-center justify-center text-gray-400 shrink-0">
+                                <i class="fas fa-image text-sm"></i>
+                            </div>
+                            <div>
+                                <p class="text-[9px] font-bold text-gray-800 uppercase">Bathroom_Leak.jpg</p>
+                                <p class="text-[8px] text-gray-400 font-bold uppercase">1.1 MB · Today</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+</body>
+
+</html>

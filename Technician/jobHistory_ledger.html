@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job History Ledger – Q4 2024</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="font-barlow bg-gray-400 min-h-screen flex flex-col items-center py-10">
+
+    <!-- Back arrow -->
+    <div class="w-full flex justify-center mb-2">
+        <a href="./job_history.html" class="text-gray-300 hover:text-white transition">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 12H5M12 5l-7 7 7 7" />
+            </svg>
+        </a>
+    </div>
+    <!-- Document -->
+    <div class="bg-white w-full max-w-2xl px-14 py-12 shadow-xl">
+
+        <!-- Doc label -->
+        <p class="text-[9px] font-bold text-gray-400 uppercase tracking-[0.25em] mb-3">Internal Maintenance Document</p>
+
+        <!-- Title block -->
+        <div class="flex items-start justify-between mb-2">
+            <div>
+                <h1
+                    class="font-condensed font-extrabold text-[40px] uppercase leading-none tracking-tight text-gray-900">
+                    Job History Ledger</h1>
+                <h2
+                    class="font-condensed font-extrabold text-[40px] uppercase leading-none tracking-tight text-gray-400">
+                    Q4 2024</h2>
+            </div>
+            <div class="text-right mt-1">
+                <div
+                    class="bg-gray-900 text-white text-[9px] font-bold uppercase tracking-widest px-3 py-1 mb-1 inline-block">
+                    Ref: ARCH-JH-998</div>
+                <p class="text-[10px] text-gray-400 font-semibold">Oct 24, 2024</p>
+            </div>
+        </div>
+
+        <hr class="border-gray-200 my-6" />
+
+        <!-- Stat cards -->
+        <div class="grid grid-cols-3 gap-0 border border-gray-200 mb-8">
+            <div class="bg-gray-900 px-6 py-5">
+                <p class="text-[8px] font-bold text-gray-400 uppercase tracking-[0.2em] mb-3">Total Jobs Executed</p>
+                <p class="font-condensed font-extrabold text-[46px] leading-none text-white">248</p>
+                <p class="text-[8px] text-gray-500 uppercase tracking-wide mt-1">Cumulative Quarterly Volume</p>
+            </div>
+            <div class="border-l border-r border-gray-200 px-6 py-5">
+                <p class="text-[8px] font-bold text-gray-400 uppercase tracking-[0.2em] mb-3">Avg. Service Cost</p>
+                <div class="flex items-baseline gap-0">
+                    <span class="font-condensed font-extrabold text-[46px] leading-none text-gray-900">$142</span>
+                    <span class="font-condensed font-bold text-[24px] text-gray-900">.50</span>
+                </div>
+                <p class="text-[8px] text-gray-400 uppercase tracking-wide mt-1">Per Incident Average</p>
+            </div>
+            <div class="px-6 py-5">
+                <p class="text-[8px] font-bold text-gray-400 uppercase tracking-[0.2em] mb-3">Operational Hours</p>
+                <div class="flex items-baseline gap-0.5">
+                    <span class="font-condensed font-extrabold text-[46px] leading-none text-gray-900">1.2</span>
+                    <span class="font-condensed font-bold text-[24px] text-gray-900">k</span>
+                </div>
+                <p class="text-[8px] text-gray-400 uppercase tracking-wide mt-1">Man-Hours Allocated</p>
+            </div>
+        </div>
+
+        <!-- Detailed Job Log -->
+        <div class="mb-8">
+            <div class="flex items-center gap-4 mb-4">
+                <h3 class="font-condensed font-extrabold text-[16px] uppercase tracking-[0.1em] text-gray-900">Detailed
+                    Job Log</h3>
+                <div class="flex-1 h-[1px] bg-gray-300"></div>
+            </div>
+
+            <!-- Table -->
+            <table class="w-full">
+                <thead>
+                    <tr class="bg-gray-900">
+                        <th class="px-3 py-2.5 text-left text-[8px] font-bold text-gray-300 uppercase tracking-widest">
+                            Task ID</th>
+                        <th class="px-3 py-2.5 text-left text-[8px] font-bold text-gray-300 uppercase tracking-widest">
+                            Property/Asset</th>
+                        <th class="px-3 py-2.5 text-left text-[8px] font-bold text-gray-300 uppercase tracking-widest">
+                            Description</th>
+                        <th class="px-3 py-2.5 text-left text-[8px] font-bold text-gray-300 uppercase tracking-widest">
+                            Date/Time</th>
+                        <th class="px-3 py-2.5 text-right text-[8px] font-bold text-gray-300 uppercase tracking-widest">
+                            Cost (USD)</th>
+                        <th class="px-3 py-2.5 text-left text-[8px] font-bold text-gray-300 uppercase tracking-widest">
+                            Authorized By</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="border-b border-gray-100">
+                        <td class="px-3 py-3 text-[11px] font-bold text-gray-600">#MR-101</td>
+                        <td class="px-3 py-3 text-[11px] font-semibold text-gray-800">Skyline Garden</td>
+                        <td class="px-3 py-3 text-[10px] text-gray-400 uppercase tracking-wide">HVAC System Calibration
+                        </td>
+                        <td class="px-3 py-3 text-[10px] text-gray-600">Oct 22 | 14:30</td>
+                        <td class="px-3 py-3 text-[11px] font-bold text-gray-900 text-right">$450.00</td>
+                        <td class="px-3 py-3 text-[10px] text-gray-500 italic">M. Sterling</td>
+                    </tr>
+                    <tr class="border-b border-gray-100 bg-gray-50">
+                        <td class="px-3 py-3 text-[11px] font-bold text-gray-600">#MR-102</td>
+                        <td class="px-3 py-3 text-[11px] font-semibold text-gray-800">The Obsidian Loft</td>
+                        <td class="px-3 py-3 text-[10px] text-gray-400 uppercase tracking-wide">Structural Masonry
+                            Repair</td>
+                        <td class="px-3 py-3 text-[10px] text-gray-600">Oct 21 | 09:00</td>
+                        <td class="px-3 py-3 text-[11px] font-bold text-gray-900 text-right">$1,200.00</td>
+                        <td class="px-3 py-3 text-[10px] text-gray-500 italic">J. Vane</td>
+                    </tr>
+                    <tr class="border-b border-gray-100">
+                        <td class="px-3 py-3 text-[11px] font-bold text-gray-600">#MR-103</td>
+                        <td class="px-3 py-3 text-[11px] font-semibold text-gray-800">Harbor Point</td>
+                        <td class="px-3 py-3 text-[10px] text-gray-400 uppercase tracking-wide">Electrical Circuits</td>
+                        <td class="px-3 py-3 text-[10px] text-gray-600">Oct 20 | 13:15</td>
+                        <td class="px-3 py-3 text-[11px] font-bold text-gray-900 text-right">$320.00</td>
+                        <td class="px-3 py-3 text-[10px] text-gray-500 italic">M. Sterling</td>
+                    </tr>
+                    <tr class="border-b border-gray-100 bg-gray-50">
+                        <td class="px-3 py-3 text-[11px] font-bold text-gray-600">#MR-104</td>
+                        <td class="px-3 py-3 text-[11px] font-semibold text-gray-800">The Monolith</td>
+                        <td class="px-3 py-3 text-[10px] text-gray-400 uppercase tracking-wide">Pest Control Routine
+                        </td>
+                        <td class="px-3 py-3 text-[10px] text-gray-600">Oct 19 | 16:45</td>
+                        <td class="px-3 py-3 text-[11px] font-bold text-gray-900 text-right">$185.00</td>
+                        <td class="px-3 py-3 text-[10px] text-gray-500 italic">A. Thorne</td>
+                    </tr>
+                    <tr>
+                        <td class="px-3 py-3 text-[11px] font-bold text-gray-600">#MR-105</td>
+                        <td class="px-3 py-3 text-[11px] font-semibold text-gray-800">Terrace Plaza</td>
+                        <td class="px-3 py-3 text-[10px] text-gray-400 uppercase tracking-wide">Plumbing Emergency</td>
+                        <td class="px-3 py-3 text-[10px] text-gray-600">Oct 18 | 03:20</td>
+                        <td class="px-3 py-3 text-[11px] font-bold text-gray-900 text-right">$890.00</td>
+                        <td class="px-3 py-3 text-[10px] text-gray-500 italic">J. Vane</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Maintenance Cost by Sector + Efficiency Note -->
+        <div class="flex gap-5 mb-10">
+            <div class="flex-1">
+                <h3 class="font-condensed font-extrabold text-[13px] uppercase tracking-[0.1em] text-gray-900 mb-4">
+                    Maintenance Cost by Sector</h3>
+                <div class="space-y-3">
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-[9px] font-bold text-gray-500 uppercase tracking-wide">Residential</span>
+                            <span class="text-[9px] font-bold text-gray-700">$42.4k</span>
+                        </div>
+                        <div class="w-full h-4 bg-gray-100 overflow-hidden">
+                            <div class="h-full bg-gray-900" style="width:52%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-[9px] font-bold text-gray-500 uppercase tracking-wide">Commercial</span>
+                            <span class="text-[9px] font-bold text-gray-700">$88.2k</span>
+                        </div>
+                        <div class="w-full h-4 bg-gray-100 overflow-hidden">
+                            <div class="h-full bg-gray-900" style="width:82%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-[9px] font-bold text-gray-500 uppercase tracking-wide">Mixed-Use</span>
+                            <span class="text-[9px] font-bold text-gray-700">$12.1k</span>
+                        </div>
+                        <div class="w-full h-4 bg-gray-100 overflow-hidden">
+                            <div class="h-full bg-gray-400" style="width:24%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-52 shrink-0 border border-gray-200 p-4">
+                <i class="fas fa-chart-bar text-gray-600 text-sm mb-3 block"></i>
+                <h4 class="font-condensed font-extrabold text-[13px] uppercase tracking-wide text-gray-900 mb-2">
+                    Efficiency Note</h4>
+                <p class="text-[10px] text-gray-500 leading-relaxed">The Q4 allocation shows a significant tilt towards
+                    Commercial assets. Predictive maintenance in the Residential sector has reduced emergency calls by
+                    14% compared to Q3. Review the Structural Masonry outlier for Harbor Point to verify long-term asset
+                    integrity.</p>
+            </div>
+        </div>
+
+        <!-- Signature block -->
+        <div class="flex items-end justify-between border-t border-gray-200 pt-6">
+            <div>
+                <div class="w-28 border-b border-gray-400 mb-1">
+                    <p class="text-[18px] font-bold text-gray-400 italic font-serif">aSterling</p>
+                </div>
+                <p class="text-[8px] font-bold text-gray-500 uppercase tracking-widest">Authorized Signature</p>
+                <p class="text-[8px] text-gray-400 uppercase tracking-wide">Chief Administrator</p>
+            </div>
+            <div class="text-right">
+                <p class="text-[9px] font-bold text-gray-500 uppercase tracking-widest">The Ledger PMS</p>
+                <p class="text-[8px] text-gray-400">Page 01 / 14</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Print button -->
+    <div class="mt-8">
+        <button onclick="window.print()"
+            class="bg-gray-900 text-white text-[12px] font-bold uppercase tracking-[0.2em] px-16 py-3.5 hover:bg-black transition">
+            Print
+        </button>
+    </div>
+
+</body>
+
+</html>
