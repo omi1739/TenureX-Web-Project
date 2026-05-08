@@ -154,7 +154,7 @@
           <!-- Logout button (large, with arrow icon) -->
           <button id="logout-btn"
                   class="flex items-center gap-4 bg-gray-100 px-6 py-4 rounded-lg shadow-sm hover:bg-gray-200">
-            <span class="text-sm tracking-widest font-semibold">LOGOUT</span>
+            <span class="text-sm tracking-widest font-semibold"><a href="../../Pages/login.html">LOGOUT</a></span>
             <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4-4-4M21 12H9M13 21H6a2 2 0 01-2-2V5a2 2 0 012-2h7"/>
             </svg>
@@ -327,7 +327,7 @@
     // Confirm: for now, send the user back to the dashboard.
     // (In a real app, this would clear the session and redirect to a login page.)
     logoutConfirm.addEventListener('click', function () {
-      window.location.href = 'dashboard.html';
+      window.location.href = '../../Pages/login.html';
     });
   </script>
 </body>
