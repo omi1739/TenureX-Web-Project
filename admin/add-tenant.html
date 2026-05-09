@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,18 +9,34 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap');
-        body { font-family: 'Inter', sans-serif; }
-        input:focus, select:focus, textarea:focus {
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
             outline: none;
             border-color: black !important;
             background-color: #f8f9fa;
         }
+
         /* Custom scrollbar for a cleaner look */
-        ::-webkit-scrollbar { width: 5px; }
-        ::-webkit-scrollbar-track { background: #f1f1f1; }
-        ::-webkit-scrollbar-thumb { background: #000; }
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #000;
+        }
     </style>
 </head>
+
 <body class="bg-[#FBFBFB] text-gray-800">
 
     <main class="min-h-screen flex flex-col">
@@ -29,22 +46,27 @@
                 <i class="fa-solid fa-arrow-left w-5"></i>
                 Go Back
             </button>
-            <a href="../Pages/login.html" class="text-[10px] font-bold uppercase tracking-widest hover:underline">Already a Tenant? Login</a>
+            <a href="../Pages/login.html"
+                class="text-[10px] font-bold uppercase tracking-widest hover:underline">Already a Tenant? Login</a>
         </header>
 
         <div class="flex-1 flex flex-col lg:flex-row">
             <!-- Left Side: Visual/Context -->
-            <div class="w-full lg:w-1/3 bg-black p-12 lg:p-16 flex flex-col justify-between text-white lg:sticky lg:top-[40px] lg:h-[calc(100vh-40px)]">
+            <div
+                class="w-full lg:w-1/3 bg-black p-12 lg:p-16 flex flex-col justify-between text-white lg:sticky lg:top-[40px] lg:h-[calc(100vh-40px)]">
                 <div>
-                    <h1 class="text-7xl font-black tracking-tighter leading-[0.8] mb-8 uppercase">Secure<br>Your Stay</h1>
+                    <h1 class="text-7xl font-black tracking-tighter leading-[0.8] mb-8 uppercase">Secure<br>Your Stay
+                    </h1>
                     <p class="text-gray-400 text-sm font-medium leading-relaxed max-w-xs">
-                        Enter the digital rental market. Verified profiles get priority access to premium listings across Dhaka and Chattogram.
+                        Enter the digital rental market. Verified profiles get priority access to premium listings
+                        across Dhaka and Chattogram.
                     </p>
                 </div>
-                
+
                 <div class="space-y-6">
                     <div class="flex items-center gap-4 group">
-                        <div class="w-10 h-10 border border-gray-800 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all">
+                        <div
+                            class="w-10 h-10 border border-gray-800 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all">
                             <i class="fas fa-file-invoice"></i>
                         </div>
                         <div>
@@ -53,7 +75,8 @@
                         </div>
                     </div>
                     <div class="flex items-center gap-4 group">
-                        <div class="w-10 h-10 border border-gray-800 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all">
+                        <div
+                            class="w-10 h-10 border border-gray-800 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all">
                             <i class="fas fa-shield-alt"></i>
                         </div>
                         <div>
@@ -67,7 +90,8 @@
             <!-- Right Side: The Form -->
             <div class="flex-1 p-10 lg:p-20 max-w-4xl bg-white">
                 <div class="mb-12">
-                    <h2 class="text-[10px] font-bold text-gray-400 uppercase tracking-[0.3em] mb-2">Registration-T-2026</h2>
+                    <h2 class="text-[10px] font-bold text-gray-400 uppercase tracking-[0.3em] mb-2">Registration-T-2026
+                    </h2>
                     <h3 class="text-4xl font-black tracking-tighter uppercase">Tenant Application</h3>
                 </div>
 
@@ -80,20 +104,28 @@
                         </div>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                             <div class="flex flex-col gap-2">
-                                <label class="text-[9px] font-bold uppercase text-gray-400 tracking-widest">Full Legal Name</label>
-                                <input type="text" placeholder="E.G. ZUBAIR AHMED" class="border-b-2 border-gray-100 p-4 text-xs font-bold uppercase tracking-tight focus:border-black transition-all bg-gray-50/30">
+                                <label class="text-[9px] font-bold uppercase text-gray-400 tracking-widest">Full Legal
+                                    Name</label>
+                                <input type="text" placeholder="E.G. ZUBAIR AHMED"
+                                    class="border-b-2 border-gray-100 p-4 text-xs font-bold uppercase tracking-tight focus:border-black transition-all bg-gray-50/30">
                             </div>
                             <div class="flex flex-col gap-2">
-                                <label class="text-[9px] font-bold uppercase text-gray-400 tracking-widest">Email Address</label>
-                                <input type="email" placeholder="ZUBAIR.A@EMAIL.COM" class="border-b-2 border-gray-100 p-4 text-xs font-bold uppercase tracking-tight focus:border-black transition-all bg-gray-50/30">
+                                <label class="text-[9px] font-bold uppercase text-gray-400 tracking-widest">Email
+                                    Address</label>
+                                <input type="email" placeholder="ZUBAIR.A@EMAIL.COM"
+                                    class="border-b-2 border-gray-100 p-4 text-xs font-bold uppercase tracking-tight focus:border-black transition-all bg-gray-50/30">
                             </div>
                             <div class="flex flex-col gap-2">
-                                <label class="text-[9px] font-bold uppercase text-gray-400 tracking-widest">National ID (NID)</label>
-                                <input type="text" placeholder="XXXX XXXX XXXX" class="border-b-2 border-gray-100 p-4 text-xs font-bold uppercase tracking-tight focus:border-black transition-all bg-gray-50/30">
+                                <label class="text-[9px] font-bold uppercase text-gray-400 tracking-widest">National ID
+                                    (NID)</label>
+                                <input type="text" placeholder="XXXX XXXX XXXX"
+                                    class="border-b-2 border-gray-100 p-4 text-xs font-bold uppercase tracking-tight focus:border-black transition-all bg-gray-50/30">
                             </div>
                             <div class="flex flex-col gap-2">
-                                <label class="text-[9px] font-bold uppercase text-gray-400 tracking-widest">Current Profession</label>
-                                <input type="text" placeholder="E.G. SOFTWARE ENGINEER" class="border-b-2 border-gray-100 p-4 text-xs font-bold uppercase tracking-tight focus:border-black transition-all bg-gray-50/30">
+                                <label class="text-[9px] font-bold uppercase text-gray-400 tracking-widest">Current
+                                    Profession</label>
+                                <input type="text" placeholder="E.G. SOFTWARE ENGINEER"
+                                    class="border-b-2 border-gray-100 p-4 text-xs font-bold uppercase tracking-tight focus:border-black transition-all bg-gray-50/30">
                             </div>
                         </div>
                     </section>
@@ -106,12 +138,16 @@
                         </div>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                             <div class="flex flex-col gap-2">
-                                <label class="text-[9px] font-bold uppercase text-gray-400 tracking-widest">Monthly Income (BDT)</label>
-                                <input type="number" placeholder="৳ 00.00" class="border-b-2 border-gray-100 p-4 text-xs font-bold uppercase tracking-tight focus:border-black transition-all bg-gray-50/30">
+                                <label class="text-[9px] font-bold uppercase text-gray-400 tracking-widest">Monthly
+                                    Income (BDT)</label>
+                                <input type="number" placeholder="৳ 00.00"
+                                    class="border-b-2 border-gray-100 p-4 text-xs font-bold uppercase tracking-tight focus:border-black transition-all bg-gray-50/30">
                             </div>
                             <div class="flex flex-col gap-2">
-                                <label class="text-[9px] font-bold uppercase text-gray-400 tracking-widest">Number of Occupants</label>
-                                <select class="border-b-2 border-gray-100 p-4 text-xs font-bold uppercase tracking-tight appearance-none bg-gray-50/30">
+                                <label class="text-[9px] font-bold uppercase text-gray-400 tracking-widest">Number of
+                                    Occupants</label>
+                                <select
+                                    class="border-b-2 border-gray-100 p-4 text-xs font-bold uppercase tracking-tight appearance-none bg-gray-50/30">
                                     <option>1 (SINGLE OCCUPANCY)</option>
                                     <option>2 (COUPLE / ROOMMATES)</option>
                                     <option>3-5 (FAMILY)</option>
@@ -119,12 +155,15 @@
                                 </select>
                             </div>
                             <div class="flex flex-col gap-2">
-                                <label class="text-[9px] font-bold uppercase text-gray-400 tracking-widest">Pet Ownership</label>
+                                <label class="text-[9px] font-bold uppercase text-gray-400 tracking-widest">Pet
+                                    Ownership</label>
                                 <div class="flex gap-4 mt-2">
-                                    <label class="flex items-center gap-2 text-[10px] font-bold uppercase cursor-pointer">
+                                    <label
+                                        class="flex items-center gap-2 text-[10px] font-bold uppercase cursor-pointer">
                                         <input type="radio" name="pets" class="w-4 h-4 accent-black"> NO
                                     </label>
-                                    <label class="flex items-center gap-2 text-[10px] font-bold uppercase cursor-pointer">
+                                    <label
+                                        class="flex items-center gap-2 text-[10px] font-bold uppercase cursor-pointer">
                                         <input type="radio" name="pets" class="w-4 h-4 accent-black"> YES
                                     </label>
                                 </div>
@@ -139,12 +178,14 @@
                             <h4 class="text-[11px] font-black uppercase tracking-widest">Verification Dossier</h4>
                         </div>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div class="border-2 border-black p-8 text-center hover:bg-gray-50 transition-colors cursor-pointer">
+                            <div
+                                class="border-2 border-black p-8 text-center hover:bg-gray-50 transition-colors cursor-pointer">
                                 <i class="fas fa-id-card text-xl mb-3"></i>
                                 <p class="text-[9px] font-black uppercase tracking-[0.2em]">Upload NID Copy</p>
                                 <p class="text-[7px] text-gray-400 uppercase mt-1">JPEG or PDF only</p>
                             </div>
-                            <div class="border-2 border-black p-8 text-center hover:bg-gray-50 transition-colors cursor-pointer">
+                            <div
+                                class="border-2 border-black p-8 text-center hover:bg-gray-50 transition-colors cursor-pointer">
                                 <i class="fas fa-briefcase text-xl mb-3"></i>
                                 <p class="text-[9px] font-black uppercase tracking-[0.2em]">Employment Proof</p>
                                 <p class="text-[7px] text-gray-400 uppercase mt-1">Payslip or Work ID</p>
@@ -154,13 +195,15 @@
 
                     <!-- Submit -->
                     <div class="pt-10">
-                        <button type="submit" class="w-full bg-black text-white p-6 text-[11px] font-black uppercase tracking-[0.5em] hover:bg-zinc-800 transition-all flex items-center justify-center gap-4">
+                        <a href="../Pages/login.html"
+                            class="w-full bg-black text-white p-6 text-[11px] font-black uppercase tracking-[0.5em] hover:bg-zinc-800 transition-all flex items-center justify-center gap-4">
                             Apply for Verification <i class="fas fa-chevron-right"></i>
-                        </button>
+                        </a>
                         <div class="mt-6 flex items-start gap-3">
                             <input type="checkbox" class="mt-1 w-4 h-4 accent-black">
                             <p class="text-[8px] text-gray-400 font-bold uppercase tracking-widest leading-loose">
-                                I hereby certify that the information provided is accurate and authorize TenureX to conduct a background check including credit score and previous rental history.
+                                I hereby certify that the information provided is accurate and authorize TenureX to
+                                conduct a background check including credit score and previous rental history.
                             </p>
                         </div>
                     </div>
@@ -170,4 +213,5 @@
     </main>
 
 </body>
+
 </html>
