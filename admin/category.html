@@ -312,12 +312,47 @@
 
         // Add event listeners to buttons
         document.querySelectorAll('button').forEach(button => {
-            if (button.textContent.trim().toUpperCase() === 'EDIT') {
+            const text = button.textContent.trim().toUpperCase();
+            if (text === 'EDIT') {
                 button.addEventListener('click', () => showModal('editCategoryModal'));
-            } else if (button.textContent.trim().toUpperCase() === 'DELETE') {
+            } else if (text === 'DELETE') {
                 button.addEventListener('click', () => showModal('deleteCategoryModal'));
             }
         });
+
+        document.querySelectorAll('a[href="#"]').forEach(link => {
+            link.addEventListener('click', event => {
+                event.preventDefault();
+                showModal('placeholderModal');
+            });
+        });
+
+        document.querySelectorAll('button').forEach(button => {
+            if (button.closest('a')) return;
+            if (button.type === 'submit') return;
+            if (button.hasAttribute('onclick')) return;
+
+            const text = button.textContent.trim().toUpperCase();
+            if (['CLOSE', 'CANCEL', 'DELETE', 'EDIT', 'CONFIRM'].some(keyword => text.includes(keyword))) return;
+
+            button.addEventListener('click', event => {
+                event.preventDefault();
+                showModal('placeholderModal');
+            });
+        });
     </script>
+
+    <div id="placeholderModal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50">
+        <div class="bg-white p-8 rounded-sm max-w-md w-full mx-4">
+            <div class="text-center">
+                <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-info text-2xl text-blue-600"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-2">Feature Placeholder</h3>
+                <p class="text-gray-600 mb-6">This action is not connected yet. It will be enabled in a future update.</p>
+                <button onclick="closeModal('placeholderModal')" class="bg-black text-white px-6 py-2 text-sm font-bold uppercase tracking-widest hover:bg-gray-800 transition">Close</button>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

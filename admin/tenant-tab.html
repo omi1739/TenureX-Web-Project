@@ -156,7 +156,7 @@
                            class="bg-green-50 text-green-600 px-2 py-0.5 text-[7px] uppercase tracking-tighter">Verified</span>
                      </td>
                      <td class="py-6 px-8 text-right space-x-2">
-                        <a href="tenant-detail.html">
+                        <a href="../Tenant/settings.html">
                            <button
                               class="bg-gray-200 px-4 py-2 text-[8px] uppercase tracking-widest hover:bg-gray-300 transition">Detail</button>
                         </a>
@@ -189,8 +189,10 @@
                            Guarantor</span>
                      </td>
                      <td class="py-6 px-8 text-right space-x-2">
-                        <button
-                           class="bg-gray-200 px-4 py-2 text-[8px] uppercase tracking-widest hover:bg-gray-300">Detail</button>
+                        <a href="../Tenant/settings.html">
+                           <button
+                              class="bg-gray-200 px-4 py-2 text-[8px] uppercase tracking-widest hover:bg-gray-300 transition">Detail</button>
+                        </a>
                         <button
                            class="bg-black text-white px-4 py-2 text-[8px] uppercase tracking-widest hover:bg-zinc-800">Approve</button>
                         <button
@@ -219,8 +221,10 @@
                            Tier</span>
                      </td>
                      <td class="py-6 px-8 text-right space-x-2">
-                        <button
-                           class="bg-gray-200 px-4 py-2 text-[8px] uppercase tracking-widest hover:bg-gray-300">Detail</button>
+                        <a href="../Tenant/settings.html">
+                           <button
+                              class="bg-gray-200 px-4 py-2 text-[8px] uppercase tracking-widest hover:bg-gray-300 transition">Detail</button>
+                        </a>
                         <button
                            class="bg-black text-white px-4 py-2 text-[8px] uppercase tracking-widest hover:bg-zinc-800">Approve</button>
                         <button
@@ -290,13 +294,48 @@
       }
 
       document.querySelectorAll('button').forEach(button => {
-         if (button.textContent.trim().toUpperCase() === 'APPROVE') {
+         const text = button.textContent.trim().toUpperCase();
+         if (text === 'APPROVE') {
             button.addEventListener('click', () => showModal('requestAcceptedModal'));
-         } else if (button.textContent.trim().toUpperCase() === 'REJECT') {
+         } else if (text === 'REJECT') {
             button.addEventListener('click', () => showModal('requestRejectedModal'));
          }
       });
+
+      document.querySelectorAll('a[href="#"]').forEach(link => {
+         link.addEventListener('click', event => {
+            event.preventDefault();
+            showModal('placeholderModal');
+         });
+      });
+
+      document.querySelectorAll('button').forEach(button => {
+         if (button.closest('a')) return;
+         if (button.type === 'submit') return;
+         if (button.hasAttribute('onclick')) return;
+
+         const text = button.textContent.trim().toUpperCase();
+         if (['CLOSE', 'CANCEL', 'APPROVE', 'REJECT'].some(keyword => text.includes(keyword))) return;
+
+         button.addEventListener('click', event => {
+            event.preventDefault();
+            showModal('placeholderModal');
+         });
+      });
    </script>
+
+   <div id="placeholderModal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50">
+      <div class="bg-white p-8 rounded-sm max-w-md w-full mx-4">
+         <div class="text-center">
+            <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+               <i class="fas fa-info text-2xl text-blue-600"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Feature Placeholder</h3>
+            <p class="text-gray-600 mb-6">This action is not connected yet. It will be enabled in a future update.</p>
+            <button onclick="closeModal('placeholderModal')" class="bg-black text-white px-6 py-2 text-sm font-bold uppercase tracking-widest hover:bg-gray-800 transition">Close</button>
+         </div>
+      </div>
+   </div>
 </body>
 
 </html>
