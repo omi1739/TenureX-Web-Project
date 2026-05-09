@@ -4,83 +4,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TenureX</title>
+    <title>TenureX - Create Account</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap');
 
-    
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .isometric-bg {
+            background-color: #8D9196;
+            background-image: url('https://images.unsplash.com/photo-1615406020658-6c4b805f1f30?q=80&w=1470');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
 </head>
 
-<body class="bg-gray-100">
+<body class="flex min-h-screen bg-white">
 
-    
-    <section class="min-h-screen flex w-[90%] mx-auto mt-10 mb-20">
-
-        
-        <div class="hidden md:block w-1/2">
-          <a href="./landing_page.html"> <img src="../assets/Registration.png" class="w-full h-full object-cover" /> </a>
+    <!-- Left Side Image -->
+    <div class="hidden lg:flex lg:w-1/2 flex-col justify-between p-12 isometric-bg relative overflow-hidden">
+        <div class="z-10 flex items-center gap-3">
+            <div class="w-10 h-10 bg-white rounded-md flex items-center justify-center shadow-lg">
+                <i class="fas fa-home text-black text-xl"></i>
+            </div>
+            <a href="landing_page.html">
+                <span class="font-black text-4xl tracking-tighter text-white drop-shadow-md">TenureX</span>
+            </a>
         </div>
+        <div class="absolute inset-0 bg-black/10"></div>
+    </div>
 
-        
-        <div class="w-full md:w-1/2 flex items-center justify-center p-6">
+    <!-- Right Side Selection -->
+    <div class="w-full lg:w-1/2 flex items-center justify-center p-6 lg:p-12">
+        <div class="w-full max-w-md">
+            <div class="text-center mb-10">
+                <h1 class="text-3xl font-black tracking-tight text-gray-900 mb-3 uppercase">Join TenureX</h1>
+                <p class="text-sm font-medium text-gray-400">Select your account type to get started</p>
+            </div>
 
-            <div class="card w-full max-w-md bg-base-100 shadow-xl">
-                <div class="card-body">
-
-                    <h2 class="text-2xl font-semibold text-center">Create Account</h2>
-                    <p class="text-center text-sm text-gray-500 mb-4">
-                        Join PropHub to access exclusive features
-                    </p>
-
-                    
-                    <div class="flex gap-2 justify-center mb-4">
-                        <button class="btn btn-outline btn-sm">Landlord</button>
-                        <button class="btn btn-outline btn-sm">Tenant</button>
-                        <button class="btn btn-outline btn-sm">Technician</button>
-                    </div>
-
-                    
-                    <div class="flex gap-2">
-                        <input type="text" placeholder="First Name" class="input input-bordered w-full" />
-                        <input type="text" placeholder="Last Name" class="input input-bordered w-full" />
-                    </div>
-
-                    
-                    <input type="email" placeholder="Email Address" class="input input-bordered w-full mt-3" />
-                    <input type="text" placeholder="Phone Number" class="input input-bordered w-full mt-3" />
-                    <input type="text" placeholder="NID Number" class="input input-bordered w-full mt-3" />
-                    <input type="text" placeholder="Location" class="input input-bordered w-full mt-3" />
-                    <input type="password" placeholder="Password" class="input input-bordered w-full mt-3" />
-                    <input type="password" placeholder="Confirm Password" class="input input-bordered w-full mt-3" />
-
-                    
-                    <label class="label cursor-pointer mt-2">
-                        <input type="checkbox" class="checkbox checkbox-sm" />
-                        <span class="label-text ml-2 text-sm">
-                            I agree to the
-                            <a class="link">Terms of Service</a>
-                            and
-                            <a class="link">Privacy Policy</a>
-                        </span>
-                    </label>
-
-                    
-                    <button class="btn btn-neutral w-full mt-3">
-                        Create Account
+            <!-- Role Buttons Container -->
+            <div class="space-y-4">
+                
+                <!-- Landlord -->
+                <a href="../admin/add-landlord.html" class="block group">
+                    <button class="w-full border border-dotted border-gray-400 bg-white text-gray-500 py-6 rounded-md flex flex-col items-center justify-center transition-all active:scale-[0.98] hover:border-black hover:text-black hover:bg-gray-50 hover:border-solid hover:border-[2px]">
+                        <span class="text-[10px] font-black uppercase tracking-[0.4em] mb-1 opacity-60">Property Owner</span>
+                        <span class="text-sm font-black uppercase tracking-[0.2em]"><span class="font-normal">Register as</span> Landlord</span>
                     </button>
+                </a>
 
-                    
-                    <p class="text-center text-sm mt-3">
-                        Already have an account?
-                        <a href="./login.html" class="link font-medium">Sign In</a>
-                    </p>
+                <!-- Tenant -->
+                <a href="../admin/add-tenant.html" class="block group">
+                    <button class="w-full border border-dotted border-gray-400 bg-white text-gray-500 py-6 rounded-md flex flex-col items-center justify-center transition-all active:scale-[0.98] hover:border-black hover:text-black hover:bg-gray-50 hover:border-solid hover:border-[2px]">
+                        <span class="text-[10px] font-black uppercase tracking-[0.4em] mb-1 opacity-60">Resident</span>
+                        <span class="text-sm font-black uppercase tracking-[0.2em]"><span class="font-normal">Register as</span> Tenant</span>
+                    </button>
+                </a>
 
+                <!-- Technician -->
+                <a href="../admin/add-technician.html" class="block group">
+                    <button class="w-full border border-dotted border-gray-400 bg-white text-gray-500 py-6 rounded-md flex flex-col items-center justify-center transition-all active:scale-[0.98] hover:border-black hover:text-black hover:bg-gray-50 hover:border-solid hover:border-[2px]">
+                        <span class="text-[10px] font-black uppercase tracking-[0.4em] mb-1 opacity-60">Service Provider</span>
+                        <span class="text-sm font-black uppercase tracking-[0.2em]"><span class="font-normal">Register as</span> Technician</span>
+                    </button>
+                </a>
+
+            </div>
+
+            <div class="relative my-10">
+                <div class="absolute inset-0 flex items-center">
+                    <div class="w-full border-t border-gray-100"></div>
+                </div>
+                <div class="relative flex justify-center text-[10px] font-black uppercase tracking-[0.3em]">
+                    <span class="bg-white px-4 text-gray-300">Important</span>
                 </div>
             </div>
 
-        </div>
+            <div class="text-center">
+                <p class="text-xs font-bold text-gray-400 uppercase tracking-widest">
+                    Already have an account?
+                    <a href="login.html" class="text-black border-b-2 border-black ml-1 pb-0.5">Sign In</a>
+                </p>
+            </div>
 
-    </section>
+            <div class="mt-12 text-center">
+                <p class="text-[10px] font-medium text-gray-300 uppercase tracking-[0.2em]">
+                    By choosing a role, you agree to our <br>
+                    <a href="#" class="underline">Terms of Service</a> & <a href="#" class="underline">Privacy Policy</a>
+                </p>
+            </div>
+        </div>
+    </div>
 
 </body>
 
