@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>TenureX - Tenant Profile: Ariful Islam</title>
+   <script src="https://cdn.tailwindcss.com"></script>
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+   <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap');
+
+      body {
+         font-family: 'Inter', sans-serif;
+      }
+   </style>
+</head>
+
+<body class="bg-[#FBFBFB] flex min-h-screen text-gray-800">
+
+   <aside class="w-64 bg-[#F8F9FA] border-r border-gray-200 flex flex-col sticky top-0 h-screen">
+      <div class="p-6 flex items-center gap-2">
+         <div class="w-6 h-6 bg-black rounded-sm flex items-center justify-center">
+            <i class="fas fa-home text-white text-[10px]"></i>
+         </div>
+         <a href="../Pages/landing_page.html">
+            <span class="font-bold text-xl tracking-tight text-gray-900">TenureX</span>
+         </a>
+      </div>
+
+      <nav class="flex-1 px-4 mt-4 space-y-1">
+         <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest px-2 mb-4">Property Admin</p>
+         <a href="dashboard.html"
+            class="flex items-center gap-3 px-3 py-2 text-gray-500 hover:bg-gray-100 rounded-md text-sm font-medium transition">
+            <i class="fas fa-th-large w-5"></i> DASHBOARD
+         </a>
+         <a href="landlord-tab.html"
+            class="flex items-center gap-3 px-3 py-2 text-gray-500 hover:bg-gray-100 rounded-md text-sm font-medium transition">
+            <i class="fas fa-user-tie w-5"></i> LANDLORDS
+         </a>
+         <a href="tenant-tab.html"
+            class="flex items-center gap-3 px-3 py-2 bg-black text-white rounded-md text-sm font-medium shadow-sm">
+            <i class="fas fa-user-graduate w-5"></i> TENANTS
+         </a>
+         <a href="technian-tab.html"
+            class="flex items-center gap-3 px-3 py-2 text-gray-500 hover:bg-gray-100 rounded-md text-sm font-medium transition">
+            <i class="fas fa-tools w-5"></i> TECHNICIANS
+         </a>
+         <a href="chat-tab.html"
+            class="flex items-center gap-3 px-3 py-2 text-gray-500 hover:bg-gray-100 rounded-md text-sm font-medium transition">
+            <i class="fas fa-message w-5"></i> MESSAGE
+         </a>
+         <a href="category.html"
+            class="flex items-center gap-3 px-3 py-2 text-gray-500 hover:bg-gray-100 rounded-md text-sm font-medium transition">
+            <i class="fas fa-shapes w-5"></i> CATEGORIES
+         </a>
+         <a href="properties-tab.html"
+            class="flex items-center gap-3 px-3 py-2 text-gray-500 hover:bg-gray-100 rounded-md text-sm font-medium transition">
+            <i class="fas fa-building w-5"></i> PROPERTIES
+         </a>
+         <a href="maintenance-tab.html"
+            class="flex items-center gap-3 px-3 py-2 text-gray-500 hover:bg-gray-100 rounded-md text-sm font-medium transition">
+            <i class="fas fa-wrench w-5"></i> MAINTENANCE
+         </a>
+         <a href="report-tab.html"
+            class="flex items-center gap-3 px-3 py-2 text-gray-500 hover:bg-gray-100 rounded-md text-sm font-medium transition">
+            <i class="fas fa-chart-bar w-5"></i> REPORTS
+         </a>
+      </nav>
+
+      <div class="p-4 border-t border-gray-200">
+         <a href="admin-settings.html"
+            class="flex items-center gap-3 px-3 py-2 text-gray-500 hover:bg-gray-100 rounded-md text-sm font-medium">
+            <i class="fas fa-cog w-5"></i> SETTINGS
+         </a>
+      </div>
+   </aside>
+
+   <main class="flex-1">
+      <header class="flex items-center justify-between px-10 py-5 bg-white border-b border-gray-100">
+         <h2 class="text-[10px] font-bold tracking-[0.3em] text-gray-900 uppercase">Admin Portal</h2>
+         <div class="flex items-center gap-6">
+            <button class="text-gray-400 hover:text-gray-600"><i class="far fa-bell text-lg"></i></button>
+            <div class="w-8 h-8 bg-black flex items-center justify-center text-white text-[10px] font-bold rounded-sm">A
+            </div>
+         </div>
+      </header>
+
+      <div class="p-10 max-w-7xl mx-auto">
+         <div class="flex justify-between items-start mb-8">
+            <div>
+               <p class="text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-1">Tenant ID: TX-TN-8821</p>
+               <h1 class="text-6xl font-black tracking-tighter text-black uppercase leading-none">Ariful Islam</h1>
+            </div>
+            <div class="flex gap-2">
+               <button
+                  class="bg-gray-200 px-6 py-3 text-[10px] font-bold uppercase tracking-widest hover:bg-gray-300">Reject</button>
+               <button
+                  class="bg-black text-white px-6 py-3 text-[10px] font-bold uppercase tracking-widest flex items-center gap-3 hover:bg-zinc-800">
+                  Approve Candidate <i class="fas fa-arrow-right"></i>
+               </button>
+               <a href="chat-tab.html"
+                  class="bg-black text-white px-6 py-3 text-[10px] font-bold uppercase tracking-widest flex items-center gap-3 hover:bg-zinc-800">
+                  Contact Tenant <i class="fas fa-paper-plane"></i>
+               </a>
+            </div>
+         </div>
+
+         <div class="grid grid-cols-12 gap-8 mb-8">
+            <div class="col-span-3">
+               <div class="aspect-square grayscale overflow-hidden bg-gray-200">
+                  <img
+                     src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=800"
+                     alt="Ariful Islam" class="w-full h-full object-cover">
+               </div>
+            </div>
+
+            <div class="col-span-6 bg-white p-10 border border-gray-100 flex flex-col justify-center">
+               <h3
+                  class="text-[9px] font-bold text-gray-400 uppercase tracking-[0.2em] mb-6 border-b border-gray-100 pb-2 w-fit">
+                  Tenant Statement</h3>
+               <p class="text-xl font-medium leading-relaxed text-gray-800">
+                  Senior Software Engineer at a major FinTech firm in Banani. Residing in Dhaka for 8 years with a
+                  consistent history of long-term leases. Prioritizes properties with high-speed fiber connectivity and
+                  24/7 security protocols.
+               </p>
+            </div>
+
+            <div class="col-span-3 space-y-4">
+               <div class="bg-white p-6 border border-gray-100">
+                  <div class="flex justify-between items-baseline py-3 border-b border-gray-50">
+                     <span class="text-[9px] font-bold text-gray-300 uppercase tracking-widest">Trust Score</span>
+                     <span class="text-xl font-bold text-green-600">98%</span>
+                  </div>
+                  <div class="flex justify-between items-baseline py-3 border-b border-gray-50">
+                     <span class="text-[9px] font-bold text-gray-300 uppercase tracking-widest">Lease Status</span>
+                     <span class="text-xl font-bold uppercase">Active</span>
+                  </div>
+                  <div class="flex justify-between items-baseline py-3">
+                     <span class="text-[9px] font-bold text-gray-300 uppercase tracking-widest">Rent Period</span>
+                     <span class="text-xl font-bold uppercase">24 Mos.</span>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+         <div class="grid grid-cols-12 gap-8 mb-12">
+            <div class="col-span-6 bg-gray-100 p-8">
+               <h3 class="text-[9px] font-bold text-gray-500 uppercase tracking-[0.2em] mb-6">Current Occupancy</h3>
+               <div class="space-y-6">
+                  <div>
+                     <p class="text-[10px] font-bold uppercase text-gray-900">Parkview Residencies - Unit 12B</p>
+                     <p class="text-[9px] text-gray-400 uppercase tracking-widest mt-1">Road 12, Banani, Dhaka</p>
+                  </div>
+                  <div class="grid grid-cols-2 gap-4">
+                     <div>
+                        <p class="text-[8px] font-bold text-gray-400 uppercase tracking-widest">Monthly Rent</p>
+                        <p class="text-lg font-black tracking-tight">৳65,000</p>
+                     </div>
+                     <div>
+                        <p class="text-[8px] font-bold text-gray-400 uppercase tracking-widest">Due Date</p>
+                        <p class="text-lg font-black tracking-tight">05th Month</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+            <div class="col-span-6 bg-black text-white p-8 flex flex-col justify-between">
+               <div>
+                  <h3 class="text-[9px] font-bold text-gray-500 uppercase tracking-[0.2em] mb-6">Verification Ledger
+                  </h3>
+                  <div class="grid grid-cols-2 gap-8">
+                     <div class="flex items-center gap-3">
+                        <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                        <div>
+                           <p class="text-[8px] font-bold text-gray-500 uppercase tracking-widest">Identity</p>
+                           <p class="text-[10px] font-bold uppercase">NID Verified</p>
+                        </div>
+                     </div>
+                     <div class="flex items-center gap-3">
+                        <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                        <div>
+                           <p class="text-[8px] font-bold text-gray-500 uppercase tracking-widest">Credit</p>
+                           <p class="text-[10px] font-bold uppercase">Clear History</p>
+                        </div>
+                     </div>
+                     <div class="flex items-center gap-3">
+                        <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                        <div>
+                           <p class="text-[8px] font-bold text-gray-500 uppercase tracking-widest">Employment</p>
+                           <p class="text-[10px] font-bold uppercase">Income Confirmed</p>
+                        </div>
+                     </div>
+                     <div class="flex items-center gap-3">
+                        <div class="w-2 h-2 bg-gray-600 rounded-full"></div>
+                        <div>
+                           <p class="text-[8px] font-bold text-gray-500 uppercase tracking-widest">References</p>
+                           <p class="text-[10px] font-bold uppercase">Pending Call</p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+         <section class="bg-[#F3F4F6] p-10">
+            <div class="flex justify-between items-end mb-8">
+               <h2 class="text-3xl font-black tracking-tighter uppercase">Document Registry</h2>
+               <span class="text-[9px] font-bold text-gray-400 uppercase tracking-[0.2em]">Compliance Records</span>
+            </div>
+
+            <div class="grid grid-cols-3 gap-8">
+               <div
+                  class="bg-white border border-gray-200 p-6 flex items-center justify-between hover:border-black transition cursor-pointer group">
+                  <div class="flex items-center gap-4">
+                     <i class="far fa-file-pdf text-2xl text-red-500"></i>
+                     <div>
+                        <h4 class="text-[10px] font-bold uppercase tracking-tight">Lease_Agreement_2024.pdf</h4>
+                        <p class="text-[8px] font-bold text-gray-400 uppercase tracking-widest">Signed Oct 12, 2023</p>
+                     </div>
+                  </div>
+                  <i class="fas fa-download text-gray-200 group-hover:text-black transition"></i>
+               </div>
+
+               <div
+                  class="bg-white border border-gray-200 p-6 flex items-center justify-between hover:border-black transition cursor-pointer group">
+                  <div class="flex items-center gap-4">
+                     <i class="far fa-id-card text-2xl text-blue-500"></i>
+                     <div>
+                        <h4 class="text-[10px] font-bold uppercase tracking-tight">National_ID_Front_Back.pdf</h4>
+                        <p class="text-[8px] font-bold text-gray-400 uppercase tracking-widest">Verified by Admin</p>
+                     </div>
+                  </div>
+                  <i class="fas fa-download text-gray-200 group-hover:text-black transition"></i>
+               </div>
+
+               <div
+                  class="bg-white border border-gray-200 p-6 flex items-center justify-between hover:border-black transition cursor-pointer group">
+                  <div class="flex items-center gap-4">
+                     <i class="fas fa-university text-2xl text-gray-400"></i>
+                     <div>
+                        <h4 class="text-[10px] font-bold uppercase tracking-tight">Income_Statement_6M.pdf</h4>
+                        <p class="text-[8px] font-bold text-gray-400 uppercase tracking-widest">Confidential</p>
+                     </div>
+                  </div>
+                  <i class="fas fa-lock text-gray-200"></i>
+               </div>
+            </div>
+         </section>
+      </div>
+   </main>
+   <!-- Modals -->
+   <div id="requestAcceptedModal"
+      class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50">
+      <div class="bg-white p-8 rounded-lg shadow-xl max-w-md w-full mx-4">
+         <div class="text-center">
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+               <i class="fas fa-check text-green-600 text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Request Accepted</h3>
+            <p class="text-gray-600 mb-6">The technician application has been approved successfully.</p>
+            <button onclick="closeModal('requestAcceptedModal')"
+               class="bg-black text-white px-6 py-2 text-sm font-bold uppercase tracking-widest hover:bg-gray-800 transition">Close</button>
+         </div>
+      </div>
+   </div>
+
+   <div id="requestRejectedModal"
+      class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50">
+      <div class="bg-white p-8 rounded-lg shadow-xl max-w-md w-full mx-4">
+         <div class="text-center">
+            <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+               <i class="fas fa-times text-red-600 text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Request Rejected</h3>
+            <p class="text-gray-600 mb-6">The technician application has been rejected.</p>
+            <button onclick="closeModal('requestRejectedModal')"
+               class="bg-black text-white px-6 py-2 text-sm font-bold uppercase tracking-widest hover:bg-gray-800 transition">Close</button>
+         </div>
+      </div>
+   </div>
+
+   <div id="requestHeldModal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50">
+      <div class="bg-white p-8 rounded-lg shadow-xl max-w-md w-full mx-4">
+         <div class="text-center">
+            <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
+               <i class="fas fa-pause text-yellow-600 text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Request Held</h3>
+            <p class="text-gray-600 mb-6">The technician application has been put on hold for further review.</p>
+            <button onclick="closeModal('requestHeldModal')"
+               class="bg-black text-white px-6 py-2 text-sm font-bold uppercase tracking-widest hover:bg-gray-800 transition">Close</button>
+         </div>
+      </div>
+   </div>
+
+   <script>
+      function showModal(modalId) {
+         document.getElementById(modalId).classList.remove('hidden');
+      }
+
+      function closeModal(modalId) {
+         document.getElementById(modalId).classList.add('hidden');
+      }
+
+      // Add event listeners to buttons
+      document.addEventListener('DOMContentLoaded', function () {
+         const buttons = document.querySelectorAll('button');
+         buttons.forEach(button => {
+            const text = button.textContent.trim().toUpperCase();
+            if (text.includes('APPROVE CANDIDATE')) {
+               button.addEventListener('click', () => showModal('requestAcceptedModal'));
+            } else if (text === 'REJECT') {
+               button.addEventListener('click', () => showModal('requestRejectedModal'));
+            } else if (text === 'HOLD APPLICATION') {
+               button.addEventListener('click', () => showModal('requestHeldModal'));
+            }
+         });
+      });
+   </script>
+</body>
+
+</html>
