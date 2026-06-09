@@ -1,0 +1,374 @@
+-- =============================================================
+-- TenureX Enterprise Database Schema (MySQL 8 / MariaDB 10.3+)
+-- =============================================================
+
+DROP DATABASE IF EXISTS tenurex;
+CREATE DATABASE tenurex
+  DEFAULT CHARACTER SET utf8mb4
+  DEFAULT COLLATE utf8mb4_unicode_ci;
+USE tenurex;
+
+-- =============================================================
+-- 1. GLOBAL USERS TABLE
+-- =============================================================
+CREATE TABLE users (
+  id              INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  role            ENUM('landlord', 'tenant', 'technician', 'admin') NOT NULL DEFAULT 'landlord',
+  full_name       VARCHAR(120)  NOT NULL,
+  email           VARCHAR(190)  NOT NULL UNIQUE,
+  phone           VARCHAR(40),
+  password_hash   VARCHAR(255)  NOT NULL,
+  avatar_url      VARCHAR(500)  DEFAULT NULL,
+  is_active       BOOLEAN       NOT NULL DEFAULT TRUE,
+  created_at      DATETIME      NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at      DATETIME      NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  INDEX idx_user_role (role),
+  INDEX idx_user_email (email)
+);
+
+-- =============================================================
+-- 2. PROFILE TABLES (Extended fields from registration forms)
+-- =============================================================
+
+-- Landlord Profiles (admin/add-landlord.html)
+CREATE TABLE landlord_profiles (
+  id                      INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  user_id                 INT UNSIGNED NOT NULL UNIQUE,
+  nid_number              VARCHAR(30) NOT NULL UNIQUE,
+  ownership_type          ENUM('individual', 'corporate', 'agency') NOT NULL DEFAULT 'individual',
+  primary_operating_area  VARCHAR(255) NOT NULL,
+  verification_doc_url    VARCHAR(500) DEFAULT NULL,
+  is_verified             BOOLEAN NOT NULL DEFAULT FALSE,
+  created_at              DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at              DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  
+  CONSTRAINT fk_landlord_profile_user FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
+
+-- Tenant Profiles (admin/add-tenant.html)
+CREATE TABLE tenant_profiles (
+  id                      INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  user_id                 INT UNSIGNED NOT NULL UNIQUE,
+  nid_number              VARCHAR(30) NOT NULL UNIQUE,
+  current_profession      VARCHAR(100) NOT NULL,
+  monthly_income          DECIMAL(12,2) NOT NULL DEFAULT 0.00,
+  occupants_count         TINYINT UNSIGNED NOT NULL DEFAULT 1,
+  has_pets                BOOLEAN NOT NULL DEFAULT FALSE,
+  nid_doc_url             VARCHAR(500) DEFAULT NULL,
+  employment_proof_url    VARCHAR(500) DEFAULT NULL,
+  bg_check_consent        BOOLEAN NOT NULL DEFAULT FALSE,
+  is_verified             BOOLEAN NOT NULL DEFAULT FALSE,
+  created_at              DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at              DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  
+  CONSTRAINT fk_tenant_profile_user FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
+
+-- =============================================================
+-- 3. MAINTENANCE & OPERATIONAL SERVICE CATEGORIES
+-- =============================================================
+-- Dynamic categories table (admin/category.html)
+CREATE TABLE maintenance_categories (
+  id            INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  name          VARCHAR(80) NOT NULL UNIQUE,
+  description   TEXT DEFAULT NULL,
+  icon          VARCHAR(50) DEFAULT 'fa-wrench', -- FontAwesome/Material icon identifier
+  created_at    DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at    DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+-- Technician Profiles (admin/add-technician.html)
+CREATE TABLE technicians (
+  id                  INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  user_id             INT UNSIGNED NOT NULL UNIQUE,
+  primary_category_id INT UNSIGNED NOT NULL,
+  permanent_address   VARCHAR(255) NOT NULL,
+  experience_years    TINYINT UNSIGNED NOT NULL DEFAULT 0,
+  service_radius_km   TINYINT UNSIGNED NOT NULL DEFAULT 10,
+  hourly_rate         DECIMAL(8,2) DEFAULT 0.00,
+  license_url         VARCHAR(500) DEFAULT NULL,
+  trade_license_url   VARCHAR(500) DEFAULT NULL,
+  is_on_call          BOOLEAN NOT NULL DEFAULT FALSE,
+  is_verified         BOOLEAN NOT NULL DEFAULT FALSE,
+  created_at          DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at          DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+
+  CONSTRAINT fk_technician_user FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+  CONSTRAINT fk_technician_category FOREIGN KEY (primary_category_id) REFERENCES maintenance_categories(id) ON DELETE RESTRICT
+);
+
+-- =============================================================
+-- 4. REAL ESTATE PROPERTIES & UNITS
+-- =============================================================
+
+-- Properties Table (Landlord/pages/add-property.html)
+CREATE TABLE properties (
+  id              INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  owner_id        INT UNSIGNED NOT NULL,
+  name            VARCHAR(150) NOT NULL,
+  description     TEXT DEFAULT NULL,
+  property_type   ENUM('apartment', 'house', 'loft', 'penthouse') NOT NULL DEFAULT 'apartment',
+  address_line    VARCHAR(255) NOT NULL,
+  city            VARCHAR(100) NOT NULL,
+  region          VARCHAR(100) DEFAULT NULL,
+  country         VARCHAR(100) DEFAULT NULL,
+  postcode        VARCHAR(20) DEFAULT NULL,
+  cover_image_url VARCHAR(500) DEFAULT NULL,
+  total_units     INT UNSIGNED NOT NULL DEFAULT 1,
+  monthly_value   DECIMAL(12,2) DEFAULT 0.00,
+  entry_code      VARCHAR(50) DEFAULT NULL, -- Security access code for technicians / check-in
+  status          ENUM('active','draft','archived') NOT NULL DEFAULT 'active',
+  created_at      DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at      DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+
+  CONSTRAINT fk_properties_owner FOREIGN KEY (owner_id) REFERENCES users(id) ON DELETE CASCADE,
+  INDEX idx_property_status (status)
+);
+
+-- Units Table (rooms/individual apartments inside a property)
+CREATE TABLE units (
+  id              INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  property_id     INT UNSIGNED NOT NULL,
+  label           VARCHAR(50) NOT NULL,
+  unit_type       VARCHAR(50) DEFAULT NULL,
+  bedrooms        TINYINT UNSIGNED DEFAULT 1,
+  bathrooms       DECIMAL(3,1) DEFAULT 1.0,
+  area_sqft       INT UNSIGNED DEFAULT NULL,
+  monthly_rent    DECIMAL(10,2) NOT NULL,
+  entry_code      VARCHAR(50) DEFAULT NULL,
+  is_occupied     BOOLEAN NOT NULL DEFAULT FALSE,
+  created_at      DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at      DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+
+  CONSTRAINT fk_units_property FOREIGN KEY (property_id) REFERENCES properties(id) ON DELETE CASCADE,
+  UNIQUE KEY uniq_property_unit (property_id, label)
+);
+
+-- Many-to-Many Amenities Configuration
+CREATE TABLE amenities (
+  id     INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  name   VARCHAR(80) NOT NULL UNIQUE,
+  icon   VARCHAR(50) DEFAULT NULL
+);
+
+CREATE TABLE unit_amenities (
+  unit_id      INT UNSIGNED NOT NULL,
+  amenity_id   INT UNSIGNED NOT NULL,
+  PRIMARY KEY (unit_id, amenity_id),
+  CONSTRAINT fk_ua_unit    FOREIGN KEY (unit_id)    REFERENCES units(id)     ON DELETE CASCADE,
+  CONSTRAINT fk_ua_amenity FOREIGN KEY (amenity_id) REFERENCES amenities(id) ON DELETE CASCADE
+);
+
+-- =============================================================
+-- 5. LEASES & RENTAL APPLICATIONS
+-- =============================================================
+
+-- Expanded Rental Applications (Pages/rental-application.html)
+CREATE TABLE rental_requests (
+  id                        INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  unit_id                   INT UNSIGNED NOT NULL,
+  applicant_user_id         INT UNSIGNED DEFAULT NULL, -- Nullable if guest applies
+  applicant_name            VARCHAR(120) NOT NULL,
+  applicant_email           VARCHAR(190) NOT NULL,
+  applicant_phone           VARCHAR(40) DEFAULT NULL,
+  employer_name             VARCHAR(150) DEFAULT NULL,
+  job_title                 VARCHAR(100) DEFAULT NULL,
+  years_of_employment       VARCHAR(50) DEFAULT NULL,
+  annual_income             DECIMAL(12,2) DEFAULT NULL,
+  prev_landlord_name        VARCHAR(120) DEFAULT NULL,
+  prev_landlord_address     VARCHAR(255) DEFAULT NULL,
+  prev_stay_duration_months INT UNSIGNED DEFAULT NULL,
+  qualification             VARCHAR(50) DEFAULT NULL, -- e.g., high-school, bachelor, master
+  has_pets                  VARCHAR(50) DEFAULT 'no',
+  profile_summary           TEXT DEFAULT NULL, -- Introductions/self-description
+  credit_score              SMALLINT UNSIGNED DEFAULT NULL,
+  income_ratio              DECIMAL(4,1) DEFAULT NULL,
+  requested_move_in         DATE DEFAULT NULL,
+  lease_months              TINYINT UNSIGNED DEFAULT 12,
+  status                    ENUM('pending','in_review','accepted','rejected') NOT NULL DEFAULT 'pending',
+  applied_at                DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  decided_at                DATETIME DEFAULT NULL,
+
+  CONSTRAINT fk_rr_unit FOREIGN KEY (unit_id) REFERENCES units(id) ON DELETE CASCADE,
+  CONSTRAINT fk_rr_applicant FOREIGN KEY (applicant_user_id) REFERENCES users(id) ON DELETE SET NULL,
+  INDEX idx_rr_status (status)
+);
+
+-- Signed Agreements
+CREATE TABLE leases (
+  id                INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  unit_id           INT UNSIGNED NOT NULL,
+  tenant_user_id    INT UNSIGNED NOT NULL,
+  rental_request_id INT UNSIGNED DEFAULT NULL,
+  start_date        DATE NOT NULL,
+  end_date          DATE NOT NULL,
+  monthly_rent      DECIMAL(10,2) NOT NULL,
+  security_deposit  DECIMAL(10,2) DEFAULT 0.00,
+  status            ENUM('active','ended','terminated') NOT NULL DEFAULT 'active',
+  created_at        DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+  CONSTRAINT fk_leases_unit    FOREIGN KEY (unit_id)           REFERENCES units(id)             ON DELETE RESTRICT,
+  CONSTRAINT fk_leases_tenant  FOREIGN KEY (tenant_user_id)    REFERENCES users(id)             ON DELETE RESTRICT,
+  CONSTRAINT fk_leases_request FOREIGN KEY (rental_request_id) REFERENCES rental_requests(id)   ON DELETE SET NULL
+);
+
+-- =============================================================
+-- 6. RENT INVOICING & PAYMENT LEDGER
+-- =============================================================
+
+-- Rent ledger (Landlord/pages/rent-tracking.html)
+CREATE TABLE payments (
+  id            INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  lease_id      INT UNSIGNED NOT NULL,
+  amount_due    DECIMAL(10,2) NOT NULL,
+  amount_paid   DECIMAL(10,2) NOT NULL DEFAULT 0.00, -- Accommodates partial payments
+  due_date      DATE NOT NULL,
+  paid_at       DATETIME DEFAULT NULL,
+  method        ENUM('bank_transfer','card','cash','mobile_bkash','other') DEFAULT 'bank_transfer',
+  reference     VARCHAR(100) DEFAULT NULL,
+  status        ENUM('upcoming','paid','partial','overdue','failed') NOT NULL DEFAULT 'upcoming',
+
+  CONSTRAINT fk_payments_lease FOREIGN KEY (lease_id) REFERENCES leases(id) ON DELETE CASCADE,
+  INDEX idx_payments_status (status),
+  INDEX idx_payments_due (due_date)
+);
+
+-- =============================================================
+-- 7. MAINTENANCE TICKETING & DISPATCH SYSTEM
+-- =============================================================
+
+-- Maintenance Request Issue Tracker
+CREATE TABLE maintenance_requests (
+  id              INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  property_id     INT UNSIGNED NOT NULL,
+  unit_id         INT UNSIGNED DEFAULT NULL,
+  reported_by     INT UNSIGNED DEFAULT NULL,
+  reporter_name   VARCHAR(120) DEFAULT NULL,
+  reporter_email  VARCHAR(190) DEFAULT NULL,
+  title           VARCHAR(200) NOT NULL,
+  description     TEXT DEFAULT NULL,
+  category_id     INT UNSIGNED NOT NULL, -- Linked to dynamic category settings
+  priority        ENUM('low','medium','urgent') NOT NULL DEFAULT 'medium',
+  status          ENUM('open','in_progress','resolved','closed') NOT NULL DEFAULT 'open',
+  reported_on     DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  resolved_on     DATETIME DEFAULT NULL,
+
+  CONSTRAINT fk_mr_property FOREIGN KEY (property_id) REFERENCES properties(id) ON DELETE CASCADE,
+  CONSTRAINT fk_mr_unit     FOREIGN KEY (unit_id)     REFERENCES units(id)      ON DELETE SET NULL,
+  CONSTRAINT fk_mr_reporter FOREIGN KEY (reported_by) REFERENCES users(id)      ON DELETE SET NULL,
+  CONSTRAINT fk_mr_category FOREIGN KEY (category_id) REFERENCES maintenance_categories(id) ON DELETE RESTRICT,
+
+  INDEX idx_mr_status   (status),
+  INDEX idx_mr_priority (priority)
+);
+
+-- Uploaded attachments associated with maintenance requests
+CREATE TABLE maintenance_photos (
+  id          INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  request_id  INT UNSIGNED NOT NULL,
+  url         VARCHAR(500) NOT NULL,
+  uploaded_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  
+  CONSTRAINT fk_mphotos_request FOREIGN KEY (request_id) REFERENCES maintenance_requests(id) ON DELETE CASCADE
+);
+
+-- Maintenance Dispatch Orders (Technician/task_details.html)
+CREATE TABLE technician_requests (
+  id                  INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  maintenance_id      INT UNSIGNED NOT NULL,
+  technician_id       INT UNSIGNED DEFAULT NULL,
+  scheduled_for       DATETIME DEFAULT NULL,
+  notes               TEXT DEFAULT NULL, -- Admin instructions
+  field_observations  TEXT DEFAULT NULL, -- Technician input field observations
+  cost_materials      DECIMAL(10,2) DEFAULT 0.00, -- Expended capital component 1
+  cost_labor          DECIMAL(10,2) DEFAULT 0.00, -- Expended capital component 2
+  status              ENUM('pending','dispatched','completed','cancelled') NOT NULL DEFAULT 'pending',
+  created_at          DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at          DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+
+  CONSTRAINT fk_tr_maintenance FOREIGN KEY (maintenance_id) REFERENCES maintenance_requests(id) ON DELETE CASCADE,
+  CONSTRAINT fk_tr_technician  FOREIGN KEY (technician_id)  REFERENCES technicians(id)         ON DELETE SET NULL,
+  INDEX idx_tr_status (status)
+);
+
+-- =============================================================
+-- 8. COMMUNICATIONS & CHAT PLATFORM
+-- =============================================================
+CREATE TABLE message_threads (
+  id              INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  subject         VARCHAR(200) DEFAULT NULL,
+  created_at      DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  last_message_at DATETIME DEFAULT NULL
+);
+
+CREATE TABLE message_thread_participants (
+  thread_id  INT UNSIGNED NOT NULL,
+  user_id    INT UNSIGNED NOT NULL,
+  PRIMARY KEY (thread_id, user_id),
+  CONSTRAINT fk_mtp_thread FOREIGN KEY (thread_id) REFERENCES message_threads(id) ON DELETE CASCADE,
+  CONSTRAINT fk_mtp_user   FOREIGN KEY (user_id)   REFERENCES users(id)           ON DELETE CASCADE
+);
+
+CREATE TABLE messages (
+  id          INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  thread_id   INT UNSIGNED NOT NULL,
+  sender_id   INT UNSIGNED NOT NULL,
+  body        TEXT NOT NULL,
+  sent_at     DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  read_at     DATETIME DEFAULT NULL,
+
+  CONSTRAINT fk_msg_thread FOREIGN KEY (thread_id) REFERENCES message_threads(id) ON DELETE CASCADE,
+  CONSTRAINT fk_msg_sender FOREIGN KEY (sender_id) REFERENCES users(id)            ON DELETE CASCADE,
+  INDEX idx_msg_thread (thread_id, sent_at)
+);
+
+-- =============================================================
+-- 9. ADMINISTRATIVE OVERLOADS (Global Logs & Configurations)
+-- =============================================================
+
+-- Global Settings (admin/admin-settings.html)
+CREATE TABLE system_settings (
+  id          INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  cfg_key     VARCHAR(100) NOT NULL UNIQUE,
+  cfg_value   TEXT NOT NULL,
+  updated_at  DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+-- Security Logs (admin/admin-settings.html)
+CREATE TABLE security_audit_logs (
+  id          INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  user_id     INT UNSIGNED NOT NULL,
+  event_type  VARCHAR(100) NOT NULL, -- e.g., "admin_login", "security_key_rotation"
+  ip_address  VARCHAR(45) NOT NULL,
+  location    VARCHAR(150) DEFAULT NULL,
+  user_agent  VARCHAR(255) DEFAULT NULL,
+  created_at  DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  
+  CONSTRAINT fk_audit_user FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
+
+-- =============================================================
+-- 10. SYSTEM SEEDING FOR LAUNCH & DEVELOPMENT
+-- =============================================================
+
+INSERT INTO maintenance_categories (name, description, icon) VALUES
+  ('PLUMBING', 'Hydraulic systems, pipe networks, and industrial sanitation maintenance.', 'fa-droplet'),
+  ('ELECTRICAL', 'High-voltage grids, lighting infrastructure, and solar panel arrays.', 'fa-bolt'),
+  ('HVAC', 'Central climate control, ventilation shafts, and filtration units.', 'fa-fan'),
+  ('LANDSCAPING', 'Exterior foliage, irrigation management, and hardscape aesthetics.', 'fa-leaf'),
+  ('SECURITY', 'Access control, surveillance maintenance, and alarm monitoring.', 'fa-shield-halved');
+
+INSERT INTO amenities (name, icon) VALUES
+  ('High-Speed WiFi', 'fa-wifi'),
+  ('Secure Parking', 'fa-square-parking'),
+  ('Central AC', 'fa-snowflake'),
+  ('In-Unit Laundry', 'fa-shirt'),
+  ('Smart Locks', 'fa-key'),
+  ('Pet Friendly', 'fa-dog'),
+  ('Roof Garden', 'fa-tree'),
+  ('Gym Access', 'fa-dumbbell');
+
+INSERT INTO system_settings (cfg_key, cfg_value) VALUES
+  ('system_version', '2.4.0'),
+  ('mfa_globally_enforced', 'true'),
+  ('system_location', 'Dhaka, Bangladesh');
