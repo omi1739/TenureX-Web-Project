@@ -38,6 +38,27 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  /* ── DEMO LOGIN ────────────────────────────────────── */
+  window.demoLogin = async function(email, password) {
+    const errEl = document.getElementById('loginError');
+    if (errEl) errEl.classList.add('hidden');
+    const btn = document.querySelector('button[type="submit"]');
+    if (btn) { btn.disabled = true; btn.textContent = 'Signing in…'; }
+
+    try {
+      const res = await apiFetch('/auth/login.php', { method: 'POST', body: { email, password } });
+      if (res.success) {
+        redirectToDashboard(res.data.role);
+      } else {
+        if (errEl) { errEl.textContent = res.error; errEl.classList.remove('hidden'); }
+      }
+    } catch {
+      if (errEl) { errEl.textContent = 'Network error — is XAMPP running?'; errEl.classList.remove('hidden'); }
+    } finally {
+      if (btn) { btn.disabled = false; btn.textContent = 'Sign In'; }
+    }
+  };
+
   /* ── REGISTRATION ──────────────────────────────────── */
   const regForm = document.getElementById('registerForm');
   if (regForm) {

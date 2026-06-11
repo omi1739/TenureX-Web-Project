@@ -93,30 +93,22 @@
             </div>
 
             <div class="grid grid-cols-2 gap-3.5">
-                <a href="../Landlord/pages/dashboard.html">
-                    <button
-                        class="w-full border border-gray-200 py-3.5 text-[10px] font-black uppercase tracking-widest text-gray-500 hover:bg-gray-50 hover:text-black hover:border-black transition-all">
-                        Landlord Demo Account
-                    </button>
-                </a>
-                <a href="../Tenant/dashboard.html">
-                    <button
-                        class="w-full border border-gray-200 py-3.5 text-[10px] font-black uppercase tracking-widest text-gray-500 hover:bg-gray-50 hover:text-black hover:border-black transition-all">
-                        Tenant Demo Account
-                    </button>
-                </a>
-                <a href="../Technician/dashboard.html">
-                    <button
-                        class="w-full border border-gray-200 py-3.5 text-[10px] font-black uppercase tracking-widest text-gray-500 hover:bg-gray-50 hover:text-black hover:border-black transition-all">
-                        Technician Demo Account
-                    </button>
-                </a>
-                <a href="../admin/dashboard.html">
-                    <button
-                        class="w-full border border-gray-200 py-3.5 text-[10px] font-black uppercase tracking-widest text-gray-500 hover:bg-gray-50 hover:text-black hover:border-black transition-all">
-                        Admin Demo Account
-                    </button>
-                </a>
+                <button onclick="demoLogin('arthur@tenurex.dev','landlord123')"
+                    class="w-full border border-gray-200 py-3.5 text-[10px] font-black uppercase tracking-widest text-gray-500 hover:bg-gray-50 hover:text-black hover:border-black transition-all">
+                    Landlord Demo
+                </button>
+                <button onclick="demoLogin('alice@tenurex.dev','tenant123')"
+                    class="w-full border border-gray-200 py-3.5 text-[10px] font-black uppercase tracking-widest text-gray-500 hover:bg-gray-50 hover:text-black hover:border-black transition-all">
+                    Tenant Demo
+                </button>
+                <button onclick="demoLogin('karim@tenurex.dev','tech123')"
+                    class="w-full border border-gray-200 py-3.5 text-[10px] font-black uppercase tracking-widest text-gray-500 hover:bg-gray-50 hover:text-black hover:border-black transition-all">
+                    Technician Demo
+                </button>
+                <button onclick="demoLogin('admin@tenurex.dev','admin123')"
+                    class="w-full border border-gray-200 py-3.5 text-[10px] font-black uppercase tracking-widest text-gray-500 hover:bg-gray-50 hover:text-black hover:border-black transition-all">
+                    Admin Demo
+                </button>
             </div>
         </div>
     </div>
