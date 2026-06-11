@@ -185,7 +185,7 @@
              6 cells: 5 property cards + 1 "Add Property" placeholder.
              Each card has: image with status badge, title + address + price,
              a divider, then a tenant row with the 3-dot menu. -->
-        <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <section id="propertiesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
           <!-- Card 1 -->
           <article class="bg-white rounded-xl shadow-sm overflow-hidden">
@@ -505,5 +505,7 @@
       if (e.target === unlistModal) unlistModal.classList.add('hidden');
     });
   </script>
+  <script src="/TenureX-Web-Project/js/app.js"></script>
+  <script src="/TenureX-Web-Project/js/landlord.js"></script>
 </body>
 </html>

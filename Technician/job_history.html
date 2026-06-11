@@ -156,21 +156,18 @@
             <!-- STAT CARDS -->
             <div class="grid grid-cols-4 gap-0 border border-gray-200 mb-8">
                 <div class="px-6 py-5 border-r border-gray-200">
-                    <p class="text-[9px] font-semibold text-gray-400 uppercase tracking-[0.18em] mb-3">Total Completed
-                    </p>
+                    <p class="text-[9px] font-semibold text-gray-400 uppercase tracking-[0.18em] mb-3">Total Completed</p>
                     <div class="flex items-baseline gap-2">
-                        <span class="font-condensed font-extrabold text-[40px] leading-none text-gray-900">248</span>
+                        <span id="stat-total-jobs" class="font-condensed font-extrabold text-[40px] leading-none text-gray-900">—</span>
                     </div>
-                    <p class="text-[10px] font-semibold text-gray-500 mt-1">+12 This Cycle</p>
+                    <p class="text-[10px] font-semibold text-gray-500 mt-1">Lifetime Jobs</p>
                 </div>
                 <div class="px-6 py-5 border-r border-gray-200">
-                    <p class="text-[9px] font-semibold text-gray-400 uppercase tracking-[0.18em] mb-3">Avg. Service Cost
-                    </p>
+                    <p class="text-[9px] font-semibold text-gray-400 uppercase tracking-[0.18em] mb-3">Total Earned</p>
                     <div class="flex items-baseline gap-1">
-                        <span class="font-condensed font-extrabold text-[40px] leading-none text-gray-900">$142</span>
-                        <span class="text-[20px] font-bold text-gray-900">.50</span>
+                        <span id="stat-total-earn" class="font-condensed font-extrabold text-[40px] leading-none text-gray-900">—</span>
                     </div>
-                    <p class="text-[10px] text-gray-400 mt-1">Nominal Budget Range</p>
+                    <p class="text-[10px] text-gray-400 mt-1">Lifetime Revenue</p>
                 </div>
                 <div class="px-6 py-5 border-r border-gray-200">
                     <p class="text-[9px] font-semibold text-gray-400 uppercase tracking-[0.18em] mb-3">Urgent
@@ -208,131 +205,21 @@
 
             <!-- TABLE -->
             <div class="border border-gray-200 mb-4">
-                <!-- Table head -->
-                <div class="bg-gray-900 grid grid-cols-[80px_130px_1fr_100px_90px_110px_90px] gap-0">
-                    <div class="px-4 py-3 text-center"><span
-                            class="text-[9px] font-bold text-white uppercase tracking-[0.15em]">Task ID</span></div>
-                    <div class="px-4 py-3"><span
-                            class="text-[9px] font-bold text-white uppercase tracking-[0.15em]">Property & Asset</span>
-                    </div>
-                    <div class="px-4 py-3"><span
-                            class="text-[9px] font-bold text-white uppercase tracking-[0.15em]">Description</span></div>
-                    <div class="px-4 py-3"><span
-                            class="text-[9px] font-bold text-white uppercase tracking-[0.15em]">Date / Time</span></div>
-                    <div class="px-4 py-3"><span
-                            class="text-[9px] font-bold text-white uppercase tracking-[0.15em]">Cost (USD)</span></div>
-                    <div class="px-4 py-3"><span
-                            class="text-[9px] font-bold text-white uppercase tracking-[0.15em]">Authorized</span></div>
-                    <div class="px-4 py-3"><span
-                            class="text-[9px] font-bold text-white uppercase tracking-[0.15em]">Reference</span></div>
-                </div>
+                <table class="w-full text-left">
+                    <thead class="bg-gray-900">
+                        <tr>
+                            <th class="text-[9px] font-bold text-white uppercase tracking-[0.15em] px-4 py-3">Task</th>
+                            <th class="text-[9px] font-bold text-white uppercase tracking-[0.15em] px-4 py-3">Property</th>
+                            <th class="text-[9px] font-bold text-white uppercase tracking-[0.15em] px-4 py-3">Category</th>
+                            <th class="text-[9px] font-bold text-white uppercase tracking-[0.15em] px-4 py-3">Cost (USD)</th>
+                            <th class="text-[9px] font-bold text-white uppercase tracking-[0.15em] px-4 py-3">Date</th>
+                        </tr>
+                    </thead>
+                    <tbody id="historyTableBody">
+                        <tr><td colspan="5" class="text-center py-8 text-gray-400">Loading…</td></tr>
+                    </tbody>
+                </table>
 
-                <!-- Row 1 -->
-                <div
-                    class="grid grid-cols-[80px_130px_1fr_100px_90px_110px_90px] gap-0 border-b border-gray-100 hover:bg-gray-50 transition">
-                    <div class="px-4 py-5 text-center">
-                        <p class="text-[11px] font-bold text-gray-600">#MR-</p>
-                        <p class="text-[11px] font-bold text-gray-600">898</p>
-                    </div>
-                    <div class="px-4 py-5">
-                        <p class="text-[12px] font-extrabold text-gray-900 uppercase">Heritage Square</p>
-                        <p class="text-[10px] text-gray-400">Unit 104 •</p>
-                        <p class="text-[10px] text-gray-400">Residential</p>
-                    </div>
-                    <div class="px-4 py-5 flex items-start gap-2">
-                        <i class="fas fa-triangle-exclamation text-amber-500 text-xs mt-0.5 shrink-0"></i>
-                        <div>
-                            <p class="text-[12px] text-gray-700 leading-relaxed">Appliance malfunction: Dishwasher
-                                abnormal grinding noise during cycle.</p>
-                        </div>
-                    </div>
-                    <div class="px-4 py-5">
-                        <p class="text-[12px] font-bold text-gray-800">TODAY</p>
-                        <p class="text-[11px] text-gray-400">09-12 AM</p>
-                    </div>
-                    <div class="px-4 py-5">
-                        <p class="text-[13px] font-bold text-gray-900">$120.00</p>
-                    </div>
-                    <div class="px-4 py-5">
-                        <p class="text-[11px] font-bold text-gray-700 underline cursor-pointer hover:text-black">ELARA
-                            VANCE</p>
-                    </div>
-                    <div class="px-4 py-5">
-                        <a href="./task_details.html"
-                            class="border border-gray-300 text-[10px] font-bold text-gray-700 uppercase tracking-[0.1em] px-3 py-1.5 inline-block hover:bg-gray-900 hover:text-white hover:border-gray-900 transition">DETAILS</a>
-                    </div>
-                </div>
-
-                <!-- Row 2 -->
-                <div
-                    class="grid grid-cols-[80px_130px_1fr_100px_90px_110px_90px] gap-0 border-b border-gray-100 hover:bg-gray-50 transition">
-                    <div class="px-4 py-5 text-center">
-                        <p class="text-[11px] font-bold text-gray-600">#MR-</p>
-                        <p class="text-[11px] font-bold text-gray-600">897</p>
-                    </div>
-                    <div class="px-4 py-5">
-                        <p class="text-[12px] font-extrabold text-gray-900 uppercase">Skyline Heights</p>
-                        <p class="text-[10px] text-gray-400">Unit 402 •</p>
-                        <p class="text-[10px] text-gray-400">Commercial</p>
-                    </div>
-                    <div class="px-4 py-5 flex items-start gap-2">
-                        <i class="fas fa-gear text-gray-400 text-xs mt-0.5 shrink-0"></i>
-                        <div>
-                            <p class="text-[12px] text-gray-700 leading-relaxed">HVAC maintenance: Routine filter
-                                replacement and coolant level verification.</p>
-                        </div>
-                    </div>
-                    <div class="px-4 py-5">
-                        <p class="text-[12px] font-bold text-gray-800">YESTERDAY</p>
-                        <p class="text-[11px] text-gray-400">04:45 PM</p>
-                    </div>
-                    <div class="px-4 py-5">
-                        <p class="text-[13px] font-bold text-gray-900">$285.00</p>
-                    </div>
-                    <div class="px-4 py-5">
-                        <p class="text-[11px] font-bold text-gray-700 underline cursor-pointer hover:text-black">MARCUS
-                            KANE</p>
-                    </div>
-                    <div class="px-4 py-5">
-                        <a href="./task_details.html"
-                            class="border border-gray-300 text-[10px] font-bold text-gray-700 uppercase tracking-[0.1em] px-3 py-1.5 inline-block hover:bg-gray-900 hover:text-white hover:border-gray-900 transition">DETAILS</a>
-                    </div>
-                </div>
-
-                <!-- Row 3 -->
-                <div class="grid grid-cols-[80px_130px_1fr_100px_90px_110px_90px] gap-0 hover:bg-gray-50 transition">
-                    <div class="px-4 py-5 text-center">
-                        <p class="text-[11px] font-bold text-gray-600">#MR-</p>
-                        <p class="text-[11px] font-bold text-gray-600">896</p>
-                    </div>
-                    <div class="px-4 py-5">
-                        <p class="text-[12px] font-extrabold text-gray-900 uppercase">Oakwood Villas</p>
-                        <p class="text-[10px] text-gray-400">Apt 120 •</p>
-                        <p class="text-[10px] text-gray-400">Residential</p>
-                    </div>
-                    <div class="px-4 py-5 flex items-start gap-2">
-                        <i class="fas fa-wrench text-gray-400 text-xs mt-0.5 shrink-0"></i>
-                        <div>
-                            <p class="text-[12px] text-gray-700 leading-relaxed">Plumbing: Faucet gasket replacement in
-                                primary bathroom.</p>
-                        </div>
-                    </div>
-                    <div class="px-4 py-5">
-                        <p class="text-[12px] font-bold text-gray-800">OCT 24, 2023</p>
-                        <p class="text-[11px] text-gray-400">11:30 AM</p>
-                    </div>
-                    <div class="px-4 py-5">
-                        <p class="text-[13px] font-bold text-gray-900">$75.50</p>
-                    </div>
-                    <div class="px-4 py-5">
-                        <p class="text-[11px] font-bold text-gray-700 underline cursor-pointer hover:text-black">ELARA
-                            VANCE</p>
-                    </div>
-                    <div class="px-4 py-5">
-                        <a href="./task_details.html"
-                            class="border border-gray-300 text-[10px] font-bold text-gray-700 uppercase tracking-[0.1em] px-3 py-1.5 inline-block hover:bg-gray-900 hover:text-white hover:border-gray-900 transition">DETAILS</a>
-                    </div>
-                </div>
             </div>
 
             <!-- PAGINATION -->
@@ -403,6 +290,8 @@
 
         </div>
     </div>
+  <script src="/TenureX-Web-Project/js/app.js"></script>
+  <script src="/TenureX-Web-Project/js/technician.js"></script>
 </body>
 
 </html>

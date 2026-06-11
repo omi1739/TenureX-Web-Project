@@ -92,9 +92,10 @@
 
             <div class="flex items-center justify-between border-b border-gray-100 mb-8 pb-1">
                 <div class="flex gap-8">
-                    <button class="pb-4 text-[10px] font-bold uppercase tracking-widest border-b-2 border-black">All Applicants</button>
-                    <button class="pb-4 text-[10px] font-bold uppercase tracking-widest text-gray-300 hover:text-gray-500">Pending Only</button>
-                    <button class="pb-4 text-[10px] font-bold uppercase tracking-widest text-gray-300 hover:text-gray-500">Urgent Support</button>
+                    <button data-filter="pending" class="pb-4 text-[10px] font-bold uppercase tracking-widest border-b-2 border-black bg-black text-white px-3 py-1">Pending</button>
+                    <button data-filter="" class="pb-4 text-[10px] font-bold uppercase tracking-widest text-gray-400 hover:text-gray-700">All</button>
+                    <button data-filter="approved" class="pb-4 text-[10px] font-bold uppercase tracking-widest text-gray-400 hover:text-gray-700">Approved</button>
+                    <button data-filter="rejected" class="pb-4 text-[10px] font-bold uppercase tracking-widest text-gray-400 hover:text-gray-700">Rejected</button>
                 </div>
                 <div class="flex items-center gap-2 pb-4">
                     <i class="fas fa-search text-gray-300 text-xs"></i>
@@ -114,7 +115,7 @@
                             <th class="py-4 px-2 text-right">Actions</th>
                         </tr>
                     </thead>
-                    <tbody class="text-[10px]">
+                    <tbody id="usersTableBody" class="text-[10px]">
                         <tr class="border-b border-gray-50 bg-white">
                             <td class="py-6 px-2">
                                 <div class="flex items-center gap-3">
@@ -339,5 +340,7 @@
             </div>
         </div>
     </div>
+<script src="/TenureX-Web-Project/js/app.js"></script>
+<script src="/TenureX-Web-Project/js/admin.js"></script>
 </body>
 </html>

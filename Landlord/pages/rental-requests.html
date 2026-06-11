@@ -166,6 +166,14 @@
           </div>
         </section>
 
+        <!-- ============ STATUS FILTER TABS ============ -->
+        <section class="flex items-center gap-3">
+          <button data-req-filter="all" class="bg-black text-white px-5 py-2 text-[10px] font-bold uppercase tracking-widest">ALL</button>
+          <button data-req-filter="pending" class="border border-gray-200 px-5 py-2 text-[10px] font-bold uppercase tracking-widest text-gray-500 hover:border-black">PENDING</button>
+          <button data-req-filter="approved" class="border border-gray-200 px-5 py-2 text-[10px] font-bold uppercase tracking-widest text-gray-500 hover:border-black">APPROVED</button>
+          <button data-req-filter="rejected" class="border border-gray-200 px-5 py-2 text-[10px] font-bold uppercase tracking-widest text-gray-500 hover:border-black">REJECTED</button>
+        </section>
+
         <!-- ============ FILTER BAR ============ -->
         <section class="flex items-end justify-between flex-wrap gap-4">
           <div class="flex items-end gap-6">
@@ -208,7 +216,7 @@
                 <th class="font-normal px-6 py-4 text-right pr-8">ACTIONS</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody id="requestsTableBody">
               <!-- Row 1 -->
               <tr class="border-b border-gray-100">
                 <td class="px-6 py-5">
@@ -476,5 +484,7 @@
     TENUREX.setList('rentalRequests', reqRows);
     TENUREX.set('requestCount', reqRows.length);
   </script>
+  <script src="/TenureX-Web-Project/js/app.js"></script>
+  <script src="/TenureX-Web-Project/js/landlord.js"></script>
 </body>
 </html>

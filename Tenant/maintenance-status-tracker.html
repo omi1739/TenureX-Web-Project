@@ -94,10 +94,20 @@
                     <div class="col-span-2">
                         <!-- Request Header -->
                         <div class="mb-8">
-                            <p class="text-[10px] font-bold text-zinc-400 uppercase mb-2">REQUEST #MT-43291</p>
-                            <h1 class="text-4xl font-bold mb-2">Kitchen HVAC Unit Repair</h1>
-                            <p class="text-zinc-500">Unit 402, North Wing. High-priority climate control failure
-                                reported on Monday, Oct 23.</p>
+                            <div class="flex items-center gap-3 mb-2">
+                                <p class="text-[10px] font-bold text-zinc-400 uppercase">Maintenance Request</p>
+                                <span id="mr-status-badge"></span>
+                            </div>
+                            <h1 id="mr-title" class="text-4xl font-bold mb-2">—</h1>
+                            <p id="mr-description" class="text-zinc-500">—</p>
+                            <div class="flex flex-wrap gap-4 mt-3 text-xs text-zinc-500">
+                                <span>Category: <strong id="mr-category">—</strong></span>
+                                <span>Priority: <strong id="mr-priority">—</strong></span>
+                                <span>Property: <strong id="mr-property">—</strong></span>
+                                <span>Unit: <strong id="mr-unit">—</strong></span>
+                                <span>Reported: <strong id="mr-reported">—</strong></span>
+                                <span>Scheduled: <strong id="mr-scheduled">—</strong></span>
+                            </div>
                         </div>
 
                         <!-- Status Tracking -->
@@ -200,7 +210,7 @@
                             <div class="flex flex-col items-center text-center mb-6">
                                 <img src="https://ui-avatars.com/api/?name=Marcus+Thorne&background=4a5568&color=fff&size=80"
                                     alt="Marcus Thorne" class="w-16 h-16 rounded-lg mb-4">
-                                <h4 class="text-lg font-bold">Sazzad Hossain</h4>
+                                <h4 id="mr-tech" class="text-lg font-bold">—</h4>
                                 <div class="flex items-center gap-1 mt-2">
                                     <span class="text-yellow-400"><i class="fas fa-star"></i></span>
                                     <span class="text-yellow-400"><i class="fas fa-star"></i></span>
@@ -256,6 +266,8 @@
             window.history.back();
         }
     </script>
+    <script src="/TenureX-Web-Project/js/app.js"></script>
+    <script src="/TenureX-Web-Project/js/tenant.js"></script>
 
 </body>
 

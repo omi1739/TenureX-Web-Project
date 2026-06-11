@@ -110,6 +110,14 @@
                 </div>
             </div>
 
+            <!-- Filter tabs -->
+            <div class="flex items-center gap-3 mb-6">
+                <button data-filter="pending" class="bg-black text-white px-5 py-2 text-[10px] font-bold uppercase tracking-widest">PENDING</button>
+                <button data-filter="" class="border border-gray-300 px-5 py-2 text-[10px] font-bold uppercase tracking-widest text-gray-500 hover:border-black">ALL</button>
+                <button data-filter="approved" class="border border-gray-300 px-5 py-2 text-[10px] font-bold uppercase tracking-widest text-gray-500 hover:border-black">APPROVED</button>
+                <button data-filter="rejected" class="border border-gray-300 px-5 py-2 text-[10px] font-bold uppercase tracking-widest text-gray-500 hover:border-black">REJECTED</button>
+            </div>
+
             <div class="bg-white border border-gray-100 overflow-hidden shadow-sm">
                 <table class="w-full text-left">
                     <thead class="bg-gray-100 text-[9px] font-bold text-gray-400 uppercase tracking-[0.2em]">
@@ -121,7 +129,7 @@
                             <th class="py-4 px-8 text-right">Actions</th>
                         </tr>
                     </thead>
-                    <tbody class="text-[10px] font-bold">
+                    <tbody id="usersTableBody" class="text-[10px] font-bold">
                         <tr class="border-b border-gray-50">
                             <td class="py-6 px-8">
                                 <p class="text-gray-900 text-sm">Tanvir Rahman</p>
@@ -351,6 +359,8 @@
             </div>
         </div>
     </div>
+<script src="/TenureX-Web-Project/js/app.js"></script>
+<script src="/TenureX-Web-Project/js/admin.js"></script>
 </body>
 
 </html>

@@ -185,7 +185,7 @@
           <!-- Total Received (highlighted black card) -->
           <article class="bg-black text-white rounded-xl p-8">
             <p class="text-[11px] tracking-widest text-white/60">TOTAL RECEIVED</p>
-            <p class="text-4xl font-bold mt-4">$128,450.00</p>
+            <p id="stat-collected" class="text-4xl font-bold mt-4">—</p>
 
             <!-- Progress bar showing 90.1% collected -->
             <div class="mt-6 flex items-center gap-3">
@@ -198,13 +198,13 @@
 
           <!-- Remaining Balance -->
           <article class="bg-white rounded-xl shadow-sm p-8">
-            <p class="text-[11px] tracking-widest text-gray-500">REMAINING BALANCE</p>
-            <p class="text-4xl font-bold mt-4">$14,050.00</p>
+            <p class="text-[11px] tracking-widest text-gray-500">PENDING PAYMENTS</p>
+            <p id="stat-pending-pay" class="text-4xl font-bold mt-4">—</p>
             <p class="text-xs text-red-600 font-semibold mt-6 flex items-center gap-2">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v4M12 17h.01M10.3 3.9L1.8 18a2 2 0 001.7 3h17a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"/>
               </svg>
-              <span class="tracking-widest">3 ACCOUNTS OVERDUE</span>
+              <span class="tracking-widest"><span id="stat-overdue">3</span> ACCOUNTS OVERDUE</span>
             </p>
           </article>
         </section>
@@ -234,7 +234,7 @@
                 <th class="font-normal px-4 py-4">ACTIONS</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody id="paymentsTableBody">
               <!-- Row 1: PAID -->
               <tr class="border-t border-gray-100">
                 <td class="px-4 py-5">
@@ -356,5 +356,7 @@
   </button>
 
   <script src="../js/script.js"></script>
+  <script src="/TenureX-Web-Project/js/app.js"></script>
+  <script src="/TenureX-Web-Project/js/landlord.js"></script>
 </body>
 </html>

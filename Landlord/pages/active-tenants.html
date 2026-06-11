@@ -202,7 +202,7 @@
                 <th class="font-normal px-6 py-4">STATUS</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody id="tenantsTableBody">
               <!-- Row 1: ACTIVE -->
               <tr class="border-t border-gray-100">
                 <td class="px-6 py-5">
@@ -353,5 +353,7 @@
     /* Count tbody rows (each row = one tenant displayed) */
     TENUREX.set('tenantCount', document.querySelectorAll('tbody tr').length);
   </script>
+  <script src="/TenureX-Web-Project/js/app.js"></script>
+  <script src="/TenureX-Web-Project/js/landlord.js"></script>
 </body>
 </html>

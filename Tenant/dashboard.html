@@ -92,17 +92,17 @@
 
           <div class="bg-white p-5 rounded shadow">
             <p class="text-gray-500 text-sm">Active Rental</p>
-            <h3 class="text-2xl font-bold mt-2">1</h3>
+            <h3 id="dash-payments-count" class="text-2xl font-bold mt-2">—</h3>
           </div>
 
           <div class="bg-white p-5 rounded shadow">
-            <p class="text-gray-500 text-sm">Pending Applications</p>
-            <h3 class="text-2xl font-bold mt-2">2</h3>
+            <p class="text-gray-500 text-sm">Next Payment</p>
+            <h3 id="dash-next-due" class="text-2xl font-bold mt-2">—</h3>
           </div>
 
           <div class="bg-white p-5 rounded shadow">
             <p class="text-gray-500 text-sm">Open Maintenance</p>
-            <h3 class="text-2xl font-bold mt-2">1</h3>
+            <h3 id="dash-mr-count" class="text-2xl font-bold mt-2">—</h3>
           </div>
 
         </div>
@@ -117,16 +117,16 @@
 
             <div class="p-5">
               <p class="text-xs text-gray-500 uppercase">Primary Residence</p>
-              <h3 class="text-xl font-bold mb-4">THE LEDGER</h3>
+              <h3 id="dash-property" class="text-xl font-bold mb-4">—</h3>
 
               <div class="grid grid-cols-2 gap-4 text-sm">
-                <p><span class="text-gray-500">Landlord:</span> Marcus Thorne</p>
-                <p><span class="text-gray-500">Lease Period:</span> Oct 2023 - Oct 2024</p>
-                <p><span class="text-gray-500">Next Review:</span> Sept 15, 2024</p>
+                <p><span class="text-gray-500">Landlord:</span> <span id="dash-landlord">—</span></p>
+                <p><span class="text-gray-500">Lease End:</span> <span id="dash-lease-end">—</span></p>
+                <p><span class="text-gray-500">Unit:</span> <span id="dash-unit">—</span></p>
               </div>
 
               <div class="flex justify-between items-center mt-6">
-                <h4 class="text-2xl font-bold">$2,850 <span class="text-sm text-gray-500">/mo</span></h4>
+                <h4 class="text-2xl font-bold"><span id="dash-rent">—</span> <span class="text-sm text-gray-500">/mo</span></h4>
                 <button class="bg-black text-white px-5 py-2 rounded">
                 <a href="./myRental.html">  Manage Payments </a>
                 </button>
@@ -201,6 +201,8 @@
       });
     });
   </script>
+  <script src="/TenureX-Web-Project/js/app.js"></script>
+  <script src="/TenureX-Web-Project/js/tenant.js"></script>
 
 </body>
 

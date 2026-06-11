@@ -154,13 +154,13 @@
                 </div>
                 <!-- Filter tabs: ALL NEW ACTIVE CLOSED -->
                 <div class="flex items-center gap-6 mt-2">
-                    <button
+                    <button data-task-filter=""
                         class="text-[11px] font-bold text-gray-900 uppercase tracking-[0.15em] border-b-2 border-gray-900 pb-0.5">All</button>
-                    <button
+                    <button data-task-filter="dispatched"
                         class="text-[11px] font-semibold text-gray-400 uppercase tracking-[0.15em] hover:text-gray-700 transition">New</button>
-                    <button
+                    <button data-task-filter="in_progress"
                         class="text-[11px] font-semibold text-gray-400 uppercase tracking-[0.15em] hover:text-gray-700 transition">Active</button>
-                    <button
+                    <button data-task-filter="completed"
                         class="text-[11px] font-semibold text-gray-400 uppercase tracking-[0.15em] hover:text-gray-700 transition">Closed</button>
                 </div>
             </div>
@@ -211,114 +211,20 @@
 
             <!-- TABLE -->
             <div>
-                <!-- Table Header -->
-                <div class="grid grid-cols-[100px_1fr_1fr_1fr_1fr_1fr_80px] gap-4 pb-3 border-b border-gray-200">
-                    <span class="text-[10px] font-semibold text-gray-400 uppercase tracking-[0.15em]">ID</span>
-                    <span class="text-[10px] font-semibold text-gray-400 uppercase tracking-[0.15em]">Property /
-                        Unit</span>
-                    <span class="text-[10px] font-semibold text-gray-400 uppercase tracking-[0.15em]">Category</span>
-                    <span
-                        class="text-[10px] font-semibold text-gray-400 uppercase tracking-[0.15em]">Stakeholders</span>
-                    <span class="text-[10px] font-semibold text-gray-400 uppercase tracking-[0.15em]">Timeline</span>
-                    <span class="text-[10px] font-semibold text-gray-400 uppercase tracking-[0.15em]">Status</span>
-                    <span class="text-[10px] font-semibold text-gray-400 uppercase tracking-[0.15em]">Actions</span>
-                </div>
-
-                <!-- Row 1 — #MR-101 Skyline Garden -->
-                <div
-                    class="grid grid-cols-[100px_1fr_1fr_1fr_1fr_1fr_80px] gap-4 py-6 border-b border-gray-100 items-center hover:bg-gray-50 transition cursor-pointer">
-                    <span class="text-[12px] font-semibold text-gray-500 tracking-wide">#MR-101</span>
-                    <div>
-                        <p class="text-[13px] font-extrabold text-gray-900 uppercase tracking-wide leading-tight">
-                            Skyline Garden</p>
-                        <p class="text-[11px] text-gray-400">Penthouse 1</p>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <i class="fas fa-temperature-half text-gray-400 text-xs"></i>
-                        <span class="text-[12px] font-semibold text-gray-700 uppercase tracking-wide">HVAC System</span>
-                    </div>
-                    <div>
-                        <p class="text-[11px] text-gray-600"><span class="font-bold">TENANT:</span> Julian Reed</p>
-                        <p class="text-[11px] text-gray-600"><span class="font-bold">OWNER:</span> Sarah Miller</p>
-                    </div>
-                    <div>
-                        <p class="text-[12px] font-semibold text-gray-700">Oct 15, 2023</p>
-                        <p class="text-[10px] font-semibold text-gray-400 uppercase tracking-wide">Med Urgency</p>
-                    </div>
-                    <div>
-                        <span
-                            class="border border-gray-400 text-gray-700 text-[10px] font-bold tracking-[0.1em] uppercase px-3 py-1 inline-block">IN
-                            PROGRESS</span>
-                    </div>
-                    <div>
-                        <a href="./task_details.html"> <button
-                                class="text-[11px] font-bold text-gray-900 uppercase tracking-[0.1em] hover:underline">REVIEW</button></a>
-                    </div>
-                </div>
-
-                <!-- Row 2 — #MR-104 The Grandview -->
-                <div
-                    class="grid grid-cols-[100px_1fr_1fr_1fr_1fr_1fr_80px] gap-4 py-6 border-b border-gray-100 items-center hover:bg-gray-50 transition cursor-pointer">
-                    <span class="text-[12px] font-semibold text-gray-500 tracking-wide">#MR-104</span>
-                    <div>
-                        <p class="text-[13px] font-extrabold text-gray-900 uppercase tracking-wide leading-tight">The
-                            Grandview</p>
-                        <p class="text-[11px] text-gray-400">Unit 402B</p>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <i class="fas fa-wrench text-gray-400 text-xs"></i>
-                        <span class="text-[12px] font-semibold text-gray-700 uppercase tracking-wide">Pipe
-                            Leakage</span>
-                    </div>
-                    <div>
-                        <p class="text-[11px] text-gray-600"><span class="font-bold">TENANT:</span> Marcus Chen</p>
-                        <p class="text-[11px] text-gray-600"><span class="font-bold">OWNER:</span> David Vance</p>
-                    </div>
-                    <div>
-                        <p class="text-[12px] font-semibold text-gray-700">Oct 16, 2023</p>
-                        <p class="text-[10px] font-extrabold text-gray-900 uppercase tracking-wide">High Priority</p>
-                    </div>
-                    <div>
-                        <span
-                            class="bg-gray-900 text-white text-[10px] font-bold tracking-[0.1em] uppercase px-3 py-1 inline-block">NEW</span>
-                    </div>
-                    <div>
-                        <a href="./task_details.html"> <button
-                                class="text-[11px] font-bold text-gray-900 uppercase tracking-[0.1em] hover:underline">REVIEW</button></a>
-                    </div>
-                </div>
-
-                <!-- Row 3 — #MR-098 Oakwood Lofts -->
-                <div
-                    class="grid grid-cols-[100px_1fr_1fr_1fr_1fr_1fr_80px] gap-4 py-6 border-b border-gray-100 items-center hover:bg-gray-50 transition cursor-pointer">
-                    <span class="text-[12px] font-semibold text-gray-500 tracking-wide">#MR-098</span>
-                    <div>
-                        <p class="text-[13px] font-extrabold text-gray-900 uppercase tracking-wide leading-tight">
-                            Oakwood Lofts</p>
-                        <p class="text-[11px] text-gray-400">Studio 12</p>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <i class="fas fa-bolt text-gray-400 text-xs"></i>
-                        <span class="text-[12px] font-semibold text-gray-700 uppercase tracking-wide">Electrical
-                            Insp.</span>
-                    </div>
-                    <div>
-                        <p class="text-[11px] text-gray-600"><span class="font-bold">TENANT:</span> Elena Rossi</p>
-                        <p class="text-[11px] text-gray-600"><span class="font-bold">OWNER:</span> Sarah Miller</p>
-                    </div>
-                    <div>
-                        <p class="text-[12px] font-semibold text-gray-700">Oct 14, 2023</p>
-                        <p class="text-[10px] font-semibold text-gray-400 uppercase tracking-wide">Low Urgency</p>
-                    </div>
-                    <div>
-                        <span
-                            class="border border-gray-300 text-gray-400 text-[10px] font-bold tracking-[0.1em] uppercase px-3 py-1 inline-block">CLOSED</span>
-                    </div>
-                    <div>
-                        <a href="./task_details.html"> <button
-                                class="text-[11px] font-bold text-gray-900 uppercase tracking-[0.1em] hover:underline">REVIEW</button></a>
-                    </div>
-                </div>
+                <table class="w-full text-left">
+                    <thead>
+                        <tr class="border-b border-gray-200">
+                            <th class="text-[10px] font-semibold text-gray-400 uppercase tracking-[0.15em] pb-3 pr-4">Task</th>
+                            <th class="text-[10px] font-semibold text-gray-400 uppercase tracking-[0.15em] pb-3 pr-4">Property</th>
+                            <th class="text-[10px] font-semibold text-gray-400 uppercase tracking-[0.15em] pb-3 pr-4">Unit</th>
+                            <th class="text-[10px] font-semibold text-gray-400 uppercase tracking-[0.15em] pb-3 pr-4">Priority</th>
+                            <th class="text-[10px] font-semibold text-gray-400 uppercase tracking-[0.15em] pb-3">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tasksTableBody">
+                        <tr><td colspan="5" class="text-center py-8 text-gray-400 text-sm">Loading tasks…</td></tr>
+                    </tbody>
+                </table>
             </div>
 
             <!-- FOOTER: pagination -->
@@ -351,6 +257,8 @@
         +
     </button>
 
+  <script src="/TenureX-Web-Project/js/app.js"></script>
+  <script src="/TenureX-Web-Project/js/technician.js"></script>
 </body>
 
 </html>

@@ -172,7 +172,7 @@
                                 <th class="pb-4 font-bold">Actions</th>
                             </tr>
                         </thead>
-                        <tbody class="divide-y divide-gray-50">
+                        <tbody id="mrTableBody" class="divide-y divide-gray-50">
                             <tr class="group">
                                 <td class="py-6 text-sm text-zinc-400 font-medium">AMR - 90234</td>
                                 <td class="py-6"><span
@@ -262,33 +262,61 @@
 
     <!-- request submitted successfully message -->
 
-    <div id="requestSubmitModal" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-        <div class="bg-white rounded-lg p-8 max-w-md w-full mx-4 text-center">
-            <div class="flex justify-center mb-6">
-                <div class="w-24 h-24 bg-green-200 rounded-full flex items-center justify-center">
-                    <i class="fas fa-check text-green-500 text-4xl"></i>
+    <div id="mrModal" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+        <div class="bg-white rounded-lg p-8 max-w-md w-full mx-4">
+            <h2 class="text-xl font-bold mb-6 uppercase tracking-widest">New Maintenance Request</h2>
+            <form id="mrForm" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-widest text-zinc-400 mb-1">Title *</label>
+                    <input id="mrTitle" type="text" placeholder="Brief issue description" required
+                        class="w-full border-b border-gray-200 py-2 text-sm focus:outline-none focus:border-black"/>
                 </div>
-            </div>
-            <h2 class="text-2xl font-bold text-gray-800 mb-6">Request Submitted!!</h2>
-            <button id="closeModalBtn"
-                class="bg-black text-white px-8 py-2 text-sm font-bold uppercase tracking-widest hover:bg-gray-800 transition">
-                Close
-            </button>
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-widest text-zinc-400 mb-1">Description</label>
+                    <textarea id="mrDesc" rows="3" placeholder="Detailed description..."
+                        class="w-full border-b border-gray-200 py-2 text-sm focus:outline-none focus:border-black resize-none"></textarea>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-widest text-zinc-400 mb-1">Category</label>
+                        <select id="mrCategory" class="w-full border-b border-gray-200 py-2 text-sm focus:outline-none focus:border-black bg-white">
+                            <option value="plumbing">Plumbing</option>
+                            <option value="electrical">Electrical</option>
+                            <option value="hvac">HVAC</option>
+                            <option value="structural">Structural</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-widest text-zinc-400 mb-1">Priority</label>
+                        <select id="mrPriority" class="w-full border-b border-gray-200 py-2 text-sm focus:outline-none focus:border-black bg-white">
+                            <option value="low">Low</option>
+                            <option value="medium" selected>Medium</option>
+                            <option value="high">High</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="flex gap-3 pt-4">
+                    <button type="submit" class="flex-1 bg-black text-white py-3 text-sm font-bold uppercase tracking-widest hover:bg-zinc-800 transition">Submit Request</button>
+                    <button type="button" id="closeModalBtn" class="flex-1 border border-gray-200 py-3 text-sm font-bold uppercase tracking-widest hover:bg-gray-50 transition">Cancel</button>
+                </div>
+            </form>
         </div>
     </div>
 
     <script>
         // Handle Pay Rent button
         document.getElementById('requestSubmit').addEventListener('click', function () {
-            document.getElementById('requestSubmitModal').classList.remove('hidden');
+            document.getElementById('mrModal').classList.remove('hidden');
         });
 
         // Handle Close Modal button
         document.getElementById('closeModalBtn').addEventListener('click', function () {
-            document.getElementById('requestSubmitModal').classList.add('hidden');
+            document.getElementById('mrModal').classList.add('hidden');
         });
     </script>
-
+    <script src="/TenureX-Web-Project/js/app.js"></script>
+    <script src="/TenureX-Web-Project/js/tenant.js"></script>
 
 </body>
 

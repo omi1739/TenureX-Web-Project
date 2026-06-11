@@ -40,19 +40,16 @@
                         <!-- Property info -->
                         <div class="flex-1">
                             <div class="flex items-center gap-3 mb-3">
-                                <span
-                                    class="border border-gray-400 text-[9px] font-bold text-gray-600 uppercase tracking-[0.12em] px-2 py-0.5">Residential</span>
-                                <span class="text-[10px] font-bold text-gray-500 uppercase tracking-wide">Pri:
-                                    High</span>
+                                <span id="task-category"
+                                    class="border border-gray-400 text-[9px] font-bold text-gray-600 uppercase tracking-[0.12em] px-2 py-0.5">—</span>
+                                <span id="task-priority" class="text-[10px] font-bold text-gray-500 uppercase tracking-wide">—</span>
+                                <span id="task-status-badge"></span>
                             </div>
-                            <h1 class="font-playfair font-bold text-[30px] leading-tight text-gray-900 mb-2">The
-                                Obsidian<br />Lofts</h1>
-                            <p class="text-[13px] text-gray-500 mb-1">Unit 12-A <span
-                                    class="text-gray-300 mx-1">•</span> West Wing</p>
+                            <h1 id="task-property" class="font-playfair font-bold text-[30px] leading-tight text-gray-900 mb-2">—</h1>
+                            <p class="text-[13px] text-gray-500 mb-1"><span id="task-unit">—</span></p>
                             <div class="flex items-center gap-1.5 mb-5">
                                 <i class="fas fa-location-dot text-gray-400 text-xs"></i>
-                                <p class="text-[10px] font-semibold text-gray-400 uppercase tracking-wide">450
-                                    Architecture Way, Metro District</p>
+                                <p id="task-address" class="text-[10px] font-semibold text-gray-400 uppercase tracking-wide">—</p>
                             </div>
                             <div class="bg-gray-900 text-white px-4 py-2.5 inline-flex items-center gap-3">
                                 <i class="fas fa-key text-xs"></i>
@@ -77,14 +74,10 @@
                     <div class="flex items-start gap-3 mb-5">
                         <i class="fas fa-circle-info text-gray-400 text-sm mt-0.5 shrink-0"></i>
                         <div class="flex-1">
-                            <p class="text-[11px] font-extrabold text-gray-900 uppercase tracking-wide mb-3">Electrical:
-                                Kitchen Island Outlet Failure</p>
+                            <p id="task-title" class="text-[11px] font-extrabold text-gray-900 uppercase tracking-wide mb-3">—</p>
                             <div class="flex gap-4">
                                 <div class="flex-1">
-                                    <p class="text-[12px] text-gray-500 leading-relaxed italic">"The pop-up outlet on
-                                        the central kitchen island has stopped responding. No power when items are
-                                        plugged in, and the manual reset button doesn't seem to engage. Noticed it after
-                                        using the blender this morning."</p>
+                                    <p id="task-description" class="text-[12px] text-gray-500 leading-relaxed italic">—</p>
                                 </div>
                                 <!-- Images -->
                                 <div class="flex gap-2 shrink-0">
@@ -136,36 +129,37 @@
             <div class="w-56 shrink-0 flex flex-col gap-4">
 
                 <!-- Task Protocol -->
-                <div class="bg-white border border-blue-400 p-5">
+                <form id="updateTaskForm" class="bg-white border border-blue-400 p-5">
                     <div class="flex items-center justify-between mb-4">
                         <p class="text-[9px] font-bold text-gray-500 uppercase tracking-[0.18em]">Task Protocol</p>
                         <p class="text-[9px] font-bold text-gray-400 uppercase tracking-[0.12em]">Active System</p>
                     </div>
+                    <select id="taskStatus" class="hidden">
+                        <option value="dispatched">Dispatched</option>
+                        <option value="in_progress">In Progress</option>
+                        <option value="completed">Completed</option>
+                    </select>
 
                     <div id="protocolOptions" class="space-y-2">
                         <button type="button"
                             class="protocol-option w-full flex items-center justify-between py-3 px-3 rounded-xl bg-gray-100 border border-gray-100 transition hover:bg-gray-200"
-                            data-step="1">
-                            <span class="text-[11px] font-semibold text-gray-500 uppercase tracking-wide">01. Accept
-                                Task</span>
-                            <div class="protocol-dot w-4 h-4 rounded-full border border-gray-300"></div>
+                            data-step="1" onclick="document.getElementById('taskStatus').value='dispatched';document.querySelectorAll('.protocol-option').forEach(b=>b.classList.remove('bg-gray-900','text-white','border-gray-900'));this.classList.add('bg-gray-900','text-white','border-gray-900')">
+                            <span class="text-[11px] font-semibold uppercase tracking-wide">01. Accept Task</span>
+                            <div class="protocol-dot w-4 h-4 rounded-full border border-current"></div>
                         </button>
                         <button type="button"
-                            class="protocol-option w-full flex items-center justify-between py-3 px-3 rounded-xl bg-gray-900 text-white border border-gray-900 transition hover:bg-gray-900"
-                            data-step="2">
-                            <span class="text-[11px] font-bold text-white uppercase tracking-wide">02. In
-                                Progress</span>
-                            <div
-                                class="protocol-dot w-4 h-4 rounded-full border-2 border-white flex items-center justify-center">
-                                <div class="w-2 h-2 bg-white rounded-full"></div>
+                            class="protocol-option w-full flex items-center justify-between py-3 px-3 rounded-xl bg-gray-100 border border-gray-100 transition hover:bg-gray-200"
+                            data-step="2" onclick="document.getElementById('taskStatus').value='in_progress';document.querySelectorAll('.protocol-option').forEach(b=>b.classList.remove('bg-gray-900','text-white','border-gray-900'));this.classList.add('bg-gray-900','text-white','border-gray-900')">
+                            <span class="text-[11px] font-bold uppercase tracking-wide">02. In Progress</span>
+                            <div class="protocol-dot w-4 h-4 rounded-full border-2 border-current flex items-center justify-center">
+                                <div class="w-2 h-2 bg-current rounded-full"></div>
                             </div>
                         </button>
                         <button type="button"
                             class="protocol-option w-full flex items-center justify-between py-3 px-3 rounded-xl bg-gray-100 border border-gray-100 transition hover:bg-gray-200"
-                            data-step="3">
-                            <span class="text-[11px] font-semibold text-gray-500 uppercase tracking-wide">03.
-                                Complete</span>
-                            <div class="protocol-dot w-4 h-4 rounded-full border border-gray-300"></div>
+                            data-step="3" onclick="document.getElementById('taskStatus').value='completed';document.querySelectorAll('.protocol-option').forEach(b=>b.classList.remove('bg-gray-900','text-white','border-gray-900'));this.classList.add('bg-gray-900','text-white','border-gray-900')">
+                            <span class="text-[11px] font-semibold uppercase tracking-wide">03. Complete</span>
+                            <div class="protocol-dot w-4 h-4 rounded-full border border-current"></div>
                         </button>
                     </div>
 
@@ -173,7 +167,7 @@
                     <div class="mt-5">
                         <p class="text-[9px] font-bold text-gray-500 uppercase tracking-[0.18em] mb-2">Field
                             Observations</p>
-                        <textarea placeholder="Enter findings..."
+                        <textarea id="taskNotes" placeholder="Enter findings..."
                             class="w-full border border-gray-200 text-[11px] text-gray-500 p-2.5 h-20 resize-none focus:outline-none focus:border-gray-400 placeholder-gray-300"></textarea>
                     </div>
 
@@ -183,18 +177,18 @@
                             ($)</p>
                         <div class="flex items-center border border-gray-200 px-3 py-2">
                             <span class="text-[12px] font-bold text-gray-600 mr-2">$</span>
-                            <input type="text" value="0.00"
+                            <input id="taskCost" type="number" step="0.01" value="0.00"
                                 class="flex-1 text-[12px] font-semibold text-gray-700 focus:outline-none bg-transparent" />
                         </div>
                     </div>
 
                     <!-- Archive button -->
-                     <div class="flex justify-end">
-                                <button onclick="document.getElementById('updatedModal').classList.remove('hidden')" class="flex items-center gap-2 bg-gray-900 text-white text-[10px] font-bold tracking-[0.15em] uppercase px-6 py-2.5 hover:bg-black transition">
-                                     Archive & Update Status
-                                </button>
-                            </div>
-                </div>
+                    <div class="flex justify-end mt-4">
+                        <button type="submit" class="flex items-center gap-2 bg-gray-900 text-white text-[10px] font-bold tracking-[0.15em] uppercase px-6 py-2.5 hover:bg-black transition">
+                            Archive & Update Status
+                        </button>
+                    </div>
+                </form>
 
                 <!-- Stakeholders -->
                 <div class="bg-white border border-blue-400 p-5">
@@ -205,8 +199,8 @@
                                 <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Sienna"
                                     class="w-8 h-8 rounded-full bg-gray-200">
                                 <div>
-                                    <p class="text-[8px] font-bold text-gray-400 uppercase tracking-wide">Tenant</p>
-                                    <p class="text-[11px] font-bold text-gray-800 uppercase">Sienna West</p>
+                                    <p class="text-[8px] font-bold text-gray-400 uppercase tracking-wide">Reporter</p>
+                                    <p id="task-reporter" class="text-[11px] font-bold text-gray-800 uppercase">—</p>
                                 </div>
                             </div>
                             <i class="fas fa-phone text-gray-400 text-xs cursor-pointer hover:text-gray-700"></i>
@@ -216,11 +210,15 @@
                                 <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Robert"
                                     class="w-8 h-8 rounded-full bg-gray-200">
                                 <div>
-                                    <p class="text-[8px] font-bold text-gray-400 uppercase tracking-wide">Ownership</p>
-                                    <p class="text-[11px] font-bold text-gray-800 uppercase">Robert Chen</p>
+                                    <p class="text-[8px] font-bold text-gray-400 uppercase tracking-wide">Landlord</p>
+                                    <p id="task-landlord" class="text-[11px] font-bold text-gray-800 uppercase">—</p>
+                                    <p id="task-landlord-ph" class="text-[9px] text-gray-400">—</p>
                                 </div>
                             </div>
                             <i class="fas fa-envelope text-gray-400 text-xs cursor-pointer hover:text-gray-700"></i>
+                        </div>
+                        <div class="text-[9px] text-gray-400 uppercase tracking-wide pt-1">
+                            Scheduled: <span id="task-scheduled">—</span>
                         </div>
                     </div>
                 </div>
@@ -287,6 +285,8 @@
         </div>
     </div>
 
+  <script src="/TenureX-Web-Project/js/app.js"></script>
+  <script src="/TenureX-Web-Project/js/technician.js"></script>
 
 </body>
 

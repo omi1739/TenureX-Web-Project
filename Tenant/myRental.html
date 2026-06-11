@@ -120,24 +120,24 @@
                             <div class="p-8">
                                 <div class="flex justify-between items-start mb-10">
                                     <div>
-                                        <h3 class="text-2xl font-bold uppercase">The Monolith Unit 402</h3>
+                                        <h3 id="lease-property" class="text-2xl font-bold uppercase">—</h3>
                                         <p class="text-xs text-gray-400 mt-1"><i class="fa-solid fa-location-dot"></i>
-                                            1200 Architecture Way, Design District</p>
+                                            <span id="lease-address">—</span></p>
                                     </div>
                                     <div class="text-right">
                                         <p class="text-[10px] font-bold text-gray-400 uppercase">Monthly Rental</p>
-                                        <p class="text-3xl font-black text-[#333]">$4,250.00</p>
+                                        <p id="lease-rent" class="text-3xl font-black text-[#333]">—</p>
                                     </div>
                                 </div>
 
                                 <div class="grid grid-cols-4 gap-4 mb-10">
                                     <div>
                                         <p class="text-[10px] font-bold text-gray-400 uppercase mb-2">Start Date</p>
-                                        <p class="text-sm font-bold uppercase">Jan 01, 2024</p>
+                                        <p id="lease-start" class="text-sm font-bold uppercase">—</p>
                                     </div>
                                     <div>
                                         <p class="text-[10px] font-bold text-gray-400 uppercase mb-2">End Date</p>
-                                        <p class="text-sm font-bold uppercase text-red-600">Dec 31, 2024</p>
+                                        <p id="lease-end" class="text-sm font-bold uppercase text-red-600">—</p>
                                     </div>
                                     <div>
                                         <p class="text-[10px] font-bold text-gray-400 uppercase mb-2">Duration</p>
@@ -152,7 +152,7 @@
                                     </div>
                                 </div>
 
-                                <button id="payRentBtn"
+                                <button id="payNowBtn"
                                     class="bg-[#333] text-white px-10 py-3 text-xs font-bold uppercase tracking-widest hover:bg-black transition shadow-lg">
                                     Pay Rent
                                 </button>
@@ -180,7 +180,7 @@
                                         <th class="py-3 font-bold tracking-widest text-right">Reference</th>
                                     </tr>
                                 </thead>
-                                <tbody class="text-xs">
+                                <tbody id="payHistoryBody" class="text-xs">
                                     <tr class="border-b hover:bg-gray-50">
                                         <td class="py-5 font-bold uppercase">October 2024</td>
                                         <td class="py-5 text-gray-600">$4,250.00</td>
@@ -230,14 +230,14 @@
                             <div class="flex items-center gap-4 mb-6">
                                 <img src="./images/sazzad.jpg" class="w-14 h-14 rounded " alt="Sazzad">
                                 <div>
-                                    <p class="text-sm font-bold uppercase">Sazzad Hossain</p>
-                                    <p class="text-[9px] text-gray-400 uppercase">Property Supervisor</p>
+                                    <p id="lease-landlord" class="text-sm font-bold uppercase">—</p>
+                                    <p class="text-[9px] text-gray-400 uppercase">Landlord</p>
                                 </div>
                             </div>
                             <div class="space-y-3 text-[11px] text-gray-300 mb-8">
                                 <div class="flex items-center gap-3">
                                     <i class="fa-regular fa-envelope text-gray-500"></i>
-                                    <span>sazzad11@gmail.com</span>
+                                    <span id="lease-landlord-email">—</span>
                                 </div>
                                 <div class="flex items-center gap-3">
                                     <i class="fa-solid fa-phone text-gray-500"></i>
@@ -289,7 +289,7 @@
     </div>
 
     <!-- Payment Success Modal -->
-    <div id="paymentModal" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+    <div id="paySuccessModal" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50">
         <div class="bg-white rounded-lg p-8 max-w-md w-full mx-4 text-center">
             <div class="flex justify-center mb-6">
                 <div class="w-24 h-24 bg-green-200 rounded-full flex items-center justify-center">
@@ -297,7 +297,7 @@
                 </div>
             </div>
             <h2 class="text-2xl font-bold text-gray-800 mb-6">Payment Successful!</h2>
-            <button id="closeModalBtn"
+            <button id="closePayModal"
                 class="bg-black text-white px-8 py-2 text-sm font-bold uppercase tracking-widest hover:bg-gray-800 transition">
                 Close
             </button>
@@ -305,28 +305,18 @@
     </div>
 
     <script>
-        // Handle Pay Rent button
-        document.getElementById('payRentBtn').addEventListener('click', function () {
-            document.getElementById('paymentModal').classList.remove('hidden');
-        });
-
-        // Handle Close Modal button
-        document.getElementById('closeModalBtn').addEventListener('click', function () {
-            document.getElementById('paymentModal').classList.add('hidden');
-        });
-
-        // Handle Receipt button
+        // Receipt button
         document.getElementById('receiptBtn').addEventListener('click', function () {
             window.location.href = './receipt.html';
         });
 
         // Close modal when clicking outside
-        document.getElementById('paymentModal').addEventListener('click', function (e) {
-            if (e.target === this) {
-                this.classList.add('hidden');
-            }
+        document.getElementById('paySuccessModal').addEventListener('click', function (e) {
+            if (e.target === this) this.classList.add('hidden');
         });
     </script>
+    <script src="/TenureX-Web-Project/js/app.js"></script>
+    <script src="/TenureX-Web-Project/js/tenant.js"></script>
 
 </body>
 

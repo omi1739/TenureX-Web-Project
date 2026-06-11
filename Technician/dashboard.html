@@ -171,8 +171,8 @@
                     <div class="flex-1 border-r border-gray-200 pr-8">
                         <p class="text-[10px] font-semibold text-gray-400 uppercase tracking-[0.18em] mb-2">Assigned</p>
                         <div class="flex items-baseline gap-2">
-                            <span class="font-condensed font-extrabold text-[52px] leading-none">12</span>
-                            <span class="text-[11px] font-semibold text-gray-500 tracking-wide">+2 TODAY</span>
+                            <span id="stat-total-tasks" class="font-condensed font-extrabold text-[52px] leading-none">—</span>
+                            <span class="text-[11px] font-semibold text-gray-500 tracking-wide">TASKS</span>
                         </div>
                     </div>
                     <!-- Active Jobs -->
@@ -180,16 +180,16 @@
                         <p class="text-[10px] font-semibold text-gray-400 uppercase tracking-[0.18em] mb-2">Active Jobs
                         </p>
                         <div class="flex items-baseline gap-2">
-                            <span class="font-condensed font-extrabold text-[52px] leading-none">04</span>
-                            <span class="text-[10px] font-extrabold tracking-[0.12em] text-red-600">URGENT</span>
+                            <span id="stat-pending-tasks" class="font-condensed font-extrabold text-[52px] leading-none">—</span>
+                            <span class="text-[10px] font-extrabold tracking-[0.12em] text-red-600">DISPATCHED</span>
                         </div>
                     </div>
                     <!-- Resolved -->
                     <div class="flex-1 px-8">
                         <p class="text-[10px] font-semibold text-gray-400 uppercase tracking-[0.18em] mb-2">Resolved</p>
                         <div class="flex items-baseline gap-2">
-                            <span class="font-condensed font-extrabold text-[52px] leading-none">25</span>
-                            <span class="text-[11px] font-semibold text-gray-500 tracking-wide">92% KPI</span>
+                            <span id="stat-done-tasks" class="font-condensed font-extrabold text-[52px] leading-none">—</span>
+                            <span class="text-[11px] font-semibold text-gray-500 tracking-wide">COMPLETED</span>
                         </div>
                     </div>
                     <!-- Action Buttons -->
@@ -225,65 +225,20 @@
                         </div>
                     </div>
 
-                    <!-- Table header -->
-                    <div class="grid grid-cols-4 gap-4 pb-3 border-b border-gray-200">
-                        <span
-                            class="text-[10px] font-semibold text-gray-400 uppercase tracking-[0.15em]">Property</span>
-                        <span
-                            class="text-[10px] font-semibold text-gray-400 uppercase tracking-[0.15em]">Manifest</span>
-                        <span class="text-[10px] font-semibold text-gray-400 uppercase tracking-[0.15em]">Contact</span>
-                        <span class="text-[10px] font-semibold text-gray-400 uppercase tracking-[0.15em]">Status</span>
-                    </div>
-
-                    <!-- Row 1 -->
-                    <div
-                        class="grid grid-cols-4 gap-4 py-5 border-b border-gray-100 items-center hover:bg-gray-50 transition cursor-pointer">
-                        <div>
-                            <p class="text-[13px] font-bold text-gray-800 tracking-wide">ELYSIUM HEIGHTS</p>
-                            <p class="text-[11px] text-gray-400">Unit 48</p>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <span class="w-2 h-2 bg-gray-800 shrink-0 inline-block"></span>
-                            <span class="text-[13px] text-gray-700">Leaky Faucet</span>
-                        </div>
-                        <p class="text-[12px] font-bold text-gray-700 tracking-wide">JOHN DOE</p>
-                        <div><span
-                                class="bg-gray-900 text-white text-[10px] font-bold tracking-[0.1em] uppercase px-3 py-1 inline-block">NEW</span>
-                        </div>
-                    </div>
-
-                    <!-- Row 2 -->
-                    <div
-                        class="grid grid-cols-4 gap-4 py-5 border-b border-gray-100 items-center hover:bg-gray-50 transition cursor-pointer">
-                        <div>
-                            <p class="text-[13px] font-bold text-gray-800 tracking-wide">SILVER OAK APTS</p>
-                            <p class="text-[11px] text-gray-400">Unit 112</p>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <span class="w-2 h-2 bg-gray-400 shrink-0 inline-block"></span>
-                            <span class="text-[13px] text-gray-700">HVAC Inspection</span>
-                        </div>
-                        <p class="text-[12px] font-bold text-gray-700 tracking-wide">SARAH MILLER</p>
-                        <div><span
-                                class="border border-gray-400 text-gray-600 text-[10px] font-bold tracking-[0.1em] uppercase px-3 py-1 inline-block">SCHEDULED</span>
-                        </div>
-                    </div>
-
-                    <!-- Row 3 -->
-                    <div class="grid grid-cols-4 gap-4 py-5 items-center hover:bg-gray-50 transition cursor-pointer">
-                        <div>
-                            <p class="text-[13px] font-bold text-gray-800 tracking-wide">HARBOR VIEW</p>
-                            <p class="text-[11px] text-gray-400">Penthouse A</p>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <span class="w-2 h-2 bg-gray-300 shrink-0 inline-block"></span>
-                            <span class="text-[13px] text-gray-700">Smart Lock Offline</span>
-                        </div>
-                        <p class="text-[12px] font-bold text-gray-700 tracking-wide">ROBERT KING</p>
-                        <div><span
-                                class="border border-gray-300 text-gray-400 text-[10px] font-bold tracking-[0.1em] uppercase px-3 py-1 inline-block">ON
-                                HOLD</span></div>
-                    </div>
+                    <!-- Master Ledger Table -->
+                    <table class="w-full text-left">
+                        <thead>
+                            <tr class="border-b border-gray-200">
+                                <th class="text-[10px] font-semibold text-gray-400 uppercase tracking-[0.15em] pb-3 pr-4">Task</th>
+                                <th class="text-[10px] font-semibold text-gray-400 uppercase tracking-[0.15em] pb-3 pr-4">Property</th>
+                                <th class="text-[10px] font-semibold text-gray-400 uppercase tracking-[0.15em] pb-3 pr-4">Priority</th>
+                                <th class="text-[10px] font-semibold text-gray-400 uppercase tracking-[0.15em] pb-3">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="recentTasksBody">
+                            <tr><td colspan="4" class="text-center py-8 text-gray-400 text-sm">Loading tasks…</td></tr>
+                        </tbody>
+                    </table>
 
                 </div>
 
@@ -332,8 +287,17 @@
 
                     <!-- METRICS SUMMARY -->
                     <div class="mb-6">
-                        <p class="text-[10px] font-bold text-gray-700 uppercase tracking-[0.2em] mb-5">Metrics Summary
-                        </p>
+                        <p class="text-[10px] font-bold text-gray-700 uppercase tracking-[0.2em] mb-4">Metrics Summary</p>
+                        <div class="grid grid-cols-2 gap-3 mb-5">
+                            <div class="bg-gray-50 p-3">
+                                <p class="text-[8px] font-bold text-gray-400 uppercase tracking-widest mb-1">Total Completed</p>
+                                <p id="stat-completed" class="text-xl font-black text-gray-900">—</p>
+                            </div>
+                            <div class="bg-gray-50 p-3">
+                                <p class="text-[8px] font-bold text-gray-400 uppercase tracking-widest mb-1">Revenue</p>
+                                <p id="stat-revenue" class="text-xl font-black text-gray-900">—</p>
+                            </div>
+                        </div>
                         <div class="mb-5">
                             <div class="flex justify-between items-center mb-2">
                                 <span
@@ -371,5 +335,7 @@
             </div>
         </div>
 
+  <script src="/TenureX-Web-Project/js/app.js"></script>
+  <script src="/TenureX-Web-Project/js/technician.js"></script>
 </body>
-</h
+</html>

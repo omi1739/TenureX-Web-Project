@@ -105,15 +105,15 @@
                             <i class="fas fa-plus text-gray-300 text-xs"></i>
                         </div>
                         
-                        <form class="space-y-8">
+                        <form id="catForm" class="space-y-8">
                             <div>
                                 <label class="block text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-2">Category Identity</label>
-                                <input type="text" placeholder="E.G. HVAC SYSTEMS" class="w-full border-b border-gray-200 py-2 text-sm focus:outline-none focus:border-black placeholder:text-gray-200">
+                                <input id="catName" type="text" placeholder="E.G. HVAC SYSTEMS" class="w-full border-b border-gray-200 py-2 text-sm focus:outline-none focus:border-black placeholder:text-gray-200">
                             </div>
                             
                             <div>
                                 <label class="block text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-2">Service Description</label>
-                                <textarea rows="3" placeholder="CORE MAINTENANCE PARAMETERS..." class="w-full border-b border-gray-200 py-2 text-sm focus:outline-none focus:border-black placeholder:text-gray-200 resize-none"></textarea>
+                                <textarea id="catDesc" rows="3" placeholder="CORE MAINTENANCE PARAMETERS..." class="w-full border-b border-gray-200 py-2 text-sm focus:outline-none focus:border-black placeholder:text-gray-200 resize-none"></textarea>
                             </div>
 
                             <div>
@@ -151,7 +151,7 @@
                                     <th class="py-4 px-6 text-[9px] font-bold text-gray-500 uppercase tracking-widest text-right">Actions</th>
                                 </tr>
                             </thead>
-                            <tbody class="divide-y divide-gray-50">
+                            <tbody id="catTableBody" class="divide-y divide-gray-50">
                                 <tr class="hover:bg-gray-50 transition">
                                     <td class="py-6 px-6">
                                         <div class="flex items-center gap-4">
@@ -357,5 +357,7 @@
             </div>
         </div>
     </div>
+<script src="/TenureX-Web-Project/js/app.js"></script>
+<script src="/TenureX-Web-Project/js/admin.js"></script>
 </body>
 </html>

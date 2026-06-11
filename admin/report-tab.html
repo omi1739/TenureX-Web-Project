@@ -89,6 +89,30 @@
                 </div>
             </div>
 
+            <!-- Live stats row -->
+            <div class="grid grid-cols-5 gap-4 mb-8">
+                <div class="bg-white border border-gray-100 p-5">
+                    <p class="text-[8px] font-bold text-gray-400 uppercase tracking-widest mb-2">Properties</p>
+                    <p id="rep-properties" class="text-3xl font-black">—</p>
+                </div>
+                <div class="bg-white border border-gray-100 p-5">
+                    <p class="text-[8px] font-bold text-gray-400 uppercase tracking-widest mb-2">Occupancy</p>
+                    <p id="rep-occupancy" class="text-3xl font-black">—</p>
+                </div>
+                <div class="bg-white border border-gray-100 p-5">
+                    <p class="text-[8px] font-bold text-gray-400 uppercase tracking-widest mb-2">Monthly Revenue</p>
+                    <p id="rep-monthly" class="text-3xl font-black">—</p>
+                </div>
+                <div class="bg-white border border-gray-100 p-5">
+                    <p class="text-[8px] font-bold text-gray-400 uppercase tracking-widest mb-2">Tenants</p>
+                    <p id="rep-tenants" class="text-3xl font-black">—</p>
+                </div>
+                <div class="bg-white border border-gray-100 p-5">
+                    <p class="text-[8px] font-bold text-gray-400 uppercase tracking-widest mb-2">Open Tickets</p>
+                    <p id="rep-maintenance" class="text-3xl font-black">—</p>
+                </div>
+            </div>
+
             <div class="grid grid-cols-12 gap-8 mb-8">
                 <div class="col-span-9 bg-white border border-gray-100 p-8">
                     <div class="flex justify-between items-start mb-8">
@@ -120,25 +144,14 @@
                     <table class="w-full text-left">
                         <thead>
                             <tr class="bg-gray-100 text-[8px] font-bold text-gray-500 uppercase tracking-widest">
-                                <th class="py-3 px-4">Reporting Month</th>
-                                <th class="py-3 px-4">Base Rent</th>
-                                <th class="py-3 px-4">Other Income</th>
-                                <th class="py-3 px-4">Total Revenue</th>
+                                <th class="py-3 px-4">Property</th>
+                                <th class="py-3 px-4">City</th>
+                                <th class="py-3 px-4">Occupancy</th>
+                                <th class="py-3 px-4">Revenue</th>
                             </tr>
                         </thead>
-                        <tbody class="text-[10px] font-bold">
-                            <tr class="border-b border-gray-50">
-                                <td class="py-4 px-4 uppercase">January 2026</td>
-                                <td class="py-4 px-4 text-gray-400">৳38,200.00</td>
-                                <td class="py-4 px-4 text-gray-400">৳1,450.00</td>
-                                <td class="py-4 px-4">৳39,650.00</td>
-                            </tr>
-                            <tr>
-                                <td class="py-4 px-4 uppercase">February 2026</td>
-                                <td class="py-4 px-4 text-gray-400">৳37,900.00</td>
-                                <td class="py-4 px-4 text-gray-400">৳1,200.00</td>
-                                <td class="py-4 px-4">৳39,100.00</td>
-                            </tr>
+                        <tbody id="topPropertiesBody" class="text-[10px] font-bold">
+                            <tr><td colspan="4" class="text-center py-6 text-gray-400">Loading…</td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -311,5 +324,7 @@
             });
         });
     </script>
+<script src="/TenureX-Web-Project/js/app.js"></script>
+<script src="/TenureX-Web-Project/js/admin.js"></script>
 </body>
 </html>

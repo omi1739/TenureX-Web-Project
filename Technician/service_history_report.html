@@ -142,15 +142,15 @@
                 <div class="px-8 py-6 border-r border-gray-200">
                     <p class="text-[9px] font-semibold text-gray-400 uppercase tracking-[0.18em] mb-3">Total Jobs</p>
                     <div class="flex items-baseline gap-3">
-                        <span class="font-condensed font-extrabold text-[48px] leading-none text-gray-900">142</span>
-                        <span class="text-[11px] font-bold text-gray-400">+12% Monthly</span>
+                        <span id="stat-total-jobs" class="font-condensed font-extrabold text-[48px] leading-none text-gray-900">—</span>
+                        <span class="text-[11px] font-bold text-gray-400">Completed</span>
                     </div>
                 </div>
                 <div class="px-8 py-6 border-r border-gray-200">
                     <p class="text-[9px] font-semibold text-gray-400 uppercase tracking-[0.18em] mb-3">Revenue</p>
                     <div class="flex items-baseline gap-3">
-                        <span
-                            class="font-condensed font-extrabold text-[48px] leading-none text-gray-900">$18,400</span>
+                        <span id="stat-total-earn"
+                            class="font-condensed font-extrabold text-[48px] leading-none text-gray-900">—</span>
                         <i class="fas fa-copy text-gray-300 text-sm cursor-pointer hover:text-gray-500"></i>
                     </div>
                 </div>
@@ -286,133 +286,21 @@
                     </div>
                 </div>
 
-                <!-- Table header -->
-                <div
-                    class="grid grid-cols-[90px_1fr_100px_90px_100px_110px_80px] gap-0 px-6 py-3 border-b border-gray-200 bg-gray-50">
-                    <span class="text-[9px] font-bold text-gray-400 uppercase tracking-[0.15em]">Ref ID</span>
-                    <span class="text-[9px] font-bold text-gray-400 uppercase tracking-[0.15em]">Asset / Location</span>
-                    <span class="text-[9px] font-bold text-gray-400 uppercase tracking-[0.15em]">Dept.</span>
-                    <span class="text-[9px] font-bold text-gray-400 uppercase tracking-[0.15em]">Date</span>
-                    <span class="text-[9px] font-bold text-gray-400 uppercase tracking-[0.15em]">Operator</span>
-                    <span class="text-[9px] font-bold text-gray-400 uppercase tracking-[0.15em]">Status</span>
-                    <span class="text-[9px] font-bold text-gray-400 uppercase tracking-[0.15em]">Cost (USD)</span>
-                </div>
-
-                <!-- Row 1 -->
-                <div
-                    class="grid grid-cols-[90px_1fr_100px_90px_100px_110px_80px] gap-0 px-6 py-5 border-b border-gray-100 items-center hover:bg-gray-50 transition cursor-pointer">
-                    <div>
-                        <p class="text-[10px] font-bold text-gray-400">#WO-</p>
-                        <p class="text-[10px] font-bold text-gray-400">9482</p>
-                    </div>
-                    <div>
-                        <p class="text-[12px] font-extrabold text-gray-900 uppercase">Main Line Flush</p>
-                        <p class="text-[10px] text-gray-400">Skyline Heights — A02</p>
-                    </div>
-                    <div><span
-                            class="border border-gray-300 text-[9px] font-bold text-gray-600 uppercase tracking-[0.1em] px-2 py-1 inline-block">Plumbing</span>
-                    </div>
-                    <div>
-                        <p class="text-[11px] font-semibold text-gray-700">Jun 14,</p>
-                        <p class="text-[11px] font-semibold text-gray-700">2024</p>
-                    </div>
-                    <div>
-                        <p class="text-[11px] font-semibold text-gray-700">J. DOE</p>
-                    </div>
-                    <div class="flex items-center gap-1.5"><span
-                            class="w-2 h-2 bg-gray-700 inline-block shrink-0"></span><span
-                            class="text-[10px] font-bold text-gray-600 uppercase">Standard</span></div>
-                    <div>
-                        <p class="text-[12px] font-bold text-gray-900">450.00</p>
-                    </div>
-                </div>
-
-                <!-- Row 2 -->
-                <div
-                    class="grid grid-cols-[90px_1fr_100px_90px_100px_110px_80px] gap-0 px-6 py-5 border-b border-gray-100 items-center hover:bg-gray-50 transition cursor-pointer">
-                    <div>
-                        <p class="text-[10px] font-bold text-gray-400">#WO-</p>
-                        <p class="text-[10px] font-bold text-gray-400">9479</p>
-                    </div>
-                    <div>
-                        <p class="text-[12px] font-extrabold text-gray-900 uppercase">Breaker Replacement</p>
-                        <p class="text-[10px] text-gray-400">Blog 8 — Lorry</p>
-                    </div>
-                    <div><span
-                            class="border border-gray-300 text-[9px] font-bold text-gray-600 uppercase tracking-[0.1em] px-2 py-1 inline-block">Electrical</span>
-                    </div>
-                    <div>
-                        <p class="text-[11px] font-semibold text-gray-700">Jun 12,</p>
-                        <p class="text-[11px] font-semibold text-gray-700">2024</p>
-                    </div>
-                    <div>
-                        <p class="text-[11px] font-semibold text-gray-700">M. CHEN</p>
-                    </div>
-                    <div class="flex items-center gap-1.5"><span
-                            class="w-2 h-2 bg-gray-700 inline-block shrink-0"></span><span
-                            class="text-[10px] font-bold text-gray-600 uppercase">Standard</span></div>
-                    <div>
-                        <p class="text-[12px] font-bold text-gray-900">280.00</p>
-                    </div>
-                </div>
-
-                <!-- Row 3 -->
-                <div
-                    class="grid grid-cols-[90px_1fr_100px_90px_100px_110px_80px] gap-0 px-6 py-5 border-b border-gray-100 items-center hover:bg-gray-50 transition cursor-pointer">
-                    <div>
-                        <p class="text-[10px] font-bold text-gray-400">#WO-</p>
-                        <p class="text-[10px] font-bold text-gray-400">9475</p>
-                    </div>
-                    <div>
-                        <p class="text-[12px] font-extrabold text-gray-900 uppercase">HVAC Seasonal Tune-Up</p>
-                        <p class="text-[10px] text-gray-400">Penthouse — Terrace</p>
-                    </div>
-                    <div><span
-                            class="border border-gray-300 text-[9px] font-bold text-gray-600 uppercase tracking-[0.1em] px-2 py-1 inline-block">HVAC</span>
-                    </div>
-                    <div>
-                        <p class="text-[11px] font-semibold text-gray-700">Jun 11,</p>
-                        <p class="text-[11px] font-semibold text-gray-700">2024</p>
-                    </div>
-                    <div>
-                        <p class="text-[11px] font-semibold text-gray-700">S. MILLER</p>
-                    </div>
-                    <div class="flex items-center gap-1.5"><span
-                            class="w-2 h-2 bg-gray-700 inline-block shrink-0"></span><span
-                            class="text-[10px] font-bold text-gray-600 uppercase">Standard</span></div>
-                    <div>
-                        <p class="text-[12px] font-bold text-gray-900">1,200.00</p>
-                    </div>
-                </div>
-
-                <!-- Row 4 -->
-                <div
-                    class="grid grid-cols-[90px_1fr_100px_90px_100px_110px_80px] gap-0 px-6 py-5 items-center hover:bg-gray-50 transition cursor-pointer">
-                    <div>
-                        <p class="text-[10px] font-bold text-gray-400">#WO-</p>
-                        <p class="text-[10px] font-bold text-gray-400">9476</p>
-                    </div>
-                    <div>
-                        <p class="text-[12px] font-extrabold text-gray-900 uppercase">Dishwasher Diagnostic</p>
-                        <p class="text-[10px] text-gray-400">Apt 112 — North</p>
-                    </div>
-                    <div><span
-                            class="border border-gray-300 text-[9px] font-bold text-gray-600 uppercase tracking-[0.1em] px-2 py-1 inline-block">Appliance</span>
-                    </div>
-                    <div>
-                        <p class="text-[11px] font-semibold text-gray-700">Jun 09,</p>
-                        <p class="text-[11px] font-semibold text-gray-700">2024</p>
-                    </div>
-                    <div>
-                        <p class="text-[11px] font-semibold text-gray-700">A. RIVERA</p>
-                    </div>
-                    <div class="flex items-center gap-1.5"><span
-                            class="w-2 h-2 bg-gray-900 inline-block shrink-0"></span><span
-                            class="text-[10px] font-bold text-gray-900 uppercase">Urgent</span></div>
-                    <div>
-                        <p class="text-[12px] font-bold text-gray-900">150.00</p>
-                    </div>
-                </div>
+                <!-- History table -->
+                <table class="w-full text-left">
+                    <thead>
+                        <tr class="bg-gray-50 border-b border-gray-200">
+                            <th class="text-[9px] font-bold text-gray-400 uppercase tracking-[0.15em] px-6 py-3">Task</th>
+                            <th class="text-[9px] font-bold text-gray-400 uppercase tracking-[0.15em] px-6 py-3">Property</th>
+                            <th class="text-[9px] font-bold text-gray-400 uppercase tracking-[0.15em] px-6 py-3">Category</th>
+                            <th class="text-[9px] font-bold text-gray-400 uppercase tracking-[0.15em] px-6 py-3">Cost</th>
+                            <th class="text-[9px] font-bold text-gray-400 uppercase tracking-[0.15em] px-6 py-3">Date</th>
+                        </tr>
+                    </thead>
+                    <tbody id="historyTableBody">
+                        <tr><td colspan="5" class="text-center py-8 text-gray-400">Loading…</td></tr>
+                    </tbody>
+                </table>
 
                 <!-- Footer -->
                 <div class="px-6 py-4 border-t border-gray-100 flex items-center justify-between">
@@ -437,4 +325,8 @@
 
         </div>
     </div>
-<
+
+  <script src="/TenureX-Web-Project/js/app.js"></script>
+  <script src="/TenureX-Web-Project/js/technician.js"></script>
+</body>
+</html>
