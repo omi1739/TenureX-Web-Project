@@ -12,7 +12,8 @@ document.addEventListener('DOMContentLoaded', async () => {
   if (path.includes('my-properties'))      initMyProperties();
   if (path.includes('add-property'))       initAddProperty();
   if (path.includes('edit-property'))      initEditProperty();
-  if (path.includes('rental-requests'))    initRentalRequests();
+  if (path.includes('rental-request-detail')) initRentalRequestDetail();
+  else if (path.includes('rental-requests'))  initRentalRequests();
   if (path.includes('rent-tracking'))      initRentTracking();
   if (path.includes('maintenance'))        initMaintenance();
   if (path.includes('technician-request')) initTechDispatch();
@@ -178,17 +179,42 @@ async function initRentalRequests() {
 
     tbody.innerHTML = res.data.map(r => `
       <tr class="border-b border-gray-100 hover:bg-gray-50">
-        <td class="px-4 py-3 font-medium text-gray-900">${h(r.applicant_name)}</td>
-        <td class="px-4 py-3 text-gray-600">${h(r.applicant_email)}</td>
-        <td class="px-4 py-3 text-gray-600">${h(r.property_name)}</td>
-        <td class="px-4 py-3 text-gray-600">${h(r.unit_label)}</td>
-        <td class="px-4 py-3 font-semibold">${formatMoney(r.monthly_rent)}</td>
-        <td class="px-4 py-3">${statusBadge(r.status)}</td>
-        <td class="px-4 py-3">
-          ${r.status === 'pending' || r.status === 'in_review' ? `
-            <button onclick="updateRequest(${r.id},'accept')" class="px-3 py-1 bg-black text-white text-xs rounded-lg mr-1">Accept</button>
-            <button onclick="updateRequest(${r.id},'reject')" class="px-3 py-1 bg-red-50 text-red-600 text-xs rounded-lg">Reject</button>
-          ` : '<span class="text-gray-400 text-xs">Decided</span>'}
+        <td class="px-6 py-5">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-500 font-semibold text-sm">${h(r.applicant_name.charAt(0))}</div>
+            <div>
+              <p class="font-semibold">${h(r.applicant_name)}</p>
+              <p class="text-xs text-gray-500">${h(r.applicant_email)}</p>
+            </div>
+          </div>
+        </td>
+        <td class="px-6 py-5">
+          <p class="font-semibold">${h(r.property_name)}</p>
+          <p class="text-xs text-gray-500">${h(r.unit_label)}</p>
+        </td>
+        <td class="px-6 py-5 text-gray-600">${formatDate(r.applied_on)}</td>
+        <td class="px-6 py-5 font-semibold">${r.lease_months ? r.lease_months + ' Months' : '—'}</td>
+        <td class="px-6 py-5">${statusBadge(r.status)}</td>
+        <td class="px-6 py-5">
+          <div class="flex items-center gap-3 justify-end">
+            <a href="rental-request-detail.html?id=${r.id}" class="text-gray-400 hover:text-black" aria-label="View">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/>
+              </svg>
+            </a>
+            ${r.status === 'pending' || r.status === 'in_review' ? `
+              <button onclick="updateRequest(${r.id},'accept')" class="text-gray-400 hover:text-green-600" aria-label="Approve">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="10"/><path stroke-linecap="round" d="M8 12l3 3 5-6"/>
+                </svg>
+              </button>
+              <button onclick="updateRequest(${r.id},'reject')" class="text-red-500 hover:text-red-700" aria-label="Reject">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="10"/><path stroke-linecap="round" d="M9 9l6 6M15 9l-6 6"/>
+                </svg>
+              </button>
+            ` : '<span class="text-gray-400 text-xs">Decided</span>'}
+          </div>
         </td>
       </tr>
     `).join('');
@@ -209,6 +235,57 @@ async function initRentalRequests() {
     if (res.success) { showToast(`Request ${action}ed`); load(); }
     else showToast(res.error, 'error');
   };
+}
+
+/* ── RENTAL REQUEST DETAIL ───────────────────── */
+async function initRentalRequestDetail() {
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get('id');
+  if (!id) return;
+
+  const res = await apiFetch('/landlord/rental-requests.php?id=' + id);
+  if (!res.success || !res.data) return;
+
+  const r = Array.isArray(res.data) ? res.data[0] : res.data;
+  if (!r) return;
+
+  setEl('detail-req-id', '#RR-' + String(r.id).padStart(5, '0'));
+  setEl('detail-status', 'STATUS: ' + (r.status || 'PENDING').toUpperCase().replace('_', ' '));
+  setEl('detail-received', 'Received ' + (formatDate(r.applied_on) || '—'));
+  setEl('detail-name', r.applicant_name || '—');
+  setEl('detail-job', r.applicant_occupation || 'Applicant');
+  setEl('detail-email', r.applicant_email || '—');
+  setEl('detail-phone', r.applicant_phone || '—');
+  setEl('detail-property', r.property_name || '—');
+  setEl('detail-rent', formatMoney(r.monthly_rent) + '/mo');
+  setEl('detail-movein', r.move_in_date ? formatDate(r.move_in_date) : '—');
+  setEl('detail-duration', r.lease_months ? r.lease_months + ' Months' : '—');
+
+  // Wire accept/reject buttons to the real API using this request id
+  const acceptBtn = document.getElementById('acceptBtn');
+  const rejectConfirmBtn = document.getElementById('rejectConfirmBtn');
+
+  if (acceptBtn) {
+    acceptBtn.onclick = async () => {
+      const res = await apiFetch('/landlord/rental-requests.php?id=' + id, { method: 'PATCH', body: { action: 'accept' } });
+      if (res.success) {
+        document.getElementById('acceptModal')?.classList?.remove('hidden');
+      } else {
+        showToast(res.error, 'error');
+      }
+    };
+  }
+
+  if (rejectConfirmBtn) {
+    rejectConfirmBtn.onclick = async () => {
+      const res = await apiFetch('/landlord/rental-requests.php?id=' + id, { method: 'PATCH', body: { action: 'reject' } });
+      if (res.success) {
+        window.location.href = 'rental-requests.html';
+      } else {
+        showToast(res.error, 'error');
+      }
+    };
+  }
 }
 
 /* ── RENT TRACKING ───────────────────────────── */
