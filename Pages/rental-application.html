@@ -59,80 +59,57 @@
 
                     <!-- Application Form -->
                     <form id="rentalForm" class="space-y-8">
+                        <input type="hidden" id="unitId" name="unit_id" value="" />
+
                         <!-- Personal Information -->
                         <div>
                             <h3 class="text-lg font-bold mb-4">Personal Information</h3>
                             <div class="grid grid-cols-2 gap-4">
-                                <input type="text" placeholder="First Name"
-                                    class="border border-gray-300 px-4 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-gray-400">
-                                <input type="text" placeholder="Last Name"
-                                    class="border border-gray-300 px-4 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-gray-400">
-                                <input type="email" placeholder="Email Address"
-                                    class="col-span-2 border border-gray-300 px-4 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-gray-400">
-                                <input type="tel" placeholder="Phone Number"
+                                <input id="appOccupation" type="text" placeholder="Occupation / Job Title"
                                     class="col-span-2 border border-gray-300 px-4 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-gray-400">
                             </div>
                         </div>
 
-                        <!-- Employment Information -->
+                        <!-- Lease Preferences -->
                         <div>
-                            <h3 class="text-lg font-bold mb-4">Employment Information</h3>
+                            <h3 class="text-lg font-bold mb-4">Lease Preferences</h3>
                             <div class="grid grid-cols-2 gap-4">
-                                <input type="text" placeholder="Employer Name"
-                                    class="border border-gray-300 px-4 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-gray-400">
-                                <input type="text" placeholder="Job Title"
-                                    class="border border-gray-300 px-4 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-gray-400">
-                                <input type="text" placeholder="Years of Employment"
-                                    class="col-span-2 border border-gray-300 px-4 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-gray-400">
-                                <input type="text" placeholder="Annual Income"
-                                    class="col-span-2 border border-gray-300 px-4 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-gray-400">
+                                <div>
+                                    <label class="block text-xs text-gray-500 mb-1">Desired Move-in Date</label>
+                                    <input id="appMoveIn" type="date"
+                                        class="w-full border border-gray-300 px-4 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-gray-400">
+                                </div>
+                                <div>
+                                    <label class="block text-xs text-gray-500 mb-1">Lease Duration</label>
+                                    <select id="appLeaseMonths"
+                                        class="w-full border border-gray-300 px-4 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-gray-400 bg-white">
+                                        <option value="6">6 Months</option>
+                                        <option value="12" selected>12 Months</option>
+                                        <option value="18">18 Months</option>
+                                        <option value="24">24 Months</option>
+                                        <option value="36">36 Months</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
 
-                        <!-- Rental History -->
+                        <!-- Documents & Supporting Information -->
                         <div>
-                            <h3 class="text-lg font-bold mb-4">Rental History</h3>
-                            <div class="grid grid-cols-2 gap-4">
-                                <input type="text" placeholder="Previous Landlord Name"
-                                    class="border border-gray-300 px-4 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-gray-400">
-                                <input type="text" placeholder="Previous Address"
-                                    class="border border-gray-300 px-4 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-gray-400">
-                                <input type="text" placeholder="Duration of Stay (months)"
-                                    class="col-span-2 border border-gray-300 px-4 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-gray-400">
-                            </div>
-                        </div>
-
-                        <!-- Additional Information -->
-                        <div>
-                            <h3 class="text-lg font-bold mb-4">Additional Information</h3>
-                            <div class="grid grid-cols-2 gap-4">
-                                <select
-                                    class="border border-gray-300 px-4 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-gray-400">
-                                    <option value="">Select Qualification...</option>
-                                    <option value="high-school">High School</option>
-                                    <option value="bachelor">Bachelor's Degree</option>
-                                    <option value="master">Master's Degree</option>
-                                    <option value="other">Other</option>
-                                </select>
-                                <select
-                                    class="border border-gray-300 px-4 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-gray-400">
-                                    <option value="">Have Pets?</option>
-                                    <option value="no">No</option>
-                                    <option value="yes-dog">Yes, Dog(s)</option>
-                                    <option value="yes-cat">Yes, Cat(s)</option>
-                                    <option value="yes-other">Yes, Other</option>
-                                </select>
-                            </div>
-                            <textarea
-                                placeholder="Introduce yourself and tell us why you're interested in this property."
-                                class="w-full border border-gray-300 px-4 py-3 text-sm focus:outline-none focus:ring-1 focus:ring-gray-400 mt-4 resize-none"
-                                rows="5"></textarea>
+                            <h3 class="text-lg font-bold mb-2">Documents &amp; Supporting Information</h3>
+                            <p class="text-sm text-gray-500 mb-4 leading-relaxed">
+                                Since document upload is not available at this stage, please provide the following as text:<br/>
+                                <strong class="text-gray-700">NID number &nbsp;·&nbsp; Employer name &amp; monthly income &nbsp;·&nbsp; Previous landlord reference with contact number &nbsp;·&nbsp; Any other relevant details</strong>
+                            </p>
+                            <textarea id="appSummary" rows="7"
+                                placeholder="Example:&#10;NID: 1234567890&#10;Employer: TechSphere Ltd | Monthly Income: ৳80,000&#10;Previous Landlord: Mr. Karim, +880-1711-001122, 3 years tenancy, no disputes&#10;Additional: Non-smoker, no pets, currently employed full-time"
+                                class="w-full border border-gray-300 px-4 py-3 text-sm focus:outline-none focus:ring-1 focus:ring-gray-400 resize-none"></textarea>
+                            <p class="text-xs text-gray-400 mt-1">The landlord will review this to assess your application.</p>
                         </div>
 
                         <!-- Agreement -->
                         <div class="bg-gray-50 p-4 border border-gray-200">
                             <label class="flex items-start gap-3 cursor-pointer">
-                                <input type="checkbox" class="mt-1">
+                                <input id="agreeCheck" type="checkbox" class="mt-1">
                                 <span class="text-xs text-gray-600">I certify that the information provided in this
                                     application is true and complete. I understand that any false or misleading
                                     information may result in the denial of my application or termination of my
@@ -140,8 +117,11 @@
                             </label>
                         </div>
 
+                        <!-- Error -->
+                        <p id="applyError" class="hidden text-sm text-red-600"></p>
+
                         <!-- Submit Button -->
-                        <button type="submit"
+                        <button id="applyBtn" type="submit"
                             class="w-full bg-black text-white py-3 text-xs font-bold uppercase tracking-widest hover:bg-gray-900 transition">
                             Submit Application
                         </button>
@@ -191,58 +171,82 @@
     <!-- Success Modal -->
     <div id="successModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
         <div class="bg-white rounded-lg shadow-xl p-8 max-w-md w-full mx-4 text-center">
-            <!-- Success Icon -->
             <div class="flex justify-center mb-6">
-                <div class="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center">
-                    <i class="fa-solid fa-check text-4xl text-green-500"></i>
+                <div class="w-20 h-20 bg-black rounded-full flex items-center justify-center">
+                    <i class="fa-solid fa-check text-3xl text-white"></i>
                 </div>
             </div>
-
-            <!-- Message -->
-            <h2 class="text-2xl font-bold mb-2">Registration Submitted!</h2>
-            <p class="text-gray-600 text-sm mb-4">Your account is currently under review.</p>
-
-            <!-- Details -->
-            <div class="bg-gray-50 p-4 rounded-lg mb-6 text-sm text-gray-700">
-                <p class="mb-2">Thank you for registering with NestBridge! We've successfully received your details. Our
-                    admin team will carefully review your information and verify your account before granting access.
-                </p>
-                <p class="mt-2">A confirmation email has been sent to your registered email address. Estimated review
-                    time: 1-2 business days</p>
-            </div>
-
-            <!-- Close Button -->
-            <button onclick="closeModal()"
-                class="w-full bg-black text-white py-2 px-4 rounded text-xs font-bold uppercase tracking-widest hover:bg-gray-900 transition">
-                Close
-            </button>
+            <h2 class="text-2xl font-bold mb-2">Application Submitted!</h2>
+            <p class="text-gray-500 text-sm mb-6">Your rental application has been sent to the landlord. You will be notified once a decision is made.</p>
+            <a href="../Tenant/myApplication.html"
+                class="block w-full bg-black text-white py-3 px-4 rounded text-xs font-bold uppercase tracking-widest hover:bg-gray-900 transition">
+                View My Applications
+            </a>
         </div>
     </div>
 
+    <script src="/TenureX-Web-Project/js/app.js"></script>
     <script>
-        // Handle form submission
-        document.getElementById('rentalForm').addEventListener('submit', function (e) {
-            e.preventDefault();
+        document.addEventListener('DOMContentLoaded', function () {
+            var params    = new URLSearchParams(window.location.search);
+            var unitId    = params.get('unit_id')  || '';
+            var propName  = params.get('property') || '';
+            var unitLabel = params.get('unit')      || '';
 
-            // Show the success modal
-            document.getElementById('successModal').classList.remove('hidden');
+            document.getElementById('unitId').value = unitId;
 
-            // Optional: Reset the form
-            this.reset();
-        });
+            // Set default move-in to 1 month from today
+            var d = new Date();
+            d.setMonth(d.getMonth() + 1);
+            document.getElementById('appMoveIn').value = d.toISOString().split('T')[0];
 
-        // Close modal function
-        function closeModal() {
-            document.getElementById('successModal').classList.add('hidden');
-            // Optional: Redirect to a page after closing
-            // window.location.href = './propertyDetails.html';
-        }
+            document.getElementById('rentalForm').addEventListener('submit', async function (e) {
+                e.preventDefault();
+                var errEl = document.getElementById('applyError');
+                var btn   = document.getElementById('applyBtn');
+                errEl.classList.add('hidden');
 
-        // Close modal when clicking outside of it
-        document.getElementById('successModal').addEventListener('click', function (e) {
-            if (e.target === this) {
-                closeModal();
-            }
+                if (!document.getElementById('agreeCheck').checked) {
+                    errEl.textContent = 'Please agree to the terms before submitting.';
+                    errEl.classList.remove('hidden');
+                    return;
+                }
+
+                var uId = document.getElementById('unitId').value;
+                if (!uId) {
+                    errEl.textContent = 'No unit selected. Please go back and choose a property.';
+                    errEl.classList.remove('hidden');
+                    return;
+                }
+
+                btn.disabled = true;
+                btn.textContent = 'Submitting…';
+
+                try {
+                    var res = await apiFetch('/tenant/applications.php', {
+                        method: 'POST',
+                        body: {
+                            unit_id:           uId,
+                            occupation:        document.getElementById('appOccupation').value.trim(),
+                            profile_summary:   document.getElementById('appSummary').value.trim(),
+                            requested_move_in: document.getElementById('appMoveIn').value,
+                            lease_months:      document.getElementById('appLeaseMonths').value,
+                        }
+                    });
+                    if (res.success) {
+                        document.getElementById('successModal').classList.remove('hidden');
+                    } else {
+                        errEl.textContent = res.error || 'Submission failed. Please try again.';
+                        errEl.classList.remove('hidden');
+                    }
+                } catch (err) {
+                    errEl.textContent = 'Network error — is XAMPP running?';
+                    errEl.classList.remove('hidden');
+                } finally {
+                    btn.disabled = false;
+                    btn.textContent = 'Submit Application';
+                }
+            });
         });
     </script>
 

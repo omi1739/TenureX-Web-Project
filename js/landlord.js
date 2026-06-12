@@ -249,6 +249,9 @@ async function initRentalRequestDetail() {
   const r = Array.isArray(res.data) ? res.data[0] : res.data;
   if (!r) return;
 
+  const summaryEl = document.getElementById('detail-profile-summary');
+  if (summaryEl) summaryEl.textContent = r.profile_summary || 'No supporting information provided.';
+
   setEl('detail-req-id', '#RR-' + String(r.id).padStart(5, '0'));
   setEl('detail-status', 'STATUS: ' + (r.status || 'PENDING').toUpperCase().replace('_', ' '));
   setEl('detail-received', 'Received ' + (formatDate(r.applied_on) || '—'));

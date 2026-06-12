@@ -15,6 +15,7 @@ if ($method === 'GET') {
         WHERE p.owner_id = ?
     ';
     $params = [$user['id']];
+    if ($id)     { $sql .= ' AND rr.id=?';     $params[] = $id; }
     if ($status) { $sql .= ' AND rr.status=?'; $params[] = $status; }
     $sql .= ' ORDER BY rr.applied_at DESC';
 
