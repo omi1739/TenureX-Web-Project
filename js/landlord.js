@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   if (path.includes('rental-request-detail')) initRentalRequestDetail();
   else if (path.includes('rental-requests'))  initRentalRequests();
   if (path.includes('rent-tracking'))      initRentTracking();
+  if (path.includes('earnings'))           initEarnings();
   if (path.includes('maintenance'))        initMaintenance();
   if (path.includes('technician-request')) initTechDispatch();
   if (path.includes('request-technician-approval')) initTechApproval();
@@ -213,7 +214,10 @@ async function initRentalRequests() {
                   <circle cx="12" cy="12" r="10"/><path stroke-linecap="round" d="M9 9l6 6M15 9l-6 6"/>
                 </svg>
               </button>
-            ` : '<span class="text-gray-400 text-xs">Decided</span>'}
+            ` : r.status === 'accepted'
+              ? '<span class="text-xs font-semibold text-green-600">✓ Accepted</span>'
+              : '<span class="text-xs font-semibold text-red-500">✗ Rejected</span>'
+          }
           </div>
         </td>
       </tr>
@@ -314,6 +318,21 @@ async function initRentTracking() {
         <td class="px-4 py-3">${statusBadge(p.status)}</td>
       </tr>
     `).join('') || '<tr><td colspan="7" class="text-center py-8 text-gray-400">No payments yet.</td></tr>';
+  }
+
+  const exportBtn = document.getElementById('exportCsvBtn');
+  if (exportBtn && payments) {
+    exportBtn.addEventListener('click', () => {
+      downloadCSV('rent-tracking.csv', payments.map(p => ({
+        'Tenant':     p.tenant_name || '—',
+        'Property':   p.property_name,
+        'Unit':       p.unit_label,
+        'Amount':     p.amount,
+        'Due Date':   p.due_date,
+        'Paid Date':  p.paid_at || '—',
+        'Status':     p.status,
+      })));
+    });
   }
 }
 
@@ -485,6 +504,56 @@ async function initMessages() {
   }
 }
 
+/* ── EARNINGS ────────────────────────────────── */
+async function initEarnings() {
+  const exportBtn = document.getElementById('exportCsvBtn');
+  const pdfBtn    = document.getElementById('exportPdfBtn');
+
+  async function fetchPayments() {
+    const res = await apiFetch('/landlord/payments.php');
+    return (res.success && res.data.payments) ? res.data.payments : [];
+  }
+
+  if (exportBtn) {
+    exportBtn.addEventListener('click', async () => {
+      const payments = await fetchPayments();
+      if (!payments.length) return showToast('No data to export', 'error');
+      downloadCSV('earnings-report.csv', payments.map(p => ({
+        'Tenant':     p.tenant_name || '—',
+        'Property':   p.property_name,
+        'Unit':       p.unit_label,
+        'Amount':     p.amount,
+        'Due Date':   p.due_date,
+        'Paid Date':  p.paid_at || '—',
+        'Method':     p.method || '—',
+        'Status':     p.status,
+      })));
+    });
+  }
+
+  if (pdfBtn) {
+    pdfBtn.addEventListener('click', () => {
+      window.print();
+    });
+  }
+}
+
 /* ── HELPERS ─────────────────────────────────── */
+function downloadCSV(filename, rows) {
+  if (!rows || !rows.length) return showToast('No data to export', 'error');
+  const headers = Object.keys(rows[0]);
+  const lines   = [
+    headers.join(','),
+    ...rows.map(r => headers.map(k => JSON.stringify(String(r[k] ?? ''))).join(',')),
+  ];
+  const blob = new Blob([lines.join('\n')], { type: 'text/csv;charset=utf-8;' });
+  const url  = URL.createObjectURL(blob);
+  const a    = Object.assign(document.createElement('a'), { href: url, download: filename });
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
 function setEl(id, val) { const el = document.getElementById(id); if (el) el.textContent = val; }
 function h(s) { return String(s ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }

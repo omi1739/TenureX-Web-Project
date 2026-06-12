@@ -291,7 +291,7 @@ try {
     $ins->execute(['landlord',   'Arthur Rahman',    'arthur@tenurex.dev', '+880-1700-000002', $landlordHash, 'approved']);
     $landlordId = $pdo->lastInsertId();
     $ins->execute(['landlord',   'Bob Hossain',      'bob@tenurex.dev',    '+880-1700-000003', $landlordHash, 'pending']);
-    $ins->execute(['tenant',     'Alice Akter',      'alice@tenurex.dev',  '+880-1700-000004', $tenantHash,   'approved']);
+    $ins->execute(['tenant',     'Nasrin Akter',      'alice@tenurex.dev',  '+880-1700-000004', $tenantHash,   'approved']);
     $tenantId = $pdo->lastInsertId();
     $ins->execute(['tenant',     'Mike Siddiqui',    'mike@tenurex.dev',   '+880-1700-000005', $tenantHash,   'approved']);
     $tenant2Id = $pdo->lastInsertId();
@@ -334,7 +334,7 @@ try {
 
     // Accepted rental request → lease for Alice in Unit A-101
     $pdo->prepare('INSERT INTO rental_requests (unit_id, applicant_name, applicant_email, applicant_phone, occupation, requested_move_in, lease_months, status, decided_at) VALUES (?,?,?,?,?,?,?,?,NOW())')
-        ->execute([$unitOcc, 'Alice Akter','alice@tenurex.dev','+880-1700-000004','Software Engineer','2025-01-01',12,'accepted']);
+        ->execute([$unitOcc, 'Nasrin Akter','alice@tenurex.dev','+880-1700-000004','Software Engineer','2025-01-01',12,'accepted']);
     $rrId = $pdo->lastInsertId();
 
     // More applicants with a mix of statuses
@@ -365,7 +365,7 @@ try {
 
     // Maintenance requests
     $insMR = $pdo->prepare('INSERT INTO maintenance_requests (property_id, unit_id, reported_by, reporter_name, reporter_email, title, description, category, priority, status) VALUES (?,?,?,?,?,?,?,?,?,?)');
-    $insMR->execute([$propId1,$unitOcc,$tenantId,'Alice Akter','alice@tenurex.dev','Leaking kitchen tap','The kitchen tap drips constantly','plumbing','medium','open']);
+    $insMR->execute([$propId1,$unitOcc,$tenantId,'Nasrin Akter','alice@tenurex.dev','Leaking kitchen tap','The kitchen tap drips constantly','plumbing','medium','open']);
     $mrId = $pdo->lastInsertId();
     $insMR->execute([$propId1,null,$landlordId,'Arthur Rahman','arthur@tenurex.dev','Lobby light not working','Ceiling light in lobby is out','electrical','low','in_progress']);
     step('Seeded: maintenance_requests (2)');
@@ -385,7 +385,7 @@ try {
     $threadId = $pdo->lastInsertId();
     $pdo->prepare('INSERT INTO message_thread_participants (thread_id, user_id) VALUES (?,?),(?,?)')->execute([$threadId,$tenantId,$threadId,$landlordId]);
     $pdo->prepare('INSERT INTO messages (thread_id, sender_id, body, sent_at) VALUES (?,?,?,NOW())')->execute([$threadId,$tenantId,'Hi, I would like to inquire about renewing my lease for another 12 months.']);
-    $pdo->prepare('INSERT INTO messages (thread_id, sender_id, body, sent_at) VALUES (?,?,?,NOW())')->execute([$threadId,$landlordId,'Hello Alice! That sounds great. I will prepare the renewal documents this week.']);
+    $pdo->prepare('INSERT INTO messages (thread_id, sender_id, body, sent_at) VALUES (?,?,?,NOW())')->execute([$threadId,$landlordId,'Hello Nasrin! That sounds great. I will prepare the renewal documents this week.']);
     $pdo->prepare('UPDATE message_threads SET last_message_at=NOW() WHERE id=?')->execute([$threadId]);
     step('Seeded: messages (1 thread)');
 
