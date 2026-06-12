@@ -19,7 +19,17 @@ document.addEventListener('DOMContentLoaded', async () => {
   if (path.includes('request-technician-approval')) initTechApproval();
   if (path.includes('messages'))           initMessages();
   if (path.includes('active-tenants'))     initActiveTenants();
+  if (path.includes('settings'))           initLandlordSettings();
 });
+
+/* ── SETTINGS ────────────────────────────────── */
+function initLandlordSettings() {
+  // Personal identity comes from the logged-in session user
+  const nameEl  = document.getElementById('settingsName');
+  const emailEl = document.getElementById('settingsEmail');
+  if (nameEl)  nameEl.value  = _landlordUser.name  || '';
+  if (emailEl) emailEl.value = _landlordUser.email || '';
+}
 
 /* ── DASHBOARD ────────────────────────────────── */
 async function initLandlordDashboard() {

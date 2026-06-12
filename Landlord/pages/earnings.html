@@ -173,7 +173,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round" d="M23 6l-9.5 9.5-5-5L1 18M17 6h6v6"/>
               </svg>
             </div>
-            <p class="text-5xl font-bold">$45,000</p>
+            <p class="text-5xl font-bold">৳45,000</p>
             <p class="text-xs text-gray-500 mt-3">+5.8% from last month</p>
           </article>
 
@@ -186,7 +186,7 @@
                 <path stroke-linecap="round" d="M12 6v6l4 2"/>
               </svg>
             </div>
-            <p class="text-5xl font-bold">$42,500</p>
+            <p class="text-5xl font-bold">৳42,500</p>
             <p class="text-xs text-gray-500 mt-3">Closed March 2024</p>
           </article>
 
@@ -199,90 +199,11 @@
                 <path stroke-linecap="round" d="M3 10h18"/>
               </svg>
             </div>
-            <p class="text-5xl font-bold">$512,000</p>
+            <p class="text-5xl font-bold">৳512,000</p>
             <p class="text-xs text-white/60 mt-3">Fiscal Year 2023-24</p>
-            <!-- A faint $ glyph in the corner (decorative) -->
-            <span class="absolute right-4 bottom-2 text-[120px] font-bold text-white/5 leading-none">$</span>
+            <!-- A faint ৳ glyph in the corner (decorative) -->
+            <span class="absolute right-4 bottom-2 text-[120px] font-bold text-white/5 leading-none">৳</span>
           </article>
-        </section>
-
-        <!-- ============ CHART + ASSET ALLOCATION ============ -->
-        <section class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-
-          <!-- Monthly Revenue Growth chart (takes 2/3) -->
-          <div class="lg:col-span-2 bg-white rounded-xl shadow-sm p-6 flex flex-col gap-6">
-            <div class="flex items-center justify-between">
-              <h3 class="text-xl font-bold">Monthly Revenue Growth</h3>
-              <!-- Quarter tabs -->
-              <div class="flex items-center gap-5 text-[11px] tracking-widest">
-                <button class="text-gray-400 hover:text-black">JAN</button>
-                <button class="text-gray-400 hover:text-black">FEB</button>
-                <button class="text-black font-semibold border-b-2 border-black pb-1">MAR</button>
-                <button class="text-gray-400 hover:text-black">APR</button>
-              </div>
-            </div>
-
-            <!-- Chart area: SVG showing 6 monthly points with a smooth area fill.
-                 The dot + $45k label sit on top of the MAR data point. -->
-            <div class="bg-gray-100 rounded-lg p-6 relative">
-              <svg viewBox="0 0 600 220" class="w-full h-56" preserveAspectRatio="none">
-                <!-- Grid baseline -->
-                <line x1="0" y1="200" x2="600" y2="200" stroke="#d1d5db" stroke-width="1"/>
-
-                <!-- Filled area under the line.
-                     X positions correspond to OCT NOV DEC JAN FEB MAR (roughly). -->
-                <path d="M 30 170 L 130 150 L 230 165 L 330 130 L 430 110 L 530 50 L 530 200 L 30 200 Z"
-                      fill="#9ca3af" fill-opacity="0.25"/>
-
-                <!-- The line on top -->
-                <path d="M 30 170 L 130 150 L 230 165 L 330 130 L 430 110 L 530 50"
-                      fill="none" stroke="#374151" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-
-                <!-- Dot at the MAR (peak) point -->
-                <circle cx="530" cy="50" r="6" fill="#000"/>
-              </svg>
-
-              <!-- $45k callout sits over the peak dot.
-                   Positioned with absolute coords matching the SVG viewBox. -->
-              <div class="absolute right-12 top-6 text-sm font-bold">$45k</div>
-
-              <!-- X-axis month labels -->
-              <div class="grid grid-cols-6 mt-3 text-[10px] tracking-widest text-gray-400 text-center">
-                <span>OCT</span><span>NOV</span><span>DEC</span><span>JAN</span><span>FEB</span><span class="text-black font-semibold">MAR</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Asset Allocation (takes 1/3) -->
-          <div class="bg-white rounded-xl shadow-sm p-6 flex flex-col gap-5">
-            <h3 class="text-xl font-bold">Asset Allocation</h3>
-
-            <!-- 4 rows: a colored swatch + name + dollar amount -->
-            <div class="flex flex-col gap-3 text-sm">
-              <div class="flex items-center justify-between">
-                <span class="flex items-center gap-3"><span class="w-3 h-3 bg-black"></span>Manhattan Luxury Lofts</span>
-                <span class="font-semibold">$18,200</span>
-              </div>
-              <div class="flex items-center justify-between">
-                <span class="flex items-center gap-3"><span class="w-3 h-3 bg-gray-600"></span>Brooklyn Heights Triplex</span>
-                <span class="font-semibold">$12,400</span>
-              </div>
-              <div class="flex items-center justify-between">
-                <span class="flex items-center gap-3"><span class="w-3 h-3 bg-gray-400"></span>Queens Modern Units</span>
-                <span class="font-semibold">$9,150</span>
-              </div>
-              <div class="flex items-center justify-between">
-                <span class="flex items-center gap-3"><span class="w-3 h-3 bg-gray-200"></span>Jersey City Suites</span>
-                <span class="font-semibold">$5,250</span>
-              </div>
-            </div>
-
-            <!-- Decorative architectural illustration -->
-            <div class="rounded-lg overflow-hidden h-32 mt-2">
-              <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=600&q=80&sat=-100"
-                   alt="Asset visual" class="w-full h-full object-cover"/>
-            </div>
-          </div>
         </section>
 
         <!-- ============ RECENT TRANSACTIONS TABLE ============ -->
@@ -324,7 +245,7 @@
                 </td>
                 <td class="px-4 py-5">Eleanor Vance</td>
                 <td class="px-4 py-5">March</td>
-                <td class="px-4 py-5 font-semibold">$4,500.00</td>
+                <td class="px-4 py-5 font-semibold">৳4,500.00</td>
                 <td class="px-4 py-5 text-gray-600">Mar 01, 2024</td>
                 <td class="px-4 py-5">
                   <span class="text-[10px] tracking-widest font-semibold border border-gray-300 px-2 py-1 rounded">PAID</span>
@@ -337,7 +258,7 @@
                 </td>
                 <td class="px-4 py-5">Julian Blackwood</td>
                 <td class="px-4 py-5">March</td>
-                <td class="px-4 py-5 font-semibold">$3,200.00</td>
+                <td class="px-4 py-5 font-semibold">৳3,200.00</td>
                 <td class="px-4 py-5 text-gray-600">Mar 01, 2024</td>
                 <td class="px-4 py-5">
                   <span class="text-[10px] tracking-widest font-semibold border border-gray-300 px-2 py-1 rounded">PAID</span>
@@ -350,7 +271,7 @@
                 </td>
                 <td class="px-4 py-5">Theodora Crane</td>
                 <td class="px-4 py-5">March</td>
-                <td class="px-4 py-5 font-semibold">$6,800.00</td>
+                <td class="px-4 py-5 font-semibold">৳6,800.00</td>
                 <td class="px-4 py-5 text-gray-600">Mar 02, 2024</td>
                 <td class="px-4 py-5">
                   <span class="text-[10px] tracking-widest font-semibold border border-gray-200 text-gray-500 px-2 py-1 rounded">PENDING</span>
@@ -363,7 +284,7 @@
                 </td>
                 <td class="px-4 py-5">Luke Sanderson</td>
                 <td class="px-4 py-5">March</td>
-                <td class="px-4 py-5 font-semibold">$2,450.00</td>
+                <td class="px-4 py-5 font-semibold">৳2,450.00</td>
                 <td class="px-4 py-5 text-gray-600">Mar 02, 2024</td>
                 <td class="px-4 py-5">
                   <span class="text-[10px] tracking-widest font-semibold border border-gray-300 px-2 py-1 rounded">PAID</span>
@@ -376,7 +297,7 @@
                 </td>
                 <td class="px-4 py-5">Arthur Hill</td>
                 <td class="px-4 py-5">March</td>
-                <td class="px-4 py-5 font-semibold">$4,200.00</td>
+                <td class="px-4 py-5 font-semibold">৳4,200.00</td>
                 <td class="px-4 py-5 text-gray-600">Mar 03, 2024</td>
                 <td class="px-4 py-5">
                   <span class="text-[10px] tracking-widest font-semibold border border-gray-300 px-2 py-1 rounded">PAID</span>

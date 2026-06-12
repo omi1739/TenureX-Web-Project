@@ -325,10 +325,10 @@ try {
     $insUnit->execute([$propId1,'Unit A-102','apartment',3,2,1100,16000,0]);
     $insUnit->execute([$propId1,'Unit B-101','apartment',2,1,900, 13000,0]);
     $insUnit->execute([$propId1,'Studio-01', 'studio',  1,1,450,  8000,0]); $unitAvail = $pdo->lastInsertId();
-    $insUnit->execute([$propId2,'Flat 1',    'apartment',2,1,780, 10000,0]);
-    $insUnit->execute([$propId2,'Flat 2',    'apartment',2,2,920, 12000,0]);
+    $insUnit->execute([$propId2,'Flat 1',    'apartment',2,1,780, 10000,0]); $unitFlat1  = $pdo->lastInsertId();
+    $insUnit->execute([$propId2,'Flat 2',    'apartment',2,2,920, 12000,0]); $unitFlat2  = $pdo->lastInsertId();
     $insUnit->execute([$propId2,'Flat 3',    'apartment',3,2,1050,14000,0]);
-    $insUnit->execute([$propId3,'Suite 101', 'apartment',2,1,800, 15000,0]);
+    $insUnit->execute([$propId3,'Suite 101', 'apartment',2,1,800, 15000,0]); $unitSuite1 = $pdo->lastInsertId();
     $insUnit->execute([$propId3,'Suite 102', 'apartment',3,2,1200,20000,0]);
     step('Seeded: units (9)');
 
@@ -337,10 +337,15 @@ try {
         ->execute([$unitOcc, 'Alice Akter','alice@tenurex.dev','+880-1700-000004','Software Engineer','2025-01-01',12,'accepted']);
     $rrId = $pdo->lastInsertId();
 
-    // Pending request for Studio-01
-    $pdo->prepare('INSERT INTO rental_requests (unit_id, applicant_name, applicant_email, applicant_phone, occupation, requested_move_in, lease_months, status) VALUES (?,?,?,?,?,?,?,?)')
-        ->execute([$unitAvail,'Mike Siddiqui','mike@tenurex.dev','+880-1700-000005','Teacher','2025-07-01',6,'pending']);
-    step('Seeded: rental_requests (2)');
+    // More applicants with a mix of statuses
+    $insRR = $pdo->prepare('INSERT INTO rental_requests (unit_id, applicant_name, applicant_email, applicant_phone, occupation, requested_move_in, lease_months, status) VALUES (?,?,?,?,?,?,?,?)');
+    $insRR->execute([$unitAvail,  'Mike Siddiqui',  'mike@tenurex.dev',     '+880-1700-000005','Teacher',          '2025-07-01', 6,'pending']);
+    $insRR->execute([$unitFlat1,  'Nadia Rahman',   'nadia.r@gmail.com',    '+880-1711-223344','Bank Officer',     '2026-07-01',12,'pending']);
+    $insRR->execute([$unitFlat2,  'Tanvir Hossain', 'tanvir.h@outlook.com', '+880-1822-556677','Doctor',           '2026-08-01',24,'in_review']);
+    $insRR->execute([$unitSuite1, 'Sumi Begum',     'sumi.begum@yahoo.com', '+880-1933-889900','University Student','2026-07-15', 6,'rejected']);
+    $insRR->execute([$unitAvail,  'Rafiq Islam',    'rafiq.biz@gmail.com',  '+880-1644-112233','Businessman',      '2026-09-01',12,'pending']);
+    $insRR->execute([$unitFlat2,  'Farhana Yasmin', 'farhana.y@gmail.com',  '+880-1555-667788','Graphic Designer', '2026-07-10',12,'pending']);
+    step('Seeded: rental_requests (7)');
 
     $pdo->prepare('INSERT INTO leases (unit_id, tenant_user_id, rental_request_id, start_date, end_date, monthly_rent, security_deposit) VALUES (?,?,?,?,?,?,?)')
         ->execute([$unitOcc, $tenantId, $rrId, '2025-01-01','2026-01-01', 12000, 24000]);
