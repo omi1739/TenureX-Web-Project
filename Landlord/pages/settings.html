@@ -204,19 +204,19 @@
               <div class="flex flex-col gap-6">
                 <div>
                   <label class="block text-[11px] tracking-widest text-gray-500 mb-2">CURRENT PASSWORD</label>
-                  <input type="password" value="••••••••••••"
+                  <input type="password" id="currentPassword" placeholder="Enter current password"
                          class="w-full bg-white border-b border-gray-300 px-2 py-2 focus:outline-none focus:border-black"/>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label class="block text-[11px] tracking-widest text-gray-500 mb-2">NEW PASSWORD</label>
-                    <input type="password"
+                    <input type="password" id="newPassword" placeholder="Leave blank to keep current"
                            class="w-full bg-white border-b border-gray-300 px-2 py-2 focus:outline-none focus:border-black"/>
                   </div>
                   <div>
                     <label class="block text-[11px] tracking-widest text-gray-500 mb-2">CONFIRM NEW PASSWORD</label>
-                    <input type="password"
+                    <input type="password" id="confirmPassword" placeholder="Repeat new password"
                            class="w-full bg-white border-b border-gray-300 px-2 py-2 focus:outline-none focus:border-black"/>
                   </div>
                 </div>
@@ -228,7 +228,7 @@
               <button type="button" class="text-sm text-gray-500 hover:text-red-600 underline-offset-4 hover:underline">
                 Deactivate Account
               </button>
-              <button type="button"
+              <button id="saveSettingsBtn" type="button"
                       class="bg-black text-white px-8 py-3.5 rounded-lg text-sm tracking-widest font-semibold hover:bg-gray-800">
                 SAVE CHANGES
               </button>

@@ -26,11 +26,46 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 /* ── SETTINGS ────────────────────────────────── */
 function initLandlordSettings() {
-  // Personal identity comes from the logged-in session user
-  const nameEl  = document.getElementById('settingsName');
-  const emailEl = document.getElementById('settingsEmail');
+  const nameEl    = document.getElementById('settingsName');
+  const emailEl   = document.getElementById('settingsEmail');
   if (nameEl)  nameEl.value  = _landlordUser.name  || '';
   if (emailEl) emailEl.value = _landlordUser.email || '';
+
+  const saveBtn = document.getElementById('saveSettingsBtn');
+  if (!saveBtn) return;
+
+  saveBtn.addEventListener('click', async () => {
+    const name           = nameEl?.value.trim();
+    const email          = emailEl?.value.trim();
+    const currentPassword = document.getElementById('currentPassword')?.value || '';
+    const newPassword     = document.getElementById('newPassword')?.value     || '';
+    const confirmPassword = document.getElementById('confirmPassword')?.value || '';
+
+    if (!name || !email) return showToast('Name and email are required', 'error');
+
+    saveBtn.disabled    = true;
+    saveBtn.textContent = 'Saving…';
+
+    const res = await apiFetch('/auth/update-profile.php', {
+      method: 'POST',
+      body: { name, email, current_password: currentPassword, new_password: newPassword, confirm_password: confirmPassword },
+    });
+
+    saveBtn.disabled    = false;
+    saveBtn.textContent = 'SAVE CHANGES';
+
+    if (res.success) {
+      _landlordUser.name  = name;
+      _landlordUser.email = email;
+      document.querySelectorAll('[data-user-name]').forEach(el => el.textContent = name);
+      document.getElementById('currentPassword') && (document.getElementById('currentPassword').value = '');
+      document.getElementById('newPassword')     && (document.getElementById('newPassword').value     = '');
+      document.getElementById('confirmPassword') && (document.getElementById('confirmPassword').value = '');
+      showToast('Settings saved');
+    } else {
+      showToast(res.error, 'error');
+    }
+  });
 }
 
 /* ── DASHBOARD ────────────────────────────────── */
